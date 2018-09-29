@@ -1,0 +1,285 @@
+input {
+  font-family: 'Microsoft YaHei', Arial;
+}
+
+
+/*===================================================
+=                       登陆                        =
+====================================================*/
+
+.login-page {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.login-page .title {
+  font-size: .68rem;
+  color: #fff;
+  font-weight: normal;
+  margin: 1rem 0;
+  opacity: .8;
+}
+
+.login-page .title span {
+  font-size: .34rem;
+  display: block;
+}
+
+.login-page .remark {
+  position: fixed;
+  bottom: .4rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: .24rem;
+  height: .4rem;
+  line-height: .4rem;
+  opacity: .8;
+}
+
+.login-page .content {
+  position: fixed;
+  left: .6rem;
+  top: 0;
+  bottom: .8rem;
+  right: .6rem;
+  overflow-y: scroll;
+}
+
+.login-page .login-btn {
+  height: 1rem;
+  background-color: rgba(255,255,255,.2);
+  border-radius: .08rem;
+  color: #fff;
+  width: 100%;
+  border: 0;
+  margin-top: .5rem;
+  font-size: .3rem;
+  font-family: 'Microsoft YaHei',Arial;
+}
+
+.login-page .login-btn.active {
+  background-color: #00aeff;
+}
+
+.login-page .forget {
+  font-size: .24rem;
+  line-height: .72rem;
+  color: #ffffff;
+  display: block;
+  margin-top: .1rem;
+}
+
+
+/*===================================================
+=                       首页                        =
+====================================================*/
+
+.index-page .header {
+  position: relative;
+  overflow: hidden;
+  height: 3.5rem;
+  -webkit-animation: gradient 7.5s ease-in-out infinite;
+  animation: gradient 7.5s ease-in-out infinite;
+  background: #0299d8;
+  background: -webkit-linear-gradient(45deg, #4766ed 0, #13bdce 33%, #0094d9 66%, #6fc7b5 100%);
+  background: -o-linear-gradient(45deg, #4766ed 0, #13bdce 33%, #0094d9 66%, #6fc7b5 100%);
+  background: linear-gradient(45deg, #4766ed 0, #13bdce 33%, #0094d9 66%, #6fc7b5 100%);
+  background-position: 0 100%;
+  -webkit-background-size: 400% 400%;
+  background-size: 400%;
+}
+
+@-webkit-keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes gradient {
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+.index-page .header .header-content {
+  position: relative;
+  z-index: 9999;
+  padding: .2rem .3rem;
+}
+
+.index-page .header #canvas {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: -40%;
+  width: 180%;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+}
+
+.index-page .bind-wechat {
+  font-size: .26rem;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: .8rem;
+  padding: 0 .3rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.index-page .bind-wechat img {
+  display: block;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: .3rem;
+  height: .3rem;
+  padding: .2rem .2rem .2rem 0;
+}
+
+.index-page .bind-wechat p {
+  color: #333;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.index-page .bind-wechat a {
+  line-height: 1rem;
+  padding-left: .3rem;
+  color: #00aeff;
+}
+
+.index-page .list-wapper {
+  padding: .3rem;
+}
+
+.index-page .list-wapper .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.index-page .list-wapper .item .lside {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1.5rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.index-page .list-wapper .item .lside:after,
+.index-page .list-wapper .item .lside:before {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  display: block;
+  width: 1px;
+  height: .3rem;
+  margin: auto;
+  content: '';
+  -webkit-transform: scaleX(.5);
+  -ms-transform: scaleX(.5);
+  transform: scaleX(.5);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background-color: #e5e5e5;
+}
+
+.index-page .list-wapper .item .lside:after {
+  bottom: 0;
+}
+
+.index-page .list-wapper .item .lside:before {
+  top: 0;
+}
+
+.index-page .list-wapper .item:first-child .lside:before {
+  display: none;
+}
+
+.index-page .list-wapper .item:last-child .lside:after {
+  display: none;
+}
+
+.index-page .list-wapper .item .lside img {
+  width: .48rem;
+}
+
+.index-page .list-wapper .item .center {
+  overflow: hidden;
+  padding: 0 .3rem;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.index-page .list-wapper .item .center h3 {
+  font-size: .32rem;
+  font-weight: normal;
+  color: #333;
+}
+
+.index-page .list-wapper .item .center p {
+  font-size: .28rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #999;
+  -o-text-overflow: ellipsis;
+}
+
+.index-page .list-wapper .item .center p span {
+  padding-left: .3rem;
+}
+
+.index-page .list-wapper .item .rside {
+  text-align: right;
+}
+
+.index-page .list-wapper .item .rside .time {
+  font-size: .2rem;
+  display: block;
+  color: #999;
+}
+
+.index-page .list-wapper .item .rside .badge {
+  font-size: .2rem;
+  line-height: .38rem;
+  display: inline-block;
+  width: .38rem;
+  height: .38rem;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #fe666c;
+}

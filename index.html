@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <div class="index-page public-wbg">
+
+
+    <!--============================
+    =            header            =
+    =============================-->
+
+    <div class="header">
+      <div class="header-content">
+        <div class="public-search">
+          <img src="./assets/icon04.png">
+          <input type="text" placeholder="搜索">
+        </div>
+        <div class="public-item-collection">
+          <a class="item" href="#">
+            <img src="./assets/icon05.png">
+            <p>报岗考勤</p>
+          </a>
+          <a class="item" href="#">
+            <img src="./assets/icon06.png">
+            <p>客户管理</p>
+          </a>
+          <a class="item" href="#">
+            <img src="./assets/icon07.png">
+            <p>工作日志</p>
+          </a>
+          <a class="item" href="#">
+            <img src="./assets/icon08.png">
+            <p>项目管理</p>
+          </a>
+        </div>
+      </div>
+      <canvas id="canvas" style=""></canvas>
+    </div>
+
+    <!--====  End of header  ====-->
+
+    <div class="bind-wechat public-bottom-line">
+      <img src="./assets/icon02.png">
+      <p>绑定微信，实时提醒，不错过任何消息</p>
+      <a href="#">立即绑定</a>
+    </div>
+
+
+    <!--==========================
+    =            list            =
+    ===========================-->
+
+    <div class="list-wapper">
+      <a href="#" class="item">
+        <div class="lside">
+          <img src="./assets/icon09.png">
+        </div>
+        <div class="center">
+          <h3>待办提醒</h3>
+          <p>拜访客户白经理 <span>11:30 ~ 12:00</span></p>
+        </div>
+        <div class="rside">
+          <span class="time">8月4日</span>
+          <span class="badge">2</span>
+        </div>
+      </a>
+      <a href="#" class="item">
+        <div class="lside">
+          <img src="./assets/icon10.png">
+        </div>
+        <div class="center">
+          <h3>工作通知</h3>
+          <p>老胡给你发了一个任务，请及时查收！</p>
+        </div>
+        <div class="rside">
+          <span class="time">8月4日</span>
+          <span class="badge">99</span>
+        </div>
+      </a>
+      <a href="#" class="item">
+        <div class="lside">
+          <img src="./assets/icon11.png">
+        </div>
+        <div class="center">
+          <h3>公司公告</h3>
+          <p>国庆节假期放假通知！</p>
+        </div>
+        <div class="rside">
+          <span class="time">8月4日</span>
+        </div>
+      </a>
+      <a href="#" class="item">
+        <div class="lside">
+          <img src="./assets/icon12.png">
+        </div>
+        <div class="center">
+          <h3>好文阅读</h3>
+          <p>公司或者员工推的值得一读的文章列表</p>
+        </div>
+        <div class="rside">
+          <span class="time">8月4日</span>
+        </div>
+      </a>
+    </div>
+
+    <!--====  End of list  ====-->
+
+
+
+    <!--============================
+    =            footer            =
+    =============================-->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+      <a class="item active" href="./index.html">
+        <!-- <img src="./assets/icon14.png"> -->
+        <img src="./assets/icon13.png">
+        <p>首页</p>
+      </a>
+      <a class="item" href="./work.html">
+        <img src="./assets/icon15.png">
+        <!-- <img src="./assets/icon16.png"> -->
+        <p>工作</p>
+      </a>
+      <a class="item" href="./schedule.html">
+        <img src="./assets/icon17.png">
+        <!-- <img src="./assets/icon18.png"> -->
+        <p>日程</p>
+      </a>
+      <a class="item" href="./center.html">
+        <img src="./assets/icon19.png">
+        <!-- <img src="./assets/icon20.png"> -->
+        <p>我的</p>
+      </a>
+    </div>
+
+    <!--====  End of footer  ====-->
+
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script type="text/javascript">
+    (function() {
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentNode.offsetWidth;
+      canvas.height = canvas.parentNode.offsetHeight;
+      //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
+      window.requestAnimFrame = (function() {
+        return window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+          };
+      })();
+      // 波浪大小
+      var boHeight = canvas.height / 8;
+      var posHeight = canvas.height / 1;
+      //初始角度为0
+      var step = 0;
+      //定义三条不同波浪的颜色
+      var lines = ["rgba(255,255,255, .8)", "rgba(255,255,255, .8)", "rgba(255,255,255, .8)"];
+
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        step++;
+        //画3个不同颜色的矩形
+        for (var j = lines.length - 1; j >= 0; j--) {
+          ctx.fillStyle = lines[j];
+          //每个矩形的角度都不同，每个之间相差45度
+          var angle = (step + j * 60) * Math.PI / 180;
+          var deltaHeight = Math.sin(angle) * boHeight;
+          var deltaHeightRight = Math.cos(angle) * boHeight;
+          ctx.beginPath();
+          ctx.moveTo(0, posHeight + deltaHeight);
+          ctx.bezierCurveTo(canvas.width / 2, posHeight + deltaHeight - boHeight, canvas.width / 2, posHeight + deltaHeightRight - boHeight, canvas.width, posHeight + deltaHeightRight);
+          ctx.lineTo(canvas.width, canvas.height);
+          ctx.lineTo(0, canvas.height);
+          ctx.lineTo(0, posHeight + deltaHeight);
+          ctx.closePath();
+          ctx.fill();
+        }
+        requestAnimFrame(loop);
+      }
+      loop();
+    })();
+
+  </script>
+</body>
+
+</html>

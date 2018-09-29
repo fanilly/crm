@@ -55,14 +55,14 @@ input {
 
 .login-page .login-btn {
   height: 1rem;
-  background-color: rgba(255,255,255,.2);
+  background-color: rgba(255, 255, 255, .2);
   border-radius: .08rem;
   color: #fff;
   width: 100%;
   border: 0;
   margin-top: .5rem;
   font-size: .3rem;
-  font-family: 'Microsoft YaHei',Arial;
+  font-family: 'Microsoft YaHei', Arial;
 }
 
 .login-page .login-btn.active {
@@ -76,6 +76,30 @@ input {
   display: block;
   margin-top: .1rem;
 }
+
+
+/*===================================================
+=                     忘记密码                      =
+====================================================*/
+
+.forget-page {
+  padding: .6rem;
+}
+
+.forget-page .title {
+  font-size: .42rem;
+  color: #1b1b1f;
+  margin: .2rem 0 .4rem;
+  font-weight: normal;
+}
+
+.forget-page .title span {
+  font-size: .3rem;
+  color: #999;
+  display: block;
+  margin-bottom: .1rem;
+}
+
 
 
 /*===================================================

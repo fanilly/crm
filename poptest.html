@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
 </head>
 
 <body>
-  <div class="public-wbg" id="app">
+  <div class="public-wbg" id="app" v-cloak>
     <span class="js-show-mask public-btn-type01" data-target="#clock_success">上班打卡成功</span>
     <span class="js-show-mask public-btn-type01" data-target="#clock_come_late">迟到打卡成功</span>
     <span class="js-show-mask public-btn-type01" data-target="#clock_pop">签到弹出层</span>

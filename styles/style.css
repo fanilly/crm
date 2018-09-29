@@ -70,11 +70,12 @@ input {
 }
 
 .login-page .forget {
-  font-size: .24rem;
+  font-size: .28rem;
   line-height: .72rem;
   color: #ffffff;
   display: block;
-  margin-top: .1rem;
+  text-align: right;
+  margin-top: .15rem;
 }
 
 

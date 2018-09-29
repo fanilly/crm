@@ -331,8 +331,8 @@
   box-sizing: content-box;
   padding: .3rem 0 .3rem .3rem;
   position: absolute;
-  right: 0;
   top: 0;
+  right: .2rem;
   bottom: 0;
   margin: auto;
   display: none;
@@ -340,7 +340,6 @@
 
 .public-input-box-type-vercode .get-vercode {
   color: #1b1b1f;
-  padding-left: .2rem;
 }
 
 .public-input-box-type-vercode .get-vercode.gray {

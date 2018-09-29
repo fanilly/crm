@@ -313,20 +313,20 @@ input {
 =                       报岗考勤                        =
 ====================================================*/
 
-.clock-pop-content-top {
+.reportBox .clock-pop-content-top {
   position: relative;
   padding-bottom: .2rem;
 }
 
-.clock-pop-btn-wapper {
+.reportBox .clock-pop-btn-wapper {
   padding: 0 .3rem;
 }
 
-.clock-pop-btn-wapper .public-btn-type01 {
+.reportBox .clock-pop-btn-wapper .public-btn-type01 {
   margin-top: .3rem;
 }
 
-.clock-pop-textarea {
+.reportBox .clock-pop-textarea {
   padding: .15rem .3rem .1rem;
   border: 0;
   width: 100%;
@@ -336,23 +336,23 @@ input {
   font-size: .28rem;
 }
 
-.clock-pop-textarea::-webkit-input-placeholder {
+.reportBox .clock-pop-textarea::-webkit-input-placeholder {
   color: #ccc;
 }
 
-.clock-pop-textarea::-moz-placeholder {
+.reportBox .clock-pop-textarea::-moz-placeholder {
   color: #ccc;
 }
 
-.clock-pop-textarea:-moz-placeholder {
+.reportBox .clock-pop-textarea:-moz-placeholder {
   color: #ccc;
 }
 
-.clock-pop-textarea:-ms-input-placeholder {
+.reportBox .clock-pop-textarea:-ms-input-placeholder {
   color: #ccc;
 }
 
-.clock-pop-upload-img {
+.reportBox .clock-pop-upload-img {
   width: 1.2rem;
   height: 1.2rem;
   margin-left: .3rem;

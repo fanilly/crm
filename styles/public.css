@@ -114,7 +114,7 @@
   border-bottom: 1px solid #ededed;
 }
 
-.public-left-line:after {
+.public-left-line:before {
   position: absolute;
   z-index: 1;
   bottom: 0;
@@ -130,7 +130,7 @@
   border-left: 1px solid #ededed;
 }
 
-.public-top-line:after {
+.public-top-line:before {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -175,6 +175,7 @@
   background-color: #fff;
   -webkit-box-shadow: 0 -14px 28px 0 rgba(0, 0, 0, .06);
   box-shadow: 0 -14px 28px 0 rgba(0, 0, 0, .06);
+  z-index: 99;
 }
 
 .public-footer-nav .item {

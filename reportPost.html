@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+
+  <!-- 报岗考勤 -->
+  <div class="reportBox public-wbg" id="app">
+
+    <div class="nav_floor public-bottom-line">
+      <a href="#" class="on">上下班打卡</a>
+      <a href="#">外出签到</a>
+    </div>
+
+    <div class="time_floor">
+      <div class="timenow none">
+        <p>上班打卡</p><span>08:29:30</span></div>
+      <div class="area">
+        <div class="adress"><span>已在打卡范围：</span><i>河南省郑州市金水区经六路3号</i></div>
+        <div class="reset">重新定位</div>
+      </div>
+    </div>
+
+    <div class="dayList">
+      <div class="card public-bottom-line public-top-line">
+        <div class="year public-right-line"><span>2018</span><i>4月</i></div>
+        <ul class="week">
+          <li><span>一</span><i>8</i></li>
+          <li><span>二</span><i>9</i></li>
+          <li><span>三</span><i>10</i></li>
+          <li class="normal"><span>四</span><i>11</i></li>
+          <li><span>五</span><i>12</i></li>
+          <li><span>六</span><i>13</i></li>
+          <li><span>七</span><i>14</i></li>
+        </ul>
+      </div>
+
+      <div class="record">
+        <div class="item">
+          <div class="set">上班时间09:00</div>
+          <div class="info">
+            <div class="status">
+              <span>打卡时间08:55:22</span>
+              <i class="normal">正常</i>
+              <i class="later">迟到</i>
+            </div>
+            <div class="position">河南省郑州市金水区经八路街道教育厅家属院（经六路4号院南）</div>
+            <div class="links">
+              <span>申请补卡</span>
+              <span>更新打卡</span>
+              <span>查看备注</span>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="set">下班时间18:30</div>
+          <div class="info">
+            <div class="status">
+              <span>打卡时间18:35:22</span>
+              <i class="normal">正常</i>
+              <i class="later">早退</i>
+            </div>
+            <div class="position">河南省郑州市金水区经八路街道教育厅家属院（经六路4号院南）</div>
+            <div class="links">
+              <span>申请补卡</span>
+              <span>更新打卡</span>
+              <span>查看备注</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--============================
+    =            排行榜            =
+    =============================-->
+
+    <div class="ranking" v-if='ranklist.length>0'>
+      <h2>排行榜</h2>
+      <div class="ranklist">
+        <div class="item" v-for='(item,index) in ranklist'>
+          <div class="num">{{index+1}}</div>
+          <div class="info public-bottom-line">
+            <img :src="item.thumb" alt="" class="tx">
+            <div class="name"><span>{{item.name}}</span><i>{{item.branch}}</i>
+              <p>{{item.time}}</p>
+            </div>
+            <div :class='{"star":1,"active":item.click}' @click='dealShowLike(index)'>
+              <i :class=' {"on":item.star>0 }'>{{item.star}}</i>
+              <img :src="item.click ? './assets/dianzan01.png' : './assets/dianzan02.png' " alt="">
+              <span v-if='item.click'>+1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 排行榜  ====-->
+
+
+
+    <!--============================
+    =            footer            =
+    =============================-->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+      <a class="item active" href="./index.html">
+        <!-- <img src="./assets/d-icon02.png"> -->
+        <img src="./assets/d-icon01.png">
+        <p>打卡</p>
+      </a>
+      <a class="item" href="#">
+        <img src="./assets/d-icon03.png">
+        <!-- <img src="./assets/d-icon04.png"> -->
+        <p>申请</p>
+      </a>
+      <a class="item" href="#">
+        <img src="./assets/d-icon05.png">
+        <!-- <img src="./assets/d-icon06.png"> -->
+        <p>统计</p>
+      </a>
+    </div>
+    <!--====  End of footer  ====-->
+
+    <!-- 上班打卡成功 -->
+    <div class="public-mask" id="clock_success" data-origin="mask">
+      <div class="public-pop-type01 public-center-middle">
+        <img src="./assets/zhengchang.png" class="icon">
+        <h3 class="title">上班打卡成功</h3>
+        <p class="remark">上班要精神满满哦~</p>
+        <p class="time blue">08:35:26</p>
+        <button class="public-btn-type01 js-hide-mask" data-target="#clock_success">我知道了</button>
+      </div>
+    </div>
+
+    <!-- 迟到打卡成功 -->
+    <div class="public-mask" id="clock_come_late" data-origin="mask">
+      <div class="public-pop-type01 public-center-middle">
+        <img src="./assets/chidao.png" class="icon">
+        <h3 class="title">迟到打卡成功</h3>
+        <p class="remark">迟到是要扣钱的，下次要早点到哦~~</p>
+        <p class="time yellow">09:35:26</p>
+        <button class="public-btn-type01 yellow js-hide-mask" data-target="#clock_come_late">我知道了</button>
+      </div>
+    </div>
+
+    <!-- 签到弹出层 -->
+    <div class="public-mask" id="clock_pop" data-origin="mask">
+      <div class="public-pop-type02 public-center-middle">
+        <div class="public-pop-header-type01 public-bottom-line">
+          <div class="lside">上班打卡</div>
+          <img src="./assets/cloup.png" class="close-icon js-hide-mask" data-target="#clock_pop" alt="close">
+        </div>
+        <div class="clock-pop-content">
+          <div class="clock-pop-content-top public-bottom-line">
+            <div class="public-point-line">
+              <div class="point yellow"></div>
+              <div class="title">打卡时间：</div>
+              <div class="info">08:28</div>
+            </div>
+            <div class="public-point-line">
+              <div class="point blue"></div>
+              <div class="title">打卡地址：</div>
+              <div class="info">河南省郑州市金水区经六路与黄河路交叉口6号院</div>
+            </div>
+          </div>
+          <textarea class="clock-pop-textarea" name="" id="" placeholder="打卡备注内容（选填）"></textarea>
+          <div class="clock-pop-upload-img public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="clock-pop-btn-wapper">
+            <button class="public-btn-type01">确定打卡</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 报岗考勤 -->
+
+
+
+
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+    (function() {
+      var app = new Vue({
+        el: '#app',
+        data: {
+          ranklist: [
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 1, click: false },
+            { thumb: './assets/icon05.png', name: '小当家', branch: '技术部', time: '08:03', star: 0, click: false },
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 11, click: false },
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 5, click: false },
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 0, click: false },
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 0, click: false },
+            { thumb: './assets/icon05.png', name: '大当家', branch: '技术部', time: '08:23', star: 0, click: false },
+          ]
+        },
+        computed: {
+
+        },
+        methods: {
+          dealShowLike(index) {
+            if (!this.ranklist[index].click) {
+              this.ranklist[index].star++
+            } else {
+              this.ranklist[index].star--
+            }
+            this.ranklist[index].click = !this.ranklist[index].click
+          }
+        }
+      })
+    })()
+
+  </script>
+</body>
+
+</html>

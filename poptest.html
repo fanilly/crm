@@ -15,8 +15,62 @@
 
 <body>
   <div class="public-wbg" id="app">
+    <span class="js-show-mask public-btn-type01" data-target="#clock_success">上班打卡成功</span>
+    <span class="js-show-mask public-btn-type01" data-target="#clock_come_late">迟到打卡成功</span>
+    <span class="js-show-mask public-btn-type01" data-target="#clock_pop">签到弹出层</span>
 
+    <input type="date" placeholder="选择日期" name="">
 
+    <!-- 上班打卡成功 -->
+    <div class="public-mask" id="clock_success" data-origin="mask">
+      <div class="public-pop-type01 public-center-middle">
+        <img src="./assets/zhengchang.png" class="icon">
+        <h3 class="title">上班打卡成功</h3>
+        <p class="remark">上班要精神满满哦~</p>
+        <p class="time blue">08:35:26</p>
+        <button class="public-btn-type01 js-hide-mask" data-target="#clock_success">我知道了</button>
+      </div>
+    </div>
+
+    <!-- 迟到打卡成功 -->
+    <div class="public-mask" id="clock_come_late" data-origin="mask">
+      <div class="public-pop-type01 public-center-middle">
+        <img src="./assets/chidao.png" class="icon">
+        <h3 class="title">迟到打卡成功</h3>
+        <p class="remark">迟到是要扣钱的，下次要早点到哦~~</p>
+        <p class="time yellow">09:35:26</p>
+        <button class="public-btn-type01 yellow js-hide-mask" data-target="#clock_come_late">我知道了</button>
+      </div>
+    </div>
+
+    <!-- 签到弹出层 -->
+    <div class="public-mask" id="clock_pop" data-origin="mask">
+      <div class="public-pop-type02 public-center-middle">
+        <div class="public-pop-header-type01 public-bottom-line">
+          <div class="lside">上班打卡</div>
+          <img src="./assets/cloup.png" class="close-icon js-hide-mask" data-target="#clock_pop" alt="close">
+        </div>
+        <div class="clock-pop-content">
+          <div class="clock-pop-content-top public-bottom-line">
+            <div class="public-point-line">
+              <div class="point yellow"></div>
+              <div class="title">打卡时间：</div>
+              <div class="info">08:28</div>
+            </div>
+            <div class="public-point-line">
+              <div class="point blue"></div>
+              <div class="title">打卡地址：</div>
+              <div class="info">河南省郑州市金水区经六路与黄河路交叉口6号院</div>
+            </div>
+          </div>
+          <textarea class="clock-pop-textarea" name="" id="" placeholder="打卡备注内容（选填）"></textarea>
+          <div class="clock-pop-upload-img public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="clock-pop-btn-wapper">
+            <button class="public-btn-type01">确定打卡</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
   <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>

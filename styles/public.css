@@ -1,6 +1,16 @@
 [v-cloak] {
   display: none;
 }
+.public-bgimg {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.public-text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .public-wbg {
   min-height: 100vh;
@@ -338,6 +348,9 @@
 }
 
 .public-btn-type01 {
+  display: block;
+  text-align: center;
+  line-height: 1rem;
   height: 1rem;
   background-color: #00aeff;
   border-radius: .08rem;
@@ -351,4 +364,134 @@
 
 .public-btn-type01.gray {
   background-color: #999;
+}
+
+.public-btn-type01.yellow {
+  background-color: #ffaa30;
+}
+
+.public-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+  display: none;
+}
+
+.public-center-middle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.public-pop-type01 {
+  width: 5.9rem;
+  height: 6.5rem;
+  border-radius: .06rem;
+  background-color: #fff;
+  padding: .3rem;
+  text-align: center;
+}
+
+.public-pop-type01 .icon {
+  width: 2.4rem;
+  margin-top: .3rem;
+}
+
+.public-pop-type01 .title {
+  color: #1b1b1f;
+  font-size: .32rem;
+  font-weight: normal;
+  margin-top: .3rem;
+}
+
+.public-pop-type01 .remark {
+  font-size: .24rem;
+  color: #999;
+  line-height: .44rem;
+}
+
+.public-pop-type01 .time {
+  font-size: .54rem;
+  font-family: Arial;
+  font-weight: bold;
+  margin-top: .1rem;
+}
+
+.public-pop-type01 .time.blue {
+  color: #00aeff;
+}
+
+.public-pop-type01 .time.yellow {
+  color: #ffaa30;
+}
+
+.public-pop-type01 .public-btn-type01 {
+  margin-top: .2rem;
+}
+
+.public-pop-type02 {
+  width: 5.9rem;
+  height: 7.2rem;
+  border-radius: .06rem;
+  background-color: #fff;
+}
+
+.public-pop-header-type01 {
+  display: flex;
+  align-items: center;
+  font-size: .32rem;
+  color: #1b1b1f;
+  height: .98rem;
+  position: relative;
+}
+
+.public-pop-header-type01 .lside {
+  flex: 1;
+  padding: 0 .3rem;
+}
+
+.public-pop-header-type01 .close-icon {
+  width: .26rem;
+  height: .26rem;
+  box-sizing: content-box;
+  padding: .3rem;
+}
+
+.public-point-line {
+  display: flex;
+  align-items: center;
+  padding: .2rem .3rem 0;
+}
+
+.public-point-line .point {
+  width: .12rem;
+  height: .12rem;
+  border-radius: 50%;
+}
+
+.public-point-line .point.blue {
+  background-color: #00aeff;
+}
+
+.public-point-line .point.yellow {
+  background-color: #ff9600;
+}
+
+.public-point-line .title {
+  font-size: .28rem;
+  color: #999;
+  padding:0 .2rem;
+}
+
+.public-point-line .info {
+  font-size: .28rem;
+  color: #333;
+  line-height: .42rem;
+  flex: 1;
 }

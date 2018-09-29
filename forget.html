@@ -15,6 +15,11 @@
 
 <body>
   <div class="forget-page public-wbg" id="app">
+
+    <!--==============================
+    =            stemp 01            =
+    ===============================-->
+
     <div class="step01" v-if="step == 1">
       <h1 class="title"><span>第一步</span>验证您的手机号</h1>
       <div class="public-input-box-type-vercode public-bottom-line">
@@ -30,6 +35,15 @@
       </div>
       <button :class="{'public-btn-type01':true, gray: !allowNext}" @click="handleNextStep">下一步</button>
     </div>
+
+    <!--====  End of stemp 01  ====-->
+
+
+
+    <!--=============================
+    =            step 02            =
+    ==============================-->
+
     <div class="step01" v-if="step == 2">
       <h1 class="title"><span>第二步</span>重置您的密码</h1>
       <div class="public-input-box-type02 public-bottom-line">
@@ -42,6 +56,9 @@
       </div>
       <button :class="{'public-btn-type01':true, gray: !allowChange}" @click="handleConfirm">确认修改</button>
     </div>
+
+    <!--====  End of step 02  ====-->
+
   </div>
   <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
   <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>

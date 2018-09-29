@@ -101,7 +101,6 @@ input {
 }
 
 
-
 /*===================================================
 =                       首页                        =
 ====================================================*/
@@ -306,4 +305,54 @@ input {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   background-color: #fe666c;
+}
+
+
+/*===================================================
+=                       报岗考勤                        =
+====================================================*/
+
+.clock-pop-content-top {
+  position: relative;
+  padding-bottom: .2rem;
+}
+
+.clock-pop-btn-wapper {
+  padding: 0 .3rem;
+}
+
+.clock-pop-btn-wapper .public-btn-type01 {
+  margin-top: .3rem;
+}
+
+.clock-pop-textarea {
+  padding: .15rem .3rem .1rem;
+  border: 0;
+  width: 100%;
+  line-height: .4rem;
+  font-family: 'Microsoft YaHei';
+  height: 1.4rem;
+  font-size: .28rem;
+}
+
+.clock-pop-textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.clock-pop-textarea::-moz-placeholder {
+  color: #ccc;
+}
+
+.clock-pop-textarea:-moz-placeholder {
+  color: #ccc;
+}
+
+.clock-pop-textarea:-ms-input-placeholder {
+  color: #ccc;
+}
+
+.clock-pop-upload-img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: .3rem;
 }

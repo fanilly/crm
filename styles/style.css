@@ -2,11 +2,9 @@ input {
   font-family: 'Microsoft YaHei', Arial;
 }
 
-
 /*===================================================
 =                       登陆                        =
 ====================================================*/
-
 .login-page {
   position: fixed;
   left: 0;
@@ -78,11 +76,9 @@ input {
   margin-top: .15rem;
 }
 
-
 /*===================================================
 =                     忘记密码                      =
 ====================================================*/
-
 .forget-page {
   padding: .6rem;
 }
@@ -101,11 +97,9 @@ input {
   margin-bottom: .1rem;
 }
 
-
 /*===================================================
 =                       首页                        =
 ====================================================*/
-
 .index-page .header {
   position: relative;
   overflow: hidden;
@@ -308,52 +302,162 @@ input {
   background-color: #fe666c;
 }
 
-
 /*===================================================
-=                       报岗考勤                        =
+=                      报岗记录                     =
 ====================================================*/
-
-.reportBox .clock-pop-content-top {
-  position: relative;
-  padding-bottom: .2rem;
+.report-record-page {
+  min-height: 100vh;
+  background-color: #fff;
 }
 
-.reportBox .clock-pop-btn-wapper {
-  padding: 0 .3rem;
+.report-record-page .calendar-wapper {
+  border-bottom: .2rem solid #f7f7f7;
 }
 
-.reportBox .clock-pop-btn-wapper .public-btn-type01 {
-  margin-top: .3rem;
+.report-record-page .record {
+  padding: 0rem 0.3rem;
 }
 
-.reportBox .clock-pop-textarea {
-  padding: .15rem .3rem .1rem;
-  border: 0;
+.report-record-page .record-header {
+  display: flex;
   width: 100%;
-  line-height: .4rem;
-  font-family: 'Microsoft YaHei';
-  height: 1.4rem;
-  font-size: .28rem;
+  position: relative;
+  overflow: hidden;
+  padding: .3rem;
+  align-items: center;
 }
 
-.reportBox .clock-pop-textarea::-webkit-input-placeholder {
-  color: #ccc;
+.report-record-page .record-header:before {
+  content: '';
+  display: block;
+  width: .6rem;
+  height: .6rem;
+  position: absolute;
+  left: -.3rem;
+  top: -.3rem;
+  border-radius: 50%;
+  background-color: #ff9600;
 }
 
-.reportBox .clock-pop-textarea::-moz-placeholder {
-  color: #ccc;
+.report-record-page .record-header .lside {
+  flex: 1;
 }
 
-.reportBox .clock-pop-textarea:-moz-placeholder {
-  color: #ccc;
+.report-record-page .record-header .lside h3 {
+  font-size: .3rem;
+  color: #333;
+  font-weight: normal;
 }
 
-.reportBox .clock-pop-textarea:-ms-input-placeholder {
-  color: #ccc;
+.report-record-page .record-header .lside p {
+  font-size: .26rem;
+  color: #999;
+  padding-top: .1rem;
 }
 
-.reportBox .clock-pop-upload-img {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-left: .3rem;
+.report-record-page .record-header .rside {
+  color: #999;
+  font-size: .26rem;
+  display: flex;
+  align-items: center;
+}
+
+.report-record-page .record-header .rside img {
+  width: .12rem;
+  margin-left: .1rem;
+}
+
+.report-record-page .record .item {
+  padding: 0.36rem 0;
+}
+
+.report-record-page .record .item .set {
+  padding-left: 0.5rem;
+  background: url('../assets/shang.png') no-repeat left center;
+  background-size: 0.3rem auto;
+  font-size: 0.26rem;
+  color: #999;
+  line-height: 0.34rem;
+  margin-bottom: 0.16rem;
+}
+
+.report-record-page .record .item:last-child .set {
+  background: url('../assets/xia.png') no-repeat left center;
+  background-size: 0.3rem auto;
+}
+
+.report-record-page .record .item .info {
+  padding-left: 0.5rem;
+}
+
+.report-record-page .record .item .info .status {
+  overflow: hidden;
+  line-height: 0.36rem;
+}
+
+.report-record-page .record .item .info .status span {
+  font-size: 0.34rem;
+  line-height: 0.38rem;
+  height: 0.38rem;
+  color: #333;
+  float: left;
+  font-weight: bold;
+  display: block;
+}
+
+.report-record-page .record .item .info .status i {
+  display: block;
+  float: left;
+  font-size: 0.2rem;
+  color: #00aeff;
+  padding: 0.04rem 0.06rem;
+  border-radius: 0.04rem;
+  line-height: 1;
+  border: 0.02rem solid #00aeff;
+  margin-left: 0.2rem;
+}
+
+.report-record-page .record .item .info .status i.later {
+  border: 0.02rem solid #ff9600;
+  color: #ff9600;
+}
+
+.report-record-page .record .item .info .position {
+  margin: 0.2rem 0;
+  padding-left: 0.35rem;
+  background: url('../assets/dizhi.png') no-repeat left center;
+  background-size: 0.26rem auto;
+  font-size: 0.24rem;
+  color: #999;
+  line-height: 1.1;
+}
+
+.report-record-page .record .item .info .links {
+  overflow: hidden;
+}
+
+.report-record-page .record .item .info .links span {
+  display: block;
+  float: left;
+  margin-right: 0.55rem;
+  font-size: 0.24rem;
+  color: #7096dc;
+  line-height: 1.3;
+}
+
+.report-record-page .jumpa {
+  display: block;
+  width: 1.04rem;
+  height: 1.04rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: fixed;
+  right: 0.3rem;
+  bottom: 1rem;
+}
+
+.report-record-page .jumpa img {
+  display: block;
+  width: 1.04rem;
+  height: 1.04rem;
 }

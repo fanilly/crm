@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>报岗记录</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+
+  <div class="report-record-page">
+
+    <div class="public-chosebar public-bottom-line">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+      <div class="turns">
+        <div class="prev btn">上个月</div>
+        <div class="next btn">下个月</div>
+      </div>
+    </div>
+
+
+    <!--==============================
+    =            calendar            =
+    ===============================-->
+
+    <div class="calendar-wapper public-datepicker-wapper">
+      <div class="datepicker-week">
+        <div class="datepicker-item">日</div>
+        <div class="datepicker-item">一</div>
+        <div class="datepicker-item">二</div>
+        <div class="datepicker-item">三</div>
+        <div class="datepicker-item">四</div>
+        <div class="datepicker-item">五</div>
+        <div class="datepicker-item">六</div>
+      </div>
+      <div class="datepicker-items">
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item">1</div>
+        <div class="datepicker-item">2</div>
+        <div class="datepicker-item">3</div>
+        <div class="datepicker-item">4</div>
+        <div class="datepicker-item">5</div>
+        <div class="datepicker-item">6</div>
+        <div class="datepicker-item">7</div>
+        <div class="datepicker-item">8</div>
+        <div class="datepicker-item">9</div>
+        <div class="datepicker-item datepicker-item-today">10</div>
+        <div class="datepicker-item datepicker-item-yellow">11</div>
+        <div class="datepicker-item datepicker-item-blue">12</div>
+        <div class="datepicker-item datepicker-item-gray">13</div>
+        <div class="datepicker-item">14</div>
+        <div class="datepicker-item">15</div>
+        <div class="datepicker-item">16</div>
+        <div class="datepicker-item">17</div>
+        <div class="datepicker-item">18</div>
+        <div class="datepicker-item">19</div>
+        <div class="datepicker-item">20</div>
+        <div class="datepicker-item">21</div>
+        <div class="datepicker-item">22</div>
+        <div class="datepicker-item">23</div>
+        <div class="datepicker-item">24</div>
+        <div class="datepicker-item">25</div>
+        <div class="datepicker-item">26</div>
+        <div class="datepicker-item">27</div>
+        <div class="datepicker-item">28</div>
+        <div class="datepicker-item">29</div>
+        <div class="datepicker-item active">30</div>
+      </div>
+    </div>
+
+    <!--====  End of calendar  ====-->
+
+
+    <!--============================
+    =            record            =
+    =============================-->
+    <a href="#" class="record-header public-bottom-line">
+      <div class="lside">
+        <h3>事假（3小时）</h3>
+        <p>2018.09.29 09:00 ~ 12:00</p>
+      </div>
+      <div class="rside">
+        <span>查看</span>
+        <img src="assets/a04.png" alt="">
+      </div>
+    </a>
+    <div class="record">
+      <div class="item">
+        <div class="set">上班时间09:00</div>
+        <div class="info">
+          <div class="status">
+            <span>打卡时间08:55:22</span>
+            <i class="normal">正常</i>
+            <i class="later">迟到</i>
+          </div>
+          <div class="position">河南省郑州市金水区经八路街道教育厅家属院（经六路4号院南）</div>
+          <div class="links">
+            <span>申请补卡</span>
+            <span>更新打卡</span>
+            <span>查看备注</span>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="set">下班时间18:30</div>
+        <div class="info">
+          <div class="status">
+            <span>打卡时间18:35:22</span>
+            <i class="normal">正常</i>
+            <i class="later">早退</i>
+          </div>
+          <div class="position">河南省郑州市金水区经八路街道教育厅家属院（经六路4号院南）</div>
+          <div class="links">
+            <span>申请补卡</span>
+            <span>更新打卡</span>
+            <span>查看备注</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="record-empty">
+
+    </div>
+
+    <!--====  End of record  ====-->
+
+
+    <a href="#" class="jumpa"><img src="./assets/a05.png" alt=""></a>
+  </div>
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/dayjs/dayjs.min.js"></script>
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>首页</title>
+  <title>报岗考勤</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
@@ -97,7 +97,7 @@
               <p>{{item.time}}</p>
             </div>
             <div :class='{"star":1,"active":item.click}' @click='dealShowLike(index)'>
-              <i :class=' {"on":item.star>0 }'>{{item.star}}</i>
+              <i :class=' {"on":item.click }'>{{item.star}}</i>
               <img :src="item.click ? './assets/dianzan01.png' : './assets/dianzan02.png' " alt="">
               <span v-if='item.click'>+1</span>
             </div>
@@ -138,7 +138,7 @@
       <div class="public-pop-type01 public-center-middle">
         <img src="./assets/zhengchang.png" class="icon">
         <h3 class="title">上班打卡成功</h3>
-        <p class="remark">上班要精神满满哦~</p>
+        <p class="remark">今天签到<span class="blue">第3名</span></p>
         <p class="time blue">08:35:26</p>
         <button class="public-btn-type01 js-hide-mask" data-target="#clock_success">我知道了</button>
       </div>
@@ -149,7 +149,7 @@
       <div class="public-pop-type01 public-center-middle">
         <img src="./assets/chidao.png" class="icon">
         <h3 class="title">迟到打卡成功</h3>
-        <p class="remark">迟到是要扣钱的，下次要早点到哦~~</p>
+        <p class="remark">今天签到<span class="yellow">第3名</span></p>
         <p class="time yellow">09:35:26</p>
         <button class="public-btn-type01 yellow js-hide-mask" data-target="#clock_come_late">我知道了</button>
       </div>
@@ -183,7 +183,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <!-- 报岗考勤 -->
 
@@ -196,6 +195,7 @@
   <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/dayjs/dayjs.min.js"></script>
   <script>
     (function() {
       var app = new Vue({

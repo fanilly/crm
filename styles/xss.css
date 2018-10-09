@@ -306,7 +306,7 @@ body{overflow-x: hidden; min-width: 320px; }
   top: 0;
   line-height: 0.74rem;
   font-size: 0.38rem;
-  color: #ffaa30;
+  color: #b3b3b3;
   text-align: right;
   font-weight: bold;
 }
@@ -362,7 +362,149 @@ body{overflow-x: hidden; min-width: 320px; }
 .reportBox .ranking .ranklist .item:last-child .info{
   border-bottom: 0.01rem solid #fff;
 }
+
+
+
+.reportBox .clock-pop-content-top {
+  position: relative;
+  padding-bottom: .2rem;
+}
+
+.reportBox .clock-pop-btn-wapper {
+  padding: 0 .3rem;
+}
+
+.reportBox .clock-pop-btn-wapper .public-btn-type01 {
+  margin-top: .3rem;
+}
+
+.reportBox .clock-pop-textarea {
+  padding: .15rem .3rem .1rem;
+  border: 0;
+  width: 100%;
+  line-height: .4rem;
+  font-family: 'Microsoft YaHei';
+  height: 1.4rem;
+  font-size: .28rem;
+}
+
+.reportBox .clock-pop-textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.reportBox .clock-pop-textarea::-moz-placeholder {
+  color: #ccc;
+}
+
+.reportBox .clock-pop-textarea:-moz-placeholder {
+  color: #ccc;
+}
+
+.reportBox .clock-pop-textarea:-ms-input-placeholder {
+  color: #ccc;
+}
+
+.reportBox .clock-pop-upload-img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: .3rem;
+}
+
 /*报岗考勤*/
 
+/*月统计*/
+.monthSum{}
+.monthSum .chosebar{
+  background-color: #fff;
+  padding: 0.25rem 0.3rem;
+  overflow: hidden;
+  margin-bottom: 0.12rem;
+}
+.monthSum .chosebar .drops{
+  float: left;
+  font-size: 0.28rem;
+  color: #1c1c20;
+  line-height: 1;
+}
+.monthSum .chosebar .drops span{
+  display: block;
+  float: left;
+  line-height: 0.32rem;
+  padding-right: 0.3rem;
+  background: url('../assets/a01.png') no-repeat right center;
+  background-size: 0.24rem auto;
+}
+.monthSum .chosebar .turns{
+  overflow: hidden;
+  float: right;
+}
+.monthSum .chosebar .turns .btn{
+  font-size: 0.26rem;
+  line-height: 0.32rem;
+  /*height: 0.32rem;*/
+  margin-left: 0.3rem;
+  color: #7096dc;
+  float: left;
+}
+.monthSum .chosebar .turns .prev{ 
+  padding-left: 0.2rem;
+  background: url('../assets/a02.png') no-repeat left center;
+  background-size: 0.12rem auto;
+}
+.monthSum .chosebar .turns .next{ 
+  padding-right: 0.2rem;
+  background: url('../assets/a03.png') no-repeat right center;
+  background-size: 0.12rem auto;
+}
 
+.monthSum .listnum{
+  background-color: #fff;
+  overflow: hidden;
+}
+.monthSum .listnum li{
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 0.45rem 0;
+  border-top: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+}
+.monthSum .listnum li:nth-child(2n){
+  border-right: 1px solid #fff;
+}
+.monthSum .listnum li:nth-child(1){ border-top:1px solid #fff;}
+.monthSum .listnum li:nth-child(2){ border-top:1px solid #fff;}
+.monthSum .listnum li span{
+  display: block;
+  font-size: 0.22rem;
+  color: #666;
+  line-height: 0.3rem;
+  height: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+.monthSum .listnum li p{
+  display: block;
+  font-size: 0.3rem;
+  color: #333;
+  line-height: 1;
+  height: 0.3rem;
+  font-weight: bold;
+}
+.monthSum .listnum li.later p{ color: #ffaa30; }
+.jumpa{
+  display: block;
+  width: 1.04rem;
+  height: 1.04rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: fixed;
+  right: 0.3rem;
+  bottom: 1rem;
+}
+.jumpa img{
+  display: block;
+  width: 1.04rem;
+  height: 1.04rem;
+}
+/*月统计*/
 

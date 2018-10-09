@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
 </head>
 
 <body>
@@ -19,28 +20,80 @@
   </style>
   <!-- 月统计 -->
   <div class="monthSum">
-    <div class="chosebar">
-      <div class="drops"><span>2018年09月</span></div>
+    <div class="public-chosebar public-bottom-line">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
       <div class="turns">
         <div class="prev btn">上个月</div>
         <div class="next btn">下个月</div>
       </div>
     </div>
+
     <ul class="listnum">
-      <li><span>出勤天数</span><p>21天</p></li>
-      <li><span>出勤班次</span><p>共21次</p></li>
-      <li><span>休息天数</span><p>9天</p></li>
-      <li class="later"><span>迟到</span><p>2次</p></li>
-      <li class="later"><span>早退</span><p>1次</p></li>
-      <li class="later"><span>缺卡</span><p>1次</p></li>
-      <li class="later"><span>旷工</span><p>1次</p></li>
-      <li><span>外勤</span><p>0次</p></li>
+      <li class="public-top-line public-right-line js-show-mask" data-target="#attendance_days"><span>出勤天数</span><p>21天</p></li>
+      <li class="public-top-line public-right-line"><span>出勤班次</span><p>共21次</p></li>
+      <li class="public-top-line public-right-line js-show-mask" data-target="#rest_days"><span>休息天数</span><p>9天</p></li>
+      <li class="public-top-line public-right-line later"><span>迟到</span><p>2次</p></li>
+      <li class="public-top-line public-right-line later"><span>早退</span><p>1次</p></li>
+      <li class="public-top-line public-right-line later"><span>缺卡</span><p>1次</p></li>
+      <li class="public-top-line public-right-line later"><span>旷工</span><p>1次</p></li>
+      <li class="public-top-line public-right-line"><span>外勤</span><p>0次</p></li>
     </ul>
-    <a href="#" class="jumpa"><img src="./assets/a07.png" alt=""></a>
+    <a href="./reportRecord.html" class="jumpa"><img src="./assets/a07.png" alt=""></a>
   </div>
   <!-- 月统计 -->
-  
-  
+
+  <!-- 出勤天数 -->
+  <div class="public-mask" id="attendance_days" data-origin="mask">
+    <div class="public-pop-type-bottom">
+      <div class="header public-bottom-line">
+        <h3>出勤天数</h3>
+        <p data-origin="mask">取消</p>
+      </div>
+      <div class="content">
+        <div class="list-item public-bottom-line">
+          <div class="lside">
+            <h3>2018.01.02（星期一）</h3>
+            <p>打卡时间09:08</p>
+          </div>
+          <div class="rside yellow">迟到八分钟</div>
+        </div>
+        <div class="list-item public-bottom-line">
+          <div class="lside">
+            <h3>2018.01.02（星期一）</h3>
+            <p>打卡时间09:08</p>
+          </div>
+          <div class="rside blue">迟到八分钟</div>
+        </div>
+        <div class="list-item public-bottom-line">
+          <div class="lside">
+            <h3>2018.01.02（星期一）</h3>
+            <p>打卡时间09:08</p>
+          </div>
+          <div class="rside gray">迟到八分钟</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 出勤天数 -->
+  <div class="public-mask" id="rest_days" data-origin="mask">
+    <div class="public-pop-type-bottom">
+      <div class="header public-bottom-line">
+        <h3>休息天数</h3>
+        <p data-origin="mask">取消</p>
+      </div>
+      <div class="content">
+        <div class="list-item public-bottom-line">
+          <div class="lside">
+            <h3>2018.01.02（星期一）</h3>
+          </div>
+          <div class="rside gray">休息</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
 
@@ -49,11 +102,20 @@
   <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
-  <script src="./librarys/dayjs/dayjs.min.js"></script>
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
   <script>
-    (function() {
-     
-    })()
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
+  })()
 
   </script>
 </body>

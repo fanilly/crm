@@ -427,12 +427,14 @@ body{overflow-x: hidden; min-width: 320px; }
   line-height: 1;
 }
 .monthSum .chosebar .drops span{
-  display: block;
+  width: 2rem;
   float: left;
   line-height: 0.32rem;
+  border: 0;
   padding-right: 0.3rem;
   background: url('../assets/a01.png') no-repeat right center;
   background-size: 0.24rem auto;
+
 }
 .monthSum .chosebar .turns{
   overflow: hidden;
@@ -446,12 +448,12 @@ body{overflow-x: hidden; min-width: 320px; }
   color: #7096dc;
   float: left;
 }
-.monthSum .chosebar .turns .prev{ 
+.monthSum .chosebar .turns .prev{
   padding-left: 0.2rem;
   background: url('../assets/a02.png') no-repeat left center;
   background-size: 0.12rem auto;
 }
-.monthSum .chosebar .turns .next{ 
+.monthSum .chosebar .turns .next{
   padding-right: 0.2rem;
   background: url('../assets/a03.png') no-repeat right center;
   background-size: 0.12rem auto;
@@ -466,14 +468,11 @@ body{overflow-x: hidden; min-width: 320px; }
   float: left;
   text-align: center;
   padding: 0.45rem 0;
-  border-top: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
+  position: relative;
 }
-.monthSum .listnum li:nth-child(2n){
-  border-right: 1px solid #fff;
+.monthSum .listnum li:nth-child(2n):after{
+  display: none;
 }
-.monthSum .listnum li:nth-child(1){ border-top:1px solid #fff;}
-.monthSum .listnum li:nth-child(2){ border-top:1px solid #fff;}
 .monthSum .listnum li span{
   display: block;
   font-size: 0.22rem;

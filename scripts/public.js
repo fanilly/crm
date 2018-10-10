@@ -43,6 +43,28 @@
     $(targetID).fadeOut();
   });
 
+  /*================================================
+  =                  悬浮菜单动画                  =
+  =================================================*/
+
+  $('.public-suspension-menu .control').on('click',function(){
+    $('.public-suspension-menu').toggleClass('js-is-show');
+    setTimeout(function(){
+      $('.public-suspension-menu').toggleClass('js-is-show-start');
+    },0);
+    if(!$('.public-suspension-menu').hasClass('js-is-show')){
+      $('.public-suspension-mask').fadeOut();
+    }else{
+      $('.public-suspension-mask').fadeIn();
+    }
+  });
+
+  $('.public-suspension-mask').on('click',function(){
+    $('.public-suspension-menu').removeClass('js-is-show');
+    $('.public-suspension-menu').removeClass('js-is-show-start');
+    $('.public-suspension-mask').fadeOut();
+  })
+
   $('#form').on('valid.form', function(e) {
     var $data = $(this).serialize();
     $.showLoading('请稍等...');

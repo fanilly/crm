@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>工作日志</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <style>
+  body{ padding-top: 0.88rem; }
+  </style>
+  <!-- 报岗考勤 -->
+  <div class="dailyRecord">
+
+    <!-- 顶部导航 -->
+    <div class="kind_nav">
+      <div class="kind">
+        <p class="on">全部</p>
+        <p>日报</p>
+        <p>周报</p>
+        <p>月报</p>
+        <p>未读</p>
+        <p>我的</p>
+      </div>
+      <div class="filter"><span>筛选</span></div>
+    </div>
+    
+    <!-- 列表 -->
+    <div class="dailyList">
+
+      <div class="news"><p><span><i>2</i><em>条新消息</em></span></p></div>
+
+      <div class="dailyItem">
+        <div class="sender">
+          <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+          <a class="names"><span>十年的日报</span><i>今天22:08</i></a>
+          <div class="more"><img src="assets/c23.png" alt=""></div>
+        </div>
+        <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+        <div class="icons">
+          <a class="type">日报</a>
+          <span class="icon icon1 on">3</span>
+          <span class="icon icon2 on">6</span>
+        </div>
+      </div>
+
+      <div class="dailyItem">
+        <div class="sender">
+          <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+          <a class="names"><span>十年的日报</span><i>今天22:08</i></a>
+          <div class="more"><img src="assets/c23.png" alt=""></div>
+        </div>
+        <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+        <div class="icons">
+          <a class="type">日报</a>
+          <span class="icon icon1">3</span>
+          <span class="icon icon2">6</span>
+        </div>
+      </div>
+
+      <div class="dailyItem">
+        <div class="sender">
+          <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+          <a class="names"><span>十年的日报</span><i>今天22:08</i></a>
+          <div class="more"><img src="assets/c23.png" alt=""></div>
+        </div>
+        <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+        <div class="icons">
+          <a class="type">日报</a>
+          <span class="icon icon1">3</span>
+          <span class="icon icon2">6</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- 列表 -->
+
+    <!-- fixBtn -->
+    <div class="float_Btn">
+      <span><i>日报</i><img src="assets/c52.png" alt=""></span>
+      <span><i>周报</i><img src="assets/c50.png" alt=""></span>
+      <span><i>月报</i><img src="assets/c51.png" alt=""></span>
+      <img src="assets/c49.png" alt="" class="icon">
+    </div>
+    <!-- fixBtn -->
+
+  </div>
+    
+    <!-- 更多 -->
+    <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_upper_box pop_more">
+      <div class="first"><span class="all">查看ta的全部日志</span><span class="share">分享</span><span class="del">删除</span></div>
+      <div class="first cancle"><span>取消</span></div>
+    </div>
+    <!-- 更多 -->
+
+    <!-- 分享的弹窗 -->
+    <div class="pop_share_Img"><img src="assets/c30.png" alt=""></div>
+    <!-- 分享的弹窗 -->
+
+
+    <!--============================
+    =            footer            =
+    =============================-->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+      <a class="item active" href="./journal.html">
+        <!-- <img src="./assets/d-icon07.png"> -->
+        <img src="./assets/d-icon08.png">
+        <p>日志</p>
+      </a>
+      <a class="item" href="./countDays.html">
+        <img src="./assets/d-icon05.png">
+        <!-- <img src="./assets/d-icon06.png"> -->
+        <p>统计</p>
+      </a>
+    </div>
+    <!--====  End of footer  ====-->
+
+
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/dayjs/dayjs.min.js"></script>
+  <script>
+  (function(){
+
+    // 打开更多弹窗
+    $('.dailyItem .more').click(function(){
+      $('body,html').css({"overflow":'hidden'})
+      $('.pop_bg').fadeIn()
+      $('.pop_more').fadeIn()
+    })
+    
+    // 关闭更多弹窗
+    $('.pop_bg, .pop_more .cancle span').click(function(){
+      $('body,html').css({"overflow":'auto'})
+      $('.pop_bg').fadeOut()
+      $('.pop_more').fadeOut()
+    })
+
+    // 更多打开分享
+    $('.pop_more .share').click(function(){
+      $('.pop_bg').fadeOut()
+      $('.pop_more').fadeOut()
+      $('.pop_share_Img').fadeIn()
+    })
+    // 关闭分享
+    $('.pop_share_Img').click(function(){
+      $('body,html').css({"overflow":'auto'})
+      $('.pop_share_Img').fadeOut()
+    })
+
+    //快捷键
+    $('.float_Btn').click(function(){
+      $(this).toggleClass('on');
+      if($(this).hasClass('on')){
+        $('.pop_bg').fadeIn()
+      }else{
+        $('.pop_bg').fadeOut()
+      }
+    })
+    $('.pop_bg').click(function(){
+      $('.float_Btn').removeClass('on');
+      $('.pop_bg').fadeOut()
+    })
+
+  })()
+  </script>
+
+</body>
+
+</html>

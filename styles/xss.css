@@ -1,5 +1,5 @@
-*{ font-family:Arial, Helvetica, sans-serif !important;}
-body{overflow-x: hidden; min-width: 320px; }
+*{ font-family:Arial, Helvetica, sans-serif !important; outline: none;}
+body{overflow-x: hidden; min-width: 320px; background-color: #fff; }
 /*报岗考勤*/
 .reportBox{}
 .reportBox .nav_floor{
@@ -185,9 +185,14 @@ body{overflow-x: hidden; min-width: 320px; }
   line-height: 0.34rem;
   margin-bottom: 0.16rem;
 }
-.reportBox .record .item:last-child .set{
+.reportBox .record .item .set1{
+  padding-left: 0.5rem;
   background: url('../assets/xia.png') no-repeat left center;
   background-size: 0.3rem auto;
+  font-size: 0.26rem;
+  color: #999;
+  line-height: 0.34rem;
+  margin-bottom: 0.16rem;
 }
 .reportBox .record .item .info{
   padding-left: 0.5rem;
@@ -659,3 +664,324 @@ body{overflow-x: hidden; min-width: 320px; }
   margin-top: 0.4rem;
 }
 /*notYet*/
+
+/*工作日志*/
+.dailyRecord .kind_nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width:100%;
+  z-index: 995;
+  background-color: #fff;
+  padding: 0 1.3rem 0 0.3rem;
+  border-bottom: 0.02rem solid #e6e6e6;
+}
+.dailyRecord .kind_nav .kind{
+  overflow: hidden;
+}
+.dailyRecord .kind_nav .kind p{
+  line-height: 0.86rem;
+  height: 0.86rem;
+  float: left;
+  padding: 0 0.05rem;
+  margin-right: 0.25rem;
+  font-size: 0.28rem;
+  color: #666;
+  position: relative;
+  transition: all 0.4s;
+}
+.dailyRecord .kind_nav .kind p.red::before{
+  content: '';
+  position: absolute;
+  right: -0.05rem;
+  top: 0.18rem;
+  width:0.1rem;
+  height: 0.1rem;
+  border-radius: 50%;
+  background-color: #ff5932;
+}
+.dailyRecord .kind_nav .kind p:last-child{
+  margin-right: 0;
+}
+.dailyRecord .kind_nav .kind p.on{
+  color: #00aeff;
+  font-weight: bold;
+}
+.dailyRecord .kind_nav .kind p.on::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width:0.3rem;
+  height: 0.04rem;
+  margin-left: -0.15rem;
+  background-color: #00aeff;
+}
+.dailyRecord .kind_nav .filter{
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  margin-top: -0.4rem;
+  font-size: 0.28rem;
+  color: #333;
+  padding-left: 0.36rem;
+  background: url('../assets/c22.png') no-repeat left center;
+  background-size: 0.26rem auto;
+}
+
+.dailyRecord .dailyList{
+  padding-bottom: 1.5rem;
+}
+.dailyRecord .dailyList .news{
+  padding: 0.4rem 0.4rem 0.25rem;
+}
+.dailyRecord .dailyList .news p{
+  margin: 0 auto;
+  width: 2.4rem;
+  height: 0.72rem;
+  line-height: 0.72rem;
+  background-color: #666666;
+  border-radius: 0.06rem;
+  text-align: center;
+}
+.dailyRecord .dailyList .news p span{
+  display: inline-block;
+  padding-right: 0.25rem;
+  background: url('../assets/c46.png') no-repeat right center;
+  background-size: 0.14rem auto;
+  font-size: 0.26rem;
+  color: #fff;
+}
+.dailyRecord .dailyList .news p span i{
+  display: block;
+  float: left;
+  min-width: 0.36rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  margin: 0.18rem 0;
+  background-color: #ff5932;
+  border-radius:0.36rem;
+  font-size: 0.2rem;
+  color: #fff;
+  text-align: center;
+  margin-right: 0.05rem;
+}
+.dailyRecord .dailyList .news p span em{
+  float: left;
+}
+.dailyRecord .dailyList .dailyItem{
+  padding: 0.32rem 0.3rem;
+  border-bottom: 0.02rem solid #e6e6e6;
+  border-top: 0.02rem solid #fff;
+}
+.dailyRecord .dailyList .dailyItem:last-child{
+  border-bottom: 0.02rem solid #fff;
+}
+.dailyRecord .dailyList .dailyItem .sender{
+  padding: 0 0.8rem 0 0.9rem;
+  position: relative;
+  min-height: 0.72rem;
+}
+.dailyRecord .dailyList .dailyItem .sender .tx_img{
+  display: block;
+  width:0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.dailyRecord .dailyList .dailyItem .sender .tx_img img{
+  display: block;
+  width:0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+}
+.dailyRecord .dailyList .dailyItem .sender .names{
+  font-size: 0.28rem;
+  color: #333;
+  line-height: 0.3rem;
+  display: block;
+  padding-top: 0.06rem;
+}
+.dailyRecord .dailyList .dailyItem .sender .names span{
+  display: block;
+  margin-bottom: 0.06rem;
+}
+.dailyRecord .dailyList .dailyItem .sender .names i{
+  display: block;
+  font-size: 0.22rem;
+  line-height: 0.3rem;
+  color: #999;
+}
+.dailyRecord .dailyList .dailyItem .sender .more{
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  width:0.4rem;
+  height: 0.4rem;
+  margin-top: -0.2rem;
+}
+.dailyRecord .dailyList .dailyItem .sender .more img{
+  display: block;
+  width:0.4rem;
+  height: 0.4rem;
+}
+.dailyRecord .dailyList .dailyItem .word{
+  padding: 0.3rem 0;
+  font-size: 0.32rem;
+  color: #333;
+  line-height: 0.54rem;
+}
+.dailyRecord .dailyList .dailyItem .icons{
+  overflow:hidden;
+}
+.dailyRecord .dailyList .dailyItem .icons .type{
+  float: left;
+  padding: 0 0.16rem;
+  background-color: rgba(0,174,255,0.15);
+  border-radius: 4px;
+  font-size: 0.2rem;
+  height: 0.36rem;
+  color: #00aeff;
+  line-height: 0.36rem;
+}
+.dailyRecord .dailyList .dailyItem .icons .icon{
+  display: block;
+  float: right;
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+  background: url('../assets/c25.png') no-repeat left center;
+  background-size: 0.36rem auto;
+  font-size: 0.26rem;
+  color: #666;
+}
+.dailyRecord .dailyList .dailyItem .icons .icon1.on{
+  background: url('../assets/c26.png') no-repeat left center;
+  background-size: 0.36rem auto;
+  color: #00aeff;
+}
+.dailyRecord .dailyList .dailyItem .icons .icon2{
+  background: url('../assets/c24.png') no-repeat left center;
+  background-size: 0.36rem auto;
+  position: relative;
+}
+.dailyRecord .dailyList .dailyItem .icons .icon2.on::after{
+  content: '';
+  position: absolute;
+  left: 0.28rem;
+  top: 0.02rem;
+  width:0.1rem;
+  height: 0.1rem;
+  border-radius: 0.1rem;
+  overflow:hidden;
+  background-color: red;
+}
+
+.float_Btn{
+  position: fixed;
+  z-index: 998;
+  right: 0.3rem;
+  bottom: 1.4rem;
+}
+.float_Btn span{
+  display: block;
+  padding-left: 1rem;
+  position: relative;
+  /*margin-bottom: 0.3rem;*/
+  position: absolute;
+}
+.float_Btn span i{
+  display: block;
+  font-size: 0.3rem;
+  color: #fff;
+  line-height: 1.04rem;
+  width:1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.float_Btn span img{
+  display: block;
+  width:1.04rem;
+  height: 1.04rem;
+  border-radius: 50%;
+}
+.float_Btn span:nth-child(1){ transition: all 0.7s; right: -3rem; bottom: 4.02rem; }
+.float_Btn span:nth-child(2){ transition: all 0.55s; right: -3rem; bottom: 2.68rem; }
+.float_Btn span:nth-child(3){ transition: all 0.4s; right: -3rem; bottom: 1.34rem; }
+.float_Btn span:nth-child(1) img{box-shadow: 0px 0.1rem 0.3rem 0px rgba(224, 97, 76, 0.4);}
+.float_Btn span:nth-child(2) img{box-shadow: 0px 0.1rem 0.3rem 0px rgba(87, 185, 135, 0.4);}
+.float_Btn span:nth-child(3) img{box-shadow: 0px 0.1rem 0.3rem 0px rgba(240, 153, 81, 0.4);}
+.float_Btn .icon{
+  display: block;
+  width:1.04rem;
+  height: 1.04rem;
+  transition: all 0.4s;
+  border-radius: 50%;
+  margin-left: 1rem;
+  box-shadow: 0px 0.1rem 0.3rem 0px rgba(0, 174, 255, 0.4);
+}
+.float_Btn.on .icon{
+  transform: rotate(45deg);
+}
+.float_Btn.on span{
+  right: 0;
+}
+
+.pop_upper_bg{ z-index:997; }
+.pop_upper_box{ z-index:998; }
+.pop_bg{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+}
+.pop_more{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0rem;
+  padding: 0 0.2rem 0.2rem;
+  display: none;
+}
+.pop_more .first{
+  background-color: #fff;
+  border-radius: 0.24rem;
+}
+.pop_more .first span{
+  display: block;
+  font-size: 0.36rem;
+  color: #00aeff;
+  line-height: 1.15rem;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+.pop_more .first span:last-child{
+  border-bottom: none;
+}
+.pop_more .cancle{ margin-top: 0.2rem; }
+
+.pop_share_Img{
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom:0;
+  left: 0;
+  z-index: 997;
+  padding: 0.5rem 0rem;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+}
+.pop_share_Img img{
+  display: block;
+  width:75%;
+  max-width: 4.4rem;
+  margin:0 auto;
+}
+/*工作日志*/

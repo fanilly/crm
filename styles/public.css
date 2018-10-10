@@ -1130,7 +1130,7 @@
 .public-btn-group {
   background-color: #fff;
   margin-bottom: .2rem;
-  padding:.2rem .3rem 0;
+  padding: .2rem .3rem 0;
 }
 
 .public-btn-group .title {
@@ -1138,24 +1138,112 @@
   color: #333;
   line-height: .6rem;
 }
+
 .public-btn-group .content {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .public-btn-group .item {
   display: block;
   width: 25%;
   text-align: center;
   padding: .22rem 0;
 }
+
 .public-btn-group .item img {
   width: .56rem;
   height: .56rem;
 }
+
 .public-btn-group .item h5 {
   font-weight: normal;
   color: #333;
   font-size: .26rem;
   padding-top: .04rem;
+}
+
+.public-suspension-menu {
+  width: 1.04rem;
+  height: 1.04rem;
+  position: fixed;
+  right: .3rem;
+  bottom: 1.4rem;
+  z-index: 999;
+}
+
+.public-suspension-mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  z-index: 998;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.public-suspension-menu .list {
+  width: 3rem;
+  position: absolute;
+  bottom: 120%;
+  right: -.22rem;
+  display: none;
+}
+
+.public-suspension-menu .list a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: all ease .4s;
+  transform: translateX(200px);
+}
+
+.public-suspension-menu .list a:nth-child(1) {
+  transition-duration: .5s;
+}
+
+.public-suspension-menu .list a:nth-child(2) {
+  transition-duration: .4s;
+}
+
+.public-suspension-menu .list a:nth-child(3) {
+  transition-duration: .3s;
+}
+
+.public-suspension-menu .list a span {
+  color: #fff;
+  position: relative;
+  top: -.1rem;
+}
+
+.public-suspension-menu .list a img {
+  width: 1.56rem;
+  height: 1.56rem;
+}
+
+.public-suspension-menu .control {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 10px 30px 0px rgba(0, 174, 255, 0.4);
+  transition: all ease .3s;
+  border-radius: 50%;
+  width: 1.04rem;
+  height: 1.04rem;
+  z-index: 10;
+  transform: rotate(0deg);
+}
+
+.public-suspension-menu.js-is-show .list {
+  display: block;
+}
+
+.public-suspension-menu.js-is-show-start .list a {
+  transform: translateX(0);
+}
+
+.public-suspension-menu.js-is-show .control {
+  transform: rotate(45deg);
 }

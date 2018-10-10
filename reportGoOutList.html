@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>签到记录</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body onload="init()">
+
+  <!-- 报岗考勤 -->
+  <div class="reportBox public-wbg" id="app">
+    
+    <div id="container" style='width:100%; height: 4rem;'></div>
+    <div class="public-chosebar public-bottom-line">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+      <div class="turns">
+        <div class="prev btn">上个月</div>
+        <div class="next btn">下个月</div>
+      </div>
+    </div>
+    
+    <!-- 尚无记录 -->
+    <!-- <div class="notYet">
+      <img src="assets/a06.png" alt="">
+      <p>没有签到记录</p>
+    </div> -->
+    <!-- 尚无记录 -->
+
+    <div class='signList'>
+      <div class="signItem">
+        <h3><span>09.29</span>10:30</h3>
+        <div class="info">
+          <h4>黄河路与经六路交叉口易倍增软件园</h4>
+          <p><i>拜访对象:张志明</i><i>备注内容：去外面兜兜风</i></p>
+          <div class="pic"><img src="assets/icon06.png" alt=""></div>
+        </div>
+      </div>
+      <div class="signItem">
+        <h3><span>09.29</span>10:30</h3>
+        <div class="info">
+          <h4>黄河路与经六路交叉口易倍增软件园</h4>
+          <p><i>拜访对象:张志明</i><i>备注内容：去外面兜兜风</i></p>
+          <div class="pic"><img src="assets/icon06.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+  <!-- 报岗考勤 -->
+
+
+
+
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/dayjs/dayjs.min.js"></script>
+
+  <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp"></script>
+  <script>
+  var init = function() {
+      var center = new qq.maps.LatLng(34.7568711,113.663221);
+      var map = new qq.maps.Map(document.getElementById('container'),{
+          center: center,
+          zoom: 13,
+          disableDefaultUI: true,    //禁止所有控件
+          // mapTypeControlOptions: {  //设置控件的地图类型为普通街道地图
+          //   mapTypeIds: qq.maps.MapTypeId.ROADMAP
+          // }
+      });
+      //创建marker
+      var marker = new qq.maps.Marker({
+          position: center,
+          map: map
+      });
+      
+  }
+  </script>
+</body>
+
+</html>

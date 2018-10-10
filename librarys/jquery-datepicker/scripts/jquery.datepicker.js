@@ -204,7 +204,7 @@
       //点击确定
       this.confirm.unbind();
       this.confirm.on('click', function(e) {
-        var txt = self.currentChoosedYear + '-' + self.currentChoosedMonth + '-' + self.currentChoosedDate;
+        var txt = self.currentChoosedYear + (self.options.formate == 'cn' ? '年' : self.options.formate) + self.currentChoosedMonth + (self.options.formate == 'cn' ? '月' : self.options.formate) + self.currentChoosedDate + (self.options.formate == 'cn' ? '日' : '');
         if (self.element[0].nodeName === 'INPUT') {
           self.element.val(txt);
         } else {
@@ -213,6 +213,9 @@
         self.mask.fadeOut('fast', function() {
           self.mask.remove();
         });
+        if(self.options.callback){
+          self.options.callback(self.currentChoosedYear,self.currentChoosedMonth,self.currentChoosedDate);
+        }
       });
 
       //点击取消
@@ -268,7 +271,9 @@
       var defaults = {
         color: '#ffffff',
         bg: '#00aeff',
-        activeExtend: 'box-shadow: 0px 10px 30px 0px rgba(9, 177, 255, 0.4);'
+        activeExtend: 'box-shadow: 0px 10px 30px 0px rgba(9, 177, 255, 0.4);',
+        callback:function(){},
+        formate:'cn'
       };
       $.extend(defaults, options);
       this.on('click', function() {

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>日统计</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <style>
+  body {
+    background-color: #f7f7f7;
+  }
+  </style>
+  <div class="count-days-page">
+
+    <!-- 日期 -->
+    <div class="public-chosebar public-bottom-line" style="margin-bottom: 0; padding: 0.1rem 0.3rem;">
+      <div class="drops"><input style="line-height: .62rem;" id="mj_js_datepicker" readonly="readonly" value="2018年10月"></div>
+      <div class="remark" style="line-height: .62rem;">按出勤天数排序</div>
+    </div>
+
+    <div class="public-list-type02">
+      <div class="item public-flex-center">
+        <div class="index">1</div>
+        <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <div class="remark">
+            <div class="time-xs">26天</div>
+            <p>日均9.4小时</p>
+          </div>
+          <div class="rside">
+            <p>11</p>
+            <div class="heart"></div>
+          </div>
+        </div>
+      </div>
+      <div class="item public-flex-center">
+        <div class="index">2</div>
+        <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <div class="remark">
+            <div class="time-xs">26天</div>
+            <p>日均9.4小时</p>
+          </div>
+          <div class="rside">
+            <p>11</p>
+            <div class="heart"></div>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+      <div class="item public-flex-center">
+        <div class="index">3</div>
+        <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <div class="remark">
+            <div class="time-xs">26天</div>
+            <p>日均9.4小时</p>
+          </div>
+          <div class="rside active">
+            <p>11</p>
+            <div class="heart"></div>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+      <div class="item public-flex-center">
+        <div class="index">4</div>
+        <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <div class="remark">
+            <div class="time-xs">26天</div>
+            <p>日均9.4小时</p>
+          </div>
+          <div class="rside active animate">
+            <p>11</p>
+            <div class="heart"></div>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+      <div class="item public-flex-center">
+        <div class="index">5</div>
+        <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <div class="remark">
+            <div class="time-xs">26天</div>
+            <p>日均9.4小时</p>
+          </div>
+          <div class="rside">
+            <p>11</p>
+            <div class="heart"></div>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>月统计</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+  <style>
+  body{ background-color: #f7f7f7; }
+  </style>
+
+  <div>
+    <!--============================
+    =            header            =
+    =============================-->
+
+    <div class="public-header-nav-type01 public-bottom-line">
+      <a href="./countDays.html">日统计</a>
+      <a href="./countMonths.html" class="active">月统计</a>
+      <a href="./countMe.html">我的</a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+    <!--====  End of header  ====-->
+
+    <!-- 月统计 -->
+    <div class="monthSum">
+      <div class="public-chosebar public-bottom-line">
+        <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+        <div class="turns">
+          <div class="prev btn">上个月</div>
+          <div class="next btn">下个月</div>
+        </div>
+      </div>
+
+      <ul class="listnum">
+        <li class="public-top-line public-right-line later"><span>迟到</span><p>2次</p></li>
+        <li class="public-top-line public-right-line later"><span>早退</span><p>1次</p></li>
+        <li class="public-top-line public-right-line later"><span>缺卡</span><p>1次</p></li>
+        <li class="public-top-line public-right-line later"><span>旷工</span><p>1次</p></li>
+        <li class="public-top-line public-right-line"><span>外勤</span><p>0次</p></li>
+        <li class="public-top-line public-right-line"><span>加班</span><p>0次</p></li>
+      </ul>
+    </div>
+    <!-- 月统计 -->
+
+
+    <!--============================
+    =            footer            =
+    =============================-->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+      <a class="item" href="./reportPost.html">
+        <img src="./assets/d-icon02.png">
+        <!-- <img src="./assets/d-icon01.png"> -->
+        <p>打卡</p>
+      </a>
+      <a class="item" href="#">
+        <img src="./assets/d-icon03.png">
+        <!-- <img src="./assets/d-icon04.png"> -->
+        <p>申请</p>
+      </a>
+      <a class="item active" href="./countDays.html">
+        <!-- <img src="./assets/d-icon05.png"> -->
+        <img src="./assets/d-icon06.png">
+        <p>统计</p>
+      </a>
+    </div>
+    <!--====  End of footer  ====-->
+
+  </div>
+
+
+
+
+
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

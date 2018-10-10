@@ -444,18 +444,22 @@ input {
   color: #7096dc;
   line-height: 1.3;
 }
+
 .report-record-page .record-empty {
   text-align: center;
 }
+
 .report-record-page .record-empty img {
   width: .96rem;
   position: relative;
   left: .06rem;
 }
+
 .report-record-page .record-empty p {
   font-size: .24rem;
   color: #999;
 }
+
 .report-record-page .jumpa {
   display: block;
   width: 1.04rem;
@@ -471,4 +475,27 @@ input {
   display: block;
   width: 1.04rem;
   height: 1.04rem;
+}
+
+/*===================================================
+=                       月统计                      =
+====================================================*/
+.count-days-page .count-box {
+  padding: .3rem;
+  background-color: #fff;
+}
+
+.count-days-page .count-box .lside h3 {
+  font-size: .52rem;
+  color: #333;
+}
+
+.count-days-page .count-box .lside p {
+  font-size: .26rem;
+  color: #666;
+}
+
+.count-days-page .count-box .rside {
+  color: #7096dc;
+  font-size: .26rem;
 }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>日统计</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jquery-datepicker/styles/jquery.datepicker.rem.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <style>
+  body {
+    background-color: #f7f7f7;
+  }
+  </style>
+  <div class="count-days-page">
+
+    <!--============================
+    =            header            =
+    =============================-->
+
+    <div class="public-header-nav-type01 public-bottom-line">
+      <a href="./countDays.html" class="active">日统计</a>
+      <a href="./countMonths.html">月统计</a>
+      <a href="./countMe.html">我的</a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+    <!--====  End of header  ====-->
+
+
+    <!-- 日期 -->
+    <div class="public-chosebar" style="margin-bottom: 0; padding: 0.1rem 0.3rem;">
+      <div class="drops"><input style="width: 2.6rem; line-height: .62rem;" id="mj_js_datepicker" readonly="readonly" value="2018年10月09日"></div>
+    </div>
+
+    <!-- 人数统计 -->
+    <div class="count-box public-flex-center">
+      <div class="lside public-flex1">
+        <p>打卡人数/应到人数</p>
+        <h3>0/0<h3>
+      </div>
+      <a href="./countPunchCardDetail.html" class="rside">
+        打卡明细
+      </a>
+    </div>
+
+
+    <div class="public-grad-layout" style="margin: .14rem 0;">
+      <a href="#" class="item">
+        <span>未打卡</span><p>0人</p>
+      </a>
+      <a href="#" class="item">
+        <span>迟到</span><p>0人</p>
+      </a>
+      <a href="#" class="item">
+        <span>外勤</span><p>0人</p>
+      </a>
+      <a href="#" class="item">
+        <span>休息</span><p>0人</p>
+      </a>
+    </div>
+
+    <div class="public-list-btn-type01">
+      <a href="./countAttendanceList.html" class="item public-flex-center public-bottom-line">
+        <div class="public-flex1">出勤榜</div>
+        <span>查看</span>
+        <img src="./assets/a04.png">
+      </a>
+      <a href="./countEarlyList.html" class="item public-flex-center public-bottom-line">
+        <div class="public-flex1">早到榜</div>
+        <span>查看</span>
+        <img src="./assets/a04.png">
+      </a>
+      <a href="./countLateList.html" class="item public-flex-center public-bottom-line">
+        <div class="public-flex1">迟到榜</div>
+        <span>查看</span>
+        <img src="./assets/a04.png">
+      </a>
+    </div>
+
+
+
+    <!--============================
+    =            footer            =
+    =============================-->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+      <a class="item" href="./reportPost.html">
+        <img src="./assets/d-icon02.png">
+        <!-- <img src="./assets/d-icon01.png"> -->
+        <p>打卡</p>
+      </a>
+      <a class="item" href="#">
+        <img src="./assets/d-icon03.png">
+        <!-- <img src="./assets/d-icon04.png"> -->
+        <p>申请</p>
+      </a>
+      <a class="item active" href="./countDays.html">
+        <!-- <img src="./assets/d-icon05.png"> -->
+        <img src="./assets/d-icon06.png">
+        <p>统计</p>
+      </a>
+    </div>
+    <!--====  End of footer  ====-->
+
+
+  </div>
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jquery-datepicker/scripts/jquery.datepicker.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+  (function() {
+    $('#mj_js_datepicker').mjDatePicker({
+      bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)'
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

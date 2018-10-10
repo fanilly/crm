@@ -1126,3 +1126,36 @@
   right: 0.3rem;
   top: 0.4rem;
 }
+
+.public-btn-group {
+  background-color: #fff;
+  margin-bottom: .2rem;
+  padding:.2rem .3rem 0;
+}
+
+.public-btn-group .title {
+  font-size: .28rem;
+  color: #333;
+  line-height: .6rem;
+}
+.public-btn-group .content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.public-btn-group .item {
+  display: block;
+  width: 25%;
+  text-align: center;
+  padding: .22rem 0;
+}
+.public-btn-group .item img {
+  width: .56rem;
+  height: .56rem;
+}
+.public-btn-group .item h5 {
+  font-weight: normal;
+  color: #333;
+  font-size: .26rem;
+  padding-top: .04rem;
+}

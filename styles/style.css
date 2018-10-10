@@ -499,3 +499,48 @@ input {
   color: #7096dc;
   font-size: .26rem;
 }
+
+/*===================================================
+=                       工作                      =
+====================================================*/
+.work-page .notice {
+  border-top: .2rem solid #f7f7f7;
+  margin-bottom: .2rem;
+  height: 1.24rem;
+  background-color: #fff;
+  padding: 0 .3rem;
+}
+
+.work-page .notice .lside {
+  width: .3rem;
+  margin-right: .2rem;
+}
+
+.work-page .notice .center {
+  height: .94rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-page .notice .rside {
+  font-size: .26rem;
+  color: #7096dc;
+  padding: 0 0 0 .3rem;
+}
+
+.work-page .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.work-page .swiper-slide {
+  text-align: left;
+  font-size: .28rem;
+  color: #666;
+  background: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  line-height: .94rem;
+}

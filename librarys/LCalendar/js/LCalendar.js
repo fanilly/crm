@@ -160,6 +160,12 @@ window.LCalendar = (function() {
           yy: date.getFullYear(),
           mm: date.getMonth()
         };
+        if(_self.trigger.value.split(/[^0-9]/).slice(0,2)){
+          var tempYearMonth = _self.trigger.value.split(/[^0-9]/).slice(0,2);
+          dateArr.yy = tempYearMonth[0]*1;
+          dateArr.mm = tempYearMonth[1]*1 - 1;
+        }
+
         if (/^\d{4}-\d{1,2}$/.test(_self.trigger.value)) {
           rs = _self.trigger.value.match(/(^|-)\d{1,4}/g);
           dateArr.yy = rs[0] - _self.minY;

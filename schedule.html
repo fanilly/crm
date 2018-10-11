@@ -11,11 +11,186 @@
   <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
 </head>
 
 <body>
-  <div class="schedule-page public-gbg">
+  <div class="schedule-page public-wbg">
 
+    <!--============================
+    =            header            =
+    =============================-->
+
+    <div class="header public-flex-center public-bottom-line">
+      <div class="lside public-flex-center">
+        <a href="#" class="active">日程</a>
+        <a href="#">任务</a>
+        <a href="#">计划</a>
+      </div>
+      <div class="rside public-flex1 public-flex-center">
+        <a class="search public-flex-center">
+          <img src="./assets/search.png">
+          <span>搜索</span>
+        </a>
+      </div>
+    </div>
+    <div style="height: .88rem"></div>
+
+    <!--====  End of header  ====-->
+
+
+
+    <!--==============================
+    =            日期选择            =
+    ===============================-->
+
+    <div class="public-chosebar public-bottom-line" style="background-color: #f7f7f7; margin-bottom: 0">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+      <div class="turns">
+        <div class="prev btn">上个月</div>
+        <div class="next btn">下个月</div>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <a href="#">
+        <i>一</i>
+        <span>1</span>
+      </a>
+      <a href="#">
+        <i>二</i>
+        <span>2</span>
+      </a>
+      <a href="#">
+        <i>三</i>
+        <span>3</span>
+      </a>
+      <a href="#">
+        <i>四</i>
+        <span>4</span>
+      </a>
+      <a href="#">
+        <i>五</i>
+        <span>5</span>
+      </a>
+      <a href="#">
+        <i>六</i>
+        <span>6</span>
+      </a>
+      <a href="#">
+        <i>日</i>
+        <span>7</span>
+      </a>
+      <a href="#">
+        <i>一</i>
+        <span>8</span>
+      </a>
+      <a href="#">
+        <i>二</i>
+        <span>9</span>
+      </a>
+      <a href="#">
+        <i>三</i>
+        <span>10</span>
+      </a>
+      <a href="#" class="active">
+        <i>四</i>
+        <span>11</span>
+      </a>
+      <a href="#">
+        <i>五</i>
+        <span>12</span>
+      </a>
+      <a href="#">
+        <i>六</i>
+        <span>13</span>
+      </a>
+      <a href="#">
+        <i>日</i>
+        <span>14</span>
+      </a>
+      <a href="#">
+        <i>一</i>
+        <span>15</span>
+      </a>
+      <a href="#">
+        <i>二</i>
+        <span>16</span>
+      </a>
+      <a href="#">
+        <i>三</i>
+        <span>17</span>
+      </a>
+      <a href="#">
+        <i>四</i>
+        <span>18</span>
+      </a>
+      <a href="#">
+        <i>五</i>
+        <span>19</span>
+      </a>
+      <a href="#">
+        <i>六</i>
+        <span>20</span>
+      </a>
+      <a href="#">
+        <i>日</i>
+        <span>21</span>
+      </a>
+    </div>
+
+    <!--====  End of 日期选择  ====-->
+
+
+
+    <!--==================================
+    =            page content            =
+    ===================================-->
+
+    <div class="content-wapper">
+      <div class="title public-flex-center">
+        <div class="lside public-flex1">
+          <p>今天是</p>
+          <h3>10月11日 周四</h3>
+        </div>
+        <!-- rside 只在空状态是显示 -->
+        <img class="rside" src="./assets/b05.png">
+      </div>
+      <div class="empty-status">
+        <h3>高效的工作就是每天安排日程</h3>
+        <p>当天暂无日程安排</p>
+        <a href="#">创建日程</a>
+      </div>
+      <div class="public-list-type03">
+        <a href="#" class="item">
+          <div class="lside blue">日程</div>
+          <div class="rside public-bottom-line">
+            <h3 class="title">12号下午去南京见客户</h3>
+            <h6 class="remark">备注：公司董事会</h6>
+            <p><span class="txt">08:00 ~ 09:00</span><span class="right">已过期</span></p>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="lside yellow">任务</div>
+          <div class="rside public-bottom-line">
+            <h3 class="title">12号下午去南京见客户</h3>
+            <h6 class="remark">备注：公司董事会</h6>
+            <p><span class="tag">正常排期</span><span class="right">进行中></span></p>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="lside green">计划</div>
+          <div class="rside public-bottom-line">
+            <h3 class="title">12号下午去南京见客户</h3>
+            <h6 class="remark">备注：公司董事会</h6>
+            <p><span class="txt">2018.09.12~2018.09.13</span><span class="right">进行中></span></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!--====  End of page content  ====-->
 
 
     <!--==============================
@@ -23,7 +198,7 @@
     ===============================-->
 
     <div class="public-suspension-mask"></div>
-    <div class="public-suspension-menu">
+    <div class="public-suspension-menu animated">
       <div class="list">
         <a href="#">
           <span>日程</span>
@@ -81,8 +256,38 @@
   <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
-  <script type="text/javascript">
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
 
+    // 初始化横向日历滚动位置
+    var activeItemLeft = $('.calendar .active')[0].getBoundingClientRect().left,
+      pageWidth = $(window).width();
+    $('.calendar').scrollLeft(activeItemLeft - pageWidth + pageWidth / 2 + $('.calendar .active').width() / 2);
+
+    // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
+    var initTop = 0,
+      suspensionMenu = $('.public-suspension-menu');
+    $(window).bind('scroll', function() {
+      var currentTop = $(this).scrollTop();
+      if(currentTop>initTop){
+        if(!suspensionMenu.hasClass('zoomOut')) suspensionMenu.removeClass('zoomIn').addClass('zoomOut');
+      }else{
+        if(!suspensionMenu.hasClass('zoomIn')) suspensionMenu.removeClass('zoomOut').addClass('zoomIn');
+      }
+      initTop = currentTop;
+    });
+  })()
 
   </script>
 </body>

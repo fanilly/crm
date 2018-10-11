@@ -53,7 +53,13 @@
 
     init: function(element, options) {
       this.daysData = [];
-      this.date = new Date();
+      var tempDateStr = element[0].nodeName === 'INPUT' ? element.val() : element.text();
+      if(tempDateStr.split(/[^0-9]/).slice(0,3)){
+        var tempDate = tempDateStr.split(/[^0-9]/).slice(0,3);
+        this.date = new Date(tempDate[0],tempDate[1]*1 - 1,tempDate[2])
+      }else{
+        this.date = new Date();
+      }
       this.currentYear = this.date.getFullYear();
       this.currentMonth = this.date.getMonth() + 1;
       this.currentDate = this.date.getDate();
@@ -198,6 +204,7 @@
           self.currentChoosedDate = $(this).text();
           self.currentChoosedYear = self.currentChooseYear;
           self.currentChoosedMonth = self.currentChooseMonth;
+          // self.confirm.trigger("click");
         }
       });
 

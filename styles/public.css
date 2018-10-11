@@ -1129,7 +1129,7 @@
 
 .public-btn-group {
   background-color: #fff;
-  margin-bottom: .2rem;
+  margin-bottom: .14rem;
   padding: .2rem .3rem 0;
 }
 
@@ -1246,4 +1246,76 @@
 
 .public-suspension-menu.js-is-show .control {
   transform: rotate(45deg);
+}
+
+.public-list-type03 {}
+
+.public-list-type03 .item {
+  display: flex;
+  padding: 0 0 0 .3rem;
+  align-items: center;
+}
+
+.public-list-type03 .item .lside {
+  width: .84rem;
+  height: .84rem;
+  border-radius: 50%;
+  color: #fff;
+  line-height: .84rem;
+  text-align: center;
+  font-size: .24rem;
+  margin-right: .3rem;
+}
+
+.public-list-type03 .item .lside.blue {
+  background-color: #00aeff;
+}
+
+.public-list-type03 .item .lside.yellow {
+  background-color: #ffaa30;
+}
+
+.public-list-type03 .item .lside.green {
+  background-color: #4bd79a;
+}
+
+.public-list-type03 .item .rside {
+  flex: 1;
+  padding-right: .2rem;
+  position: relative;
+  padding: .3rem .2rem .3rem 0;
+  overflow: hidden;
+}
+
+.public-list-type03 .item .rside .title {
+  font-size: .32rem;
+  color: #333;
+  font-weight: normal;
+}
+
+.public-list-type03 .item .rside .remark {
+  font-size: .24rem;
+  color: #999;
+  font-weight: normal;
+  margin-bottom: .1rem;
+}
+
+.public-list-type03 .item .rside p {
+  font-size: .24rem;
+}
+
+.public-list-type03 .item .rside p .txt {
+  color: #666;
+}
+
+.public-list-type03 .item .rside p .tag {
+  background-color: rgba(0, 174, 255, .15);
+  color: #00aeff;
+  padding: .04rem .1rem;
+  border-radius: .04rem;
+}
+
+.public-list-type03 .item .rside p .right {
+  color: #00aeff;
+  float: right;
 }

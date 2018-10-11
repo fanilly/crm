@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>发布日报</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+    body{ padding-bottom: 1.6rem; background-color: #f7f7f7;}
+    </style>
+
+    <!-- 发布日报 -->
+    <div class="publish_dialy">
+        <div class="keeps">
+            <dl><dt><i class="green"></i>今日已完成工作</dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl><dt><i class="orange"></i>今日未完成工作</dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl><dt><i class="blue"></i>备注</dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl>
+                <dt style='margin-bottom: 0'>上传附件或图片</dt>
+                <dd>
+                    <div class="photo">
+                        <div class="item">
+                            <img src="assets/bg.jpg" alt="" class="img">
+                            <img src="assets/c35.png" alt="" class="close">
+                        </div>
+                        <div class="add"><img src="assets/c36.png" alt=""><input type="file" ></div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="fix_footer_btn"><span>提交</span></div> 
+    </div>
+    <!-- 发布日报 -->
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+
+        $.fn.autoHeight = function(){    
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });     
+        }                
+        $('textarea[autoHeight]').autoHeight();    
+    
+    })()
+    </script>
+
+</body>
+</html>

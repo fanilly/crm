@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>李大柱的日报</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+
+    <!-- 日报详情 -->
+    <div class="dialy_info">
+        <div class="mation">
+            <div class="sender">
+                <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+                <a class="names"><span>十年的日报</span><i>今天22:08</i></a>
+                <div class="more"><img src="assets/c23.png" alt=""></div>
+            </div>
+            <div class="words">
+                <dl>
+                    <dt><i class="green"></i>今日已完成工作<span>5人看过</span></dt>
+                    <dd><p>调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计...</p></dd>
+                </dl>
+                <dl><dt><i class="orange"></i>今日未完成工作</dt><dd><p class="none">暂无添加内容</p></dd></dl>
+                <dl><dt><i class="blue"></i>备注</dt><dd><p class="none">暂无添加内容</p></dd></dl>
+                <div class="photo">
+                    <div class="item"><img src="assets/bg.jpg" alt="" class="img"></div>
+                </div>
+            </div>
+            <div class="linkbtn">
+                <div class="sin"><span><img src="assets/c38.png" alt=""></span><i>2</i></div>
+                <a class="sin pl_btn"><span><img src="assets/c39.png" alt=""></span><i>评论</i></a>
+                <div class="sin"><span><img src="assets/c40.png" alt=""></span><i>全部日志</i></div>
+            </div>
+            <div class="like"><p>都东、老胡、水木年华、星辰等5人觉得很赞</p></div>
+        </div>
+        <div class="comment" id="comment">
+            <h2>评论（3）</h2>
+            <div class="list">
+                <div class="judgeItem">
+                    <div class="tx"><img src="assets/bg.jpg" alt=""></div>
+                    <div class="right">
+                        <div class="name"><span>十年</span><i>今天16:15</i></div>
+                        <p>水电费水电费那个梵蒂冈和健康的风格个接口更好的反馈结果是没地方那个几块</p>
+                    </div>
+                </div>    
+                <div class="judgeItem">
+                    <div class="tx"><img src="assets/bg.jpg" alt=""></div>
+                    <div class="right">
+                        <div class="name"><span>十年</span><i>今天16:15</i></div>
+                        <p>水电费水电费那个梵蒂冈和健康的风格个接口更好的反馈结果是没地方那个几块</p>
+                    </div>
+                </div>       
+                <div class="judgeItem">
+                    <div class="tx"><img src="assets/bg.jpg" alt=""></div>
+                    <div class="right">
+                        <div class="name"><span>十年</span><i>今天16:15</i></div>
+                        <p>水电费水电费那个梵蒂冈和健康的风格个接口更好的反馈结果是没地方那个几块</p>
+                    </div>
+                </div>                                                                                         
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed_judge">
+        <div class="send">发表评论...</div>
+        <div class="icons">
+            <span class="icon icon1 on">&nbsp;</span>
+            <a class="icon icon2 on" href="#comment">&nbsp;</a>
+        </div>
+    </div>
+    <!-- 日报详情 -->
+    
+    <!-- 评价弹窗 -->
+    <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_upper_box pop_comment">
+        <div class="title"><span class="cancle">取消</span><p>评论</p><span class="sure">发送</span></div>
+        <div class="fill"><textarea id="textareaID" autoHeight="true" autofocus placeholder="输入评论内容"></textarea></div>
+    </div>
+    <!-- 评价弹窗 -->
+
+    <!-- 更多 -->
+    <div class="pop_upper_box pop_more">
+      <div class="first"><span class="all">查看ta的全部日志</span><span class="edit">编辑</span><span class="del">删除</span></div>
+      <div class="first cancle"><span>取消</span></div>
+    </div>
+    <!-- 更多 -->
+
+    <!-- 分享的弹窗 -->
+    <!-- <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_share_Img"><img src="assets/c30.png" alt=""></div> -->
+    <!-- 分享的弹窗 -->
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        $(".fixed_judge .icons .icon1").click(function(){
+            $(this).toggleClass('on')
+        });
+        // $('.linkbtn .share_btn').click(function(event) {
+        //     $('.pop_upper_bg').fadeIn()
+        //     $('.pop_share_Img').fadeIn()
+        // });
+        // $('.pop_upper_bg,.pop_share_Img').click(function(event) {
+        //     $('.pop_upper_bg').fadeOut()
+        //     $('.pop_share_Img').fadeOut()
+        // });
+        
+        //评价
+        $(".fixed_judge .send,.pl_btn").click(function(){
+            $('.pop_upper_bg').fadeIn();
+            $('.pop_comment').fadeIn();
+        })
+        $(".pop_upper_bg,.pop_comment .title .cancle").click(function(){
+            $('.pop_upper_bg').fadeOut();
+            $('.pop_comment').fadeOut();
+        })
+        $(".pop_comment .title .sure").click(function(){
+            $('.pop_upper_bg').fadeOut();
+            $('.pop_comment').fadeOut();
+            //提交的方法
+        })
+
+        // 打开更多弹窗
+        $('.dialy_info .mation .sender .more').click(function(){
+            $('body,html').css({"overflow":'hidden'})
+            $('.pop_upper_bg').fadeIn()
+            $('.pop_more').fadeIn()
+        })
+        // 关闭更多弹窗
+        $('.pop_upper_bg, .pop_more .cancle span').click(function(){
+            $('body,html').css({"overflow":'auto'})
+            $('.pop_upper_bg').fadeOut()
+            $('.pop_more').fadeOut()
+        })
+        
+        $(document).ready(function() {
+            $('a[href*=#]').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var $target = $(this.hash);
+                    $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                    if ($target.length) {
+                        var targetOffset = $target.offset().top;
+                        $('html,body').animate({
+                            scrollTop: targetOffset
+                        },
+                        1000);
+                        return false;
+                    }
+                }
+            });
+        });
+
+        $.fn.autoHeight = function(){    
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });     
+        }                
+        $('textarea[autoHeight]').autoHeight();    
+
+        $('body').on("click",'.heart',function(){
+        
+            var A=$(this).attr("id");
+            var B=A.split("like");
+            var messageID=B[1];
+            var C=parseInt($("#likeCount"+messageID).html());
+            $(this).css("background-position","")
+            var D=$(this).attr("rel");
+           
+            if(D === 'like') {      
+                $("#likeCount"+messageID).html(C+1);
+                $(this).addClass("heartAnimation").attr("rel","unlike");
+            }
+            else{
+                $("#likeCount"+messageID).html(C-1);
+                $(this).removeClass("heartAnimation").attr("rel","like");
+                $(this).css("background-position","left");
+            }
+        });
+
+
+    })()
+    </script>
+
+</body>
+</html>

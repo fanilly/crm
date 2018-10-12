@@ -274,19 +274,6 @@
     var activeItemLeft = $('.calendar .active')[0].getBoundingClientRect().left,
       pageWidth = $(window).width();
     $('.calendar').scrollLeft(activeItemLeft - pageWidth + pageWidth / 2 + $('.calendar .active').width() / 2);
-
-    // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
-    var initTop = 0,
-      suspensionMenu = $('.public-suspension-menu');
-    $(window).bind('scroll', function() {
-      var currentTop = $(this).scrollTop();
-      if(currentTop>initTop){
-        if(!suspensionMenu.hasClass('zoomOut')) suspensionMenu.removeClass('zoomIn').addClass('zoomOut');
-      }else{
-        if(!suspensionMenu.hasClass('zoomIn')) suspensionMenu.removeClass('zoomOut').addClass('zoomIn');
-      }
-      initTop = currentTop;
-    });
   })()
 
   </script>

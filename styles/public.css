@@ -791,11 +791,11 @@
   height: .88rem;
   color: #666;
   overflow: hidden;
+  font-size: .28rem;
 }
 
 .public-header-nav-type01 a.active {
   color: #00aeff;
-  font-size: .28rem;
 }
 
 .public-header-nav-type01 a.active:before {
@@ -1165,6 +1165,7 @@
 }
 
 .public-suspension-menu {
+  display: block;
   width: 1.04rem;
   height: 1.04rem;
   position: fixed;
@@ -1355,3 +1356,47 @@
 .public-list-type04 .item:last-child .rside:after {
   display: none;
 }
+
+
+.public-toggle {
+  line-height: .38rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: .38rem;
+  height: .38rem;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.public-toggle:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: .38rem;
+  height: .38rem;
+  content: '';
+  background: url('../assets/c28.png') no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100%;
+}
+
+.public-toggle:checked:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: .38rem;
+  height: .38rem;
+  content: '';
+  background: url('../assets/c29.png') no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100%;
+}
+
+
+.no_more{ font-size: 0.24rem; color: #b3b3b3; padding: 0.4rem 0.3rem; text-align: center;}

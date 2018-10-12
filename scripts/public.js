@@ -46,24 +46,41 @@
   /*================================================
   =                  悬浮菜单动画                  =
   =================================================*/
+  (function(){
+    if($('.public-suspension-menu').length == 0) return;
+    $(document).on('click','.public-suspension-menu .control',function(){
+      if($('.public-suspension-menu .list').length == 0) return;
+      $('.public-suspension-menu').toggleClass('js-is-show');
+      setTimeout(function(){
+        $('.public-suspension-menu').toggleClass('js-is-show-start');
+      },0);
+      if(!$('.public-suspension-menu').hasClass('js-is-show')){
+        $('.public-suspension-mask').fadeOut();
+      }else{
+        $('.public-suspension-mask').fadeIn();
+      }
+    });
 
-  $('.public-suspension-menu .control').on('click',function(){
-    $('.public-suspension-menu').toggleClass('js-is-show');
-    setTimeout(function(){
-      $('.public-suspension-menu').toggleClass('js-is-show-start');
-    },0);
-    if(!$('.public-suspension-menu').hasClass('js-is-show')){
+    $(document).on('click','.public-suspension-mask',function(){
+      $('.public-suspension-menu').removeClass('js-is-show');
+      $('.public-suspension-menu').removeClass('js-is-show-start');
       $('.public-suspension-mask').fadeOut();
-    }else{
-      $('.public-suspension-mask').fadeIn();
-    }
-  });
+    });
 
-  $('.public-suspension-mask').on('click',function(){
-    $('.public-suspension-menu').removeClass('js-is-show');
-    $('.public-suspension-menu').removeClass('js-is-show-start');
-    $('.public-suspension-mask').fadeOut();
-  })
+    // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
+    var initTop = 0,
+      suspensionMenu = $('.public-suspension-menu');
+    $(window).on('scroll', function() {
+      suspensionMenu = $('.public-suspension-menu');
+      var currentTop = $(this).scrollTop();
+      if (currentTop > initTop) {
+        if (!suspensionMenu.hasClass('zoomOut')) suspensionMenu.removeClass('zoomIn').addClass('zoomOut');
+      } else {
+        if (!suspensionMenu.hasClass('zoomIn')) suspensionMenu.removeClass('zoomOut').addClass('zoomIn');
+      }
+      initTop = currentTop;
+    });
+  })();
 
   $('#form').on('valid.form', function(e) {
     var $data = $(this).serialize();

@@ -81,7 +81,7 @@
 
 
     <!-- 列表 -->
-    <div class="dailyList">
+    <div class="dailyList" id="app">
         <div class="news"><p><span><i>2</i><em>条新消息</em></span></p></div>
         <div class="dailyItem">
             <div class="sender">
@@ -177,6 +177,52 @@
     <script src="./librarys/dayjs/dayjs.min.js"></script>
     <script>
     (function(){
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                listData:[],
+                page: 1,
+                allowLoadMore: true,
+                commentLoadedAll: false,
+                noCommentLists: false,
+            },
+            mounted: function(){
+                this.getLists();
+            },
+            methods:{
+                getLists:function() {
+                    console.log(0)
+                    $.toptip('hahaha','success');
+                    /*var self = this;
+                    if(!this.allowLoadMore || this.commentLoadedAll || this.noCommentLists) return;
+                    this.allowLoadMore = false;
+                    var dataform = { page: this.page }
+                    $.get('#',dataform,function(res){
+                        console.log('列表数据',res)
+                        if(res.code==1){
+                            if (res.data.length < 20) self.commentLoadedAll = true;
+                            if (res.data.length == 0 && self.listData.length == 0) self.noCommentLists = true;
+                            self.listData = self.listData.concat(res.data);
+                            self.allowLoadMore = true;
+                            self.page = self.page + 1;
+                        }else{
+                            //$.toptip(res.msg,'success');
+                        }
+                    })*/
+                }
+            }
+        })
+        
+        $(window).scroll(function(){
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if(scrollTop + windowHeight == scrollHeight){
+                vm.getLists();
+            }
+        });
+        
 
         // 打开更多弹窗
         $('.dailyItem .more').click(function(){

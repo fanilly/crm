@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>客户列表</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body>
+  <div class="customer-list-page public-wbg">
+
+    <!--============================
+    =            header            =
+    =============================-->
+
+    <div class="public-header-nav-type01 public-bottom-line">
+      <a href="#" class="active">我负责的</a>
+      <a href="#">共享给我的</a>
+      <a href="#">公司所有</a>
+      <a href="#">无归属</a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+    <!--====  End of header  ====-->
+
+
+    <div class="public-toolbar-type01 public-bottom-line public-top-line">
+      <a href="#">
+        <img src="./assets/search.png" style="width: .3rem; position: relative; top: .04rem">
+        <span>搜索</span>
+      </a>
+      <a href="#" class="screen-btn">
+        <span>筛选</span>
+        <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+      <a href="#" class="sort-btn">
+        <span>最新更新</span>
+        <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+    </div>
+
+    <!--==========================
+    =            list            =
+    ===========================-->
+
+    <div class="customer-list-list">
+      <div class="item public-flex-center">
+        <div class="lside active public-flex-center-center">
+          <span>未激活</span>
+        </div>
+        <div class="center public-flex1 public-bottom-line">
+          <h2>刘星辰</h2>
+          <div class="middle public-flex-center">
+            <span style="color: #666">邀约人</span>
+            <span style="padding: 0 .3rem;">杨洋</span>
+            <img src="./assets/e18.png">
+            <span>邀约成功</span>
+          </div>
+          <div class="public-flex-center bottom">
+            <div class="public-flex1">邀约时间 2018.10.09</div>
+            <div><span class="public-tags-blue">电话邀约</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item public-flex-center">
+        <div class="lside active public-flex-center-center">
+          <span>刘星辰</span>
+        </div>
+        <div class="center public-flex1 public-bottom-line">
+          <h2>刘星辰</h2>
+          <div class="middle public-flex-center">
+            <span style="color: #666">邀约人</span>
+            <span style="padding: 0 .3rem;">杨洋</span>
+            <img src="./assets/e19.png">
+            <span>邀约失败</span>
+          </div>
+          <div class="public-flex-center bottom">
+            <div class="public-flex1">邀约时间 2018.10.09</div>
+            <div><span class="public-tags-blue">当面邀约</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of list  ====-->
+
+
+
+    <!--==============================
+    =            筛选弹窗            =
+    ===============================-->
+
+    <div class="public-screen-mask"></div>
+    <div class="public-screen-content" style="top: 1.76rem">
+      <div class="content-box">
+        <div class="navs-box">
+          <a href="#" class="active">拜访方式</a>
+          <a href="#">拜访人员</a>
+        </div>
+        <div class="list-box">
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">当面拜访</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">电话拜访</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">聊天软件拜访</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">其他</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+          </div>
+          <div class="list-box-item" style="padding-left: 0;">
+            <div class="list2-tab-wapper">
+              <div class="list2-nav public-right-line">
+                <a href="#" class="active">全部</a>
+                <a href="#">技术部</a>
+                <a href="#">客服部</a>
+              </div>
+              <div class="list2-tab-item-wapper">
+                <div class="list2-tab-item">
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                    <span class="public-flex1">全部</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">迪丽热巴</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">赵丽颖</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">郭德纲</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">岳云鹏</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">张三</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">李四</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">赵五</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">周六</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                </div>
+                <div class="list2-tab-item">
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                    <span class="public-flex1">全部</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">张三</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">李四</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">赵五</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">周六</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                </div>
+                <div class="list2-tab-item">
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                    <span class="public-flex1">全部</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">迪丽热巴</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">赵丽颖</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">郭德纲</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                  <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                    <span class="public-flex1">岳云鹏</span>
+                    <input type="checkbox" class="public-toggle" name="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset">重置</a>
+        <a class="fill-btn btn confirm">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of 筛选弹窗  ====-->
+
+
+    <!--==============================
+    =            排序弹窗            =
+    ===============================-->
+
+    <div class="public-sort-mask"></div>
+    <div class="public-sort-content" style="top: 1.76rem">
+      <div class="content-box">
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">最近更新</span>
+          <input type="radio" name="sort" class="public-toggle1" checked name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">今天</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">本月</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">本周</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset">重置</a>
+        <a class="fill-btn btn confirm">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of 排序弹窗  ====-->
+
+
+
+    <!--==============================
+    =            悬浮菜单            =
+    ===============================-->
+
+    <a href="./customerAdd.html" style="z-index: 40;" class="public-suspension-menu animated">
+      <img class="control" src="./assets/add_iocn.png">
+    </a>
+
+    <!--====  End of 悬浮菜单  ====-->
+
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+  $(function() {
+    /*==========================
+    =            筛选          =
+    ==========================*/
+    $('.screen-btn').on('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $('.public-sort-mask').click();
+      $('.public-screen-mask').fadeIn();
+      $('.public-screen-content').slideDown();
+    });
+
+    $('.public-screen-mask').on('click', function() {
+      $('.public-screen-mask').fadeOut('fast');
+      $('.public-screen-content').slideUp('fast');
+    });
+
+    $('.public-screen-content .confirm').on('click', function() {
+      $('.public-screen-mask').fadeOut('fast');
+      $('.public-screen-content').slideUp('fast');
+
+      //在这里获取选中的筛选选项并发起请求刷新页面数据
+
+    });
+
+
+    /*==========================
+    =            排序          =
+    ==========================*/
+    $('.sort-btn').on('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $('.public-screen-mask').click();
+      $('.public-sort-mask').fadeIn();
+      $('.public-sort-content').slideDown();
+    });
+
+    $('.public-sort-mask').on('click', function() {
+      $('.public-sort-mask').fadeOut('fast');
+      $('.public-sort-content').slideUp('fast');
+    });
+
+    $('.public-sort-content .confirm').on('click', function() {
+      $('.public-sort-mask').fadeOut('fast');
+      $('.public-sort-content').slideUp('fast');
+
+      //在这里获取选中的筛选选项并发起请求刷新页面数据
+
+    });
+  })
+
+  </script>
+</body>
+
+</html>

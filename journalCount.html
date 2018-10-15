@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>发布日报</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+
+    <style>
+    body{ background-color: #f7f7f7;}
+    </style>
+
+    <!-- 日志统计 无权限-->
+    <div class="count_dialy">
+        <div class="countList">
+            <div class="link">
+                <h2>日</h2>
+                <div class="info"><h3>我的日报</h3><p><span class="noyet">日报暂未提交</span><span class="gosub">点我提交</span></p></div>
+            </div>
+            <div class="link">
+                <h2>周</h2>
+                <div class="info"><h3>我的周报</h3><p><span class="onTime">本周按时提交（11.01 11：25）</span></p></div>
+            </div>
+            <div class="link">
+                <h2>月</h2>
+                <div class="info"><h3>我的月报</h3><p><span class="outTime">本月迟交.01 11：25）</span></p></div>
+            </div>
+        </div>
+    </div>
+    <!-- 日志统计 -->
+
+    <!-- 日志统计 有权限-->
+    <div class="count_dialy">
+        <div class="countList">
+            <div class="link">
+                <h2 class="orange">日</h2>
+                <div class="info"><h3>日报统计</h3><p><span>0人按时提交</span><span>0人迟交</span><span class="noyet">1人未提交</span></p></div>
+            </div>
+            <div class="link">
+                <h2 class="orange">周</h2>
+                <div class="info"><h3>周报统计</h3><p><span>0人按时提交</span><span>0人迟交</span><span>0人未提交</span></p></div>
+            </div>
+            <div class="link">
+                <h2 class="orange">月</h2>
+                <div class="info"><h3>月报统计</h3><p><span>0人按时提交</span><span>0人迟交</span><span>0人未提交</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- 日志统计 -->
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        
+
+    })()
+    </script>
+
+</body>
+</html>

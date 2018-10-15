@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>我的日报</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+
+
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+
+  <div class="deily-me-page">
+
+    <div class="public-chosebar public-bottom-line">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+      <div class="turns">
+        <div class="prev btn">上个月</div>
+        <div class="next btn">下个月</div>
+      </div>
+    </div>
+
+
+    <!--==============================
+    =            calendar            =
+    ===============================-->
+
+    <div class="calendar-wapper public-datepicker-wapper">
+      <div class="datepicker-week">
+        <div class="datepicker-item">日</div>
+        <div class="datepicker-item">一</div>
+        <div class="datepicker-item">二</div>
+        <div class="datepicker-item">三</div>
+        <div class="datepicker-item">四</div>
+        <div class="datepicker-item">五</div>
+        <div class="datepicker-item">六</div>
+      </div>
+      <div class="datepicker-items">
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item"></div>
+        <div class="datepicker-item">1</div>
+        <div class="datepicker-item">2</div>
+        <div class="datepicker-item">3</div>
+        <div class="datepicker-item">4</div>
+        <div class="datepicker-item">5</div>
+        <div class="datepicker-item">6</div>
+        <div class="datepicker-item">7</div>
+        <div class="datepicker-item">8</div>
+        <div class="datepicker-item">9</div>
+        <div class="datepicker-item datepicker-item-today">10</div>
+        <div class="datepicker-item datepicker-item-yellow">11</div>
+        <div class="datepicker-item datepicker-item-blue">12</div>
+        <div class="datepicker-item datepicker-item-gray">13</div>
+        <div class="datepicker-item">14</div>
+        <div class="datepicker-item">15</div>
+        <div class="datepicker-item">16</div>
+        <div class="datepicker-item">17</div>
+        <div class="datepicker-item">18</div>
+        <div class="datepicker-item">19</div>
+        <div class="datepicker-item">20</div>
+        <div class="datepicker-item">21</div>
+        <div class="datepicker-item">22</div>
+        <div class="datepicker-item">23</div>
+        <div class="datepicker-item">24</div>
+        <div class="datepicker-item">25</div>
+        <div class="datepicker-item">26</div>
+        <div class="datepicker-item">27</div>
+        <div class="datepicker-item">28</div>
+        <div class="datepicker-item">29</div>
+        <div class="datepicker-item active">30</div>
+      </div>
+    </div>
+
+    <!--====  End of calendar  ====-->
+
+
+
+    <div class="content">
+      <div class="content-header public-flex-center-center">
+        <div class="item public-flex-center-center">
+          <div class="block blue"></div>
+          <span>按时提交</span>
+        </div>
+        <div class="item public-flex-center-center">
+          <div class="block yellow"></div>
+          <span>迟交</span>
+        </div>
+        <div class="item public-flex-center-center">
+          <div class="block gray"></div>
+          <span style="padding-right: 0">未提交</span>
+        </div>
+      </div>
+      <div class="submit-box">
+        <h2>今日日报未提交</h2>
+        <p>每天18:00前开始提交，次日9点前完成，否则为迟交</p>
+        <a href="#" class="btn blue">立即提交</a>
+      </div>
+      <div class="article">
+        <div class="article-header public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/d08.png)"></div>
+          <div class="rside public-flex1">
+            <h3>十年的周报<span class="public-tags-blue-dark">按时提交</span></h3>
+            <p class="time">22：08</p>
+          </div>
+        </div>
+        <div class="article-content">
+          今日完成工作：调果师COO肖洪涛“我用日志实
+          现标准化管理”调果师成立于2013年，已成为最现标准化管理”调果师成立于2013年，已成为最
+          甜心的农企服务平台”为目标，通过会计... <span>全文</span>
+        </div>
+      </div>
+      <div class="page-empty">
+        <img src="./assets/a06.png">
+        <p>未提交日报</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+
+
+  <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  (function() {
+    var calendar = new LCalendar();
+    calendar.init({
+      trigger: '#mj_js_datepicker', //标签id
+      type: 'ym', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+      minDate: (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+      maxDate: (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31, //最大日期
+      callback: function(year, month) {
+        console.log(year, month)
+      }
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

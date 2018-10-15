@@ -160,8 +160,8 @@
     (function() {
       var canvas = document.getElementById('canvas');
       var ctx = canvas.getContext('2d');
-      canvas.width = canvas.parentNode.offsetWidth;
-      canvas.height = canvas.parentNode.offsetHeight;
+      canvas.width = canvas.parentNode.offsetWidth*2;
+      canvas.height = canvas.parentNode.offsetHeight*2;
       //如果浏览器支持requestAnimFrame则使用requestAnimFrame否则使用setTimeout
       window.requestAnimFrame = (function() {
         return window.requestAnimationFrame ||

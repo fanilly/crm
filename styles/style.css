@@ -311,7 +311,7 @@ input {
 }
 
 .report-record-page .calendar-wapper {
-  border-bottom: .2rem solid #f7f7f7;
+  border-bottom: .14rem solid #f7f7f7;
 }
 
 .report-record-page .record {
@@ -748,3 +748,204 @@ input {
   font-size: .3rem;
   color: #333;
 }
+
+/*===================================================
+=                       添加客户                    =
+====================================================*/
+.customer-add-page {
+  padding-top: .14rem;
+}
+
+.customer-add-page .input-group {
+  background-color: #fff;
+  padding-left: .3rem;
+  margin-bottom: .14rem;
+}
+
+.customer-add-page .submit {
+  padding: .3rem;
+}
+
+/*===================================================
+=                      客户列表                     =
+====================================================*/
+.customer-list-page .customer-list-list .item {}
+
+.customer-list-page .customer-list-list .item .lside {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 100%;
+  background-color: #d4d4d4;
+  color: #fff;
+  font-size: .22rem;
+  margin: .3rem;
+}
+
+.customer-list-page .customer-list-list .item .lside.active {
+  background-color: #00aeff;
+}
+
+.customer-list-page .customer-list-list .item .center {
+  padding: .3rem .3rem .3rem 0;
+  position: relative;
+}
+
+.customer-list-page .customer-list-list .item .center h2 {
+  font-size: .3rem;
+  color: #333;
+  font-weight: normal;
+}
+
+.customer-list-page .customer-list-list .item .center h2 span {
+  font-size: .24rem;
+  color: #666;
+}
+
+.customer-list-page .customer-list-list .item .center p {
+  font-size: .22rem;
+  color: #666;
+  padding: .06rem 0 .1rem;
+}
+
+.customer-list-page .customer-list-list .item .center .bottom {
+  font-size: .2rem;
+  color: #999;
+}
+
+.customer-list-page .customer-list-list .item .center .middle {
+  font-size: .22rem;
+  color: #333;
+  padding: .06rem 0 .1rem;
+}
+.customer-list-page .customer-list-list .item .center .middle img {
+  width: .24rem;
+  margin-right: .1rem;
+}
+.customer-list-page .customer-list-list .item .public-tags-blue {
+  margin-left: .2rem;
+}
+
+/*===================================================
+=                       我的日报                      =
+====================================================*/
+.deily-me-page .calendar-wapper {
+  border-bottom: .14rem solid #f7f7f7;
+}
+
+.deily-me-page .page-empty {
+  text-align: center;
+  padding-top: 1rem;
+  color: #999;
+  font-size: .28rem;
+}
+
+.deily-me-page .page-empty img {
+  width: .96rem;
+  position: relative;
+  left: .06rem;
+  margin-bottom: .2rem;
+}
+
+.deily-me-page .content-header {
+  padding: .4rem 0;
+}
+
+.deily-me-page .content-header .item .block {
+  width: 1rem;
+  height: .3rem;
+}
+
+.deily-me-page .content-header .item span {
+  font-size: .24rem;
+  color: #666;
+  padding: 0 .3rem;
+}
+
+.deily-me-page .content-header .item div.yellow {
+  background-color: #ffefd9;
+}
+
+.deily-me-page .content-header .item div.blue {
+  background-color: #d9f3ff;
+}
+
+.deily-me-page .content-header .item div.gray {
+  background-color: #f1f1f1;
+}
+
+.deily-me-page .submit-box {
+  text-align: center;
+}
+
+.deily-me-page .submit-box h2 {
+  font-size: .34rem;
+  color: #333;
+}
+
+.deily-me-page .submit-box p {
+  font-size: .24rem;
+  color: #666;
+  padding: .1rem 0 .4rem;
+}
+
+.deily-me-page .submit-box .btn {
+  display: inline-block;
+  width: 3rem;
+  height: .9rem;
+  line-height: .9rem;
+  border-radius: 4px;
+  color: #fff;
+  font-size: .3rem;
+  text-align: center;
+}
+
+.deily-me-page .submit-box .btn.blue {
+  background-color: #00aeff;
+}
+
+.deily-me-page .submit-box .btn.yellow {
+  background-color: #ffaa30;
+}
+
+.deily-me-page .article {
+  padding: .3rem;
+}
+
+.deily-me-page .article .lside {
+  width: .72rem;
+  height: .72rem;
+  margin-right: .3rem;
+  border-radius: 50%;
+}
+
+.deily-me-page .article .rside h3 {
+  font-size: .28rem;
+  color: #333;
+  font-weight: normal;
+}
+
+.deily-me-page .article .rside h3 span {
+  margin-left: .2rem;
+}
+
+.deily-me-page .article .rside p {
+  font-size: .22rem;
+  color: #999;
+}
+
+.deily-me-page .article .article-content {
+  padding-top: .2rem;
+  font-size: .32rem;
+  color: #333;
+  line-height: .54rem;
+  position: relative;
+  display: block;
+}
+
+.deily-me-page .article .article-content span {
+  background-color: #fff;
+  color: #00aeff;
+  text-indent: 0;
+  line-height: .54rem;
+}
+

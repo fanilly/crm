@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>添加拜访</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body>
+    <style>
+    body{ background-color: #f7f7f7;}
+    </style>
+
+    <!-- 发布日报 -->
+    <div class="publish_visit">
+        <div class="input-group" style='background-color: #fff; padding-left: 0.3rem; margin-bottom: 0.14rem;'>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">拜访对象</span>
+                    <span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">拜访方式</span>
+                    <span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="phone" name="" placeholder="当面拜访">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-flex-center screen-btn">
+                <label class="lside public-flex-center">
+                    <span class="name">当前位置</span>
+                    <span class="require">*</span>
+                </label>
+                
+                <input class="input public-flex1" id="address" type="text" name="" value="教育局家属院" placeholder="选填">
+                <img style="width: .38rem; margin-left: .2rem;" id="js_handle_choose_address" src="./assets/b03.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="keeps">
+            <dl><dt>主要事宜<em>*</em></dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl><dt>拜访结果</dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl><dt>备注</dt><dd><textarea autoHeight="true" placeholder="请输入"></textarea></dd></dl>
+            <dl>
+                <dt style='margin-bottom: 0'>上传附件或图片</dt>
+                <dd>
+                    <div class="photo">
+                        <div class="item">
+                            <img src="assets/bg.jpg" alt="" class="img">
+                            <img src="assets/c35.png" alt="" class="close">
+                        </div>
+                        <div class="add"><img src="assets/c36.png" alt=""><input type="file" ></div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="fix_visit_btn"><span>提交</span></div>
+    </div>
+    <!-- 发布日报 -->
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        $.fn.autoHeight = function(){
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });
+        }
+        $('textarea[autoHeight]').autoHeight();
+
+        //选择地址
+        $('#js_handle_choose_address').on('click', function() {
+          location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.200:520/customerAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
+        });
+
+        var queryObj = searchString2Obj(location.search.substr(1));
+        console.log(queryObj)
+        if (queryObj.addr) $('#address').val(queryObj.addr);
+
+    })()
+    </script>
+</body>
+
+</html>

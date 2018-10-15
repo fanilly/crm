@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>日报统计</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+    body{ padding-top: 2.78rem; }
+    </style>
+
+    <!-- 日志统计详情 -->
+    <div class="show_dialy">
+        <div class="top_tab">
+            <div class="public-chosebar">
+                <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年09月"></div>
+                <!-- <div class="turns">
+                    <div class="prev btn">前一天</div>
+                    <div class="next btn">后一天</div>
+                </div> -->
+                <div class="turns">
+                    <div class="prev btn">上一周</div>
+                    <div class="time">09.24 ~ 09.30</div>
+                    <div class="next btn">下一周</div>
+                </div>
+                <!-- <div class="turns">
+                    <div class="prev btn">上一月</div>
+                    <div class="next btn">下一月</div>
+                </div> -->
+            </div>
+            <div class="numtab">
+                <div class="tab on"><p><span>0</span>未提交</p></div>
+                <div class="tab"><p><span>1</span>迟交</p></div>
+                <div class="tab"><p><span>3</span>按时提交</p></div>
+            </div>
+        </div>
+        
+        <div id="switch">
+        <!-- 未提交 -->
+        <div class="no_submit">
+            <div class="no_yet">
+                <h2>9月月报未提交</h2>
+                <p>每月28号前开始提交，每月月末前完成，否则为迟交</p>
+                <a class="jumpbtn outTime">立即提交</a>
+            </div>
+            <div class="no_yet">
+                <h2>您的月报已全部完成</h2>
+                <p>每月28号前开始提交，每月月末前完成，否则为迟交</p>
+                <img src="assets/c47.png" alt="" class="finish_img">
+            </div>
+        </div>
+        <!-- 未提交 -->
+        
+        <!-- 迟交 -->
+        <div class="dailyList">
+            <div class="dailyItem border-bottom late">
+                <div class="sender">
+                    <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+                    <a class="names"><span><em>十年的日报</em><b>按时提交</b></span><i>今天22:08</i></a>
+                </div>
+                <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+            </div>
+            <div class="dailyItem border-bottom late">
+                <div class="sender">
+                    <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+                    <a class="names"><span><em>十年的日报</em><b>按时提交</b></span><i>今天22:08</i></a>
+                </div>
+                <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+            </div>
+        </div>
+        <!-- 迟交-->
+
+        <!-- 按时提交 -->
+        <div class="dailyList">
+            <div class="dailyItem border-bottom">
+                <div class="sender">
+                    <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+                    <a class="names"><span><em>十年的日报</em><b>按时提交</b></span><i>今天22:08</i></a>
+                </div>
+                <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+            </div>
+            <div class="dailyItem border-bottom">
+                <div class="sender">
+                    <a class="tx_img"><img src="assets/icon05.png" alt=""></a>
+                    <a class="names"><span><em>十年的日报</em><b>按时提交</b></span><i>今天22:08</i></a>
+                </div>
+                <div class="word">今日完成工作：调果师COO肖洪涛“我用日志实现标准化管理”调果师成立于2013年，已成为最甜心的农企服务平台”为目标，通过会计... </div>
+            </div>
+        </div>
+        <!-- 按时提交 -->
+        </div>
+
+
+    </div>
+    <!-- 日志统计详情 -->
+
+    
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        $('.numtab .tab').click(function(){
+            var index = $(this).index()
+            $(this).addClass('on').siblings('.tab').removeClass('on')
+            $('#switch > div').eq(index).fadeIn().siblings('div').hide()
+        })
+
+    })()
+    </script>
+
+</body>
+</html>

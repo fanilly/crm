@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>签到详情</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body onload="init()">
+
+    <div class="out_sign">
+        <div id="container" style='width:100%; height: 5rem;'></div>
+        <div class="user public-bottom-line">
+            <div class="go">
+                <a class="imga"><img src="assets/d08.png" alt=""></a>
+                <a  class="name"><span>郭德纲</span><i>技术部</i></a>
+            </div>
+        </div>
+        <div class="list">
+            <div class="items">
+                <h2><span>09.30</span><i>11:38</i></h2>
+                <div class="info public-bottom-line">
+                    <div class="name"><span><em>郭德纲</em>的</span><i>签到</i></div>
+                    <div class="place">教育局家属院（经六路4号院南）</div>
+                    <p><span>拜访对象：张志明</span><span>备注内容：去找张经理谈一下项目合同的问题</span></p>
+                    <div class="pic"><img src="assets/bg.jpg" alt=""></div>
+                </div>
+            </div>
+            <div class="items">
+                <h2><span>09.30</span><i>11:38</i></h2>
+                <div class="info public-bottom-line">
+                    <div class="name"><span><em>郭德纲</em>的</span><i>签到</i></div>
+                    <div class="place">教育局家属院（经六路4号院南）</div>
+                    <p><span>拜访对象：张志明</span><span>备注内容：去找张经理谈一下项目合同的问题</span></p>
+                    <div class="pic"><img src="assets/bg.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <!--==============================
+        =            悬浮菜单            =
+        ===============================-->
+        <a href="./customerAdd.html" class="public-suspension-menu animated">
+          <img class="control" src="./assets/add_iocn.png">
+        </a>
+        <!--====  End of 悬浮菜单  ====-->
+
+    </div>
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp"></script>
+    <script>
+    var init = function() {
+        var center = new qq.maps.LatLng(34.7568711,113.663221);
+        var map = new qq.maps.Map(document.getElementById('container'),{
+            center: center,
+            zoom: 13,
+            disableDefaultUI: true,    //禁止所有控件
+        });
+        //创建marker
+        var marker = new qq.maps.Marker({
+            position: center,
+            map: map
+        });
+    }
+    </script>
+</body>
+
+</html>

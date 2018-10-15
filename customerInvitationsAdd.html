@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>添加客户</title>
+  <title>添加邀约</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
 </head>
 
 <body>
@@ -18,16 +18,12 @@
 
     <div class="input-group">
       <div class="public-input-box-type03 public-bottom-line public-flex-center">
-        <label class="lside public-flex-center"><span class="name">姓名</span><span class="require">*</span></label>
+        <label class="lside public-flex-center"><span class="name">邀约对象</span><span class="require">*</span></label>
         <input class="input public-flex1" type="text" name="" placeholder="点击输入">
       </div>
       <div class="public-input-box-type03 public-bottom-line public-flex-center">
-        <label class="lside public-flex-center"><span class="name">电话</span><span class="require">*</span></label>
-        <input class="input public-flex1" type="phone" name="" placeholder="点击输入">
-      </div>
-      <div class="public-input-box-type03 public-flex-center screen-btn">
-        <label class="lside public-flex-center"><span class="name">标签</span><span class="require">*</span></label>
-        <div class="tags public-flex1"><span class="public-tags-blue">渠道商</span><span class="public-tags-blue">供应商</span><span class="public-tags-blue">客户</span></div>
+        <label class="lside public-flex-center"><span class="name">邀约方式</span><span class="require">*</span></label>
+        <input class="input public-flex1" id="invitations_mode" type="phone" name="" value="当面邀约">
         <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
       </div>
     </div>
@@ -35,135 +31,27 @@
     <div class="public-mask"></div>
 
     <div class="input-group">
-      <div class="public-input-box-type03 public-bottom-line public-flex-center">
-        <label class="lside public-flex-center"><span class="name">公司</span></label>
-        <input class="input public-flex1" type="text" name="" placeholder="选填">
-      </div>
-      <div class="public-input-box-type03 public-bottom-line public-flex-center">
-        <label class="lside public-flex-center"><span class="name">职位</span></label>
-        <input class="input public-flex1" type="text" name="" placeholder="选填">
-      </div>
       <div class="public-input-box-type03 public-flex-center public-bottom-line">
-        <label class="lside public-flex-center"><span class="name">地址</span></label>
+        <label class="lside public-flex-center"><span class="name">邀约地点</span></label>
         <input class="input public-flex1" id="address" type="text" name="" placeholder="选填">
         <img style="width: .38rem; margin-left: .2rem;" id="js_handle_choose_address" src="./assets/b03.png" class="clear-input" alt="">
       </div>
-      <div class="public-input-box-type03 public-bottom-line public-flex-center">
-        <label class="lside public-flex-center"><span class="name">邮箱</span></label>
-        <input class="input public-flex1" type="email" name="" placeholder="选填">
-      </div>
-      <div class="public-input-box-type03 public-flex-center">
-        <label class="lside public-flex-center"><span class="name">备注</span></label>
-        <input class="input public-flex1" type="text" name="" placeholder="选填">
-      </div>
-    </div>
-
-    <div class="public-list-type05">
-      <a href="#" class="item public-flex-center">
-        <img class="lside" src="./assets/b01.png">
-        <div class="center public-flex1">
-          <h3 class="title">共享客户</h3>
-          <h6 class="remark">被共享的同事/部门可查看</h6>
-        </div>
-        <div class="rside public-flex-center">
-          <p>选择</p>
-          <img src="./assets/a04.png" alt="">
-        </div>
-      </a>
-
-      <a href="#" class="item public-flex-center">
-        <img class="lside" src="./assets/b01.png">
-        <div class="center public-flex1">
-          <h3 class="title">扫名片添加</h3>
-          <h6 class="remark">扫码客户名片，自动识别名片信息</h6>
-        </div>
-        <div class="rside public-flex-center">
-          <p>选择</p>
-          <img src="./assets/a04.png" alt="">
-        </div>
-      </a>
-    </div>
-
-    <!--==============================
-    =            筛选弹窗            =
-    ===============================-->
-
-    <div class="public-screen-mask"></div>
-    <div class="public-screen-content" style="top: 2.14rem">
-      <div class="public-input-box-type03 public-flex-center public-bottom-line screen-btn">
-        <label class="lside public-flex-center"><span class="name">标签</span><span class="require">*</span></label>
-        <div class="tags public-flex1"><span class="public-tags-blue">渠道商</span><span class="public-tags-blue">供应商</span><span class="public-tags-blue">客户</span></div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result">
+        <label class="lside public-flex-center"><span class="name">邀约结果</span></label>
+        <input class="input public-flex1" type="email" name="" readonly value="成功">
         <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
       </div>
-      <div class="content-box">
-        <div class="navs-box">
-          <a href="#" class="active">客户类型</a>
-          <a href="#">客户级别</a>
-          <a href="#">客户状态</a>
-        </div>
-        <div class="list-box">
-          <div class="list-box-item">
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">客户</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">渠道商</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">供应商</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">合作伙伴</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-          </div>
-          <div class="list-box-item">
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">一级</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">二级</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">三级</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">四级</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-          </div>
-          <div class="list-box-item">
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">状态一</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">状态二</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-              <span class="public-flex1">状态三</span>
-              <input type="checkbox" class="public-toggle" name="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-box">
-        <a class="line-btn btn reset">重置</a>
-        <a class="fill-btn btn confirm">确定</a>
+    </div>
+
+    <div class="input-group" style="padding-right: .3rem;">
+      <div class="public-textarea-box-type01">
+        <div class="title">备注</div>
+        <textarea placeholder="请输入" autoHeight="true"></textarea>
       </div>
     </div>
 
-    <!--====  End of 筛选弹窗  ====-->
-
     <div class="submit">
-      <button class="public-btn-type02">确认添加</button>
+      <button class="public-btn-type02">保存</button>
     </div>
 
   </form>
@@ -177,36 +65,43 @@
   (function() {
     //选择地址
     $('#js_handle_choose_address').on('click', function() {
-      location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.200:520/customerAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
+      location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.101:520/customerInvitationsAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
     });
 
+    //选择邀约方式
+    $("#invitations_mode").picker({
+      title: "请选择邀约方式",
+      cols: [
+        {
+          textAlign: 'center',
+          values: ['当面邀约','电话邀约','聊天软件邀约','其他']
+        }
+      ]
+    });
+
+    //选择结果
+    $('#select_result').on('click', function() {
+      var $self = $(this);
+      $.actions({
+        actions: [{
+          text: "邀约成功",
+          className:'public-color-success',
+          onClick: function() {
+            $self.find('input').val('成功')
+          }
+        }, {
+          text: "邀约失败",
+          className: 'public-color-fail',
+          onClick: function() {
+            $self.find('input').val('失败');
+          }
+        }]
+      });
+    });
+
+    //选择地址
     var queryObj = searchString2Obj(location.search.substr(1));
-    console.log(queryObj)
     if (queryObj.addr) $('#address').val(queryObj.addr);
-
-    /*==========================
-    =          选择标签        =
-    ==========================*/
-    $('.screen-btn').on('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      $('.public-sort-mask').click();
-      $('.public-screen-mask').fadeIn();
-      $('.public-screen-content').slideDown();
-    });
-
-    $('.public-screen-mask').on('click', function() {
-      $('.public-screen-mask').fadeOut('fast');
-      $('.public-screen-content').slideUp('fast');
-    });
-
-    $('.public-screen-content .confirm').on('click', function() {
-      $('.public-screen-mask').fadeOut('fast');
-      $('.public-screen-content').slideUp('fast');
-
-      //在这里获取选中的筛选选项并发起请求刷新页面数据
-
-    });
   })()
 
   </script>

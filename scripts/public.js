@@ -48,17 +48,19 @@
 
     //选择弹窗
     $('.public-choose-box-type01').on('click', function(e) {
-      if(e.target.nodeName == 'INPUT') return;
+      if (e.target.nodeName == 'INPUT') return;
       $(this).find('input').click();
-      if($(this).data('action') === 'all' && $(this).find('input:checked').length != 0){
+      if ($(this).data('action') === 'all' && $(this).find('input:checked').length != 0) {
         $(this).parent().find('input:not(:checked)').click();
       }
     });
     $('.public-screen-content .navs-box a').on('click', function(e) {
+      e.preventDefault();
       $(this).addClass('active').siblings().removeClass('active');
       $('.public-screen-content .list-box .list-box-item').fadeOut(0).eq($(this).index()).fadeIn(0);
     });
     $('.public-screen-content .list2-nav a').on('click', function(e) {
+      e.preventDefault();
       $(this).addClass('active').siblings().removeClass('active');
       $('.public-screen-content .list2-tab-item-wapper .list2-tab-item').fadeOut(0).eq($(this).index()).fadeIn(0);
     });
@@ -122,54 +124,54 @@
   =                    vue拓展                    =
   =================================================*/
 
-    Vue.filter('timeConversion', function(timeStamp, fmt) {
-      timeStamp *= 1000;
-      var tempFmt = fmt;
-      var fmt = !fmt || fmt === '666' ? 'yyyy-MM-dd hh:mm:ss' : fmt,
-        txt = '',
-        getDate = new Date(timeStamp),
-        o = {
-          'M+': getDate.getMonth() + 1,
-          'd+': getDate.getDate(),
-          'h+': getDate.getHours(),
-          'm+': getDate.getMinutes(),
-          's+': getDate.getSeconds(),
-          'q+': Math.floor((getDate.getMonth() + 3) / 3),
-          'S': getDate.getMilliseconds()
-        },
-        diffTime = (+new Date - timeStamp) / 1000;
+  Vue.filter('timeConversion', function(timeStamp, fmt) {
+    timeStamp *= 1000;
+    var tempFmt = fmt;
+    var fmt = !fmt || fmt === '666' ? 'yyyy-MM-dd hh:mm:ss' : fmt,
+      txt = '',
+      getDate = new Date(timeStamp),
+      o = {
+        'M+': getDate.getMonth() + 1,
+        'd+': getDate.getDate(),
+        'h+': getDate.getHours(),
+        'm+': getDate.getMinutes(),
+        's+': getDate.getSeconds(),
+        'q+': Math.floor((getDate.getMonth() + 3) / 3),
+        'S': getDate.getMilliseconds()
+      },
+      diffTime = (+new Date - timeStamp) / 1000;
 
-      if (tempFmt === '666') {
-        if (diffTime < 60 * 5) {
-          txt = "刚刚";
-        } else if (diffTime >= 60 * 5 && diffTime < 60 * 60) {
-          txt = parseInt(diffTime / 60) + "分钟前";
-        } else if (diffTime >= 3600 && diffTime < 3600 * 24) {
-          txt = parseInt(diffTime / 3600) + "小时前";
-        } else if (diffTime >= 3600 * 24 && diffTime < 3600 * 24 * 30) {
-          // txt = parseInt(diffTime / 3600 / 24) + "天前";
-          fmt = 'yyyy-MM-dd';
-        } else if (diffTime >= 3600 * 24 * 30 && diffTime < 3600 * 24 * 30 * 12) {
-          // txt = parseInt(diffTime / 3600 / 24 / 30) + "个月前";
-          fmt = 'yyyy-MM-dd';
-        } else if (diffTime >= 3600 * 24 * 30 * 12) {
-          // txt = parseInt(diffTime / 3600 / 24 / 30 / 12) + "年前";
-          fmt = 'yyyy-MM-dd';
-        }
+    if (tempFmt === '666') {
+      if (diffTime < 60 * 5) {
+        txt = "刚刚";
+      } else if (diffTime >= 60 * 5 && diffTime < 60 * 60) {
+        txt = parseInt(diffTime / 60) + "分钟前";
+      } else if (diffTime >= 3600 && diffTime < 3600 * 24) {
+        txt = parseInt(diffTime / 3600) + "小时前";
+      } else if (diffTime >= 3600 * 24 && diffTime < 3600 * 24 * 30) {
+        // txt = parseInt(diffTime / 3600 / 24) + "天前";
+        fmt = 'yyyy-MM-dd';
+      } else if (diffTime >= 3600 * 24 * 30 && diffTime < 3600 * 24 * 30 * 12) {
+        // txt = parseInt(diffTime / 3600 / 24 / 30) + "个月前";
+        fmt = 'yyyy-MM-dd';
+      } else if (diffTime >= 3600 * 24 * 30 * 12) {
+        // txt = parseInt(diffTime / 3600 / 24 / 30 / 12) + "年前";
+        fmt = 'yyyy-MM-dd';
       }
+    }
 
-      if (/(y+)/.test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (getDate.getFullYear() + '').substr(4 - RegExp.$1.length))
+    if (/(y+)/.test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (getDate.getFullYear() + '').substr(4 - RegExp.$1.length))
+    }
+
+    for (let k in o) {
+      if (new RegExp('(' + k + ')').test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
       }
+    }
 
-      for (let k in o) {
-        if (new RegExp('(' + k + ')').test(fmt)) {
-          fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
-        }
-      }
-
-      return txt == '' ? fmt : txt;
-    });
+    return txt == '' ? fmt : txt;
+  });
 
 
   $('#form').on('valid.form', function(e) {
@@ -193,6 +195,23 @@
   });
 
 })();
+
+// textarea 自动高度
+$.fn.autoHeight = function() {
+  function autoHeight(elem) {
+    elem.style.height = 'auto';
+    elem.scrollTop = 0; //防抖动
+    elem.style.height = elem.scrollHeight + 'px';
+  }
+  this.each(function() {
+    autoHeight(this);
+    $(this).on('keyup', function() {
+      autoHeight(this);
+    });
+  });
+}
+$('textarea[autoHeight]').autoHeight();
+
 //计算2个时间的时间差，单位秒
 function substractDate(date1, date2) {
   var type1 = typeof date1;

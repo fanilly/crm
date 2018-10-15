@@ -43,7 +43,7 @@
                     <span class="name">当前位置</span>
                     <span class="require">*</span>
                 </label>
-                
+
                 <input class="input public-flex1" id="address" type="text" name="" value="教育局家属院" placeholder="选填">
                 <img style="width: .38rem; margin-left: .2rem;" id="js_handle_choose_address" src="./assets/b03.png" class="clear-input" alt="">
             </div>
@@ -95,7 +95,7 @@
 
         //选择地址
         $('#js_handle_choose_address').on('click', function() {
-          location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.200:520/customerAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
+          location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.101:520/clientVisitAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
         });
 
         var queryObj = searchString2Obj(location.search.substr(1));

@@ -46,22 +46,32 @@
     ===========================-->
 
 
-    <div class="client_visit">
-        <div class="list">
-            <div class="items">
-                <h2>千玺</h2>
-                <div class="info public-bottom-line">
-                    <h3>易烊千玺</h3>
-                    <p><span>拜访人</span><i>杨洋</i></p>
-                    <p><span>拜访时间</span><i>2018.10.09 12:00</i><em>当面拜访</em></p>
+    <div class="client_visit customer-list-page">
+        <div class="customer-list-list">
+            <div class="item public-flex-center">
+                <div class="lside active public-flex-center-center"><span>星辰</span></div>
+                <div class="center public-flex1 public-bottom-line">
+                    <h2 class="public-flex-center">
+                        <div class="public-flex1">刘星辰</div>
+                    </h2>
+                    <p>拜访人 杨洋</p>
+                    <div class="public-flex-center bottom">
+                        <div class="public-flex1">拜访时间 2018.10.09</div>
+                        <div><span class="public-tags-blue">电话拜访</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="items">
-                <h2>千玺</h2>
-                <div class="info public-bottom-line">
-                    <h3>易烊千玺</h3>
-                    <p><span>拜访人</span><i>杨洋</i></p>
-                    <p><span>拜访时间</span><i>2018.10.09 12:00</i><em>电话拜访</em></p>
+            <div class="item public-flex-center">
+                <div class="lside active public-flex-center-center"><span>星辰</span></div>
+                <div class="center public-flex1 public-bottom-line">
+                    <h2 class="public-flex-center">
+                        <div class="public-flex1">刘星辰</div>
+                    </h2>
+                    <p>拜访人 杨洋</p>
+                    <div class="public-flex-center bottom">
+                        <div class="public-flex1">拜访时间 2018.10.09</div>
+                        <div><span class="public-tags-blue">当面拜访</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +79,7 @@
         <!--==============================
         =            悬浮菜单            =
         ===============================-->
-        <a href="./customerAdd.html" class="public-suspension-menu animated">
+        <a href="./clientVisitAdd.html" style="z-index: 40;" class="public-suspension-menu animated">
           <img class="control" src="./assets/add_iocn.png">
         </a>
         <!--====  End of 悬浮菜单  ====-->
@@ -77,91 +87,167 @@
         <!--==============================
         =            筛选弹窗            =
         ===============================-->
+
         <div class="public-screen-mask"></div>
         <div class="public-screen-content" style="top: 1.76rem">
-            <div class="content-box">
-                <div class="navs-box">
-                    <a href="#" class="active">客户类型</a>
-                    <a href="#">客户级别</a>
-                    <a href="#">客户状态</a>
+          <div class="content-box">
+            <div class="navs-box">
+              <a href="#" class="active">拜访方式</a>
+              <a href="#">拜访人员</a>
+            </div>
+            <div class="list-box">
+              <div class="list-box-item">
+                <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                  <span class="public-flex1">当面拜访</span>
+                  <input type="checkbox" class="public-toggle" name="">
                 </div>
-                <div class="list-box">
-                    <div class="list-box-item">
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">客户</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">渠道商</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">供应商</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">合作伙伴</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                    </div>
-                    <div class="list-box-item">
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">一级</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">二级</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">三级</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">四级</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                    </div>
-                    <div class="list-box-item">
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">状态一</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">状态二</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                            <span class="public-flex1">状态三</span>
-                            <input type="checkbox" class="public-toggle" name="">
-                        </div>
-                      </div>
+                <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                  <span class="public-flex1">电话拜访</span>
+                  <input type="checkbox" class="public-toggle" name="">
+                </div>
+                <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                  <span class="public-flex1">聊天软件拜访</span>
+                  <input type="checkbox" class="public-toggle" name="">
+                </div>
+                <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                  <span class="public-flex1">其他</span>
+                  <input type="checkbox" class="public-toggle" name="">
+                </div>
+              </div>
+              <div class="list-box-item" style="padding-left: 0;">
+                <div class="list2-tab-wapper">
+                  <div class="list2-nav public-right-line">
+                    <a href="#" class="active">全部</a>
+                    <a href="#">技术部</a>
+                    <a href="#">客服部</a>
                   </div>
+                  <div class="list2-tab-item-wapper">
+                    <div class="list2-tab-item">
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                        <span class="public-flex1">全部</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">迪丽热巴</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">赵丽颖</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">郭德纲</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">岳云鹏</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">张三</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">李四</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">赵五</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">周六</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                    </div>
+                    <div class="list2-tab-item">
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                        <span class="public-flex1">全部</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">张三</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">李四</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">赵五</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">周六</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                    </div>
+                    <div class="list2-tab-item">
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line" data-action="all">
+                        <span class="public-flex1">全部</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">迪丽热巴</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">赵丽颖</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">郭德纲</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                      <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                        <span class="public-flex1">岳云鹏</span>
+                        <input type="checkbox" class="public-toggle" name="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="footer-box">
-                <a class="line-btn btn reset">重置</a>
-                <a class="fill-btn btn confirm">确定</a>
-            </div>
+          </div>
+          <div class="footer-box">
+            <a class="line-btn btn reset">重置</a>
+            <a class="fill-btn btn confirm">确定</a>
+          </div>
         </div>
+
         <!--====  End of 筛选弹窗  ====-->
 
 
         <!--==============================
         =            排序弹窗            =
         ===============================-->
+
         <div class="public-sort-mask"></div>
         <div class="public-sort-content" style="top: 1.76rem">
-            <div class="content-box">
-                <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-                    <span class="public-flex1">客户</span>
-                    <input type="checkbox" class="public-toggle1" name="">
-                </div>
+          <div class="content-box">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">最近更新</span>
+              <input type="radio" name="sort" class="public-toggle1" checked name="">
             </div>
-            <div class="footer-box">
-                <a class="line-btn btn reset">重置</a>
-                <a class="fill-btn btn confirm">确定</a>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">今天</span>
+              <input type="radio" name="sort" class="public-toggle1" name="">
             </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">本月</span>
+              <input type="radio" name="sort" class="public-toggle1" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">本周</span>
+              <input type="radio" name="sort" class="public-toggle1" name="">
+            </div>
+          </div>
+          <div class="footer-box">
+            <a class="line-btn btn reset">重置</a>
+            <a class="fill-btn btn confirm">确定</a>
+          </div>
         </div>
+
         <!--====  End of 排序弹窗  ====-->
 
     </div>

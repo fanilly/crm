@@ -437,6 +437,18 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .client_visit .list .items .info p:last-child{ margin-bottom: 0; }
 /*客户拜访*/
 
+/*客户列表*/
+.customer-list-page .customer-list-list .item{}
+.customer-list-page .customer-list-list .item .lside{width: .8rem; height: .8rem; border-radius: 100%; background-color: #d4d4d4; color: #fff; font-size: .22rem; margin: .3rem;}
+.customer-list-page .customer-list-list .item .lside.active{background-color: #00aeff;}
+.customer-list-page .customer-list-list .item .center{padding: .3rem .3rem .3rem 0; position: relative;}
+.customer-list-page .customer-list-list .item .center h2{font-size: .3rem; color: #333; font-weight: normal;}
+.customer-list-page .customer-list-list .item .center h2 span{font-size: .24rem; color: #666;}
+.customer-list-page .customer-list-list .item .center p{font-size: .22rem; color: #666; padding: .06rem 0 .1rem;}
+.customer-list-page .customer-list-list .item .center .bottom{font-size: .2rem; color: #999;}
+.customer-list-page .customer-list-list .item .public-tags-blue{margin-left: .2rem;}
+/*客户列表*/
+
 /*添加拜访*/
 .publish_visit{ padding-bottom: 1.6rem; }
 .publish_visit .keeps{}
@@ -455,3 +467,20 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .fix_visit_btn{padding: 0.3rem; position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff;}
 .fix_visit_btn span{display: block; width:100%; height: 1rem; line-height:1rem; background-color: #00aeff; border-radius: 0.06rem; font-size: 0.32rem; color: #fff; text-align: center;}
 /*添加拜访*/
+
+/*客户统计*/
+.client_count{}
+.client_count .client_nav_box{ position: fixed; left: 0; top:0; right: 0; z-index: 33; line-height: 0.88rem; background-color: #fff; }
+.client_count .client_nav_box .btn{ text-align: center; display: block; font-size: 0.3rem; color: #333; width:50%; float: left;  }
+.client_count .client_nav_box .btn span{ display: inline-block; vertical-align: bottom; padding-right:0.3rem; background: url('../assets/more.png') no-repeat right center; background-size: 0.16rem auto; }
+.client_count .public-chosebar{ position: fixed; left: 0; top: 0.88rem; z-index: 33; width:100%; border-bottom:0.14rem solid #f7f7f7;  }
+.client_count .chartform{ padding:0.3rem 0.3rem 0 0.3rem; background-color: #fff; margin-bottom: 0.14rem; }
+.client_count .chartform h2{ font-size: 0.28rem; color: #333; font-weight: normal; }
+.client_count ul{ overflow: hidden; background-color: #fff; }
+.client_count ul li{ width: 50%; float: left;padding: 0.45rem 0.3rem; text-align: center; position: relative;}
+.client_count ul li h2{ font-size: 0.22rem; color: #666; line-height: 1.1; margin-bottom: 0.24rem; font-weight: normal; }
+.client_count ul li h3{ font-size: 0.3rem; color: #333; line-height: 1.2; }
+.client_count ul li h3.orange{ color: #ffaa30; }
+.client_count ul li.b_bottom::after{content: " "; position: absolute; left: 0; bottom: 0; right: 0; height: 1px; border-top: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);  }
+.client_count ul li.b_right::before{content: " "; position: absolute; right: 0; top: 0; bottom: 0; right: 0; width: 1px; border-right: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleX(0.5); transform: scaleX(0.5);  }
+/*客户统计*/

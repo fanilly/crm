@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>客户排行</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+
+</head>
+
+<body>
+    <style>
+    body{ background-color: #f7f7f7;}
+    </style>
+    <div class="client_rank">
+        
+        <div class="ranklist">
+            <div class="item" onclick="window.location.href='./clientRankNew.html'"><h2><p>新增客户排行</p><span>昨日 第一名 郭德纲</span></h2></div>
+            <div class="item" onclick="window.location.href='./clientRankNew.html'"><h2><p>拜访排行</p><span>昨日 第一名 郭德纲</span></h2></div>
+            <div class="item" onclick="window.location.href='./clientRankNew.html'"><h2><p>邀约排行</p><span>昨日 第一名 郭德纲</span></h2></div>
+            <div class="item" onclick="window.location.href='./clientRankNew.html'"><h2><p>成交排行</p><span>昨日 第一名 毛不易</span></h2></div>
+        </div>
+
+
+        <!--============================
+        =            footer            =
+        =============================-->
+        <div style="height: 1.28rem"></div>
+        <div class="public-footer-nav">
+            <a class="item" href="./clientCount.html">
+                <img src="./assets/d-icon05.png">
+                <!-- <img src="./assets/d-icon06.png"> -->
+                <p>统计</p>
+            </a>
+            <a class="item active" href="./clientRank.html">
+                <!-- <img src="./assets/e26.png"> -->
+                <img src="./assets/e27.png">
+                <p>排行</p>
+            </a>
+            <a class="item" href="./clientCount.html">
+                <img src="./assets/e29.png">
+                <!-- <img src="./assets/e28.png"> -->
+                <p>我的</p>
+            </a>
+        </div>
+        <!--====  End of footer  ====-->
+
+
+    </div>
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+        (function() {
+            
+        })()
+    </script>
+</body>
+
+</html>

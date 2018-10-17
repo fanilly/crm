@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>日程详情</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+    <style>
+    body{ background-color: #f7f7f7; }
+    </style>
+    <div class="schedule_Info">
+        <div class="tit_box">
+            <h2>12日下午去武汉见王总谭人府项目的问题和后期维护</h2>
+            <h3 class="public-bottom-line">2018.09.12 13:00~14:00</h3>
+        </div>
+        <div class="info">
+            <p class="public-bottom-line">我需要准备一下项目需求文档和报价表，需要杨绿荫帮我写一个PPT以便更容易给客户讲解。</p>
+            <dl class="public-bottom-line"><dt>提醒</dt><dd><input type="text" id="chose_clock" readonly value="提前1小时提醒" readonly placeholder="点击选择"></dd></dl>
+            <dl><dt>重复</dt><dd><input type="text" id="chose_repeat" readonly value="每天" placeholder="点击选择"></dd></dl>
+        </div>
+        <div class="tips"><span>备注</span>先了解客户情况，再一步一步进行套路</div>
+        <div class="btn_group"><span class="edit">编辑</span><span class="del">删除</span></div>
+    </div>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    (function() {
+        //选择拜访对象
+        $("#chose_repeat").picker({
+            title: "请选择重复频率",
+            cols: [{
+                textAlign: 'center',
+                values: ['每天','周一','周二']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        
+        //选择提醒
+        $("#chose_clock").picker({
+            title: "请选择提醒时间",
+            cols: [{
+                textAlign: 'center',
+                values: ['提前一小时提醒','提前一天提醒','提前三天提醒']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+    })()
+    </script>
+
+</body>
+</html>

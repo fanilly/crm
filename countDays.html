@@ -123,7 +123,10 @@
   <script>
   (function() {
     $('#mj_js_datepicker').mjDatePicker({
-      bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)'
+      bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)',
+      callback: function(year,month,day){
+
+      }
     });
   })()
 

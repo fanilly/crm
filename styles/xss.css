@@ -1,5 +1,7 @@
 *{ outline: none;-webkit-tap-highlight-color: transparent;border: 0;
-    -webkit-appearance: none;}
+    -webkit-appearance: none;box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */}
 body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:Arial, Helvetica, sans-serif !important;}
 .border-bottom{ border:none !important; }
 .border-bottom::before{
@@ -262,7 +264,7 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .publish_dialy .keeps dl dd .photo .add{float: left; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0;}
 .publish_dialy .keeps dl dd .photo .add img{display: block; width:1.58rem; height: 1.58rem;}
 .publish_dialy .keeps dl dd .photo .add input{display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 33; opacity: 0;}
-.fix_footer_btn{padding: 0.3rem; position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff;}
+.fix_footer_btn{padding: 0.3rem; position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff; z-index:3; }
 .fix_footer_btn span{display: block; width:100%; height: 1rem; line-height:1rem; background-color: #00aeff; border-radius: 0.06rem; font-size: 0.32rem; color: #fff; text-align: center;}
 /*发布日报*/
 /*日报详情*/
@@ -380,7 +382,7 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .show_dialy .dailyItem .sender .more img{display: block; width:0.4rem; height: 0.4rem;}
 .show_dialy .dailyItem .word{padding-top: 0.3rem; font-size: 0.32rem; font-weight: bold; color: #333; line-height: 0.54rem;}
 
-.show_dialy .sendList{ display: none; }
+.show_dialy .sendList{ }
 .show_dialy .sendList .sender{ padding: 0.32rem 0.3rem 0.32rem 1.2rem; position: relative; min-height: 0.72rem; background: url('../assets/a04.png') no-repeat 97% center; background-size: 0.12rem auto;}
 .show_dialy .sendList .sender:last-child::before{ border-color: transparent }
 .show_dialy .sendList .sender .tx_img{display: block; width:0.72rem; height: 0.72rem; border-radius: 50%; position: absolute; left: 0.3rem; top: 0.32rem;}
@@ -464,15 +466,19 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .publish_visit .keeps dl dd .photo .add{float: left; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0;}
 .publish_visit .keeps dl dd .photo .add img{display: block; width:1.58rem; height: 1.58rem;}
 .publish_visit .keeps dl dd .photo .add input{display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 33; opacity: 0;}
-.fix_visit_btn{padding: 0.3rem; position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff;}
+.fix_visit_btn{padding: 0.3rem; position: fixed; left: 0; right: 0; bottom: 0; background-color: #fff; z-index: 33;}
 .fix_visit_btn span{display: block; width:100%; height: 1rem; line-height:1rem; background-color: #00aeff; border-radius: 0.06rem; font-size: 0.32rem; color: #fff; text-align: center;}
+.fix_visit_btn button{display: block; width:100%; height: 1rem; line-height:1rem; background-color: #00aeff; border-radius: 0.06rem; font-size: 0.32rem; color: #fff; text-align: center; border:none;}
 /*添加拜访*/
 
 /*客户统计*/
 .client_count{}
 .client_count .client_nav_box{ position: fixed; left: 0; top:0; right: 0; z-index: 33; line-height: 0.88rem; background-color: #fff; }
-.client_count .client_nav_box .btn{ text-align: center; display: block; font-size: 0.3rem; color: #333; width:50%; float: left;  }
-.client_count .client_nav_box .btn span{ display: inline-block; vertical-align: bottom; padding-right:0.3rem; background: url('../assets/more.png') no-repeat right center; background-size: 0.16rem auto; }
+.client_count .client_nav_box .btn{ text-align: center; display: block; font-size: 0.3rem; color: #333; width:50%; float: left; position: relative;  }
+.client_count .client_nav_box .btn:first-child::before{ position: absolute; right: 0; top: 50%; width:1px; height: 0.3rem; background-color: #f7f7f7; margin-top: -0.15rem; content: ''; }
+.client_count .client_nav_box .btn span{ display: inline-block; height: 0.88rem; line-height: 0.88rem; vertical-align: bottom; padding-right:0.3rem; background: url('../assets/more.png') no-repeat right center; background-size: 0.16rem auto;text-align: center; }
+.client_count .client_nav_box .btn input{ position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 34;
+opacity: 0; }
 .client_count .public-chosebar{ position: fixed; left: 0; top: 0.88rem; z-index: 33; width:100%; border-bottom:0.14rem solid #f7f7f7;  }
 .client_count .chartform{ padding:0.3rem 0.3rem 0 0.3rem; background-color: #fff; margin-bottom: 0.14rem; }
 .client_count .chartform h2{ font-size: 0.28rem; color: #333; font-weight: normal; }
@@ -484,3 +490,73 @@ body{overflow-x: hidden; min-width: 320px; background-color: #fff; font-family:A
 .client_count ul li.b_bottom::after{content: " "; position: absolute; left: 0; bottom: 0; right: 0; height: 1px; border-top: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);  }
 .client_count ul li.b_right::before{content: " "; position: absolute; right: 0; top: 0; bottom: 0; right: 0; width: 1px; border-right: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleX(0.5); transform: scaleX(0.5);  }
 /*客户统计*/
+
+/*客户排行*/
+.client_rank{  }
+.client_rank .ranklist{ padding-top: 0.14rem;  }
+.client_rank .ranklist .item{ padding:0.34rem 0.42rem 0.34rem 1.2rem; background: url('../assets/e20.png') no-repeat 0.4rem center; background-size: 0.44rem auto; background-color: #fff !important; margin-bottom:0.14rem;  }
+.client_rank .ranklist .item:nth-child(2){ background: url('../assets/e21.png') no-repeat 0.4rem center; background-size: 0.44rem auto;}
+.client_rank .ranklist .item:nth-child(3){ background: url('../assets/e22.png') no-repeat 0.4rem center; background-size: 0.44rem auto;}
+.client_rank .ranklist .item:nth-child(4){ background: url('../assets/e23.png') no-repeat 0.4rem center; background-size: 0.44rem auto;}
+.client_rank .ranklist .item h2{ padding-right: 0.3rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto; font-weight: normal;  }
+.client_rank .ranklist .item h2 p{ font-size: 0.32rem; color: #333; line-height: 1; margin-bottom: 0.18rem; }
+.client_rank .ranklist .item h2 span{ display: block; font-size: 0.24rem; color: #999999; line-height: 1;  }
+
+.public-list-type02 .item .lside{ position: relative; }
+.public-list-type02 .item .lside img{ display: block; width:0.82rem; height: 0.92rem; position: absolute; left: -0.08rem; top: -0.17rem;}
+/*客户排行*/
+
+/*添加日程*/
+.schedule_Add{}
+.schedule_Add .public-input-box-type03{ padding-right:0.3rem; }
+.schedule_Add .public-textarea-box-type01{ position: relative; padding:0.2rem 0.3rem; }
+.schedule_Add .public-textarea-box-type01 input{ display: block; width:100%; font-size: 0.3rem; color: #555; padding:0.16rem 0; line-height: 1; }
+.schedule_Add .public-textarea-box-type01 textarea{ font-size: 0.3rem; color: #555; }
+/*添加日程*/
+
+/*日程详情*/
+.schedule_Info{}
+.schedule_Info .tit_box{ background-color: #fff; position: relative; padding:0.3rem 0.4rem 0 0.4rem; }
+.schedule_Info .tit_box::before{ content: ''; position: absolute; left: 0; top: 0.35rem; width:0.06rem; height: 0.26rem; background-color: #00aeff; }
+.schedule_Info .tit_box h2{ font-size: 0.36rem; color: #1c1c20; line-height: 0.46rem; margin-bottom: 0.3rem; } 
+.schedule_Info .tit_box h3{ font-size: 0.26rem; color: #666666; line-height: 1; position: relative; padding-bottom: 0.3rem; font-weight: normal; } 
+.schedule_Info .info{ background-color: #fff; padding:0 0.4rem; margin-bottom: 0.14rem; }
+.schedule_Info .info p{ font-size: 0.28rem; color: #333; line-height: 0.478rem; padding:0.35rem 0; position: relative; }
+.schedule_Info .info dl{ display: block; overflow: hidden; position: relative; font-size: 0.3rem; color: #333; line-height: 0.36rem; padding:0.32rem 0; }
+.schedule_Info .info dl dt{ float: left; }
+.schedule_Info .info dl dd{ float: right; padding-right:0.3rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto; }
+.schedule_Info .info dl dd input{ display: block; border:none; box-shadow: none; text-align: right; }
+.schedule_Info .tips{ padding:0.3rem 0.4rem; background-color: #fff; font-size:0.28rem; color: #333; line-height: 0.36rem; margin-bottom: 0.3rem; background-color: #fff; border-radius: 0.2rem; overflow: hidden; }
+.schedule_Info .tips span{ padding:0 0.18rem; display: block; float: left; color: #fff; background-color: #00aeff; margin-right: 0.2rem; transform:skew(-20deg,0deg); -webkit-transform:skew(-18deg,0deg); }
+.schedule_Info .btn_group{ display: block; }
+.schedule_Info .btn_group span{ display: block; height: 1rem; line-height: 1rem; font-size: 0.32rem; text-align: center; margin-bottom: 0.14rem; background-color: #fff; }
+.schedule_Info .btn_group span.edit{ color: #00aeff; }
+.schedule_Info .btn_group span.del{ color: #ff4040; }
+/*日程详情*/
+
+/*新建任务*/
+.schedule_Add{ padding-bottom: 0; }
+.schedule_Add .keeps{}
+.schedule_Add .keeps dl{padding: 0.3rem 0.3rem 0.3rem 0.3rem; position: relative; margin-bottom: 0.2rem; background-color: #fff;}
+.schedule_Add .keeps dl dt{font-size: 0.28rem; color: #1c1c20; margin-bottom: 0.2rem; position: relative;}
+.schedule_Add .keeps dl dd .photo{overflow:hidden;}
+.schedule_Add .keeps dl dd .photo .item{display: block; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0; float: left;}
+.schedule_Add .keeps dl dd .photo .item .img{display: block; width:1.58rem; height: 1.58rem;}
+.schedule_Add .keeps dl dd .photo .item .close{display: block; width:0.32rem; height: 0.32rem; position: absolute; right: 0.06rem; top: 0.06rem;}
+.schedule_Add .keeps dl dd .photo .add{float: left; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0;}
+.schedule_Add .keeps dl dd .photo .add img{display: block; width:1.58rem; height: 1.58rem;}
+.schedule_Add .keeps dl dd .photo .add input{display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 33; opacity: 0;}
+
+.schedule_Add .keeps dl dd .users{overflow:hidden;}
+.schedule_Add .keeps dl dd .users .item{display: block; width:1.1rem; height: 1.1rem; text-align: center; position: relative; margin:0.2rem 0.1rem 0 0; float: left;}
+.schedule_Add .keeps dl dd .users .item .img{display: block; width:0.66rem; height: 0.66rem; margin:0 auto; border-radius: 50%;}
+.schedule_Add .keeps dl dd .users .item span{ display: block; font-size: 0.24rem; color: #1c1c20; line-height: 0.3rem; margin-top: 0.14rem; }
+.schedule_Add .keeps dl dd .users .item .close{display: block; width:0.32rem; height: 0.32rem; position: absolute; right: 0.1rem; top: -0.06rem; border-radius: 50%; }
+.schedule_Add .keeps dl dd .users .add{float: left; width:1.1rem; height: 1.1rem; position: relative; margin:0.2rem 0.2rem 0 0; text-align: center;}
+.schedule_Add .keeps dl dd .users .add img{display: block; width:0.66rem; height: 0.66rem; margin:0 auto; border-radius: 50%;}
+.schedule_Add .keeps dl dd .users .add span{ display: block; font-size: 0.24rem; color: #1c1c20; line-height: 0.3rem; margin-top: 0.14rem; }
+.public-input-box-type03 p{ flex: 1; text-align: right;}
+.public-input-box-type03 p span{ display: block; font-size: 0.3rem; color: #333; line-height: 1.1; }
+.public-input-box-type03 p i{ display: block; font-size: 0.22rem; color: #666; line-height: 1.1; margin-top: 0.1rem; }
+
+/*新建任务*/

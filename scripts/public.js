@@ -23,7 +23,7 @@
     =================================================*/
 
     //点击弹出层蒙版 关闭弹出层
-    $(document).on('click', '.public-mask', function(e) {
+    $('.public-mask').on('click', function(e) {
       console.log(123)
       if ($(e.target).data('origin') == 'mask') {
         $(this).fadeOut();
@@ -31,7 +31,7 @@
     });
 
     //激活弹窗
-    $(document).on('click', '.js-show-mask', function(e) {
+    $('.js-show-mask').on('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       var targetID = $(this).data('target') + '';
@@ -39,7 +39,7 @@
     });
 
     //点击按钮关闭弹窗
-    $(document).on('click', '.js-hide-mask', function(e) {
+    $('.js-hide-mask').on('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       var targetID = $(this).data('target') + '';
@@ -48,6 +48,13 @@
 
     //选择弹窗
     $('.public-choose-box-type01').on('click', function(e) {
+      if (e.target.nodeName == 'INPUT' && $(this).data('action') === 'all') {
+        if ($(this).find('input:checked').length != 0)
+          $(this).parent().find('input:not(:checked)').click();
+        else
+          $(this).parent().find('input:checked').click();
+        return;
+      }
       if (e.target.nodeName == 'INPUT') return;
       $(this).find('input').click();
       if ($(this).data('action') === 'all' && $(this).find('input:checked').length != 0) {

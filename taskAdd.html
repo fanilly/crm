@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>新建任务</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+    <style>
+    
+    </style>
+    <div class="schedule_Add">
+        <form class="customer-add-page public-gbg">
+            
+            <div class="input-group" style="padding: 0rem;">
+                <div class="public-textarea-box-type01 public-bottom-line">
+                    <input placeholder="任务名称" />
+                </div>
+                <div class="public-textarea-box-type01">
+                    <textarea placeholder="任务描述" autoHeight="true"></textarea>
+                </div>
+            </div>
+            
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">任务类型</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_type" readonly value="提前一小时提醒">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result">
+                    <label class="lside public-flex-center"><span class="name">指派给谁</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_receiver" readonly value="老刘；老胡">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div> 
+
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">优先级</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_turns" readonly value="正常排期">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result">
+                    <label class="lside public-flex-center"><span class="name">效果图确认</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_status" readonly value="是">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div> 
+            
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                    <label class="lside public-flex-center"><span class="name">开始时间</span></label>
+                    <input class="input public-flex1" type="email" name="" readonly value="2018.09.09">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                    <label class="lside public-flex-center"><span class="name">结束时间</span></label>
+                    <input class="input public-flex1" type="email" name="" readonly value="2018.09.10">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div>
+
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line" style='min-height: 1.2rem;'>
+                    <label class="lside public-flex-center"><img src="assets/e25.png" alt="" class="icons"><span class="name">关联计划</span></label>
+                    <!-- <input class="input public-flex1" type="email" name="chose_clock" id="" readonly value="计划名称 2018.09.09-2018.09.09"> -->
+                    <p><span>计划名称</span><i>2018.09.09-2018.09.09</i></p>
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result" style='min-height: 1.2rem;'>
+                    <label class="lside public-flex-center"><img src="assets/e25.png" alt="" class="icons"><span class="name">关联需求</span></label>
+                    <!-- <input class="input public-flex1" type="email" name="" id="chose_repeat" readonly value="需求名称 2018.09.09-2018.09.09"> -->
+                    <p><span>需求名称</span><i>2018.09.09-2018.09.09</i></p>
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div>
+
+            <div class="keeps">
+                <dl>
+                    <dt style='margin-bottom: 0'>上传附件或图片</dt>
+                    <dd>
+                        <div class="photo">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img">
+                                <img src="assets/c35.png" alt="" class="close">
+                            </div>
+                            <div class="add"><img src="assets/c36.png" alt=""><input type="file" ></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style='margin-bottom: 0'>抄送给谁</dt>
+                    <dd>
+                        <div class="users">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img"><span>赵大柱</span>
+                                <img src="assets/c35.png" alt="" class="close">
+                            </div>
+                            <div class="add"><img src="assets/c37.png" alt=""><span>添加</span></div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            
+            <div style='height:1.6rem;'></div>
+            <div class="fix_visit_btn"><button>保存</button></div>
+
+        </form>
+    </div>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    (function() {
+        $.fn.autoHeight = function(){
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });
+        }
+        $('textarea[autoHeight]').autoHeight();
+
+
+        //选择任务类型
+        $("#chose_type").picker({
+            title: "请选择任务类型",
+            cols: [{
+                textAlign: 'center',
+                values: ['开发','设计','测试']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择优先级
+        $("#chose_turns").picker({
+            title: "请选择优先级",
+            cols: [{
+                textAlign: 'center',
+                values: ['正常排期','加急任务','可以延后']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择状态
+        $("#chose_status").picker({
+            title: "请选择效果图状态",
+            cols: [{
+                textAlign: 'center',
+                values: ['已确认','审核中','设计中']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+    })()
+    </script>
+
+</body>
+</html>

@@ -817,10 +817,12 @@ input {
   color: #333;
   padding: .06rem 0 .1rem;
 }
+
 .customer-list-page .customer-list-list .item .center .middle img {
   width: .24rem;
   margin-right: .1rem;
 }
+
 .customer-list-page .customer-list-list .item .public-tags-blue {
   margin-left: .2rem;
 }
@@ -949,3 +951,195 @@ input {
   line-height: .54rem;
 }
 
+/*===================================================
+=                       客户详情                      =
+====================================================*/
+.customer-detail-page .header {
+  background-color: #fff;
+  padding: .3rem;
+}
+
+.customer-detail-page .header h1 {
+  font-size: .36rem;
+  color: #333;
+  font-weight: normal;
+  padding-bottom: .25rem;
+}
+
+.customer-detail-page .header h1 span {
+  font-size: .24rem;
+}
+
+.customer-detail-page .header p {
+  font-size: .24rem;
+  color: #666;
+  padding: .02rem 0;
+}
+
+.customer-detail-page .header div {
+  padding-top: .2rem;
+  font-size: 0
+}
+
+.customer-detail-page .header .public-tags-blue {
+  margin-right: .2rem;
+}
+
+.customer-detail-page .header .tel {
+  width: 1.42rem;
+  height: 1.42rem;
+  position: absolute;
+  right: 0;
+  top: .3rem;
+}
+
+.customer-detail-page .header .tel img {
+  width: 1.42rem;
+  height: 1.42rem;
+}
+
+.customer-detail-page .business-detail {
+  background-color: #fff;
+  margin-top: .14rem;
+}
+
+.customer-detail-page .business-title {
+  padding: .3rem;
+}
+
+.customer-detail-page .business-title h2 {
+  font-size: .34rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.customer-detail-page .business-title p {
+  font-size: .24rem;
+  color: #999;
+}
+
+.customer-detail-page .business-title .rside {
+  width: .58rem;
+  height: .58rem;
+}
+
+.customer-detail-page .business-time {
+  font-size: .36rem;
+  color: #333;
+  padding: 0 .3rem;
+}
+
+.customer-detail-page .business-time span {
+  display: block;
+}
+
+.customer-detail-page .business-time span.year {
+  font-size: .22rem;
+  color: #666;
+}
+
+.customer-detail-page .customer-info {
+  margin-top: .14rem;
+  background-color: #fff;
+  padding: .3rem 0;
+}
+
+.customer-detail-page .customer-info .public-line-title {
+  margin-bottom: .2rem;
+}
+
+.customer-detail-page .customer-info .info-box {
+  display: flex;
+  padding: .08rem .3rem;
+}
+
+.customer-detail-page .customer-info .info-box .lside {
+  font-size: .28rem;
+  color: #666;
+  width: .8rem;
+}
+
+.customer-detail-page .customer-info .info-box .center {
+  font-size: .28rem;
+  color: #333;
+  padding: 0 .2rem;
+  flex: 1;
+}
+
+.customer-detail-page .customer-info .info-box .rside {}
+
+.customer-detail-page .customer-info .info-box .public-tags-blue {
+  margin-right: .2rem;
+}
+
+.customer-detail-page .list-btn {
+  display: block;
+  background-color: #fff;
+  line-height: 1rem;
+  text-align: center;
+  border-top: .14rem solid #f7f7f7;
+  font-size: .3rem;
+}
+
+/*===================================================
+=                      邀约详情                     =
+====================================================*/
+.customer-invitations-detail-page .customer-info {
+  background-color: #fff;
+  padding: .3rem 0;
+  border-bottom: .14rem solid #f7f7f7;
+}
+
+.customer-invitations-detail-page .customer-info.success {
+  background: url(../assets/e17.png) no-repeat 4rem .7rem;
+  background-size: 3.1rem 3.1rem;
+}
+.customer-invitations-detail-page .customer-info.fail {
+  background: url(../assets/e16.png) no-repeat 4rem .7rem;
+  background-size: 3.1rem 3.1rem;
+}
+.customer-invitations-detail-page .customer-info .public-line-title {
+  margin-bottom: .2rem;
+}
+
+.customer-invitations-detail-page .customer-info .info-box {
+  display: flex;
+  padding: .08rem .3rem;
+}
+
+.customer-invitations-detail-page .customer-info .info-box .lside {
+  font-size: .28rem;
+  color: #666;
+  width: 1.4rem;
+}
+
+.customer-invitations-detail-page .customer-info .info-box .center {
+  font-size: .28rem;
+  color: #333;
+  padding: 0 .2rem;
+  flex: 1;
+}
+
+.customer-invitations-detail-page .customer-info .info-box .rside {}
+
+.customer-invitations-detail-page .customer-info .info-box .public-tags-blue {
+  margin-right: .2rem;
+}
+
+.customer-invitations-detail-page .cremark {
+  padding: .3rem;
+}
+
+.customer-invitations-detail-page .cremark .title {
+  font-size: .28rem;
+  color: #333;
+  padding: 0 0 .1rem 0;
+}
+.customer-invitations-detail-page .cremark .content {
+  font-size: .3rem;
+  color: #666;
+  line-height: .5rem;
+}
+.customer-invitations-detail-page .cremark .content.empty {
+  color: #999;
+}

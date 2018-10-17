@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                     <span class="name">拜访对象</span>
                     <span class="require">*</span>
                 </label>
-                <input class="input public-flex1" type="text" name="" placeholder="点击选择">
+                <input class="input public-flex1" type="text" name="" id='visit_target' placeholder="点击选择">
                 <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
             </div>
             <div class="public-input-box-type03 public-bottom-line public-flex-center">
@@ -35,7 +35,7 @@
                     <span class="name">拜访方式</span>
                     <span class="require">*</span>
                 </label>
-                <input class="input public-flex1" type="phone" name="" placeholder="当面拜访">
+                <input class="input public-flex1" type="phone" name="" id='visit_mode' placeholder="点击选择">
                 <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
             </div>
             <div class="public-input-box-type03 public-flex-center screen-btn">
@@ -101,6 +101,28 @@
         var queryObj = searchString2Obj(location.search.substr(1));
         console.log(queryObj)
         if (queryObj.addr) $('#address').val(queryObj.addr);
+
+
+        //选择邀约方式
+        $("#visit_mode").picker({
+            title: "请选择拜访方式",
+            cols: [{
+                textAlign: 'center',
+                values: ['当面拜访','电话拜访','其他']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择拜访对象
+        $("#visit_target").picker({
+            title: "请选择拜访对象",
+            cols: [{
+                textAlign: 'center',
+                values: ['张总','赵总','钱总']
+            }]
+        });
 
     })()
     </script>

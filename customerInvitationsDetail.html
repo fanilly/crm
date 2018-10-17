@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>邀约详情</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body>
+  <div class="customer-invitations-detail-page public-wbg">
+
+    <!--==============================
+    =            邀约信息            =
+    ===============================-->
+
+    <!-- success 成功 fail 失败 -->
+    <div class="customer-info success">
+      <h2 class="public-line-title public-flex-center">
+        <span class="public-flex1">邀约对象  水木年华</span>
+        <img src="./assets/c23.png" id="more_btn" style="width: .4rem" alt="">
+      </h2>
+      <div class="info-box">
+        <div class="lside">邀约方式</div>
+        <div class="center">当面邀约</div>
+      </div>
+      <div class="info-box">
+        <div class="lside">邀约时间</div>
+        <div class="center">2018.10.11 15:00</div>
+      </div>
+      <a href="#" class="info-box">
+        <div class="lside">邀约地址</div>
+        <div class="center">郑州市金水区经六路与黄河路交叉口</div>
+        <div class="rside">
+          <img src="./assets/e12.png" style="width: .48rem;">
+        </div>
+      </a>
+      <div class="public-list-type05">
+        <a class="item public-flex-center" style="padding:.1rem .3rem; background-color: transparent;">
+          <div class="lside public-bgimg" style="border-radius: 50%; width: .72rem;height: .72rem; background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h3 class="title">郭德纲</h3>
+            <h6 class="remark" style="padding-top: 0">技术部</h6>
+          </div>
+          <div class="rside public-flex-center">
+            <img src="./assets/a04.png" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cremark">
+      <div class="title">备注</div>
+      <div class="content">暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注暂无备注</div>
+    </div>
+
+    <!--====  End of 邀约信息  ====-->
+
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+  $(function() {
+    //选择结果
+    $('#more_btn').on('click', function() {
+      var $self = $(this);
+      $.actions({
+        actions: [{
+          text: "编辑",
+          className:'public-color-success',
+          onClick: function() {
+
+          }
+        }, {
+          text: "删除",
+          className: 'public-color-fail',
+          onClick: function() {
+
+          }
+        }]
+      });
+    });
+  })
+
+  </script>
+</body>
+
+</html>

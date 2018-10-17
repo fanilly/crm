@@ -7,160 +7,233 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+
 </head>
 
 <body>
-    <style>
+  <style>
     body{ background-color: #f7f7f7; padding-top: 1.8rem; }
     </style>
-    <div class="client_count">
-        <!-- 顶部导航 -->
-        <div class="client_nav_box public-bottom-line">
-            <div class="btn" ><input type="text" id='chose_week' readonly value="本周"></div>
-            <div class="btn" ><input type="text" id="chose_branch" readonly value="部门"></div>
-        </div>
-        <!-- 顶部导航 -->
+  <div class="client_count">
+    <!-- 顶部导航 -->
+    <div class="client_nav_box public-bottom-line">
+      <div class="btn"><input type="text" id='chose_week' readonly value="本周"><span>本周</span></div>
+      <div class="btn"><input type="text" id="chose_branch" readonly value="部门"><span>部门</span></div>
+    </div>
+    <!-- 顶部导航 -->
 
-        <!-- 时间选择栏 -->
-        <div class="public-chosebar">
-            <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="10.06-10.13"></div>
-            <div class="turns">
-                <div class="prev btn">上个月</div>
-                <div class="next btn">下个月</div>
-            </div>
-        </div>
-        <!-- 时间选择栏 -->
+    <!-- 时间选择栏 -->
+    <div class="public-chosebar">
+      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="10.06-10.13"></div>
+      <div class="turns">
+        <div class="prev btn">上个月</div>
+        <div class="next btn">下个月</div>
+      </div>
+    </div>
+    <!-- 时间选择栏 -->
 
-        <!-- 统计表 -->
-        <div class="chartform">
-            <h2>新增客户趋势</h2>
-            <div id="main" style="width:100%;height:230px;"></div>
-        </div>
-        <!-- 统计表 -->
+    <!-- 统计表 -->
+    <div class="chartform">
+      <h2>新增客户趋势</h2>
+      <canvas id="main" style="display:block; width:100%;height:4rem;"></canvas>
+    </div>
+    <!-- 统计表 -->
 
-        <!-- 统计菜单 -->
-        <ul>
-            <li class="b_bottom b_right"><h2>新增客户</h2><h3 class="orange">0人</h3></li>
-            <li class="b_bottom"><h2>拜访客户</h2><h3>0人</h3></li>
-            <li class="b_right"><h2>邀约客户</h2><h3>0人</h3></li>
-            <li><h2>拜访签到</h2><h3>0人</h3></li>
-        </ul>
-        <!-- 统计菜单 -->
+    <!-- 统计菜单 -->
+    <ul>
+      <li class="b_bottom b_right">
+        <h2>新增客户</h2>
+        <h3 class="orange">0人</h3>
+      </li>
+      <li class="b_bottom">
+        <h2>拜访客户</h2>
+        <h3>0人</h3>
+      </li>
+      <li class="b_right">
+        <h2>邀约客户</h2>
+        <h3>0人</h3>
+      </li>
+      <li>
+        <h2>拜访签到</h2>
+        <h3>0人</h3>
+      </li>
+    </ul>
+    <!-- 统计菜单 -->
 
-        <!--============================
+    <!--============================
         =            footer            =
         =============================-->
-        <div style="height: 1.28rem"></div>
-        <div class="public-footer-nav">
-            <a class="item active" href="./index.html">
-                <!-- <img src="./assets/d-icon05.png"> -->
-                <img src="./assets/d-icon06.png">
-                <p>打卡</p>
-            </a>
-            <a class="item" href="#">
-                <img src="./assets/e26.png">
-                <!-- <img src="./assets/e27.png"> -->
-                <p>申请</p>
-            </a>
-            <a class="item" href="#">
-                <img src="./assets/e29.png">
-                <!-- <img src="./assets/e28.png"> -->
-                <p>统计</p>
-            </a>
-        </div>
-        <!--====  End of footer  ====-->
-
-        
-
+    <div style="height: 1.28rem"></div>
+    <div class="public-footer-nav">
+      <a class="item active" href="./clientCount.html">
+        <!-- <img src="./assets/d-icon05.png"> -->
+        <img src="./assets/d-icon06.png">
+        <p>统计</p>
+      </a>
+      <a class="item" href="./clientRank.html">
+        <img src="./assets/e26.png">
+        <!-- <img src="./assets/e27.png"> -->
+        <p>排行</p>
+      </a>
+      <a class="item" href="./clientCount.html">
+        <img src="./assets/e29.png">
+        <!-- <img src="./assets/e28.png"> -->
+        <p>我的</p>
+      </a>
     </div>
+    <!--====  End of footer  ====-->
 
-    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
-    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
-    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
-    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
-    <!-- 引入 ECharts 文件 -->
-    <script src="http://www.echartsjs.com/examples/vendors/echarts/echarts.min.js?_v_=1536959211921"></script>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
-        // 指定图表的配置项和数据
-        var option = {
-            xAxis: {
-                type: 'category',
-                data: ['06日', '07日', '08日', '09日', '10日', '11日', '12日']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [3.0, 2.0, 6.0, 1.0, 7.0, 11.0, 8.0],
-                type: 'line'
-            }],
-            grid:{
-                x:20,
-                x2:0,
-                y:20,
-                height:180
-            },
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
-    <script>
-    (function() {
-        //选择时间
-        $("#chose_week").picker({
-            title: "请选择时间段",
-            cols: [{
-                textAlign: 'center',
-                values: ['本周','本月','本季度','自定义区间']
-            }]
-        });
 
-        //选择时间
-        $("#chose_branch").picker({
-            title: "请选择部门",
-            cols: [{
-                textAlign: 'center',
-                values: ['销售部','技术部','行政部','其他']
-            }]
-        });
-        //选择结果
-        /*$('#chose_week').on('click', function() {
-            var $self = $(this);
-            $.actions({
-                actions: [{
-                    text: "本周",
-                    className:'public-color-success',
-                    onClick: function() { $self.find('span').text('本周') }
-                }, {
-                    text: "本月",
-                    className: 'public-color-fail',
-                    onClick: function() { $self.find('span').text('本月') }
-                }, {
-                    text: "本季度",
-                    className: 'public-color-fail',
-                    onClick: function() { $self.find('span').text('本季度') }
-                }, {
-                    text: "自定义区间",
-                    className: 'public-color-fail',
-                    onClick: function() {
-                        //打开日历选择
-                    }
-                }]
-            });
-        });*/
-        
+  </div>
 
-    })()
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <!-- 引入 ECharts 文件 -->
+  <!-- <script src="./librarys/scripts/f2.min.js"></script> -->
+  <script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.2.3/f2-all.min.js"></script>
+  <script type="text/javascript">
+  var chartData = [
+    { day: '06日', value: 10 },
+    { day: '07日', value: 17 },
+    { day: '08日', value: 6 },
+    { day: '09日', value: 20 },
+    { day: '10日', value: 2 },
+    { day: '11日', value: 16 },
+    { day: '12日', value: 30 },
+    { day: '13日', value: 10 },
+    { day: '14日', value: 17 },
+    { day: '15日', value: 6 },
+    { day: '16日', value: 20 },
+    { day: '17日', value: 2 },
+    { day: '18日', value: 16 },
+    { day: '19日', value: 30 },
+    { day: '20日', value: 10 },
+    { day: '21日', value: 17 },
+    { day: '22日', value: 6 },
+    { day: '23日', value: 20 },
+    { day: '24日', value: 2 },
+    { day: '25日', value: 16 },
+    { day: '26日', value: 30 },
+  ];
 
-    </script>
+  var chart = new F2.Chart({
+    id: 'main',
+    pixelRatio: window.devicePixelRatio
+  });
+
+  chart.source(chartData, {
+    value: {
+      tickCount: 5,
+      min: 0
+    },
+    day: {
+      range: [0, 1]
+    },
+    release: {
+          min: 1990,
+          max: 2010
+        }
+  });
+  chart.tooltip({
+    showCrosshairs: false,
+    showItemMarker: false,
+    // showTitle: true,
+    offsetX: 0, // x 方向的偏移
+    offsetY: 50,
+    lauout: 'vertical',
+    background: {
+      radius: 2,
+      fill: '#000000',
+      opacity: 0.6,
+      padding: [8, 10]
+    },
+
+    valueStyle: {
+      fontSize: 12,
+      fill: '#fff',
+      lineHeight: 20,
+      textAlign: 'start',
+      textBaseline: 'middle'
+    },
+    onShow: function onShow(ev) {
+      console.log(ev);
+      var items = ev.items;
+      items[0].name = null;
+      items[0].value = '日期：' + items[0].title + '\n' + '数量： ' + items[0].value;
+    }
+  });
+  chart.scrollBar({
+      mode: 'x',
+      xStyle: {
+        offsetY: -5
+      }
+    });
+  chart.axis('day', {
+    label: function label(text, index, total) {
+      var textCfg = {};
+      if (index === 0) {
+        textCfg.textAlign = 'left';
+      } else if (index === total - 1) {
+        textCfg.textAlign = 'right';
+      }
+      return textCfg;
+    }
+  });
+  chart.line().position('day*value').style({
+    stroke: '#7096dc'
+  });
+  chart.point().position('day*value').style({
+    stroke: '#7096dc',
+    lineWidth: 1
+  });
+  chart.render();
+
+  (function() {
+    //选择时间
+    $("#chose_week").picker({
+      title: "请选择时间段",
+      cols: [{
+        textAlign: 'center',
+        values: ['本周', '本月', '本季度', '自定义区间']
+                }],
+      onChange: function(p, v, d) {
+        var now = p.displayValue[0]
+        $("#chose_week").siblings('span').text(now);
+      },
+      onConfirm: function(p, v, d) {
+        var now = p.displayValue[0]
+        $("#chose_week").siblings('span').text(now);
+      }
+    });
+
+    //选择时间
+    $("#chose_branch").picker({
+      title: "请选择部门",
+      cols: [{
+        textAlign: 'center',
+        values: ['销售部', '技术部', '行政部', '其他']
+                }],
+      onChange: function(p, v, d) {
+        var now = p.displayValue[0]
+        $("#chose_branch").siblings('span').text(now);
+      },
+      onConfirm: function(p, v, d) {
+        var now = p.displayValue[0]
+        $("#chose_branch").siblings('span').text(now);
+      }
+    });
+
+  })()
+
+  </script>
 </body>
 
 </html>

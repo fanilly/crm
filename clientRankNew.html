@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>新增客户排行</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+
+</head>
+
+<body>
+    <style>
+    body{ background-color: #f7f7f7; padding-top: 1.8rem; }
+    </style>
+    <div class="client_count">
+        <!-- 顶部导航 -->
+        <div class="client_nav_box public-bottom-line">
+            <div class="btn" ><input type="text" id='chose_week' readonly value="本周"><span>今日排行</span></div>
+            <div class="btn" ><input type="text" id="chose_branch" readonly value="部门"><span>部门</span></div>
+        </div>
+        <!-- 顶部导航 -->
+
+        <!-- 时间选择栏 -->
+        <div class="public-chosebar">
+            <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="2018年10月12日"></div>
+            <div class="turns">
+                <div class="prev btn">前一天</div>
+                <div class="next btn">后一天</div>
+            </div>
+        </div>
+        <!-- 时间选择栏 -->
+
+        <!-- 统计表 -->
+        <div class="public-list-type02">
+            <div class="item public-flex-center">
+                <div class="index">1</div>
+                <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+                    <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"><img src="assets/e30.png" alt=""></div>
+                    <div class="center public-flex1"><h2>用户名</h2><p>部门名称</p></div>
+                    <div class="remark"><div class="time-lg">13人</div></div>
+                    <div class="rside"><p>11</p><div class="heart"></div></div>
+                </div>
+            </div>
+            <div class="item public-flex-center">
+                <div class="index">2</div>
+                <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+                    <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"><img src="assets/e31.png" alt=""></div>
+                    <div class="center public-flex1"><h2>用户名</h2><p>部门名称</p></div>
+                    <div class="remark"><div class="time-lg">9人</div></div>
+                    <div class="rside"><p>11</p><div class="heart"></div></div>
+                </div>
+            </div>
+            <div class="item public-flex-center">
+                <div class="index">3</div>
+                <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+                    <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"><img src="assets/e32.png" alt=""></div>
+                    <div class="center public-flex1"><h2>用户名</h2><p>部门名称</p></div>
+                    <div class="remark"><div class="time-lg">7人</div></div>
+                    <div class="rside"><p>11</p><div class="heart"></div></div>
+                </div>
+            </div>
+            <div class="item public-flex-center">
+                <div class="index">4</div>
+                <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+                    <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+                    <div class="center public-flex1"><h2>用户名</h2><p>部门名称</p></div>
+                    <div class="remark"><div class="time-lg">3人</div></div>
+                    <div class="rside"><p>11</p><div class="heart"></div></div>
+                </div>
+            </div>
+            <div class="item public-flex-center">
+                <div class="index">5</div>
+                <div class="public-list-type02-content public-flex1 public-flex-center public-bottom-line">
+                    <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+                    <div class="center public-flex1"><h2>用户名</h2><p>部门名称</p></div>
+                    <div class="remark"><div class="time-lg">1人</div></div>
+                    <div class="rside"><p>11</p><div class="heart"></div></div>
+                </div>
+            </div>
+          </div>
+        <!-- 统计表 -->
+
+        
+
+
+    </div>
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+        
+        (function() {
+            //选择时间
+            $("#chose_week").picker({
+                title: "请选择时间段",
+                cols: [{
+                    textAlign: 'center',
+                    values: ['今日排行','本周排行','本月排行','本季排行']
+                }],
+                onChange: function(p, v, d) {
+                    var now = p.displayValue[0]
+                    $("#chose_week").siblings('span').text(now);
+                },
+                onConfirm: function(p, v, d) {
+                    var now = p.displayValue[0]
+                    $("#chose_week").siblings('span').text(now);
+                }
+            });
+
+            //选择时间
+            $("#chose_branch").picker({
+                title: "请选择部门",
+                cols: [{
+                    textAlign: 'center',
+                    values: ['销售部','技术部','行政部','其他']
+                }],
+                onChange: function(p, v, d) {
+                    var now = p.displayValue[0]
+                    $("#chose_branch").siblings('span').text(now);
+                },
+                onConfirm: function(p, v, d) {
+                    var now = p.displayValue[0]
+                    $("#chose_branch").siblings('span').text(now);
+                }
+            });
+
+        })()
+
+    </script>
+</body>
+
+</html>

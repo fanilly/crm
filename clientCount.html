@@ -18,24 +18,75 @@
 <body>
   <style>
     body{ background-color: #f7f7f7; padding-top: 1.8rem; }
-    </style>
-  <div class="client_count">
+    .client_count .public-datepicker-wapper .datepicker-items { padding: 0; }
+  </style>
+  <div class="client_count" id="chart_app" v-cloak>
     <!-- 顶部导航 -->
-    <div class="client_nav_box public-bottom-line">
-      <div class="btn"><input type="text" id='chose_week' readonly value="本周"><span>本周</span></div>
+    <div class="client_nav_box public-bottom-line" style="z-index: 120">
+      <div class="btn"><input type="text" id='chose_week' readonly value=""><span>{{showType === 'week' ? '按周展示' : showType === 'month' ? '按月展示' : '自定义区间'}}</span></div>
       <div class="btn"><input type="text" id="chose_branch" readonly value="部门"><span>部门</span></div>
     </div>
     <!-- 顶部导航 -->
 
     <!-- 时间选择栏 -->
-    <div class="public-chosebar">
-      <div class="drops"><input id="mj_js_datepicker" readonly="readonly" value="10.06-10.13"></div>
-      <div class="turns">
-        <div class="prev btn">上个月</div>
-        <div class="next btn">下个月</div>
+    <div class="public-chosebar" style="z-index: 120">
+      <div class="drops" @click="handleCheckPopCalendar"><input id="mj_js_datepicker" :class="showType == 'week' || showType == 'month' ? 'nobg' : ''" readonly="readonly" v-model="timeSection" style="width: 3.4rem"></div>
+      <div class="turns" v-if="showType === 'week' || showType === 'month'">
+        <div class="prev btn" @click="handlePrevWeekOrMonth">{{showType === 'week' ? '上一周' : '上个月'}}</div>
+        <div class="next btn" @click="handleNextWeekOrMonth">{{showType === 'week' ? '下一周' : '下个月'}}</div>
+      </div>
+      <div class="turns" @click="handleCheckPopCalendar" v-else>
+        <div class="btn">自定义展示区间</div>
       </div>
     </div>
     <!-- 时间选择栏 -->
+
+    <!--==============================
+    =            calendar            =
+    ===============================-->
+    <div class="public-screen-mask" @click="handleCancelChooseCustom"></div>
+
+    <div class="public-screen-content" style="top: 0;z-index: 130">
+      <div class="public-flex-center public-header-next-prev public-bottom-line">
+        <div class="public-flex-center" @click="handleToggleMonth('prev')">
+          <img src="./assets/a02.png" style="width: .12rem">
+          <span>上一月</span>
+        </div>
+        <div class="public-flex1 public-text-center">
+          {{year}}年{{month}}月
+        </div>
+        <div class="public-flex-center" @click="handleToggleMonth('next')">
+          <span>下一月</span>
+          <img src="./assets/a03.png" style="width: .12rem">
+        </div>
+      </div>
+      <div class="calendar-wapper public-datepicker-wapper">
+        <div class="datepicker-week">
+          <div class="datepicker-item">日</div>
+          <div class="datepicker-item">一</div>
+          <div class="datepicker-item">二</div>
+          <div class="datepicker-item">三</div>
+          <div class="datepicker-item">四</div>
+          <div class="datepicker-item">五</div>
+          <div class="datepicker-item">六</div>
+        </div>
+        <div class="datepicker-items">
+          <div class="datepicker-item" v-for="item,index in emptyDay"></div>
+          <div :class="{'datepicker-item':true,'datepicker-item-start':item.start,'datepicker-item-end':item.end,'datepicker-item-section':item.section}" v-for="item,index in days" @click="hanldeChooseDaysItem(item,index)">{{item.day}}<span v-if="item.start">开始</span><span v-if="item.end">结束</span></div>
+        </div>
+      </div>
+      <div class="public-flex-center public-bottom-line public-top-line" style="font-size: .26rem;padding:.2rem .3rem;position: relative;">
+        <span>已选区间</span>
+        <span class="public-flex1">{{customSection}}</span>
+        <span class="public-color-success" @click="handleResetCustom">重置区间</span>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset" @click="handleCancelChooseCustom">取消</a>
+        <a class="fill-btn btn confirm" @click="handleConfirmChooseCustom">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of calendar  ====-->
 
     <!-- 统计表 -->
     <div class="chartform">
@@ -69,7 +120,7 @@
         =            footer            =
         =============================-->
     <div style="height: 1.28rem"></div>
-    <div class="public-footer-nav">
+    <div class="public-footer-nav" style="z-index: 40">
       <a class="item active" href="./clientCount.html">
         <!-- <img src="./assets/d-icon05.png"> -->
         <img src="./assets/d-icon06.png">
@@ -96,144 +147,394 @@
   <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
-  <!-- 引入 ECharts 文件 -->
-  <!-- <script src="./librarys/scripts/f2.min.js"></script> -->
-  <script src="https://gw.alipayobjects.com/os/antv/assets/f2/3.2.3/f2-all.min.js"></script>
+  <!-- 引入 f2 文件 -->
+  <script src="./librarys/scripts/f2-all.min.js"></script>
   <script type="text/javascript">
-  var chartData = [
-    { day: '06日', value: 10 },
-    { day: '07日', value: 17 },
-    { day: '08日', value: 6 },
-    { day: '09日', value: 20 },
-    { day: '10日', value: 2 },
-    { day: '11日', value: 16 },
-    { day: '12日', value: 30 },
-    { day: '13日', value: 10 },
-    { day: '14日', value: 17 },
-    { day: '15日', value: 6 },
-    { day: '16日', value: 20 },
-    { day: '17日', value: 2 },
-    { day: '18日', value: 16 },
-    { day: '19日', value: 30 },
-    { day: '20日', value: 10 },
-    { day: '21日', value: 17 },
-    { day: '22日', value: 6 },
-    { day: '23日', value: 20 },
-    { day: '24日', value: 2 },
-    { day: '25日', value: 16 },
-    { day: '26日', value: 30 },
-  ];
-
-  var chart = new F2.Chart({
-    id: 'main',
-    pixelRatio: window.devicePixelRatio
-  });
-
-  chart.source(chartData, {
-    value: {
-      tickCount: 5,
-      min: 0
+  $.toast.prototype.defaults.duration = 1000;
+  var ChartApp = new Vue({
+    el: '#chart_app',
+    data: {
+      showType: 'week', // 展示类型 week 按周查看 month 按月查看 custom 自定义区间
+      startTime: '',
+      endTime: '',
+      sectionStart: '', //区间开始
+      sectionEnd: '', //区间结束
+      month: '',
+      year: '',
+      days: [],
+      emptyDay: []
     },
-    day: {
-      range: [0, 1]
+    computed: {
+      timeSection: function() {
+        return this.startTime + '-' + this.endTime;
+      },
+      customSection: function() {
+        return (this.sectionStart != '' ? this.sectionStart.join('.') : '') + '~' + (this.sectionEnd != '' ? this.sectionEnd.join('.') : '');
+      }
     },
-    release: {
-          min: 1990,
-          max: 2010
+    methods: {
+      //获取某月的天数
+      getMonthDaysLength: function(year, month) {
+        return new Date(year, month, 0).getDate();
+      },
+
+      //获取某天是星期几
+      getDayOfWeek: function(year, month, day) {
+        var time = new Date();
+        return new Date(Date.UTC(year ? year : time.getFullYear(), month ? month - 1 : time.getMonth(), day ? day : time.getDate())).getDay();
+      },
+
+      //转换日期
+      formatDate: function(date) {
+        var time = date ? new Date(date) : new Date();
+        var month = time.getMonth() + 1;
+        var day = time.getDate();
+        return time.getFullYear() + '.' + (month >= 10 ? month : '0' + month) + '.' + (day >= 10 ? day : '0' + day);
+      },
+
+      // 点击上一周或上一月
+      handlePrevWeekOrMonth: function() {
+        var self = this;
+        if (this.showType == 'week') {
+          this.endTime = this.formatDate(new Date(this.startTime).getTime() - 1000 * 60 * 60 * 24);
+          this.startTime = this.formatDate(new Date(this.startTime).getTime() - 1000 * 60 * 60 * 24 * 7);
+        } else {
+          var dateArr = this.startTime.split(/[^0-9]/).slice(0, 3);
+          if (dateArr[1] * 1 - 1 <= 0) {
+            dateArr[0] = dateArr[0] * 1 - 1;
+            dateArr[1] = 12;
+          } else {
+            dateArr[1] = dateArr[1] * 1 - 1;
+          }
+          this.startTime = this.formatDate(new Date(dateArr.join('.')).getTime());
+          dateArr[2] = this.getMonthDaysLength(dateArr[0], dateArr[1]);
+          this.endTime = dateArr.join('.');
         }
-  });
-  chart.tooltip({
-    showCrosshairs: false,
-    showItemMarker: false,
-    // showTitle: true,
-    offsetX: 0, // x 方向的偏移
-    offsetY: 50,
-    lauout: 'vertical',
-    background: {
-      radius: 2,
-      fill: '#000000',
-      opacity: 0.6,
-      padding: [8, 10]
-    },
+      },
 
-    valueStyle: {
-      fontSize: 12,
-      fill: '#fff',
-      lineHeight: 20,
-      textAlign: 'start',
-      textBaseline: 'middle'
+      // 点击下一周或下一月
+      handleNextWeekOrMonth: function() {
+        var self = this;
+        if (this.showType == 'week') {
+          if (new Date() > new Date(this.endTime) && new Date() > new Date(this.startTime)) {
+            var tempStartTime = this.formatDate(new Date(this.startTime).getTime() + 1000 * 60 * 60 * 24 * 7);
+            this.startTime = new Date(tempStartTime) <= new Date() ? tempStartTime : this.startTime;
+            var tempEndTime = this.formatDate(new Date(this.startTime).getTime() + 1000 * 60 * 60 * 24 * 6);
+            this.endTime = new Date(tempEndTime) <= new Date() ? tempEndTime : this.formatDate();
+          }
+        } else {
+          var dateArr = this.startTime.split(/[^0-9]/).slice(0, 3);
+          if (dateArr[1] * 1 + 1 > 12) {
+            dateArr[0] = dateArr[0] * 1 + 1;
+            dateArr[1] = 1;
+          } else {
+            dateArr[1] = dateArr[1] * 1 + 1;
+          }
+          if (new Date(dateArr.join('.')) <= new Date()) {
+            this.startTime = this.formatDate(new Date(dateArr.join('.')).getTime());
+            dateArr[2] = this.getMonthDaysLength(dateArr[0], dateArr[1]);
+            var tempEndTime = dateArr.join('.');
+            this.endTime = new Date(tempEndTime) <= new Date() ? tempEndTime : this.formatDate(new Date());
+          }
+        }
+      },
+
+      //检查是否唤醒区间选择弹窗
+      handleCheckPopCalendar: function() {
+        if (this.showType === 'custom') {
+          var dateArr = this.startTime.split(/[^0-9]/).slice(0, 3);
+          this.year = dateArr[0];
+          this.month = dateArr[1];
+          $('.public-screen-mask').fadeIn('fast');
+          $('.public-screen-content').slideDown('fast');
+          this.getData(this.year, this.month);
+        }
+      },
+
+      //取消选择区间
+      handleCancelChooseCustom: function() {
+        $('.public-screen-mask').fadeOut('fast');
+        $('.public-screen-content').slideUp('fast');
+      },
+
+      //确定选择区间
+      handleConfirmChooseCustom: function() {
+        if (this.sectionStart == '') {
+          $.toast('请选择开始时间', 'text');
+        } else if (this.sectionEnd == '') {
+          $.toast('请选择结束时间', 'text');
+        } else {
+          this.startTime = this.sectionStart.join('.');
+          this.endTime = this.sectionEnd.join('.');
+          this.handleCancelChooseCustom();
+        }
+      },
+
+      //重置区间
+      handleResetCustom: function() {
+        this.sectionStart = '';
+        this.sectionEnd = '';
+        this.getData(this.year, this.month);
+      },
+
+      //生成日历数据
+      getData: function(year, month) {
+        var self = this;
+        var days = [];
+        var emptyDay = [];
+        var monthDaysLength = this.getMonthDaysLength(this.year, this.month);
+        var firstDay = this.getDayOfWeek(this.year, this.month, 1);
+
+        for (var i = 1; i <= monthDaysLength; i++) {
+          var tempDay = {
+            day: i < 10 ? '0' + i : i + '',
+            start: false,
+            end: false,
+            section: false
+          };
+          if (this.sectionStart != '' && this.sectionStart[0] * 1 == this.year * 1 && this.sectionStart[1] * 1 == this.month * 1 && this.sectionStart[2] * 1 == i) {
+            tempDay.start = true;
+          }
+          if (this.sectionEnd != '' && this.sectionEnd[0] * 1 == this.year * 1 && this.sectionEnd[1] * 1 == this.month * 1 && this.sectionEnd[2] * 1 == i) {
+            tempDay.end = true;
+          }
+          if (this.sectionStart != '' && this.sectionEnd != '') {
+            if (new Date(this.sectionStart.join('.')) < new Date([this.year, this.month, i].join('.')) && new Date(this.sectionEnd.join('.')) > new Date([this.year, this.month, i].join('.'))) {
+              tempDay.section = true;
+            }
+          }
+
+          days.push(tempDay);
+        }
+
+        for (i = 0; i < firstDay; i++) emptyDay.push('');
+
+        this.days = days;
+        this.emptyDay = emptyDay;
+      },
+
+      //点击区间选择模块的上个月或下个月
+      handleToggleMonth: function(type) {
+        console.log(type)
+        if (type === 'prev') {
+          if (this.month * 1 - 1 >= 1) {
+            this.month = (this.month * 1 - 1) < 10 ? '0' + (this.month * 1 - 1) : (this.month * 1 - 1) + '';
+          } else {
+            this.month = '12';
+            this.year--;
+          }
+        } else {
+          var month = this.month;
+          var year = this.year;
+          if (month * 1 + 1 <= 12) {
+            month = (month * 1 + 1) < 10 ? '0' + (month * 1 + 1) : (month * 1 + 1) + '';
+          } else {
+            month = '01';
+            year++;
+          }
+          var date = new Date();
+          if (year * 1 > date.getFullYear() || (year * 1 == date.getFullYear() && month * 1 > date.getMonth() + 1)) return;
+          this.month = month;
+          this.year = year;
+        }
+        this.showTime = this.year + '年' + this.month + '月';
+        this.noChange = false;
+        this.getData(this.year, this.month);
+      },
+
+      //点击日历中的某一天 选择区间
+      hanldeChooseDaysItem: function(item, index) {
+        if (new Date([this.year, this.month, item.day].join('.')) > new Date()) return false;
+        if (this.sectionStart == '') {
+          this.sectionStart = [this.year, this.month, item.day];
+        } else if (this.sectionEnd == '') {
+          if (this.sectionStart[2] == item.day) return;
+          if (new Date(this.sectionStart.join('.')) > new Date([this.year, this.month, item.day].join('.'))) {
+            this.sectionStart = [this.year, this.month, item.day];
+            this.getData(this.year, this.month);
+            return;
+          }
+          this.sectionEnd = [this.year, this.month, item.day];
+        } else {
+          this.sectionStart = [this.year, this.month, item.day];
+          this.sectionEnd = '';
+        }
+        this.getData(this.year, this.month);
+      },
+
+
     },
-    onShow: function onShow(ev) {
-      console.log(ev);
-      var items = ev.items;
-      items[0].name = null;
-      items[0].value = '日期：' + items[0].title + '\n' + '数量： ' + items[0].value;
+    mounted: function() {
+      var self = this;
+
+      this.endTime = this.formatDate();
+      this.startTime = this.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (this.getDayOfWeek() - 1));
+
+
+
+
+      //绘制折线图
+      (function() {
+        var chartData = [
+          { label: '23日', day: 1, value: 20 },
+          { label: '23日', day: 2, value: 20 },
+          { label: '23日', day: 3, value: 20 },
+          { label: '23日', day: 4, value: 20 },
+          { label: '23日', day: 5, value: 20 },
+          { label: '23日', day: 6, value: 20 },
+          { label: '23日', day: 7, value: 20 },
+          { label: '23日', day: 8, value: 20 },
+          { label: '23日', day: 9, value: 20 },
+          { label: '23日', day: 10, value: 20 },
+          { label: '23日', day: 11, value: 20 },
+          { label: '23日', day: 12, value: 20 },
+          { label: '23日', day: 13, value: 20 },
+          { label: '23日', day: 14, value: 20 },
+          { label: '23日', day: 15, value: 20 },
+          { label: '23日', day: 16, value: 20 },
+          { label: '23日', day: 17, value: 20 },
+          { label: '23日', day: 18, value: 20 },
+          { label: '23日', day: 19, value: 20 },
+          { label: '24日', day: 20, value: 2 },
+          { label: '25日', day: 21, value: 16 },
+          { label: '26日', day: 22, value: 30 },
+          { label: '26日', day: 23, value: 10 },
+          ];
+
+        var chart = new F2.Chart({
+          id: 'main',
+          pixelRatio: window.devicePixelRatio
+        });
+
+        chart.source(chartData, {
+          value: {
+            tickCount: 4,
+            min: 0
+          },
+          day: {
+            min: chartData[0].day,
+            max: chartData.length > 7 ? chartData[0].day + 7 : chartData[0].day + chartData.length - 1
+          }
+        });
+        chart.tooltip({
+          showCrosshairs: false,
+          showItemMarker: false,
+          alwaysShow: true,
+          triggerOn: 'click',
+          triggerOff: 'touchmove',
+          offsetX: 0,
+          offsetY: 50,
+          lauout: 'vertical',
+          background: {
+            radius: 2,
+            fill: '#000000',
+            opacity: 0.6,
+            padding: [8, 10]
+          },
+          valueStyle: {
+            fontSize: 12,
+            fill: '#fff',
+            lineHeight: 20,
+            textAlign: 'start',
+            textBaseline: 'middle'
+          },
+          onShow: function onShow(ev) {
+            console.log(ev);
+            var items = ev.items;
+            items[0].name = null;
+            items[0].value = '日期：' + items[0].origin.label + '\n' + '数量： ' + items[0].value;
+          }
+        });
+
+        chart.line().position('day*value').style({
+          stroke: '#7096dc'
+        });
+
+        chart.point().position(['day', 'value']).style({
+          stroke: '#7096dc',
+          lineWidth: 1
+        });
+
+        //左右滑动
+        chart.interaction('pan');
+        chart.scrollBar({
+          mode: 'x',
+          xStyle: {
+            offsetY: -5
+          }
+        });
+
+        chart.axis('day', {
+          grid: null,
+          label: function label(text, index, total) {
+            var textCfg = {};
+            if (index === 0) {
+              textCfg.textAlign = 'left';
+            } else if (index === total - 1) {
+              textCfg.textAlign = 'right';
+            }
+            return textCfg;
+          }
+        });
+
+        chart.render();
+      })();
+
+
+      //选择时间段
+      $('#chose_week').on('click', function() {
+        $.actions({
+          actions: [{
+            text: "按周展示",
+            className: 'public-color-success',
+            onClick: function() {
+              self.showType = 'week';
+              self.endTime = self.formatDate();
+              self.startTime = self.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (self.getDayOfWeek() - 1));
+            }
+          }, {
+            text: "按月展示",
+            className: 'public-color-success',
+            onClick: function() {
+              var time = new Date();
+              var month = time.getMonth() + 1;
+              self.showType = 'month';
+              self.endTime = self.formatDate();
+              self.startTime = time.getFullYear() + '.' + (month >= 10 ? month : '0' + month) + '.0' + 1;
+            }
+          }, {
+            text: "自定义区间",
+            className: 'public-color-success',
+            onClick: function() {
+              self.showType = 'custom';
+              self.handleCheckPopCalendar();
+            }
+          }]
+        });
+      });
+
+      //选择时间
+      $("#chose_branch").picker({
+        title: "请选择部门",
+        cols: [{
+          textAlign: 'center',
+          values: ['销售部', '技术部', '行政部', '其他']
+        }],
+        onChange: function(p, v, d) {
+          var now = p.displayValue[0]
+          $("#chose_branch").siblings('span').text(now);
+        },
+        onConfirm: function(p, v, d) {
+          var now = p.displayValue[0]
+          $("#chose_branch").siblings('span').text(now);
+        }
+      });
+
     }
   });
-  chart.scrollBar({
-      mode: 'x',
-      xStyle: {
-        offsetY: -5
-      }
-    });
-  chart.axis('day', {
-    label: function label(text, index, total) {
-      var textCfg = {};
-      if (index === 0) {
-        textCfg.textAlign = 'left';
-      } else if (index === total - 1) {
-        textCfg.textAlign = 'right';
-      }
-      return textCfg;
-    }
-  });
-  chart.line().position('day*value').style({
-    stroke: '#7096dc'
-  });
-  chart.point().position('day*value').style({
-    stroke: '#7096dc',
-    lineWidth: 1
-  });
-  chart.render();
-
-  (function() {
-    //选择时间
-    $("#chose_week").picker({
-      title: "请选择时间段",
-      cols: [{
-        textAlign: 'center',
-        values: ['本周', '本月', '本季度', '自定义区间']
-                }],
-      onChange: function(p, v, d) {
-        var now = p.displayValue[0]
-        $("#chose_week").siblings('span').text(now);
-      },
-      onConfirm: function(p, v, d) {
-        var now = p.displayValue[0]
-        $("#chose_week").siblings('span').text(now);
-      }
-    });
-
-    //选择时间
-    $("#chose_branch").picker({
-      title: "请选择部门",
-      cols: [{
-        textAlign: 'center',
-        values: ['销售部', '技术部', '行政部', '其他']
-                }],
-      onChange: function(p, v, d) {
-        var now = p.displayValue[0]
-        $("#chose_branch").siblings('span').text(now);
-      },
-      onConfirm: function(p, v, d) {
-        var now = p.displayValue[0]
-        $("#chose_branch").siblings('span').text(now);
-      }
-    });
-
-  })()
 
   </script>
+
 </body>
 
 </html>

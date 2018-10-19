@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>添加客户</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <form class="customer-add-page public-gbg">
+
+    <div class="input-group">
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">公告名称</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">公告类型</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="phone" name="" id="chose_type" readonly placeholder="点击选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+    </div>
+
+    <div class="input-group" style="padding-top: .2rem">
+        <div class="public-textarea-box-type01">
+          <textarea placeholder="公告内容" autoHeight="true"></textarea>
+        </div>
+    </div>
+
+    <div class="public-list-type05">
+      <a href="#" class="item public-flex-center">
+        <img class="lside" src="./assets/f08.png" style="width: .44rem">
+        <div class="center public-flex1">
+          <h3 class="title">关联奖惩</h3>
+        </div>
+        <div class="rside public-flex-center">
+          <p style="color: #333; text-align: right;">奖惩原因<br><span style="font-size: .22rem; color: #666;">奖惩内容</span></p>
+          <img src="./assets/a04.png" alt="">
+        </div>
+      </a>
+    </div>
+
+
+    <div class="submit">
+      <button class="public-btn-type02">发布</button>
+    </div>
+
+  </form>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+
+  <script>
+  (function() {
+    //选择类型
+    $("#chose_type").picker({
+      title: "请选择类型",
+      cols: [{
+        textAlign: 'center',
+        values: ['放假公告', '奖惩公告', '制度公告', '其他']
+      }],
+      onConfirm: function(p) {
+        var now = p.displayValue[0]
+        $("#chose_type").val(now);
+      }
+    });
+  })()
+
+  </script>
+</body>
+
+</html>

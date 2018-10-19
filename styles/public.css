@@ -1,6 +1,32 @@
 /*==========================================
   =            weui style rewrite            =
   ==========================================*/
+.weui-popup__container {
+  z-index: 9999998;
+}
+
+.weui-popup__modal.weui-popup__modal__fff {
+  background-color: #fff;
+}
+
+.weui-popup__modal {
+  background-color: #f7f7f7;
+  height: 80%;
+  bottom: 20%;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.weui-loadmore {
+  margin: 0 auto;
+  padding: 1.5em 0;
+  color: #999;
+}
+
+.weui-loadmore_line .weui-loadmore__tips {
+  background-color: #f7f7f7;
+}
+
 .weui-picker-container {
   height: 100%;
   background-color: rgba(0, 0, 0, .4);
@@ -537,10 +563,10 @@ textarea:-ms-input-placeholder,
   padding-right: .1rem;
 }
 
-.public-input-box-type03 .lside .icons{
-  width:0.4rem;
+.public-input-box-type03 .lside .icons {
+  width: 0.4rem;
   height: 0.4rem;
-  margin:0;
+  margin: 0;
   margin-right: 0.3rem;
 }
 
@@ -566,6 +592,9 @@ textarea:-ms-input-placeholder,
   height: 1rem;
   text-align: right;
   padding: 0 0 0 .3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .public-input-box-type03 .icon {
@@ -884,6 +913,10 @@ textarea:-ms-input-placeholder,
   background-size: 0.24rem auto;
 }
 
+.public-chosebar .drops input.nobg {
+  background: none;
+}
+
 .public-chosebar .turns {
   overflow: hidden;
   float: right;
@@ -954,6 +987,48 @@ textarea:-ms-input-placeholder,
   width: .16rem;
   height: .04rem;
   background-color: #00aeff;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-section {
+  background-color: #00aeff;
+  color: #fff;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-start {
+  background-color: #ffefd9;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-start {
+  border-top-left-radius: .06rem;
+  border-bottom-left-radius: .06rem;
+}
+
+.public-text-center {
+  text-align: center;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-end {
+  border-top-right-radius: .06rem;
+  border-bottom-right-radius: .06rem;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-start,
+.public-datepicker-wapper .datepicker-item.datepicker-item-end {
+  background-color: #00aeff;
+  color: #fff;
+  line-height: .6rem;
+}
+
+.public-datepicker-wapper .datepicker-item.datepicker-item-start span,
+.public-datepicker-wapper .datepicker-item.datepicker-item-end span {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: .1rem;
+  color: #fff;
+  line-height: .3rem;
+  font-size: .2rem;
 }
 
 .public-datepicker-wapper .datepicker-item.datepicker-item-yellow {
@@ -1683,6 +1758,31 @@ textarea:-ms-input-placeholder,
   background-size: 100%;
 }
 
+.public-toggle2 {
+  line-height: .38rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: .38rem;
+  height: .38rem;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('../assets/c28.png') no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100%;
+}
+
+.public-toggle2.public-toggle2-checked {
+  background: url('../assets/c29.png') no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100%;
+}
+
 .no_more {
   font-size: 0.24rem;
   color: #b3b3b3;
@@ -1906,6 +2006,7 @@ textarea:-ms-input-placeholder,
   font-size: .28rem;
 }
 
+.public-chose-branch .footer-box,
 .public-sort-content .footer-box,
 .public-screen-content .footer-box {
   display: flex;
@@ -1914,6 +2015,7 @@ textarea:-ms-input-placeholder,
   height: 1.3rem;
 }
 
+.public-chose-branch .footer-box .btn,
 .public-sort-content .footer-box .btn,
 .public-screen-content .footer-box .btn {
   font-size: .3rem;
@@ -1927,11 +2029,13 @@ textarea:-ms-input-placeholder,
   margin-right: .3rem;
 }
 
+.public-chose-branch .footer-box .btn:last-child,
 .public-sort-content .footer-box .btn:last-child,
 .public-screen-content .footer-box .btn:last-child {
   margin-right: 0;
 }
 
+.public-chose-branch .footer-box .btn.fill-btn,
 .public-sort-content .footer-box .btn.fill-btn,
 .public-screen-content .footer-box .btn.fill-btn {
   background-color: #00aeff;
@@ -2100,4 +2204,97 @@ textarea:-ms-input-placeholder,
   width: .06rem;
   height: .26rem;
   background-color: #00aeff;
+}
+
+.public-header-next-prev {
+  height: .88rem;
+  padding: 0 .3rem;
+  color: #7096dc;
+  position: relative;
+  font-size: .26rem;
+}
+
+.public-header-next-prev span {
+  padding: 0 .2rem;
+  font-size: .26rem;
+}
+
+.public-header-next-prev .public-flex1 {
+  font-size: .3rem;
+}
+
+.public-find {
+  padding-left: 0.64rem;
+  background: url('../assets/search.png') no-repeat 0.21rem center;
+  background-size: 0.22rem auto;
+  background-color: #f2f2f2;
+  line-height: 0.64rem;
+  border-radius: 0.12rem;
+  font-size: 0.28rem;
+  color: #777;
+  margin-bottom: 0.1rem;
+}
+
+.public-find input {
+  display: block;
+  line-height: 0.64rem;
+  height: 0.64rem;
+  border: none;
+  width: 100%;
+  box-shadow: none;
+}
+
+.public-chose-branch {
+  padding: .15rem .3rem;
+}
+
+.public-chose-branch .confirm-btn-wapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.public-chose-branch-content {
+  position: fixed;
+  left: .3rem;
+  right: .3rem;
+  bottom: 1.3rem;
+  top: 1.04rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.public-input-box-type04 {
+  padding: .25rem 0;
+  position: relative;
+  color: #333;
+}
+
+.public-input-box-type04 .txt {
+  padding: 0 .2rem;
+}
+
+.public-input-box-type04 .remark {
+  color: #b3b3b3;
+  padding-right: .2rem;
+}
+
+.public-input-box-type04.active .remark {
+  color: #333;
+}
+
+.public-input-box-type04 .arrow {
+  width: .12rem;
+}
+
+.public-input-box-type04 .avatar {
+  width: .72rem;
+  height: .72rem;
+  border-radius: 50%;
+  margin-left: .2rem;
+}
+
+.public-input-box-type04 .public-tags-blue {
+  margin-left: .2rem;
 }

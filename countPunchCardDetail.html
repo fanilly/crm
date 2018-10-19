@@ -35,39 +35,75 @@
     <!--====  End of header  ====-->
 
 
-    <div class="public-list-type01">
-      <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
-        <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
-        <div class="center public-flex1">
-          <h2>用户名</h2>
-          <p>部门名称</p>
-        </div>
-        <img src="./assets/a04.png" alt="" class="rside">
-      </a>
-      <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
-        <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
-        <div class="center public-flex1">
-          <h2>用户名</h2>
-          <p>部门名称</p>
-        </div>
-        <img src="./assets/a04.png" alt="" class="rside">
-      </a>
-      <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
-        <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
-        <div class="center public-flex1">
-          <h2>用户名</h2>
-          <p>部门名称</p>
-        </div>
-        <img src="./assets/a04.png" alt="" class="rside">
-      </a>
-      <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
-        <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
-        <div class="center public-flex1">
-          <h2>用户名</h2>
-          <p>部门名称</p>
-        </div>
-        <img src="./assets/a04.png" alt="" class="rside">
-      </a>
+    <div class="count-punch-card-page-content">
+      <div class="public-list-type01">
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+      </div>
+      <div class="public-list-type01">
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+        <a href="./reportRecord.html" class="item public-bottom-line public-flex-center">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h2>用户名</h2>
+            <p>部门名称</p>
+          </div>
+          <img src="./assets/a04.png" alt="" class="rside">
+        </a>
+      </div>
     </div>
 
   </div>
@@ -80,9 +116,12 @@
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <script>
   (function() {
-    $('#mj_js_datepicker').mjDatePicker({
-      bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)'
-    });
+    $('.public-header-nav-type01 a').on('click',function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.count-punch-card-page-content>.public-list-type01').eq($(this).index()).fadeIn('fast').siblings().fadeOut(0)
+    })
   })()
 
   </script>

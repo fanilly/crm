@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>公告管理</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body>
+  <div class="notice-manager-page public-gbg" id="app" v-cloak>
+
+    <div class="public-toolbar-type01 public-bottom-line" style="background-color: #fff; position: fixed; width: 100%;">
+      <a href="#">
+        <img src="./assets/search.png" style="width: .3rem; position: relative; top: .04rem">
+        <span>搜索</span>
+      </a>
+      <a class="screen-btn">
+        <span>筛选</span>
+        <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+      <a @click="handleCheckPopCalendar">
+        <span>时间区间</span>
+        <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+
+    <!--==========================
+    =            list            =
+    ===========================-->
+
+    <div class="notice-list">
+      <div v-for="item,index in '123456789'">
+        <h5 class="item-time">今天07:04</h5>
+        <a href="#" class="item" @click.stop.prevent="handleShowControl">
+          <img src="./assets/icon11.png" alt="" class="lside">
+          <div class="center public-flex1">
+            <h3>关于国庆放假通知</h3>
+            <p>国庆放假安排：法定节假日7天</p>
+            <h4>发布人 陈珍珍</h4>
+          </div>
+          <img src="./assets/c23.png" alt="" class="rside">
+        </a>
+      </div>
+    </div>
+
+    <!--====  End of list  ====-->
+
+    <div class="weui-loadmore" v-if="!allowLoadMore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    <div class="weui-loadmore" v-if="allowLoadMore && commentLoadedAll && noCommentLists">
+      <span class="weui-loadmore__tips">暂无数据</span>
+    </div>
+    <div class="weui-loadmore" v-if="allowLoadMore && commentLoadedAll && !noCommentLists">
+      <span class="weui-loadmore__tips">已加载全部数据</span>
+    </div>
+
+
+    <!--==============================
+    =            筛选弹窗            =
+    ===============================-->
+
+    <div class="public-screen-mask public-screen-mask01"></div>
+    <div class="public-screen-content public-screen-content01" style="top: .88rem; position: fixed;">
+      <div class="content-box">
+        <div class="navs-box">
+          <a href="#" class="active">公告类型</a>
+          <a href="#">发布人员</a>
+        </div>
+        <div class="list-box">
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">放假公告</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">奖惩公告</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">制度公告</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">其他</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+          </div>
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">张三</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">李四</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">王五</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">赵六</span>
+              <input type="checkbox" class="public-toggle" name="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset">重置</a>
+        <a class="fill-btn btn confirm">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of 筛选弹窗  ====-->
+
+
+    <!--==============================
+    =            calendar            =
+    ===============================-->
+    <div class="public-screen-mask public-screen-mask-calendar" @click="handleCancelChooseCustom"></div>
+    <div class="public-screen-content public-screen-content-calendar" style="top: .88rem;z-index: 130;position: fixed;">
+      <div class="public-flex-center public-header-next-prev public-bottom-line">
+        <div class="public-flex-center" @click="handleToggleMonth('prev')">
+          <img src="./assets/a02.png" style="width: .12rem">
+          <span>上一月</span>
+        </div>
+        <div class="public-flex1 public-text-center">
+          {{year}}年{{month}}月
+        </div>
+        <div class="public-flex-center" @click="handleToggleMonth('next')">
+          <span>下一月</span>
+          <img src="./assets/a03.png" style="width: .12rem">
+        </div>
+      </div>
+      <div class="calendar-wapper public-datepicker-wapper">
+        <div class="datepicker-week">
+          <div class="datepicker-item">日</div>
+          <div class="datepicker-item">一</div>
+          <div class="datepicker-item">二</div>
+          <div class="datepicker-item">三</div>
+          <div class="datepicker-item">四</div>
+          <div class="datepicker-item">五</div>
+          <div class="datepicker-item">六</div>
+        </div>
+        <div class="datepicker-items">
+          <div class="datepicker-item" v-for="item,index in emptyDay"></div>
+          <div :class="{'datepicker-item':true,'datepicker-item-start':item.start,'datepicker-item-end':item.end,'datepicker-item-section':item.section}" v-for="item,index in days" @click="hanldeChooseDaysItem(item,index)">{{item.day}}<span v-if="item.start">开始</span><span v-if="item.end">结束</span></div>
+        </div>
+      </div>
+      <div class="public-flex-center public-bottom-line public-top-line" style="font-size: .26rem;padding:.2rem .3rem;position: relative;">
+        <span>已选区间</span>
+        <span class="public-flex1">{{customSection}}</span>
+        <span class="public-color-success" @click="handleResetCustom">重置区间</span>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset" @click="handleCancelChooseCustom">取消</a>
+        <a class="fill-btn btn confirm" @click="handleConfirmChooseCustom">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of calendar  ====-->
+
+
+    <!--==============================
+    =            选择人员            =
+    ===============================-->
+
+    <div id="choose_push" class="weui-popup__container">
+      <div class="weui-popup__overlay"></div>
+      <div class="weui-popup__modal weui-popup__modal__fff">
+        <div class="public-chose-branch">
+          <div class="public-find"><input type="text" placeholder="搜索"></div>
+          <div class="public-chose-branch-content">
+            <div class="public-input-box-type04 public-flex-center public-bottom-line">
+              <div class="public-toggle2"></div>
+              <div class="public-flex1 txt">全选</div>
+            </div>
+            <div class="group">
+              <div class="public-input-box-type04 public-flex-center public-bottom-line">
+                <div class="public-toggle2"></div>
+                <div class="public-flex1 txt">技术部</div>
+                <div class="public-flex-center">
+                  <div class="remark">31人</div>
+                  <img src="./assets/a04.png" class="arrow">
+                </div>
+              </div>
+              <div class="public-input-box-type04 public-flex-center public-bottom-line">
+                <div class="public-toggle2"></div>
+                <div class="avatar public-bgimg" style="background-image: url(./assets/d08.png)"></div>
+                <div class="public-flex1 txt">张三<span class="public-tags-blue">主管</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="confirm-btn-wapper">
+            <div class="footer-box">
+              <a class="line-btn btn reset close-popup">取消</a>
+              <a class="fill-btn btn confirm">确定</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 选择人员  ====-->
+
+
+
+
+    <!--==============================
+    =            悬浮菜单            =
+    ===============================-->
+
+    <a href="./noticePublish.html" style="z-index: 40;" class="public-suspension-menu animated">
+      <img class="control" src="./assets/add_iocn.png">
+    </a>
+
+    <!--====  End of 悬浮菜单  ====-->
+
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script>
+  $(function() {
+    /*==========================
+    =            筛选          =
+    ==========================*/
+    $('.screen-btn').on('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      $('.public-screen-mask-calendar').click();
+      $('.public-screen-mask01').fadeIn('fast');
+      $('.public-screen-content01').slideDown('fast');
+    });
+
+    $('.public-screen-mask01').on('click', function() {
+      $('.public-screen-mask01').fadeOut('fast');
+      $('.public-screen-content01').slideUp('fast');
+    });
+
+    $('.public-screen-content01 .confirm').on('click', function() {
+      $('.public-screen-mask01').fadeOut('fast');
+      $('.public-screen-content01').slideUp('fast');
+      //在这里获取选中的筛选选项并发起请求刷新页面数据
+
+    });
+  });
+
+  $.toast.prototype.defaults.duration = 1000;
+  var APP = new Vue({
+    el: '#app',
+    data: {
+      startTime: '',
+      endTime: '',
+      sectionStart: '', //区间开始
+      sectionEnd: '', //区间结束
+      month: '',
+      year: '',
+      days: [],
+      emptyDay: [],
+
+      testchecked: true,
+      listData: [],
+      page: 1,
+      allowLoadMore: true,
+      commentLoadedAll: false,
+      noCommentLists: false
+    },
+    watch: {
+      testchecked: function() {
+        console.log(this.testchecked)
+      }
+    },
+    computed: {
+      customSection: function() {
+        return (this.sectionStart != '' ? this.sectionStart.join('.') : '') + '~' + (this.sectionEnd != '' ? this.sectionEnd.join('.') : '');
+      }
+    },
+    methods: {
+      //获取某月的天数
+      getMonthDaysLength: function(year, month) {
+        return new Date(year, month, 0).getDate();
+      },
+
+      //获取某天是星期几
+      getDayOfWeek: function(year, month, day) {
+        var time = new Date();
+        return new Date(Date.UTC(year ? year : time.getFullYear(), month ? month - 1 : time.getMonth(), day ? day : time.getDate())).getDay();
+      },
+
+      //转换日期
+      formatDate: function(date) {
+        var time = date ? new Date(date) : new Date();
+        var month = time.getMonth() + 1;
+        var day = time.getDate();
+        return time.getFullYear() + '.' + (month >= 10 ? month : '0' + month) + '.' + (day >= 10 ? day : '0' + day);
+      },
+
+      //检查是否唤醒区间选择弹窗
+      handleCheckPopCalendar: function() {
+        var dateArr = this.startTime.split(/[^0-9]/).slice(0, 3);
+        this.year = dateArr[0];
+        this.month = dateArr[1];
+        $('.public-screen-mask01').click();
+        $('.public-screen-mask-calendar').fadeIn('fast');
+        $('.public-screen-content-calendar').slideDown('fast');
+        this.getData(this.year, this.month);
+      },
+
+      //取消选择区间
+      handleCancelChooseCustom: function() {
+        $('.public-screen-mask-calendar').fadeOut('fast');
+        $('.public-screen-content-calendar').slideUp('fast');
+      },
+
+      //确定选择区间
+      handleConfirmChooseCustom: function() {
+        if (this.sectionStart == '') {
+          $.toast('请选择开始时间','text');
+        } else if (this.sectionEnd == '') {
+          $.toast('请选择结束时间','text');
+        } else {
+          this.startTime = this.sectionStart.join('.');
+          this.endTime = this.sectionEnd.join('.');
+          this.handleCancelChooseCustom();
+        }
+      },
+
+      //重置区间
+      handleResetCustom: function() {
+        this.sectionStart = '';
+        this.sectionEnd = '';
+        this.getData(this.year, this.month);
+      },
+
+      //生成日历数据
+      getData: function(year, month) {
+        var self = this;
+        var days = [];
+        var emptyDay = [];
+        var monthDaysLength = this.getMonthDaysLength(this.year, this.month);
+        var firstDay = this.getDayOfWeek(this.year, this.month, 1);
+
+        for (var i = 1; i <= monthDaysLength; i++) {
+          var tempDay = {
+            day: i < 10 ? '0' + i : i + '',
+            start: false,
+            end: false,
+            section: false
+          };
+          if (this.sectionStart != '' && this.sectionStart[0] * 1 == this.year * 1 && this.sectionStart[1] * 1 == this.month * 1 && this.sectionStart[2] * 1 == i) {
+            tempDay.start = true;
+          }
+          if (this.sectionEnd != '' && this.sectionEnd[0] * 1 == this.year * 1 && this.sectionEnd[1] * 1 == this.month * 1 && this.sectionEnd[2] * 1 == i) {
+            tempDay.end = true;
+          }
+          if (this.sectionStart != '' && this.sectionEnd != '') {
+            if (new Date(this.sectionStart.join('.')) < new Date([this.year, this.month, i].join('.')) && new Date(this.sectionEnd.join('.')) > new Date([this.year, this.month, i].join('.'))) {
+              tempDay.section = true;
+            }
+          }
+
+          days.push(tempDay);
+        }
+
+        for (i = 0; i < firstDay; i++) emptyDay.push('');
+
+        this.days = days;
+        this.emptyDay = emptyDay;
+        console.log(this.days, this.emptyDay)
+      },
+
+      //点击区间选择模块的上个月或下个月
+      handleToggleMonth: function(type) {
+        console.log(type)
+        if (type === 'prev') {
+          if (this.month * 1 - 1 >= 1) {
+            this.month = (this.month * 1 - 1) < 10 ? '0' + (this.month * 1 - 1) : (this.month * 1 - 1) + '';
+          } else {
+            this.month = '12';
+            this.year--;
+          }
+        } else {
+          var month = this.month;
+          var year = this.year;
+          if (month * 1 + 1 <= 12) {
+            month = (month * 1 + 1) < 10 ? '0' + (month * 1 + 1) : (month * 1 + 1) + '';
+          } else {
+            month = '01';
+            year++;
+          }
+          var date = new Date();
+          if (year * 1 > date.getFullYear() || (year * 1 == date.getFullYear() && month * 1 > date.getMonth() + 1)) return;
+          this.month = month;
+          this.year = year;
+        }
+        this.showTime = this.year + '年' + this.month + '月';
+        this.noChange = false;
+        this.getData(this.year, this.month);
+      },
+
+      //点击日历中的某一天 选择区间
+      hanldeChooseDaysItem: function(item, index) {
+        if (new Date([this.year, this.month, item.day].join('.')) > new Date()) return false;
+        if (this.sectionStart == '') {
+          this.sectionStart = [this.year, this.month, item.day];
+        } else if (this.sectionEnd == '') {
+          if (this.sectionStart[2] == item.day) return;
+          if (new Date(this.sectionStart.join('.')) > new Date([this.year, this.month, item.day].join('.'))) {
+            this.sectionStart = [this.year, this.month, item.day];
+            this.getData(this.year, this.month);
+            return;
+          }
+          this.sectionEnd = [this.year, this.month, item.day];
+        } else {
+          this.sectionStart = [this.year, this.month, item.day];
+          this.sectionEnd = '';
+        }
+        this.getData(this.year, this.month);
+      },
+
+      //获取列表数据
+      getLists: function() {
+        var self = this;
+        if (!this.allowLoadMore || this.commentLoadedAll || this.noCommentLists) return;
+        this.allowLoadMore = false;
+        $.get("#", { page: this.page }, function(res) {
+          console.log('列表数据', res)
+          if (res.code == 1) {
+            if (res.data.length < 20) self.commentLoadedAll = true;
+            if (res.data.length == 0 && self.listData.length == 0) self.noCommentLists = true;
+            self.listData = self.listData.concat(res.data);
+            self.allowLoadMore = true;
+            self.page = self.page + 1;
+          } else {
+            $.toast(res.info, 'text');
+          }
+        })
+      },
+
+      handleShowControl: function() {
+        $.actions({
+          actions: [{
+            text: "编辑",
+            className: 'public-color-success',
+            onClick: function() {
+
+            }
+          }, {
+            text: "删除",
+            className: 'public-color-success',
+            onClick: function() {
+
+            }
+          }, {
+            text: "推送",
+            className: 'public-color-success',
+            onClick: function() {
+              $("#choose_push").popup();
+            }
+          }]
+        });
+      }
+    },
+
+    mounted: function() {
+      this.endTime = this.formatDate();
+      this.startTime = this.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (this.getDayOfWeek() - 1));
+      // this.getLists();
+      // $(document.body).infinite(200).on("infinite", function() {
+      //     vm.getLists();
+      // });
+    }
+  });
+
+  </script>
+</body>
+
+</html>

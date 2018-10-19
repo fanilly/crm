@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>部门编辑</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color: #f7f7f7; padding-bottom: 1rem; }
+</style>
+
+    <!-- 筛选弹窗 -->
+    <div class="branch_manage">
+        <div class="find"><input type="text" placeholder="搜索"></div>
+
+        <div class="choseBar">
+            <div class="list next">
+                <div class="item"><div class="box public-bottom-line"><p><span>技术部<em>(26人)</em></span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><span>人事部<em>(14人)</em></span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><span>销售部<em>(8人)</em></span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><span>行政部<em>(12人)</em></span></p></div></div>
+            </div>
+            <div class="f7"></div>
+            <div class="list next">
+                <div class="item"><div class="box public-bottom-line"><p><span>技术部<em>(26人)</em></span><i>特殊分组，非公司人员</i></p></div></div>
+            </div>
+        </div>
+        
+        
+        <div class="foot_btn">
+            <span class="public"><i>添加员工</i></span><b></b> 
+            <span class="public"><i>添加部门</i></span><b></b>
+            <span><i>添加子部门</i></span>
+        </div>
+    </div>
+
+    <!-- 更多 -->
+    <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_upper_box pop_more">
+      <div class="first"><span class="edit">编辑</span><span class="del">删除</span><span class="set">设置权限</span></div>
+      <div class="first cancle"><span>取消</span></div>
+    </div>
+    <!-- 更多 -->
+    
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+
+        //选择结果
+        // $('.choseBar .list .item').on('click', function() {
+        //     var $self = $(this);
+        //     $.actions({
+        //         actions: [{
+        //             text: "邀约成功",
+        //             className:'public-color-success',
+        //             onClick: function() {
+        //                 $self.find('input').val('成功')
+        //             }
+        //         }, {
+        //             text: "邀约失败",
+        //             className: 'public-color-fail',
+        //             onClick: function() {
+        //                 $self.find('input').val('失败');
+        //             }
+        //         }]
+        //     });
+        // });
+
+        // 打开更多弹窗
+        $('.choseBar .list .item p').click(function(){
+            $('body,html').css({"overflow":'hidden'})
+            $('.pop_upper_bg').fadeIn()
+            $('.pop_more').fadeIn()
+        })
+        function hiddPOP(){
+            $('body,html').css({"overflow":'auto'})
+            $('.pop_upper_bg').fadeOut()
+            $('.pop_more').fadeOut()
+        }
+    
+        // 关闭更多弹窗
+        $('.pop_upper_bg, .pop_more .cancle span').click(function(){
+            hiddPOP()
+        })
+
+        // 弹窗-编辑
+        $('.pop_more .edit').click(function(){
+            hiddPOP()
+            window.location.href='./branch.html'
+        })
+
+        // 弹窗-删除
+        $('.pop_more .del').click(function(){
+            hiddPOP()
+            //删除的方法
+        })
+
+        // 弹窗-编辑
+        $('.pop_more .set').click(function(){
+            hiddPOP()
+            //window.location.href='./branchEdit.html'
+        })
+
+       
+    })()
+    </script>
+
+</body>
+</html>

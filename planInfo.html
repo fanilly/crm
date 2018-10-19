@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>计划详情</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+
+    <div class="task_info">
+        <div class="tit_box">
+            <h2>做一个一年的计划关于如何提升个人能力方面的综合技能</h2>
+            <h3 class="public-bottom-line">
+                <em>2018.09.12 13:00~14:00</em>
+                <input type="text" readonly value="进行中" />
+            </h3>
+        </div>
+        <div class="exhibition">
+            <div class="box  public-bottom-line">
+            <h4><b>任务描述：</b>暂无任务描述</h4>
+            </div>
+        </div>
+        <div class="aboutplan">
+            <div class="item">
+                <h5>关<br>联<br>项<br>目</h5>
+                <p><span>计划名称</span><i>2018.10.10~2018.10.11</i></p>
+            </div>
+        </div>
+        
+
+        <div class="f7"></div>
+        <div class="mation">
+            <h2>计划线</h2>
+            <div class="show">
+                <div class="item">
+                    <h3><span>10.11</span><span class="year">2018</span></h3>
+                    <div class="list">
+                        <a class="sin">
+                            <div class="lside"><img src="./assets/e07.png"></div>
+                            <div class="center"><h3>刘星辰 于 18:35:52 完成了计划</h3></div>
+                        </a>
+                        <a class="sin">
+                            <div class="lside"><img src="./assets/e08.png"></div>
+                            <div class="center"><h3>刘星辰 于 18:35:52 完成了计划</h3></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="item">
+                    <h3><span>10.11</span><span class="year">2018</span></h3>
+                    <div class="list">
+                        <a class="sin">
+                            <div class="lside"><img src="./assets/e07.png"></div>
+                            <div class="center"><h3>刘星辰 于 18:35:52 完成了计划</h3></div>
+                        </a>
+                        <a class="sin">
+                            <div class="lside"><img src="./assets/e08.png"></div>
+                            <div class="center"><h3>刘星辰 于 18:35:52 完成了计划</h3></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="f7" style='height:0.4rem;'></div>
+        <div class="btn_group">
+            <span class="edit">编辑</span>
+            <span class="del">删除</span>
+        </div>
+        <div class="f7" style='height:0.4rem;'></div>
+
+        
+        <div style='height:1rem'></div>
+        <div class="foot_btn">
+            <span class="bg1"><i>开始</i></span>
+            <span class="bg3"><i>关闭</i></span>
+        </div>
+
+    </div> 
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    (function() {
+        //开始和结束
+        $(".foot_btn .bg1").click(function(){
+            $(this).addClass('on');
+            $(this).find('i').text('完成')
+        })
+    })()
+    </script>
+
+</body>
+</html>

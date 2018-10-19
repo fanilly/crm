@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>部门管理</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color: #f7f7f7; padding-bottom: 1rem; }
+</style>
+
+    <!-- 筛选弹窗 -->
+    <div class="branch_manage type2">
+        <div class="find"><input type="text" placeholder="搜索"></div>
+        <div class="no_set">
+            <img src="./assets/icon02.png" alt="" class="close">
+            <p><span>部门还没有主管，快设置主管吧~</span><i>用于管理日志，审批，考勤等查看操作与权限</i></p>
+            <a href="#">去设置</a>
+        </div>
+        <div class="choseBar">
+            <div class="list next">
+                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">小玲玲<b>主管</b></span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">刘德华</span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">郭德纲</span></p></div></div>
+                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">王大柱</span></p></div></div>
+            </div>
+            
+        </div>
+        
+        
+        <div class="foot_btn">
+            <span class="public"><i>添加员工</i></span><b></b>
+            <span class="public"><i>添加子部门</i></span><b></b>
+            <span onclick="window.location.href='./branchEdit.html'"><i>编辑</i></span>
+        </div>
+    </div>
+
+    <!-- 更多 -->
+    <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_upper_box pop_more">
+      <div class="first"><span class="edit">编辑</span><span class="del">删除</span><span class="set">设置权限</span></div>
+      <div class="first cancle"><span>取消</span></div>
+    </div>
+    <!-- 更多 -->
+    
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+
+        //选择结果
+        // $('.choseBar .list .item').on('click', function() {
+        //     var $self = $(this);
+        //     $.actions({
+        //         actions: [{
+        //             text: "邀约成功",
+        //             className:'public-color-success',
+        //             onClick: function() {
+        //                 $self.find('input').val('成功')
+        //             }
+        //         }, {
+        //             text: "邀约失败",
+        //             className: 'public-color-fail',
+        //             onClick: function() {
+        //                 $self.find('input').val('失败');
+        //             }
+        //         }]
+        //     });
+        // });
+
+        // 打开更多弹窗
+        $('.choseBar .list .item p').click(function(){
+            $('body,html').css({"overflow":'hidden'})
+            $('.pop_upper_bg').fadeIn()
+            $('.pop_more').fadeIn()
+        })
+        function hiddPOP(){
+            $('body,html').css({"overflow":'auto'})
+            $('.pop_upper_bg').fadeOut()
+            $('.pop_more').fadeOut()
+        }
+    
+        // 关闭更多弹窗
+        $('.pop_upper_bg, .pop_more .cancle span').click(function(){
+            hiddPOP()
+        })
+
+        // 弹窗-编辑
+        $('.pop_more .cancle .edit').click(function(){
+            hiddPOP()
+            window.location.href='./branchEdit.html'
+        })
+
+        // 弹窗-删除
+        $('.pop_more .cancle .del').click(function(){
+            hiddPOP()
+            //删除的方法
+        })
+
+        // 弹窗-编辑
+        $('.pop_more .cancle .set').click(function(){
+            hiddPOP()
+            //window.location.href='./branchEdit.html'
+        })
+
+       
+    })()
+    </script>
+
+</body>
+</html>

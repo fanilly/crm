@@ -597,6 +597,27 @@ textarea:-ms-input-placeholder,
   white-space: nowrap;
 }
 
+.public-input-box-type03 .txt {
+  padding-left: 0.2rem;
+}
+
+.public-input-box-type03 .add {
+  /*padding-left: 0.6rem;
+  background: url('../assets/e10.png') no-repeat left center;
+  background-size: 0.44rem auto; */
+  text-align: right;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.public-input-box-type03 .add img {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.16rem;
+}
+
 .public-input-box-type03 .icon {
   width: .12rem;
   margin-left: .2rem;
@@ -2288,6 +2309,12 @@ textarea:-ms-input-placeholder,
   width: .12rem;
 }
 
+.public-input-box-type04.more .arrow {
+  transform: rotate(90deg);
+  position: relative;
+  left: -.08rem;
+}
+
 .public-input-box-type04 .avatar {
   width: .72rem;
   height: .72rem;
@@ -2297,4 +2324,84 @@ textarea:-ms-input-placeholder,
 
 .public-input-box-type04 .public-tags-blue {
   margin-left: .2rem;
+}
+
+.public-img-txt-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.public-img-txt-list .item {
+  width: 1.14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem 0;
+}
+
+.public-img-txt-list .item .public-bgimg {
+  width: .66rem;
+  height: .66rem;
+  border-radius: 50%;
+}
+
+.public-img-txt-list .item .txt {
+  font-size: .24rem;
+  color: #1c1c20;
+  padding-top: .06rem;
+  font-weight: normal;
+}
+
+.public-photo {
+  overflow: hidden;
+}
+
+.public-photo .item {
+  display: block;
+  width: 1.58rem;
+  height: 1.58rem;
+  position: relative;
+  margin: 0.2rem 0.2rem 0 0;
+  float: left;
+}
+
+.public-photo .item .img {
+  display: block;
+  width: 1.58rem;
+  height: 1.58rem;
+}
+
+.public-photo .item .close {
+  display: block;
+  width: 0.32rem;
+  height: 0.32rem;
+  position: absolute;
+  right: 0.06rem;
+  top: 0.06rem;
+}
+
+.public-photo .add {
+  float: left;
+  width: 1.58rem;
+  height: 1.58rem;
+  position: relative;
+  margin: 0.2rem 0.2rem 0 0;
+}
+
+.public-photo .add img {
+  display: block;
+  width: 1.58rem;
+  height: 1.58rem;
+}
+
+.public-photo .add input {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 33;
+  opacity: 0;
 }

@@ -28,18 +28,50 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         </div>
         <div class="choseBar">
             <div class="list next">
-                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">小玲玲<b>主管</b></span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">刘德华</span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">郭德纲</span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><img src="assets/d08.png" alt=""><span class="floatL">王大柱</span></p></div></div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <img class="tx" src="assets/d08.png" alt="" onclick="window.location.href='./branchStaffInfo.html'">
+                            <span class="floatL" onclick="window.location.href='./branchStaffInfo.html'">小玲玲<b>主管</b></span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <img class="tx" src="assets/d08.png" alt="" onclick="window.location.href='./branchStaffInfo.html'">
+                            <span class="floatL" onclick="window.location.href='./branchStaffInfo.html'">刘德华</span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <img class="tx" src="assets/d08.png" alt="" onclick="window.location.href='./branchStaffInfo.html'">
+                            <span class="floatL" onclick="window.location.href='./branchStaffInfo.html'">郭德纲</span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <img class="tx" src="assets/d08.png" alt="" onclick="window.location.href='./branchStaffInfo.html'">
+                            <span class="floatL" onclick="window.location.href='./branchStaffInfo.html'">王大柱</span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
             </div>
             
         </div>
         
         
         <div class="foot_btn">
-            <span class="public"><i>添加员工</i></span><b></b>
-            <span class="public"><i>添加子部门</i></span><b></b>
+            <span class="public" onclick="window.location.href='./branchStaffAdd.html'"><i>添加员工</i></span><b></b>
+            <span class="public" onclick="window.location.href='./branchChildEdit.html'"><i>添加子部门</i></span><b></b>
             <span onclick="window.location.href='./branchEdit.html'"><i>编辑</i></span>
         </div>
     </div>
@@ -103,7 +135,7 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         // 弹窗-编辑
         $('.pop_more .cancle .edit').click(function(){
             hiddPOP()
-            window.location.href='./branchEdit.html'
+            window.location.href='./branchStaffEdit.html'
         })
 
         // 弹窗-删除
@@ -115,7 +147,7 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         // 弹窗-编辑
         $('.pop_more .cancle .set').click(function(){
             hiddPOP()
-            //window.location.href='./branchEdit.html'
+            window.location.href='./branchSetPower.html'
         })
 
        

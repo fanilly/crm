@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>考勤设置</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color: #f7f7f7; padding-bottom: 1rem; }
+</style>
+
+    <div class="edit_branch">
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">办公地点</span><span class="require">*</span>
+                </label>
+                <!-- <input class="input public-flex1" type="text" name="" placeholder="点击输入"> -->
+                <span class="txt add" onclick="window.location.href='./checkWorkChose.html'"><img src="assets/icon25.png" alt=""><i>添加办公地点</i></span>
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">有效打卡范围</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_area" type="text" name="" value="300米" placeholder="去设置">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">考勤日期</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" onclick="window.location.href='./checkWorkChose.html'" type="text" name="" value="每周一、二、三、四、五、六" placeholder="去设置">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="" onclick="window.location.href='./checkWorkChose.html'">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">上班打卡时间</span>
+                </label>
+                <input class="input public-flex1" id="chose_start" type="text" readonly placeholder="09:00">
+                <span class="txt">之前</span>
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">下班打卡时间</span>
+                </label>
+                <input class="input public-flex1" id="chose_end" type="text" readonly placeholder="17:00">
+                <span class="txt">之后</span>
+            </div>
+        </div>
+
+        
+
+        <div style='height:2rem;'></div>
+        <div class="fix_visit_btn"><button>确认修改</button></div>
+
+    </div>
+    
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        $.fn.autoHeight = function(){
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });
+        }
+        $('textarea[autoHeight]').autoHeight();
+
+        //选择打卡有效范围
+        $("#chose_area").picker({
+            title: "请选择打卡有效范围",
+            cols: [{
+                textAlign: 'center',
+                values: ['100米','300米','500米']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择上班打卡时间
+        $("#chose_start").picker({
+            title: "请选择上班打卡时间",
+            cols: [{
+                textAlign: 'center',
+                values: ['08:00','08:30','09:00']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择下班打卡时间
+        $("#chose_end").picker({
+            title: "请选择下班打卡时间",
+            cols: [{
+                textAlign: 'center',
+                values: ['17:00','17:30','18:00']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+       
+    })()
+    </script>
+
+</body>
+</html>

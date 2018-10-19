@@ -44,6 +44,7 @@ window.LCalendar = (function() {
       function popupDate(e) {
         _self.gearDate = document.createElement("div");
         _self.gearDate.className = "gearDate";
+        _self.gearDate.setAttribute('data-origin','mask');
         _self.gearDate.innerHTML = '<div class="date_ctrl slideInUp">' +
           '<div class="date_btn_box">' +
           '<div class="date_btn lcalendar_cancel">取消</div>' +
@@ -76,6 +77,11 @@ window.LCalendar = (function() {
         dateCtrlInit();
         var lcalendar_cancel = _self.gearDate.querySelector(".lcalendar_cancel");
         lcalendar_cancel.addEventListener('touchstart', closeMobileCalendar);
+        _self.gearDate.addEventListener('click',function(e){
+          if(e.target.getAttribute('data-origin') == 'mask'){
+            closeMobileCalendar(e);
+          }
+        })
         var lcalendar_finish = _self.gearDate.querySelector(".lcalendar_finish");
         lcalendar_finish.addEventListener('touchstart', finishMobileDate);
         var date_yy = _self.gearDate.querySelector(".date_yy");
@@ -116,6 +122,7 @@ window.LCalendar = (function() {
       function popupYS(e) {
         _self.gearDate = document.createElement("div");
         _self.gearDate.className = "gearDate";
+        _self.gearDate.setAttribute('data-origin','mask');
         _self.gearDate.innerHTML = '<div class="date_ctrl slideInUp">' +
           '<div class="date_btn_box">' +
           '<div class="date_btn lcalendar_cancel">取消</div>' +
@@ -142,6 +149,11 @@ window.LCalendar = (function() {
         ysCtrlInit();
         var lcalendar_cancel = _self.gearDate.querySelector(".lcalendar_cancel");
         lcalendar_cancel.addEventListener('touchstart', closeMobileCalendar);
+        _self.gearDate.addEventListener('click',function(e){
+          if(e.target.getAttribute('data-origin') == 'mask'){
+            closeMobileCalendar(e);
+          }
+        })
         var lcalendar_finish = _self.gearDate.querySelector(".lcalendar_finish");
         lcalendar_finish.addEventListener('touchstart', finishMobileYS);
         var date_yy = _self.gearDate.querySelector(".date_yy");
@@ -206,6 +218,7 @@ window.LCalendar = (function() {
       function popupYM(e) {
         _self.gearDate = document.createElement("div");
         _self.gearDate.className = "gearDate";
+        _self.gearDate.setAttribute('data-origin','mask');
         _self.gearDate.innerHTML = '<div class="date_ctrl slideInUp">' +
           '<div class="date_btn_box">' +
           '<div class="date_btn lcalendar_cancel">取消</div>' +
@@ -232,6 +245,11 @@ window.LCalendar = (function() {
         ymCtrlInit();
         var lcalendar_cancel = _self.gearDate.querySelector(".lcalendar_cancel");
         lcalendar_cancel.addEventListener('touchstart', closeMobileCalendar);
+        _self.gearDate.addEventListener('click',function(e){
+          if(e.target.getAttribute('data-origin') == 'mask'){
+            closeMobileCalendar(e);
+          }
+        })
         var lcalendar_finish = _self.gearDate.querySelector(".lcalendar_finish");
         lcalendar_finish.addEventListener('touchstart', finishMobileYM);
         var date_yy = _self.gearDate.querySelector(".date_yy");
@@ -316,6 +334,11 @@ window.LCalendar = (function() {
         dateTimeCtrlInit();
         var lcalendar_cancel = _self.gearDate.querySelector(".lcalendar_cancel");
         lcalendar_cancel.addEventListener('touchstart', closeMobileCalendar);
+        _self.gearDate.addEventListener('click',function(e){
+          if(e.target.getAttribute('data-origin') == 'mask'){
+            closeMobileCalendar(e);
+          }
+        })
         var lcalendar_finish = _self.gearDate.querySelector(".lcalendar_finish");
         lcalendar_finish.addEventListener('touchstart', finishMobileDateTime);
         var date_yy = _self.gearDate.querySelector(".date_yy");
@@ -371,6 +394,7 @@ window.LCalendar = (function() {
       function popupTime(e) {
         _self.gearDate = document.createElement("div");
         _self.gearDate.className = "gearDate";
+        _self.gearDate.setAttribute('data-origin','mask');
         _self.gearDate.innerHTML = '<div class="date_ctrl slideInUp">' +
           '<div class="date_btn_box">' +
           '<div class="date_btn lcalendar_cancel">取消</div>' +
@@ -397,6 +421,11 @@ window.LCalendar = (function() {
         timeCtrlInit();
         var lcalendar_cancel = _self.gearDate.querySelector(".lcalendar_cancel");
         lcalendar_cancel.addEventListener('touchstart', closeMobileCalendar);
+        _self.gearDate.addEventListener('click',function(e){
+          if(e.target.getAttribute('data-origin') == 'mask'){
+            closeMobileCalendar(e);
+          }
+        })
         var lcalendar_finish = _self.gearDate.querySelector(".lcalendar_finish");
         lcalendar_finish.addEventListener('touchstart', finishMobileTime);
         var time_hh = _self.gearDate.querySelector(".time_hh");

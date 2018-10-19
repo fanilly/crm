@@ -41,14 +41,14 @@
     <div class="notice-list">
       <div v-for="item,index in '123456789'">
         <h5 class="item-time">今天07:04</h5>
-        <a href="#" class="item" @click.stop.prevent="handleShowControl">
+        <a href="./noticeDetail.html" class="item">
           <img src="./assets/icon11.png" alt="" class="lside">
           <div class="center public-flex1">
             <h3>关于国庆放假通知</h3>
             <p>国庆放假安排：法定节假日7天</p>
             <h4>发布人 陈珍珍</h4>
           </div>
-          <img src="./assets/c23.png" alt="" class="rside">
+          <img src="./assets/c23.png" alt="" class="rside" @click.stop.prevent="handleShowControl">
         </a>
       </div>
     </div>
@@ -183,30 +183,30 @@
         <div class="public-chose-branch">
           <div class="public-find"><input type="text" placeholder="搜索"></div>
           <div class="public-chose-branch-content">
-            <div class="public-input-box-type04 public-flex-center public-bottom-line">
-              <div class="public-toggle2"></div>
+            <div class="public-input-box-type04 public-flex-center public-bottom-line" @click="handleChooseAllPersons">
+              <div :class="{'public-toggle2':true,'public-toggle2-checked':chooseAllPersons}"></div>
               <div class="public-flex1 txt">全选</div>
             </div>
-            <div class="group">
-              <div class="public-input-box-type04 public-flex-center public-bottom-line">
-                <div class="public-toggle2"></div>
-                <div class="public-flex1 txt">技术部</div>
-                <div class="public-flex-center">
-                  <div class="remark">31人</div>
+            <div class="group" v-for="item,index in persons">
+              <div :class="{'public-input-box-type04':true,'public-flex-center':true,'public-bottom-line':true,active:item.chooseAll,more:item.more}" @click="handleChoosePersonDepartment(index)">
+                <div :class="{'public-toggle2':true,'public-toggle2-checked':item.chooseAll}"></div>
+                <div class="public-flex1 txt">{{item.name}}</div>
+                <div class="public-flex-center" @click.stop.prevent="hanldeShowMorePerson(index)">
+                  <div class="remark">{{item.users.length}}人</div>
                   <img src="./assets/a04.png" class="arrow">
                 </div>
               </div>
-              <div class="public-input-box-type04 public-flex-center public-bottom-line">
-                <div class="public-toggle2"></div>
-                <div class="avatar public-bgimg" style="background-image: url(./assets/d08.png)"></div>
-                <div class="public-flex1 txt">张三<span class="public-tags-blue">主管</span></div>
+              <div v-if="item.more" v-for="user,i in item.users" class="public-input-box-type04 public-flex-center public-bottom-line" @click="handleChoosePersonItem(index,i)">
+                <div :class="{'public-toggle2':true,'public-toggle2-checked':user.choose}"></div>
+                <div class="avatar public-bgimg" :style="'background-image: url('+user.avatar+')'"></div>
+                <div class="public-flex1 txt">{{user.nickname}}<span class="public-tags-blue" v-if="user.is_supervisor == 1">主管</span></div>
               </div>
             </div>
           </div>
           <div class="confirm-btn-wapper">
             <div class="footer-box">
               <a class="line-btn btn reset close-popup">取消</a>
-              <a class="fill-btn btn confirm">确定</a>
+              <a class="fill-btn btn confirm" @click="handleConfirmChoosePersons">确定</a>
             </div>
           </div>
         </div>
@@ -237,31 +237,6 @@
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <script>
-  $(function() {
-    /*==========================
-    =            筛选          =
-    ==========================*/
-    $('.screen-btn').on('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      $('.public-screen-mask-calendar').click();
-      $('.public-screen-mask01').fadeIn('fast');
-      $('.public-screen-content01').slideDown('fast');
-    });
-
-    $('.public-screen-mask01').on('click', function() {
-      $('.public-screen-mask01').fadeOut('fast');
-      $('.public-screen-content01').slideUp('fast');
-    });
-
-    $('.public-screen-content01 .confirm').on('click', function() {
-      $('.public-screen-mask01').fadeOut('fast');
-      $('.public-screen-content01').slideUp('fast');
-      //在这里获取选中的筛选选项并发起请求刷新页面数据
-
-    });
-  });
-
   $.toast.prototype.defaults.duration = 1000;
   var APP = new Vue({
     el: '#app',
@@ -280,7 +255,15 @@
       page: 1,
       allowLoadMore: true,
       commentLoadedAll: false,
-      noCommentLists: false
+      noCommentLists: false,
+
+      /*=====================================
+      =            choose person            =
+      =====================================*/
+      persons: [],
+      chooseAllPersons: false,
+      choosedPerson: [],
+      /*=====  End of choose person  ======*/
     },
     watch: {
       testchecked: function() {
@@ -293,6 +276,87 @@
       }
     },
     methods: {
+
+      /*=====================================
+      =            choose person            =
+      =====================================*/
+
+      handleChoosePersonItem: function(parentIndex, index) {
+        var self = this;
+        this.persons[parentIndex].users[index].choose = !this.persons[parentIndex].users[index].choose;
+        var tempUsers = this.persons[parentIndex].users.filter(function(item, i) {
+          return !item.choose;
+        });
+        this.persons[parentIndex].chooseAll = tempUsers.length == 0 ? true : false;
+        var tempPersons = this.persons.filter(function(item, i) {
+          return !item.chooseAll;
+        });
+        this.chooseAllPersons = tempPersons.length == 0 ? true : false;
+      },
+
+      hanldeShowMorePerson: function(index) {
+        this.persons[index].more = !this.persons[index].more;
+      },
+
+      handleConfirmChoosePersons: function() {
+        var choosedPerson = [];
+        this.persons.forEach(function(item, index) {
+          choosedPerson = choosedPerson.concat(item.users.filter(function(ele, i) {
+            return ele.choose;
+          }))
+        });
+        this.choosedPerson = choosedPerson;
+        $.closePopup();
+      },
+
+      handleChoosePersonDepartment: function(index) {
+        var self = this;
+        this.persons[index].chooseAll = !this.persons[index].chooseAll;
+        this.persons[index].users = this.persons[index].users.map(function(item, i) {
+          item.choose = self.persons[index].chooseAll;
+          return item;
+        });
+        var tempPersons = this.persons.filter(function(item, i) {
+          return !item.chooseAll;
+        });
+        this.chooseAllPersons = tempPersons.length == 0 ? true : false;
+      },
+
+      handleChooseAllPersons: function() {
+        var self = this;
+        var persons = [];
+        this.chooseAllPersons = !this.chooseAllPersons;
+        this.persons.forEach(function(item, index) {
+          item.chooseAll = self.chooseAllPersons;
+          item.users = item.users.map(function(ele, i) {
+            ele.choose = self.chooseAllPersons;
+            return ele;
+          });
+          persons.push(item);
+        });
+        this.persons = persons;
+      },
+
+      getRoleUser: function() {
+        var self = this;
+        $.get('/journal/index/get_role_user', function(res) {
+          var persons = [];
+          res.data.forEach(function(item, index) {
+            item.chooseAll = false;
+            item.more = false;
+            item.users = item.users.map(function(ele, i) {
+              ele.choose = false;
+              return ele;
+            });
+            persons.push(item);
+          });
+          self.persons = persons;
+        })
+      },
+
+      /*=====  End of choose person  ======*/
+
+
       //获取某月的天数
       getMonthDaysLength: function(year, month) {
         return new Date(year, month, 0).getDate();
@@ -332,9 +396,9 @@
       //确定选择区间
       handleConfirmChooseCustom: function() {
         if (this.sectionStart == '') {
-          $.toast('请选择开始时间','text');
+          $.toast('请选择开始时间', 'text');
         } else if (this.sectionEnd == '') {
-          $.toast('请选择结束时间','text');
+          $.toast('请选择结束时间', 'text');
         } else {
           this.startTime = this.sectionStart.join('.');
           this.endTime = this.sectionEnd.join('.');
@@ -482,10 +546,36 @@
     mounted: function() {
       this.endTime = this.formatDate();
       this.startTime = this.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (this.getDayOfWeek() - 1));
+      this.getRoleUser();
       // this.getLists();
       // $(document.body).infinite(200).on("infinite", function() {
       //     vm.getLists();
       // });
+
+
+
+      /*==========================
+      =            筛选          =
+      ==========================*/
+      $('.screen-btn').on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('.public-screen-mask-calendar').click();
+        $('.public-screen-mask01').fadeIn('fast');
+        $('.public-screen-content01').slideDown('fast');
+      });
+
+      $('.public-screen-mask01').on('click', function() {
+        $('.public-screen-mask01').fadeOut('fast');
+        $('.public-screen-content01').slideUp('fast');
+      });
+
+      $('.public-screen-content01 .confirm').on('click', function() {
+        $('.public-screen-mask01').fadeOut('fast');
+        $('.public-screen-content01').slideUp('fast');
+        //在这里获取选中的筛选选项并发起请求刷新页面数据
+
+      });
     }
   });
 

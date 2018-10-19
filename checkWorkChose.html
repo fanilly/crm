@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>考勤日期</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color: #f7f7f7; padding-bottom: 1.8rem; }
+</style>
+
+    <!-- 筛选弹窗 -->
+    <div class="chose_branch">
+        <div class="choseBar">
+            <div class="all">全选</div>
+            <div class="list next">
+                <div class="item public-bottom-line"><span>每周一</span></div>
+                <div class="item public-bottom-line"><span>每周二</span></div>
+                <div class="item public-bottom-line"><span>每周三</span></div>
+                <div class="item public-bottom-line"><span>每周四</span></div>
+                <div class="item public-bottom-line"><span>每周五</span></div>
+                <div class="item public-bottom-line"><span>每周六</span></div>
+                <div class="item public-bottom-line"><span>每周日</span></div>
+            </div>
+        </div>
+        
+        <div class="fix_visit_btn"><button id="sub">确认</button></div>
+    </div>
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        //小全选
+        $('.choseBar .all').click(function(){
+            $(this).toggleClass('on');
+            if($(this).hasClass('on')){
+                $(this).siblings('.list').find('.item').addClass('on')
+            }else{
+                $(this).siblings('.list').find('.item').removeClass('on')
+            }
+        })
+
+        //单个选择
+        $('.choseBar .list .item').click(function(){
+            $(this).toggleClass('on');
+            if($(this).hasClass('on')){
+                //查看是否全选本行
+                var _parents = $(this).parents('.list')
+                var flag = true
+                for(var i=0; i<_parents.find('.item').length; i++){
+                    if(!_parents.find('.item').eq(i).hasClass('on')){
+                        flag = false
+                    }
+                }
+                if(flag){ _parents.siblings('.all').addClass('on');
+                }else{ _parents.siblings('.all').removeClass('on'); }
+            }else{
+                $(this).parents('.list').siblings('.all').removeClass('on')
+            }
+        })
+
+        //提交
+        $('#sub').click(function(){
+            //提交
+            window.history.go(-1);
+        })
+       
+    })()
+    </script>
+
+</body>
+</html>

@@ -24,10 +24,38 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
 
         <div class="choseBar">
             <div class="list next">
-                <div class="item"><div class="box public-bottom-line"><p><span>技术部<em>(26人)</em></span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><span>人事部<em>(14人)</em></span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><span>销售部<em>(8人)</em></span></p></div></div>
-                <div class="item"><div class="box public-bottom-line"><p><span>行政部<em>(12人)</em></span></p></div></div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <span onclick="window.location.href='./branch.html'">技术部<em>(26人)</em></span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <span onclick="window.location.href='./branch.html'">人事部<em>(14人)</em></span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <span onclick="window.location.href='./branch.html'">销售部<em>(8人)</em></span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box public-bottom-line">
+                        <p>
+                            <span onclick="window.location.href='./branch.html'">行政部<em>(12人)</em></span>
+                            <img class="more" src="./assets/c23.png" alt="">
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="f7"></div>
             <div class="list next">
@@ -37,9 +65,9 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         
         
         <div class="foot_btn">
-            <span class="public"><i>添加员工</i></span><b></b> 
-            <span class="public"><i>添加部门</i></span><b></b>
-            <span><i>添加子部门</i></span>
+            <span class="public" onclick="window.location.href='./branchStaffAdd.html'"><i>添加员工</i></span><b></b> 
+            <span class="public" onclick="window.location.href='./branchEdit.html'"><i>添加部门</i></span><b></b>
+            <span onclick="window.location.href='./branchChildEdit.html'"><i>添加子部门</i></span>
         </div>
     </div>
 
@@ -83,7 +111,7 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         // });
 
         // 打开更多弹窗
-        $('.choseBar .list .item p').click(function(){
+        $('.choseBar .list .item p .more').click(function(){
             $('body,html').css({"overflow":'hidden'})
             $('.pop_upper_bg').fadeIn()
             $('.pop_more').fadeIn()
@@ -114,7 +142,7 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
         // 弹窗-编辑
         $('.pop_more .set').click(function(){
             hiddPOP()
-            //window.location.href='./branchEdit.html'
+            window.location.href='./branchSetPower.html'
         })
 
        

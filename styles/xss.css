@@ -645,14 +645,15 @@ opacity: 0; }
 .branch_manage .choseBar .list{ background-color: #fff; padding-left: 0.3rem; }
 .branch_manage .choseBar .list .item{}
 .branch_manage .choseBar .list .item .box{ padding-right: 0.3rem; position: relative; }
-.branch_manage .choseBar .list .item p{ position: relative; padding:0.4rem 0.5rem 0.4rem 0rem; font-size: 0.32rem; color: #333; line-height:1; padding-right: 0.5rem; overflow: hidden; background: url('../assets/c23.png') no-repeat right center; background-size: 0.4rem auto;   }
+.branch_manage .choseBar .list .item p{ position: relative; padding:0.4rem 0.5rem 0.4rem 0rem; font-size: 0.32rem; color: #333; line-height:1; padding-right: 0.5rem; overflow: hidden; /* background: url('../assets/c23.png') no-repeat right center; background-size: 0.4rem auto; */  }
+.branch_manage .choseBar .list .item p .more{ position: absolute; right: 0; top: 50%; width:0.4rem; height: 0.4rem; margin-top: -0.2rem; }
 .branch_manage .choseBar .list .item span{ display: block; }
 .branch_manage .choseBar .list .item span em{ padding-left: 0.2rem; }
 .branch_manage .choseBar .list .item i{ font-size:0.24rem; color: #999; display: block; line-height: 1; margin-top: 0.18rem;  }
 
 .branch_manage.type2{}
 .branch_manage.type2 .list .item p{ padding:0.2rem 0.5rem 0.2rem 0rem; line-height:0.72rem; }
-.branch_manage.type2 .list .item p img{display: block; width:0.72rem; height: 0.72rem; border-radius: 50%; margin:0 0.24rem 0 0; float: left;}
+.branch_manage.type2 .list .item p .tx{display: block; width:0.72rem; height: 0.72rem; border-radius: 50%; margin:0 0.24rem 0 0; float: left;}
 .branch_manage.type2 .list .item p span{float: left; }
 .branch_manage.type2 .list .item p b{display: inline-block;height: 0.36rem; line-height: 0.36rem; margin: 0 0 0 0.2rem; padding: 0 0.12rem; background-color: rgba(0,174,255,0.15); color: #00aeff; font-size: 0.2rem; border-radius: 0.04rem;}
 .branch_manage .no_set{ display: flex; justify-content: center; align-items: center; padding:0.2rem 0.3rem; }

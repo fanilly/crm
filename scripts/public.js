@@ -4,6 +4,9 @@
   $(function() {
     $('.public-js-choose-blur').on('click',function(){
       $('input').blur();
+    });
+    $('.weui-popup__overlay,.close-popup').on('click',function(){
+      $.closePopup();
     })
     /*================================================
     =                   输入框模块                   =
@@ -181,6 +184,11 @@
     }
 
     return txt == '' ? fmt : txt;
+  });
+
+  Vue.filter('stringIntercept', function(str, len) {
+    var len = len ? len : 2;
+    return str.substr(str.length - len);
   });
 
 

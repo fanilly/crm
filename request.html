@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>申请</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+        body{ background-color: #f7f7f7; }
+    </style>
+
+    <!-- 申请 -->
+    <div class="request_page">
+        <div class="top_tips">以下审批已和考勤智能关联，将会自动计入考勤报表</div>
+        <div class="f7"></div>
+        <ul class="listnum">
+            <a class="public-top-line public-right-line" href="requestLeave.html"><img src="./assets/g01.png" alt=""><span>请假</span></a>
+            <a class="public-top-line public-right-line" href="requestOut.html"><img src="./assets/g02.png" alt=""><span>出差</span></a>
+            <a class="public-top-line public-right-line" href="requestTrain.html"><img src="./assets/g03.png" alt=""><span>培训</span></a>
+            <a class="public-top-line public-right-line" href="requestGoout.html"><img src="./assets/g04.png" alt=""><span>外出</span></a>
+            <a class="public-top-line public-right-line" href="requestSupplyList.html"><img src="./assets/g05.png" alt=""><span>补卡</span></a>
+            <a class="public-top-line public-right-line" href="requestOvertime.html"><img src="./assets/g06.png" alt=""><span>加班</span></a>
+        </ul>
+        <div class="f7"></div>
+        <div class="linkpart">
+            <div class="part">
+                <div class="link bg1 public-bottom-line"><a href="letMeAgree.html"><span>我审批的</span><i class="num">2</i></a></div>
+                <div class="link bg2 public-bottom-line"><a href="letMeKnow.html"><span>抄送给我</span></a></div>
+            </div>
+            <div class="f7"></div>
+            <div class="part">
+                <div class="link bg3"><a href="letMeRequest.html"><span>我的申请</span></a></div>
+            </div>
+        </div>
+    </div>
+    <!-- 申请 -->
+
+    <!-- footer -->
+    <div style="height: .98rem"></div>
+    <div class="public-footer-nav">
+        <a class="item" href="./reportPost.html">
+            <img src="./assets/d-icon02.png">
+            <!-- <img src="./assets/d-icon01.png"> -->
+            <p>打卡</p>
+        </a>
+        <a class="item active" href="./request.html">
+            <!-- <img src="./assets/d-icon03.png"> -->
+            <img src="./assets/d-icon04.png">
+            <p>申请</p>
+        </a>
+        <a class="item" href="./countDays.html">
+            <img src="./assets/d-icon05.png">
+            <!-- <img src="./assets/d-icon06.png"> -->
+            <p>统计</p>
+        </a>
+    </div>
+    <!-- End of footer -->
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+        (function() {
+          
+        })()
+    </script>
+</body>
+
+</html>

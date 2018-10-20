@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>培训申请</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jquery-datepicker/styles/jquery.datepicker.rem.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+    
+    </style>
+    <div class="schedule_Add">
+        <form class="customer-add-page public-gbg">
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">培训内容</span><span class="require">*</span></label>
+                    <input class="input public-flex1" type="email" name="" value="点击输入">
+                </div>
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">培训地点</span><span class="require">*</span></label>
+                    <input class="input public-flex1" type="email" name="" value="点击输入">
+                </div>
+            </div> 
+            
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                    <label class="lside public-flex-center"><span class="name">开始时间</span><span class="require">*</span></label>
+                    <input class="input public-flex1" type="email" name="" id='mj_start' readonly value="2018.09.09 10:00">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                    <label class="lside public-flex-center"><span class="name">结束时间</span><span class="require">*</span></label>
+                    <input class="input public-flex1" type="email" name="" id='mj_end' readonly value="2018.09.10 10:00">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div>
+            
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">交通工具</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_type" readonly value="步行">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">单程往返</span></label>
+                    <input class="input public-flex1" type="email" name="" id="chose_times" readonly value="单程">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div> 
+
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center">
+                    <label class="lside public-flex-center"><span class="name">备注</span><span class="require">*</span></label>
+                </div>
+                <div class="public-textarea-box-type01" style='padding:0rem 0.3rem 0.2rem 0'>
+                    <textarea placeholder="请输入" autoHeight="true"></textarea>
+                </div>
+            </div>
+
+
+            <div class="keeps">
+                <dl>
+                    <dt style='margin-bottom: 0'>上传附件或图片</dt>
+                    <dd>
+                        <div class="photo">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img">
+                                <img src="assets/c35.png" alt="" class="close">
+                            </div>
+                            <div class="add"><img src="assets/c36.png" alt=""><input type="file" ></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style='margin-bottom: 0'>同行人<i>（若无，则不选择）</i></dt>
+                    <dd>
+                        <div class="users">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img"><span>赵大柱</span>
+                                <img src="assets/g10.png" alt="" class="close">
+                            </div>
+                            <div class="add" onclick="window.location.href='choseBranch.html'"><img src="assets/c37.png" alt=""><span>添加</span></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style='margin-bottom: 0'>审批人<i>（默认部门主管）</i></dt>
+                    <dd>
+                        <div class="users">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img"><span>赵大柱</span>
+                                <img src="assets/g10.png" alt="" class="close">
+                            </div>
+                            <div class="add" onclick="window.location.href='choseBranch.html'"><img src="assets/c37.png" alt=""><span>添加</span></div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt style='margin-bottom: 0'>抄送人<i>（默认人事部人员，审批通过，通知抄送人）</i></dt>
+                    <dd>
+                        <div class="users">
+                            <div class="item">
+                                <img src="assets/bg.jpg" alt="" class="img"><span>赵大柱</span>
+                                <img src="assets/g10.png" alt="" class="close">
+                            </div>
+                            <div class="add" onclick="window.location.href='choseBranch.html'"><img src="assets/c37.png" alt=""><span>添加</span></div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            
+            <div style='height:1.6rem;'></div>
+            <div class="fix_visit_btn"><button>保存</button></div>
+
+        </form>
+    </div>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script src="./librarys/jquery-datepicker/scripts/jquery.datepicker.js?v={:config('asset_version')}"></script>
+    <script>
+        (function() {
+            function getNowFormatDate() {
+                var date = new Date();
+                var seperator1 = "-";
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) { month = "0" + month }
+                if (strDate >= 0 && strDate <= 9) { strDate = "0" + strDate }
+                var currentdate = year + seperator1 + month + seperator1 + strDate + ' 10:00';
+                $('#mj_start').val(currentdate)  
+                $('#mj_end').val(currentdate)
+                return currentdate;
+            }
+            getNowFormatDate()
+
+            $('#mj_start').mjDatePicker({
+                bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)',
+                callback:function(year,month,day){
+                    dealTime(year,month,day,1)
+                },
+                formate:'.'
+            });
+            $('#mj_end').mjDatePicker({
+                bg: 'linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff)',
+                callback:function(year,month,day){
+                    dealTime(year,month,day,2)
+                },
+                formate:'.'
+            });
+            function dealTime(year,month,day,num){
+                var month = month<10 ? '0'+month : month
+                var day = day<10 ? '0'+day : day
+                var val = year + '-' + month + '-' + day
+                if(num==1){ $("#mj_start").val(val) }
+                else if(num==2) { $("#mj_end").val(val) }
+                
+                var start = $('#mj_start').val()
+                var end = $('#mj_end').val()
+                if(start>end){
+                    $('#mj_start').val(end)  
+                    $('#mj_end').val(start)
+                }
+            }
+
+            $.fn.autoHeight = function(){
+                function autoHeight(elem){
+                    elem.style.height = 'auto';
+                    elem.scrollTop = 0; //防抖动
+                    elem.style.height = elem.scrollHeight + 'px';
+                }
+                this.each(function(){
+                    autoHeight(this);
+                    $(this).on('keyup', function(){
+                        autoHeight(this);
+                    });
+                });
+            }
+            $('textarea[autoHeight]').autoHeight();
+
+
+            //选择交通工具
+            $("#chose_type").picker({
+                title: "请选择交通工具",
+                cols: [{
+                    textAlign: 'center',
+                    values: ['步行','公交','开车','飞机']
+                }],
+                onClose: function (p, v, d) {
+                    console.log(p.params.cols[0].activeIndex);
+                }
+            });
+            $("#chose_type").picker("setValue", ["2012", "12", "12"]);
+
+            //选择单程往返
+            $("#chose_times").picker({
+                title: "请选择",
+                cols: [{
+                    textAlign: 'center',
+                    values: ['单程','往返']
+                }],
+                onClose: function (p, v, d) {
+                    console.log(p.params.cols[0].activeIndex);
+                }
+            });
+
+
+        })()
+    </script>
+</body>
+
+</html>

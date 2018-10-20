@@ -154,11 +154,14 @@
   var ChartApp = new Vue({
     el: '#chart_app',
     data: {
-      showType: 'week', // 展示类型 week 按周查看 month 按月查看 custom 自定义区间
+      showType: 'week',
+      // 展示类型 week 按周查看 month 按月查看 custom 自定义区间
       startTime: '',
       endTime: '',
-      sectionStart: '', //区间开始
-      sectionEnd: '', //区间结束
+      sectionStart: '',
+      //区间开始
+      sectionEnd: '',
+      //区间结束
       month: '',
       year: '',
       days: [],
@@ -315,7 +318,6 @@
 
       //点击区间选择模块的上个月或下个月
       handleToggleMonth: function(type) {
-        console.log(type)
         if (type === 'prev') {
           if (this.month * 1 - 1 >= 1) {
             this.month = (this.month * 1 - 1) < 10 ? '0' + (this.month * 1 - 1) : (this.month * 1 - 1) + '';
@@ -362,16 +364,12 @@
         this.getData(this.year, this.month);
       },
 
-
     },
     mounted: function() {
       var self = this;
 
       this.endTime = this.formatDate();
       this.startTime = this.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (this.getDayOfWeek() - 1));
-
-
-
 
       //绘制折线图
       (function() {
@@ -398,8 +396,8 @@
           { label: '24日', day: 20, value: 2 },
           { label: '25日', day: 21, value: 16 },
           { label: '26日', day: 22, value: 30 },
-          { label: '26日', day: 23, value: 10 },
-          ];
+          { label: '26日', day: 23, value: 10 }
+            ];
 
         var chart = new F2.Chart({
           id: 'main',
@@ -480,38 +478,40 @@
         chart.render();
       })();
 
-
       //选择时间段
-      $('#chose_week').on('click', function() {
-        $.actions({
-          actions: [{
-            text: "按周展示",
-            className: 'public-color-success',
-            onClick: function() {
-              self.showType = 'week';
-              self.endTime = self.formatDate();
-              self.startTime = self.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (self.getDayOfWeek() - 1));
-            }
-          }, {
-            text: "按月展示",
-            className: 'public-color-success',
-            onClick: function() {
-              var time = new Date();
-              var month = time.getMonth() + 1;
-              self.showType = 'month';
-              self.endTime = self.formatDate();
-              self.startTime = time.getFullYear() + '.' + (month >= 10 ? month : '0' + month) + '.0' + 1;
-            }
-          }, {
-            text: "自定义区间",
-            className: 'public-color-success',
-            onClick: function() {
-              self.showType = 'custom';
-              self.handleCheckPopCalendar();
-            }
-          }]
+      $('#chose_week').on('click',
+        function() {
+          $.actions({
+            actions: [{
+                text: "按周展示",
+                className: 'public-color-success',
+                onClick: function() {
+                  self.showType = 'week';
+                  self.endTime = self.formatDate();
+                  self.startTime = self.formatDate(new Date().getTime() - 1000 * 60 * 60 * 24 * (self.getDayOfWeek() - 1));
+                }
+                },
+              {
+                text: "按月展示",
+                className: 'public-color-success',
+                onClick: function() {
+                  var time = new Date();
+                  var month = time.getMonth() + 1;
+                  self.showType = 'month';
+                  self.endTime = self.formatDate();
+                  self.startTime = time.getFullYear() + '.' + (month >= 10 ? month : '0' + month) + '.0' + 1;
+                }
+                },
+              {
+                text: "自定义区间",
+                className: 'public-color-success',
+                onClick: function() {
+                  self.showType = 'custom';
+                  self.handleCheckPopCalendar();
+                }
+                }]
+          });
         });
-      });
 
       //选择时间
       $("#chose_branch").picker({
@@ -519,13 +519,13 @@
         cols: [{
           textAlign: 'center',
           values: ['销售部', '技术部', '行政部', '其他']
-        }],
+            }],
         onChange: function(p, v, d) {
-          var now = p.displayValue[0]
+          var now = p.displayValue[0];
           $("#chose_branch").siblings('span').text(now);
         },
         onConfirm: function(p, v, d) {
-          var now = p.displayValue[0]
+          var now = p.displayValue[0];
           $("#chose_branch").siblings('span').text(now);
         }
       });

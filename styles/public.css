@@ -1,6 +1,10 @@
 /*==========================================
   =            weui style rewrite            =
   ==========================================*/
+.weui-dialog__btn {
+  color: #00aeff;
+}
+
 .weui-popup__container {
   z-index: 9999998;
 }
@@ -2404,4 +2408,12 @@ textarea:-ms-input-placeholder,
   bottom: 0;
   z-index: 33;
   opacity: 0;
+}
+
+.top_tips {
+  padding: 0.3rem;
+  background-color: #fffbf0;
+  font-size: 0.28rem;
+  color: #b59764;
+  line-height: 1;
 }

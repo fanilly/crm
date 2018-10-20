@@ -541,6 +541,7 @@ opacity: 0; }
 .schedule_Add .keeps{}
 .schedule_Add .keeps dl{padding: 0.3rem 0.3rem 0.3rem 0.3rem; position: relative; margin-bottom: 0.2rem; background-color: #fff;}
 .schedule_Add .keeps dl dt{font-size: 0.28rem; color: #1c1c20; margin-bottom: 0.2rem; position: relative;}
+.schedule_Add .keeps dl dt i{ color: #999; }
 .schedule_Add .keeps dl dd .photo{overflow:hidden;}
 .schedule_Add .keeps dl dd .photo .item{display: block; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0; float: left;}
 .schedule_Add .keeps dl dd .photo .item .img{display: block; width:1.58rem; height: 1.58rem;}
@@ -715,3 +716,20 @@ opacity: 0; }
 .staff_info .fix_tel{ position: fixed; right: 0.3rem; top:2rem; width:0.9rem; height: 0.9rem; border-radius: 50%; overflow: hidden; box-shadow: 0px 0.1rem 0.3rem 0px rgba(0, 174, 255, 0.4); }
 .staff_info .fix_tel img{ display: block; width:0.9rem; height: 0.9rem; border-radius: 50%; overflow: hidden; }
 /*员工详情*/
+
+/*申请*/
+.request_page .listnum{background-color: #fff; overflow: hidden;}
+.request_page .listnum a{display: block; width: 33.33%; float: left; text-align: center; padding: 0.45rem 0; position: relative;}
+.request_page .listnum a:nth-child(3n):after{display: none;}
+.request_page .listnum a span{display: block; font-size: 0.22rem; color: #666; line-height: 0.3rem; height: 0.3rem;}
+.request_page .listnum a img{display: block; width:0.54rem; height: 0.54rem; margin:0 auto 0.28rem auto;}
+.request_page .linkpart{}
+.request_page .linkpart .part{ }
+.request_page .linkpart .part .link{ position: relative; padding:0.38rem 0.36rem 0.38rem 1rem;  }
+.request_page .linkpart .part .link.bg1{background: #fff url('../assets/g07.png') no-repeat 0.36rem center; background-size: 0.38rem auto;}
+.request_page .linkpart .part .link.bg2{background: #fff url('../assets/g08.png') no-repeat 0.36rem center; background-size: 0.38rem auto;}
+.request_page .linkpart .part .link.bg3{background: #fff url('../assets/g09.png') no-repeat 0.36rem center; background-size: 0.38rem auto;}
+.request_page .linkpart .part .link a{ padding-right: 0.3rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto; overflow: hidden; display: block; }
+.request_page .linkpart .part .link a span{ display: block; font-size: 0.3rem; color: #333; line-height: 0.38rem; float: left; }
+.request_page .linkpart .part .link a i{ display: block; float: right; width:0.38rem; height: 0.38rem; line-height: 0.38rem; text-align: center; background-color: #ff5932; border-radius:50%; font-size: 0.22rem; color: #fff;  }
+/*申请*/

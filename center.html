@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     =            header            =
     =============================-->
 
-    <div class="header public-flex-center">
+    <a class="header public-flex-center" href="./personalData.html">
       <div class="lside public-bgimg" style="background-image: url(./assets/d08.png)"></div>
       <div class="center public-flex1">
         <h2>水木年华</h2>
@@ -30,38 +30,46 @@
         </div>
       </div>
       <img src="./assets/a04.png" alt="" class="rside">
-    </div>
+    </a>
 
     <!--====  End of header  ====-->
 
-    <div class="code-wapper">
+    <a href="./myQRCode.html" class="code-wapper">
       <img src="./assets/d07.png">
-    </div>
+    </a>
     <div class="public-list-type04">
-      <a href="#" class="item public-flex-center">
+      <a id="js_clear_storage" class="item public-flex-center">
         <img src="./assets/d09.png" alt="" class="lside">
         <div class="rside public-bottom-line public-flex1 public-flex-center">
           <div class="txt public-flex1">清空缓存</div>
+          <p style="color: #999; padding-right: .2rem; font-size: .28rem;">3.2M</p>
           <img src="./assets/a04.png" alt="">
         </div>
       </a>
-      <a href="#" class="item public-flex-center">
+      <a href="./help.html" class="item public-flex-center">
         <img src="./assets/d10.png" alt="" class="lside">
         <div class="rside public-bottom-line public-flex1 public-flex-center">
           <div class="txt public-flex1">帮助中心</div>
           <img src="./assets/a04.png" alt="">
         </div>
       </a>
-      <a href="#" class="item public-flex-center">
+      <a href="./about.html" class="item public-flex-center">
         <img src="./assets/d11.png" alt="" class="lside">
         <div class="rside public-bottom-line public-flex1 public-flex-center">
           <div class="txt public-flex1">关于我们</div>
           <img src="./assets/a04.png" alt="">
         </div>
       </a>
+      <a href="./settings.html" class="item public-flex-center">
+        <img src="./assets/g14.png" alt="" class="lside">
+        <div class="rside public-bottom-line public-flex1 public-flex-center">
+          <div class="txt public-flex1">安全设置</div>
+          <img src="./assets/a04.png" alt="">
+        </div>
+      </a>
     </div>
 
-    <a href="#" class="login-out">退出登录</a>
+    <a href="#" class="login-out" id="js_login_out">退出登录</a>
 
 
 
@@ -103,7 +111,40 @@
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <script type="text/javascript">
+    $(function(){
+      $('#js_clear_storage').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $.confirm('您确认清空缓存吗？', function() {
+          $.showLoading('操作中');
+          $.post('#',function(res){
+            $.hideLoading();
+            $.toast(res.msg,'text');
+            if(res.code == 1){
+              location.reload()
+            }
+          })
+        }, function() {
 
+        });
+      });
+
+      $('#js_login_out').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $.confirm('您确认退出登录吗？', function() {
+          $.post('#',function(res){
+            $.hideLoading();
+            $.toast(res.msg,'text');
+            if(res.code == 1){
+              location.href="./login.html"
+            }
+          })
+        }, function() {
+
+        });
+      })
+    })
 
   </script>
 </body>

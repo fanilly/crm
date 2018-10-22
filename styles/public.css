@@ -666,6 +666,15 @@ textarea:-ms-input-placeholder,
   background-color: #00aeff;
 }
 
+.public-footer-btn-wapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.6rem;
+  padding: .3rem;
+}
+
 .public-mask {
   position: fixed;
   z-index: 99999;
@@ -1099,6 +1108,38 @@ textarea:-ms-input-placeholder,
   color: #666;
   overflow: hidden;
   font-size: .28rem;
+}
+
+.public-header-nav-type01 a i {
+  display: inline-block;
+  position: relative;
+  top: -0.1rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  text-align: center;
+  line-height: 0.38rem;
+  font-size: 0.24rem;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #ff5932;
+}
+
+.public-header-nav-type01 a.right:after {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  height: .26rem;
+  content: '';
+  -webkit-transform: scaleX(.5);
+  -ms-transform: scaleX(.5);
+  transform: scaleX(.5);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  border-left: 1px solid #d9d9d9;
 }
 
 .public-header-nav-type01 a.active {
@@ -2416,4 +2457,25 @@ textarea:-ms-input-placeholder,
   font-size: 0.28rem;
   color: #b59764;
   line-height: 1;
+}
+
+.public-custom-modal-title {
+  font-size: .24rem;
+  color: #15161a;
+  font-weight: normal;
+}
+
+.public-custom-modal-title a {
+  color: #00aeff;
+}
+.public-custom-modal-content {
+  padding: .3rem 0 .1rem;
+}
+.public-custom-modal-content input {
+  width: 100%;
+  background-color: #fafafa;
+  border-radius: .06rem;
+  border: solid 1px #e5e5e5;
+  height: .72rem;
+  padding: 0 .2rem;
 }

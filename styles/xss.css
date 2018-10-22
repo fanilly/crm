@@ -569,10 +569,17 @@ opacity: 0; }
 .task_info .tit_box{ position: relative; padding:0 0.4rem;}
 .task_info .tit_box h2{ font-size: 0.36rem; color: #1c1c20; line-height: 0.52rem; position: relative; }
 .task_info .tit_box h2::before{ position: absolute; left: -0.4rem; top: 0.13rem; width:0.06rem; height: 0.26rem; background-color: #00aeff; content: ''; }
+.task_info .tit_box h2 i{ padding-left: 0.3rem; }
+.task_info .tit_box h2 i.wait{ color:#ffaa30; }
+.task_info .tit_box h2 i.ok{ color:#00aeff; }
 .task_info .tit_box h3{ overflow: hidden; line-height: 0.36rem; padding:0.38rem 0; position: relative; }
 .task_info .tit_box h3 span{ display: block; float: left; background-color: rgba(0,174,255,0.15); font-size: 0.2rem; color: #00aeff; padding: 0 0.12rem;  }
 .task_info .tit_box h3 em{ display: block; float: left; font-size: 0.26rem; color: #666; margin-left: 0.26rem;  }
+.task_info .tit_box h3.go{ padding:0.2rem 0 0.35rem 0; }
+.task_info .tit_box h3.go em{ margin: 0; padding-right:0.22rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto;}
 .task_info .tit_box h3 input{ display: block; float: right; padding-right:0.22rem; background: url('../assets/a03.png') no-repeat right center; background-size: 0.12rem auto; border:none; box-shadow: none; text-align: right; font-size: 0.24rem; color: #00aeff; width:1.6rem;   }
+.task_info .tit_box .status{ position: absolute; top: -0.4rem; right: 1rem; z-index: 33; width:3.1rem; }
+
 .task_info .exhibition{ padding:0.38rem 0.4rem 0rem 0.4rem; }
 .task_info .exhibition .box{ position: relative; }
 .task_info .exhibition h4{ font-size: 0.28rem; color: #333; line-height: 1; font-weight: normal; margin-bottom: 0.35rem; }
@@ -620,6 +627,9 @@ opacity: 0; }
 .foot_btn span.bg3 i{ padding-left: 0.45rem; background: url('../assets/f07.png') no-repeat left center; background-size: 0.32rem auto;}
 
 .f7{ background-color: #f7f7f7; height: 0.14rem; line-height: 0.37rem; }
+.task_info .fix_tel{ position: fixed; right: 0.3rem; top:2rem; width:0.9rem; height: 0.9rem; border-radius: 50%; overflow: hidden; box-shadow: 0px 0.1rem 0.3rem 0px rgba(0, 174, 255, 0.4); z-index: 333; }
+.task_info .fix_tel img{ display: block; width:0.9rem; height: 0.9rem; border-radius: 50%; overflow: hidden; }
+
 /*任务详情*/
 
 /*选择抄送人*/
@@ -733,3 +743,22 @@ opacity: 0; }
 .request_page .linkpart .part .link a span{ display: block; font-size: 0.3rem; color: #333; line-height: 0.38rem; float: left; }
 .request_page .linkpart .part .link a i{ display: block; float: right; width:0.38rem; height: 0.38rem; line-height: 0.38rem; text-align: center; background-color: #ff5932; border-radius:50%; font-size: 0.22rem; color: #fff;  }
 /*申请*/
+
+/*我审批的*/
+.agree_lists .item{ display: flex; justify-content: space-between; align-items:top; padding:0.3rem 0.3rem 0 0.3rem; }
+.agree_lists .item .tx{ width:0.74rem; height:0.74rem; border-radius: 50%;  }
+.agree_lists .item .tx img{ display: block; width:0.74rem; height:0.74rem; border-radius: 50%;  }
+.agree_lists .item .info{ position: relative; margin:0 0.22rem; padding-bottom: 0.1rem; flex: 1; }
+.agree_lists .item .info h2{ font-size: 0.32rem; line-height: 1; color: #333333; font-weight: normal; margin-bottom: 0.3rem; }
+.agree_lists .item .info h2 i{ font-size: 0.28rem; color: #ffaa30; padding-left: 0.3rem; }
+.agree_lists .item .info h2 i.ok{ color: #00aeff; }
+.agree_lists .item .info h2 i.no{ color: #ff0000; }
+.agree_lists .item .info p{ font-size: 0.28rem; color: #333; line-height: 1.1; margin-bottom: 0.2rem; }
+.agree_lists .item .info p span{ font-size: 0.28rem; color: #999; line-height: 1.1; }
+.agree_lists .item .do_btn{ padding: 0.1rem 0 0.2rem 0; overflow: hidden; }
+.agree_lists .item .do_btn a{ display: block; float: left; line-height: 0.6rem; border:0.02rem solid #00aeff; border-radius:0.04rem; padding:0 0.32rem; font-size: 0.28rem; color: #fff; margin-right: 0.22rem; color: #00aeff; }
+.agree_lists .item .do_btn a.ok{ background-color: #00aeff; color: #fff; }
+.agree_lists .item .time{ font-size: 0.24rem; color: #999; }
+/*我审批的*/
+
+

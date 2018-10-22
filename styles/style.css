@@ -730,6 +730,7 @@ input {
   position: relative;
   border-top: .14rem solid #f7f7f7;
   height: .6rem;
+  display: block;
 }
 
 .center-page .code-wapper img {
@@ -1054,10 +1055,16 @@ input {
   padding: .08rem .3rem;
 }
 
+.customer-detail-page .customer-info .info-box .show_img {
+  width: 1.58rem;
+  height: 1.58rem;
+  margin: 0.2rem 0.2rem 0 0;
+}
+
 .customer-detail-page .customer-info .info-box .lside {
   font-size: .28rem;
   color: #666;
-  width: .8rem;
+  min-width: .8rem;
 }
 
 .customer-detail-page .customer-info .info-box .center {
@@ -1170,7 +1177,7 @@ input {
 }
 
 .notice-manager-page .notice-list .item .center {
-  padding:0 .3rem;
+  padding: 0 .3rem;
 }
 
 .notice-manager-page .notice-list .item .center h3 {
@@ -1194,6 +1201,7 @@ input {
 .notice-manager-page .notice-list .item .rside {
   width: .4rem;
 }
+
 .notice-manager-page .notice-list .item-time {
   line-height: .92rem;
   font-size: .24rem;
@@ -1201,10 +1209,200 @@ input {
   color: #666;
   text-align: center;
 }
+
 .count-punch-card-page .count-punch-card-page-content>.public-list-type01 {
   display: none;
 }
 
 .count-punch-card-page .count-punch-card-page-content>.public-list-type01:first-child {
   display: block;
+}
+
+/*===================================================
+=                     个人资料                      =
+====================================================*/
+.personal-data-page {}
+
+.personal-data-page .header {
+  height: 2.7rem;
+  background-color: #fff;
+}
+
+.personal-data-page .header .photo {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.personal-data-page .header .photo img {
+  width: .38rem;
+  height: .38rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.personal-data-page .input-group {
+  background-color: #fff;
+  padding-left: .3rem;
+  margin-bottom: .14rem;
+}
+
+/*===================================================
+=                    我的二维码                     =
+====================================================*/
+.my-qrcode-page {
+  padding: .4rem;
+}
+
+.my-qrcode-page .content {
+  background-color: #ffffff;
+  box-shadow: 0 0 .35rem 0 rgba(0, 0, 0, 0.11);
+  border-radius: .1rem;
+}
+
+.my-qrcode-page .header {
+  background-color: #fafafa;
+  text-align: center;
+  padding:.7rem 0 .8rem;
+}
+.my-qrcode-page .header h1 {
+  font-size: .36rem;
+  color: #333;
+}
+.my-qrcode-page .header p {
+  font-size: .24rem;
+  color: #999;
+  padding-bottom: .25rem;
+}
+.my-qrcode-page .header .code {
+  width: 4.2rem;
+  height: 4.2rem;
+  background: url(../assets/g17.png) no-repeat center center;
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+.my-qrcode-page .header .code img {
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+.my-qrcode-page .footer {
+  text-align: center;
+  padding: .8rem 0 .7rem;
+}
+
+.my-qrcode-page .footer img {
+  display: block;
+  width: 1.17rem;
+  height: 1.17rem;
+  margin: 0 auto;
+}
+.my-qrcode-page .footer h3 {
+  font-size: .32rem;
+  color: #333;
+  margin: .5rem 0 .1rem;
+}
+.my-qrcode-page .footer p {
+  font-size: .24rem;
+  color: #999;
+}
+/*===================================================
+=                    幫助中心                     =
+====================================================*/
+.help-page .item .rside {
+  overflow: hidden;
+}
+
+.help-detail-page  {
+  padding: .1rem .3rem;
+}
+
+.help-detail-page .help-title {
+  line-height: 1.3rem;
+  font-size: .4rem;
+  color: #111;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: .3rem;
+}
+.help-detail-page .help-content {
+  font-size: .3rem;
+  color: #333;
+  line-height: .6rem;
+}
+.help-detail-page .help-content img {
+  max-width: 100%;
+}
+
+/*===================================================
+=                    关于我们                     =
+====================================================*/
+
+.about-page .title {
+  font-size: .76rem;
+  font-weight: normal;
+  color: #00aeff;
+  background: url(../assets/g19.png) no-repeat 6rem center;
+  background-size: .7rem 1.3rem;
+  padding: .5rem;
+}
+
+.about-page .title span {
+  display: block;
+  font-size: .46rem;
+}
+
+.about-page .btn-wapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: .2rem .5rem;
+}
+.about-page .btn-wapper a {
+  display: block;
+  width: 1.58rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+  margin:0 .32rem .32rem 0;
+  font-size: .26rem;
+  color: #00aeff;
+  border: 1px solid #00aeff;
+  border-radius: 4px;
+}
+.about-page .illustrations {
+  max-width: 100%;
+  margin-top: .3rem;
+}
+.about-page .copyright {
+  font-size: .26rem;
+  color: #666;
+  text-align: center;
+  margin-top: .3rem;
+  position: fixed;
+  bottom: .4rem;
+  right: 0;
+  left: 0;
+}
+
+/*===================================================
+=                    修改手机号                     =
+====================================================*/
+.modify-phone-page {
+  padding: 0;
+  padding-top: .14rem;
+}
+
+.modify-phone-page .get-vercode {
+  color: #00aeff;
+}
+
+.modify-phone-page .input-group {
+  background-color: #fff;
+  padding: 0 .3rem;
+}
+
+.modify-phone-page .btn-wapper {
+  padding: 0 .3rem;
 }

@@ -105,6 +105,12 @@ window.LCalendar = (function() {
           mm: date.getMonth(),
           dd: date.getDate() - 1
         };
+        if (_self.trigger.value.split(/[^0-9]/).slice(0, 3)) {
+          var tempYearMonth = _self.trigger.value.split(/[^0-9]/).slice(0, 3);
+          dateArr.yy = tempYearMonth[0] * 1;
+          dateArr.mm = tempYearMonth[1] * 1 - 1;
+          dateArr.dd = tempYearMonth[2] * 1;
+        }
         if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(_self.trigger.value)) {
           rs = _self.trigger.value.match(/(^|-)\d{1,4}/g);
           dateArr.yy = rs[0] - _self.minY;
@@ -193,27 +199,6 @@ window.LCalendar = (function() {
         setDateGearTooth();
       }
 
-      //初始化年月日插件默认值
-      function dateCtrlInit() {
-        var date = new Date();
-        var dateArr = {
-          yy: date.getFullYear(),
-          mm: date.getMonth(),
-          dd: date.getDate() - 1
-        };
-        if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(_self.trigger.value)) {
-          rs = _self.trigger.value.match(/(^|-)\d{1,4}/g);
-          dateArr.yy = rs[0] - _self.minY;
-          dateArr.mm = rs[1].replace(/-/g, "") - 1;
-          dateArr.dd = rs[2].replace(/-/g, "") - 1;
-        } else {
-          dateArr.yy = dateArr.yy - _self.minY;
-        }
-        _self.gearDate.querySelector(".date_yy").setAttribute("val", dateArr.yy);
-        _self.gearDate.querySelector(".date_mm").setAttribute("val", dateArr.mm);
-        _self.gearDate.querySelector(".date_dd").setAttribute("val", dateArr.dd);
-        setDateGearTooth();
-      }
       //呼出年月插件
       function popupYM(e) {
         _self.gearDate = document.createElement("div");
@@ -269,7 +254,7 @@ window.LCalendar = (function() {
           yy: date.getFullYear(),
           mm: date.getMonth()
         };
-        if (_self.trigger.value.split(/[^0-9]/).slice(0, 2)) {
+        if (_self.trigger.value.split(/[^0-9]+/).slice(0, 2)) {
           var tempYearMonth = _self.trigger.value.split(/[^0-9]/).slice(0, 2);
           dateArr.yy = tempYearMonth[0] * 1;
           dateArr.mm = tempYearMonth[1] * 1 - 1;
@@ -290,6 +275,7 @@ window.LCalendar = (function() {
       function popupDateTime(e) {
         _self.gearDate = document.createElement("div");
         _self.gearDate.className = "gearDatetime";
+        _self.gearDate.setAttribute('data-origin','mask');
         _self.gearDate.innerHTML = '<div class="date_ctrl slideInUp">' +
           '<div class="date_btn_box">' +
           '<div class="date_btn lcalendar_cancel">取消</div>' +
@@ -300,31 +286,31 @@ window.LCalendar = (function() {
           '<div>' +
           '<div class="gear date_yy" data-datetype="date_yy"></div>' +
           '<div class="date_grid">' +
-          '<div><span>年</span></div>' +
+          '<div><span>-</span></div>' +
           '</div>' +
           '</div>' +
           '<div>' +
           '<div class="gear date_mm" data-datetype="date_mm"></div>' +
           '<div class="date_grid">' +
-          '<div><span>月</span></div>' +
+          '<div><span>-</span></div>' +
           '</div>' +
           '</div>' +
           '<div>' +
           '<div class="gear date_dd" data-datetype="date_dd"></div>' +
           '<div class="date_grid">' +
-          '<div><span>日</span></div>' +
+          '<div><span>&nbsp;</span></div>' +
           '</div>' +
           '</div>' +
           '<div>' +
           '<div class="gear time_hh" data-datetype="time_hh"></div>' +
           '<div class="date_grid">' +
-          '<div><span>时</span></div>' +
+          '<div><span>:</span></div>' +
           '</div>' +
           '</div>' +
           '<div>' +
           '<div class="gear time_mm" data-datetype="time_mm"></div>' +
           '<div class="date_grid">' +
-          '<div><span>分</span></div>' +
+          '<div><span></span></div>' +
           '</div>' +
           '</div>' +
           '</div>' + //date_roll
@@ -372,6 +358,14 @@ window.LCalendar = (function() {
           hh: date.getHours(),
           mi: date.getMinutes()
         };
+        if (_self.trigger.value.split(/[^0-9]+/).slice(0, 5)) {
+          var tempYearMonth = _self.trigger.value.split(/[^0-9]/).slice(0, 2);
+          dateArr.yy = tempYearMonth[0] * 1;
+          dateArr.mm = tempYearMonth[1] * 1 - 1;
+          dateArr.dd = tempYearMonth[2] * 1;
+          dateArr.hh = tempYearMonth[3] * 1;
+          dateArr.mi = tempYearMonth[4] * 1;
+        }
         if (/^\d{4}-\d{1,2}-\d{1,2}\s\d{2}:\d{2}$/.test(_self.trigger.value)) {
           rs = _self.trigger.value.match(/(^|-|\s|:)\d{1,4}/g);
           dateArr.yy = rs[0] - _self.minY;
@@ -883,8 +877,9 @@ window.LCalendar = (function() {
         date_mm = date_mm > 9 ? date_mm : '0' + date_mm;
         var date_dd = parseInt(Math.round(_self.gearDate.querySelector(".date_dd").getAttribute("val"))) + 1;
         date_dd = date_dd > 9 ? date_dd : '0' + date_dd;
-        _self.trigger.value = (date_yy % passY + _self.minY) + "-" + date_mm + "-" + date_dd;
+        _self.trigger.value = (date_yy % passY + _self.minY) + "年" + date_mm + "月" + date_dd + '日';
         closeMobileCalendar(e);
+        if (_self.callback) _self.callback(date_yy % passY + _self.minY, date_mm, date_dd);
       }
       //年月确认
       function finishMobileYM(e) {

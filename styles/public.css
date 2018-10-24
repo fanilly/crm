@@ -4,7 +4,9 @@
 .weui-dialog__btn {
   color: #00aeff;
 }
-
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+  color: #00aeff;
+}
 .weui-popup__container {
   z-index: 9999998;
 }
@@ -2118,6 +2120,9 @@ textarea:-ms-input-placeholder,
   color: #1c1c20;
   line-height: .6rem;
 }
+.public-textarea-box-type01 .title span {
+  color: #999;
+}
 
 .public-textarea-box-type01 textarea {
   width: 100%;
@@ -2326,7 +2331,7 @@ textarea:-ms-input-placeholder,
   left: .3rem;
   right: .3rem;
   bottom: 1.3rem;
-  top: 1.04rem;
+  top: .2rem;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -2468,9 +2473,11 @@ textarea:-ms-input-placeholder,
 .public-custom-modal-title a {
   color: #00aeff;
 }
+
 .public-custom-modal-content {
   padding: .3rem 0 .1rem;
 }
+
 .public-custom-modal-content input {
   width: 100%;
   background-color: #fafafa;
@@ -2478,4 +2485,68 @@ textarea:-ms-input-placeholder,
   border: solid 1px #e5e5e5;
   height: .72rem;
   padding: 0 .2rem;
+  font-size: .28rem;
+}
+
+.public-edit-wapper {
+  background-color: #fff;
+  padding: .3rem;
+  min-height: 2.6rem;
+}
+.public-edit-wapper .title {
+  font-size: .3rem;
+}
+.public-edit-wapper #article_body>div:first-child {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff !important;
+  border: 0 !important;
+  height: .88rem;
+  box-shadow: 0 -.14rem .28rem 0 rgba(0, 0, 0, 0.06);
+  display: none;
+  zIndex: 9999;
+  margin-top: .4rem;
+  padding: 0!important;
+}
+.public-edit-wapper #article_body>div:first-child>.w-e-menu {
+  flex: 1;
+  height: .88rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0!important;
+}
+
+.public-edit-wapper #article_body>div:last-child{
+  border: 0 !important;
+  height: 8rem !important;
+}
+.public-edit-wapper #article_body>div:last-child>div[contenteditable=true]{
+  padding: 0 !important;
+}
+
+.public-more-btn {
+  background-color: #fff;
+  line-height: 1rem;
+  text-align: center;
+  margin-bottom: .14rem;
+  font-size: .3rem;
+}
+
+.public-js-more-btn.active {
+  color: #00aeff;
+}
+
+.public-more-btn img {
+ width: .13rem;
+ margin-left: .2rem;
+}
+
+.public-hidden {
+  display: none;
 }

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <form class="customer-add-page public-gbg">
+  <form class="customer-add-page public-gbg" id="app">
 
     <div class="input-group">
       <div class="public-input-box-type03 public-bottom-line public-flex-center">
@@ -33,8 +33,8 @@
     <div class="input-group">
       <div class="public-input-box-type03 public-flex-center public-bottom-line">
         <label class="lside public-flex-center"><span class="name">邀约地点</span></label>
-        <input class="input public-flex1" id="address" type="text" name="" placeholder="选填">
-        <img style="width: .38rem; margin-left: .2rem;" id="js_handle_choose_address" src="./assets/b03.png" class="clear-input" alt="">
+        <input v-model="addressInfo" class="input public-flex1" id="address" type="text" name="" placeholder="选填">
+        <img style="width: .38rem; margin-left: .2rem;" @click="showMap = !showMap" src="./assets/b03.png" class="clear-input" alt="">
       </div>
       <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result">
         <label class="lside public-flex-center"><span class="name">邀约结果</span></label>
@@ -53,9 +53,8 @@
     <div class="submit">
       <button class="public-btn-type02">保存</button>
     </div>
-    
-    <iframe id="mapPage" width="100%" height="100%" frameborder=0
-      src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
+
+    <iframe v-if="showMap" style="position: fixed; left: 0; top: 0" id="mapPage" width="100%" height="100%" frameborder=0 src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
     </iframe>
 
   </form>
@@ -67,10 +66,22 @@
 
   <script>
   (function() {
-    //选择地址
-    $('#js_handle_choose_address').on('click', function() {
-      location.href = 'https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=http://192.168.0.101:520/customerInvitationsAdd.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp';
-    });
+    var app = new Vue({
+      el: '#app',
+      data: {
+        showMap: false,
+        addressData: null,
+        addressInfo: '',
+      }
+    })
+    window.addEventListener('message', function(event) { //选择地址
+      var loc = event.data;
+      if (loc && loc.module == 'locationPicker'){
+        app.addressData = loc;
+        app.addressInfo = loc.poiaddress;
+        app.showMap = false;
+      }
+    }, false);
 
     //选择邀约方式
     $("#invitations_mode").picker({
@@ -103,9 +114,6 @@
       });
     });
 
-    //选择地址
-    var queryObj = searchString2Obj(location.search.substr(1));
-    if (queryObj.addr) $('#address').val(queryObj.addr);
   })()
 
   </script>

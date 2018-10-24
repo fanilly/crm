@@ -524,13 +524,22 @@
             text: "编辑",
             className: 'public-color-success',
             onClick: function() {
-
+              location.href = './noticePublish.html';
             }
           }, {
             text: "删除",
             className: 'public-color-success',
             onClick: function() {
-
+              $.confirm('确认删除？', function() {
+                $.showLoading('删除中');
+                $.post('#', function(res) {
+                  $.hideLoading();
+                  $.toast(res.msg, 'text');
+                  if (res.code == 1) {
+                    location.reload()
+                  }
+                })
+              });
             }
           }, {
             text: "推送",

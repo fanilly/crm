@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>待办提醒</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+        body{ background-color: #f7f7f7; padding-top: 0.88rem;}
+    </style>
+
+    <!-- 待办提醒 -->
+    <div class="wait_deal" id="app">
+        <div class="wait_nav">
+            <a :class="{'on':typeNum==0}" @click='switchType(0)'><span>全部</span></a>
+            <a :class="{'on':typeNum==1}" @click='switchType(1)'><span>审批<i>2</i></span></a>
+            <a :class="{'on':typeNum==2}" @click='switchType(2)'><span>日程</span></a>
+            <a :class="{'on':typeNum==3}" @click='switchType(3)'><span>日志</span></a>
+            <a :class="{'on':typeNum==4}" @click='switchType(4)'><span>项目</span></a>
+        </div>
+        <div class="itemList">
+            <div class="part part1" v-if='typeNum==0 || typeNum==1'>
+                <div class="time">今天09:27</div>
+                <div class="item">
+                    <img src="./assets/h39.png" class="icon" alt="">
+                    <div class="info">
+                        <h3><b>刘德华</b>的请假审批</h3>
+                        <p>请假原因：<span>去成都找小甜甜~</span></p>
+                        <p>请假时间：<span>2018.10.18 ~ 2018.10.19</span></p>
+                        <div class="deal_btn">
+                            <span class="sure">同意</span>
+                            <span class="cancle">拒绝</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part part1" v-if='typeNum==0 || typeNum==2'>
+                <div class="time">今天09:27</div>
+                <div class="item">
+                    <img src="./assets/h40.png" class="icon" alt="">
+                    <div class="info">
+                        <h3>12日下午去南京见客户 <i>1小时后到期</i></h3>
+                        <p>备注：<span>客户姓张，备大礼</span></p>
+                        <p>时间：<span>2018.10.18 ~ 2018.10.19</span></p>
+                        <div class="deal_btn">
+                            <i>不再提醒</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part part1" v-if='typeNum==0 || typeNum==3'>
+                <div class="time">今天09:27</div>
+                <div class="item">
+                    <img src="./assets/h41.png" class="icon" alt="">
+                    <div class="info">
+                        <h3>今日的日报还未提交</h3>
+                        <p>养成良好的工作习惯，从每天提交日报开始</p>
+                        <div class="deal_btn">
+                            <span class="sure">写日报</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part part1" v-if='typeNum==0 || typeNum==4'>
+                <div class="time">今天09:27</div>
+                <div class="item">
+                    <img src="./assets/h42.png" class="icon" alt="">
+                    <div class="info">
+                        <h3>易倍增CRM服务系统 工期还剩<span>2</span>天</h3>
+                        <p>小伙伴需要加油喽</p>
+                        <div class="deal_btn">
+                            <i class="go">技术进行中</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 没有更多 --> 
+            <!-- v-if='commentLoadedAll && !noCommentLists' -->
+            <div class="no_more">已加载全部内容~</div>
+             <!-- v-if='allowLoadMore && noCommentLists' -->
+            <!-- <div class="no_more"><img src="__STATIC__/client/assets/a06.png" alt="">暂无内容~</div>  -->
+             <!-- v-if='!commentLoadedAll && !noCommentLists' -->
+            <!-- <div class="weui-loadmore"><i class="weui-loading"></i><span class="weui-loadmore__tips">正在加载</span></div> -->
+            <!-- 没有更多 -->
+
+        </div>
+    </div>
+    <!-- 待办提醒 -->
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+    (function() {
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                typeNum:0
+            },
+            methods: {
+                switchType(num){
+                    this.typeNum = num
+                }
+            },
+            mounted: function () {
+                
+            }
+        });
+
+    })();
+    </script>
+</body>
+
+</html>

@@ -111,40 +111,48 @@
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <script type="text/javascript">
-    $(function(){
-      $('#js_clear_storage').on('click',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $.confirm('您确认清空缓存吗？', function() {
-          $.showLoading('操作中');
-          $.post('#',function(res){
-            $.hideLoading();
-            $.toast(res.msg,'text');
-            if(res.code == 1){
-              location.reload()
-            }
-          })
-        }, function() {
+  $(function() {
+    $('#js_clear_storage').on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $.confirm('您确认清空缓存吗？', function() {
+        $.showLoading('操作中');
+        $.post('#', function(res) {
+          $.hideLoading();
+          $.toast(res.msg, 'text');
+          if (res.code == 1) {
+            location.reload()
+          }
+        })
+      }, function() {
 
-        });
       });
+    });
 
-      $('#js_login_out').on('click',function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        $.confirm('您确认退出登录吗？', function() {
-          $.post('#',function(res){
-            $.hideLoading();
-            $.toast(res.msg,'text');
-            if(res.code == 1){
-              location.href="./login.html"
-            }
-          })
-        }, function() {
-
-        });
-      })
+    $('#js_login_out').on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $.modal({
+        title: "提示",
+        text: "您确认退出登录吗？",
+        buttons: [{
+          text: "继续退出",
+          className: "default",
+          onClick: function() {
+            $.post('#', function(res) {
+              $.hideLoading();
+              $.toast(res.msg, 'text');
+              if (res.code == 1) {
+                location.href = "./login.html"
+              }
+            })
+          }
+        },{
+          text: "留下来"
+        }]
+      });
     })
+  })
 
   </script>
 </body>

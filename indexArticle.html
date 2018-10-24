@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>好文阅读</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <style>
+        body{ padding-top: 1.04rem; }
+    </style>
+
+    <!-- 待办提醒 -->
+    <div class="wait_deal" id="app">
+        <div class="fix_find"><div class="find"><input type="text" placeholder="搜索"></div></div>
+        <div class="itemRead">
+            <div class="item public-bottom-line" onclick="window.location.href='./articleDetail.html'">
+                <a class="title"><i></i>冯绍峰有11任绯闻女友，赵丽颖真的不介</a>
+                <a class="imga"><img src="./assets/ban.jpg" alt=""></a>
+                <a class="send"><img src="./assets/g16.png" alt=""><span>刘德华</span><i>116人阅读</i></a>
+            </div>
+            <div class="item public-bottom-line" onclick="window.location.href='./articleDetail.html'">
+                <a class="title"><i></i>冯绍峰有11任绯闻女友，赵丽颖真的不介</a>
+                <a class="imga"><img src="./assets/ban.jpg" alt=""></a>
+                <a class="send"><img src="./assets/g16.png" alt=""><span>刘德华</span><i>116人阅读</i></a>
+            </div>
+            <div class="item public-bottom-line" onclick="window.location.href='./articleDetail.html'">
+                <a class="title"><i></i>冯绍峰有11任绯闻女友，赵丽颖真的不介</a>
+                <a class="imga"><img src="./assets/ban.jpg" alt=""></a>
+                <a class="send"><img src="./assets/g16.png" alt=""><span>刘德华</span><i>116人阅读</i></a>
+            </div>
+            
+
+            <!-- 没有更多 --> 
+            <!-- v-if='commentLoadedAll && !noCommentLists' -->
+            <div class="no_more">已加载全部内容~</div>
+             <!-- v-if='allowLoadMore && noCommentLists' -->
+            <!-- <div class="no_more"><img src="__STATIC__/client/assets/a06.png" alt="">暂无内容~</div>  -->
+             <!-- v-if='!commentLoadedAll && !noCommentLists' -->
+            <!-- <div class="weui-loadmore"><i class="weui-loading"></i><span class="weui-loadmore__tips">正在加载</span></div> -->
+            <!-- 没有更多 -->
+
+        </div>
+    </div>
+    <!-- 待办提醒 -->
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+    (function() {
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                typeNum:0
+            },
+            methods: {
+                switchType(num){
+                    this.typeNum = num
+                }
+            },
+            mounted: function () {
+                
+            }
+        });
+
+    })();
+    </script>
+</body>
+
+</html>

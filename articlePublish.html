@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>发布文章</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/wangEditor-3.1.1/release/wangEditor.min.css">
+</head>
+
+<body>
+  <div class="customer-add-page public-gbg">
+
+    <div class="input-group">
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">文章名称</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">文章类型</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="phone" name="" id="chose_type" readonly placeholder="点击选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+    </div>
+
+    <div class="public-edit-wapper">
+      <div class="title">文章内容：</div>
+      <div id="article_body">
+        <p style="font-size: .3rem;color: #b3b3b3;">点击编辑文章内容</p>
+      </div>
+    </div>
+
+    <div class="js_editor_blur" style="height: .1rem;"></div>
+    <div class="submit">
+      <button class="public-btn-type02">发布</button>
+    </div>
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+
+  <script src="./librarys/wangEditor-3.1.1/release/wangEditor.min.js"></script>
+  <script>
+  (function() {
+    //选择类型
+    $("#chose_type").picker({
+      title: "请选择文章类型",
+      cols: [{
+        textAlign: 'center',
+        values: ['类型一', '类型二', '类型三', '其他']
+      }],
+      onConfirm: function(p) {
+        var now = p.displayValue[0]
+        $("#chose_type").val(now);
+      }
+    });
+
+
+    var E = window.wangEditor;
+    var editor = new E('#article_body');
+    editor.customConfig.menus = [
+      'image',
+      'bold',
+      'italic',
+      'underline',
+      'strikeThrough',
+      'foreColor',
+      'link',
+      'justify',
+      'emoticon',
+    ];
+    editor.customConfig.zIndex = 100;
+    editor.customConfig.onfocus = function() {
+      $('.public-edit-wapper #article_body>div:first-child').css('display', 'flex');
+      if (editor.txt.html() == '<p style="font-size: .3rem;color: #b3b3b3;">点击编辑文章内容</p><p><br></p>') {
+        editor.txt.html('')
+      }
+    };
+    editor.customConfig.onblur = function() {
+      $('.public-edit-wapper #article_body>div:first-child').css('display', 'none');
+    };
+    editor.customConfig.uploadImgShowBase64 = true; //显示本地上传图片
+    editor.customConfig.showLinkImg = false; //隐藏使用网络图片
+    editor.create();
+    $('*').blur();
+
+  })()
+
+  </script>
+</body>
+
+</html>

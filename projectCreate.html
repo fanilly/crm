@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>创建项目</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <div class="customer-add-page public-gbg" id="form_app" v-cloak>
+
+    <div class="input-group">
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">项目名称</span><span class="require">*</span></label>
+        <input class="input public-flex1" v-model="formData.name" type="text" placeholder="点击输入">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">项目产品线</span><span class="require">*</span></label>
+        <input id="js_select_product_line" class="js-weui-class input public-flex1" type="text" readonly name="" placeholder="多选">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+    </div>
+
+
+    <div class="input-group">
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">项目负责人</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" readonly name="" placeholder="请选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">测试负责人</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" readonly name="" placeholder="请选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">客服负责人</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" name="" readonly placeholder="请选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">开始时间</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" name="" readonly placeholder="请选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+      <div class="public-input-box-type03 public-bottom-line public-flex-center">
+        <label class="lside public-flex-center"><span class="name">结束时间</span><span class="require">*</span></label>
+        <input class="input public-flex1" type="text" name="" readonly placeholder="请选择">
+        <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+      </div>
+    </div>
+
+
+
+
+    <div class="input-group" style="padding:.2rem .3rem; margin-top: .14rem">
+      <h3 class="title" style="font-size: .26rem;font-weight: normal;">上传图片</h3>
+      <div class="public-photo">
+        <div class="item">
+          <div style="background-image: url(./assets/d08.png)" class="img public-bgimg"></div>
+          <img src="assets/c35.png" alt="" class="close">
+        </div>
+        <div class="add"><img src="assets/c36.png" alt=""><input type="file"></div>
+      </div>
+    </div>
+
+    <div class="input-group" style="padding-top: .2rem; margin-top: .14rem">
+      <div class="public-textarea-box-type01">
+        <div class="title">参与人员<span>（可选部门或个人）</span></div>
+        <div class="public-img-txt-list">
+          <div class="item">
+            <div class="public-bgimg" style="background-image: url(./assets/tianjia.png)"></div>
+            <h5 class="txt">添加</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="public-more-btn public-js-more-btn public-flex-center-center"><span>展开可选</span><img src="./assets/more.png"></div>
+    <div class="js-more-content public-hidden">
+      <div class="input-group">
+        <div class="public-input-box-type03 public-bottom-line public-flex-center">
+          <label class="lside public-flex-center"><span class="name">关联客户</span></label>
+          <input class="input public-flex1" type="text" readonly name="" placeholder="请选择">
+          <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+        </div>
+        <div class="public-input-box-type03 public-bottom-line public-flex-center">
+          <label class="lside public-flex-center"><span class="name">项目奖金</span></label>
+          <input class="input public-flex1" type="number" name="" placeholder="点击输入">
+        </div>
+      </div>
+      <div class="input-group" style="padding-top: .2rem">
+        <div class="public-textarea-box-type01">
+          <div class="title">项目描述</div>
+          <textarea placeholder="请输入" autoHeight="true"></textarea>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="submit">
+      <button class="public-btn-type02">发布</button>
+    </div>
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+
+  <script>
+
+    var FormApp = new Vue({
+      el: '#form_app',
+      data: {
+        formData: {
+          name: ''
+        },
+
+
+        /*=====================================
+        =            choose person            =
+        =====================================*/
+        persons: [],
+        chooseAllPersons: false,
+        choosedPerson: [],
+        /*=====  End of choose person  ======*/
+      },
+      methods: {
+
+        /*=====================================
+        =            choose person            =
+        =====================================*/
+
+        handleChoosePersonItem: function(parentIndex,index){
+          var self = this;
+          this.persons[parentIndex].users[index].choose = !this.persons[parentIndex].users[index].choose;
+          var tempUsers = this.persons[parentIndex].users.filter(function(item,i){
+            return !item.choose;
+          });
+          this.persons[parentIndex].chooseAll = tempUsers.length == 0 ? true : false;
+          var tempPersons = this.persons.filter(function(item,i){
+            return !item.chooseAll;
+          });
+          this.chooseAllPersons = tempPersons.length == 0 ? true : false;
+        },
+
+        hanldeShowMorePerson: function(index){
+          this.persons[index].more = !this.persons[index].more;
+        },
+
+        handleConfirmChoosePersons: function(){
+          var choosedPerson = [];
+          this.persons.forEach(function(item,index){
+            choosedPerson = choosedPerson.concat(item.users.filter(function(ele,i){
+              return ele.choose;
+            }))
+          });
+          this.choosedPerson = choosedPerson;
+          $.closePopup();
+        },
+
+        handleChoosePersonDepartment: function(index){
+          var self = this;
+          this.persons[index].chooseAll = !this.persons[index].chooseAll;
+          this.persons[index].users = this.persons[index].users.map(function(item,i){
+            item.choose = self.persons[index].chooseAll;
+            return item;
+          });
+          var tempPersons = this.persons.filter(function(item,i){
+            return !item.chooseAll;
+          });
+          this.chooseAllPersons = tempPersons.length == 0 ? true : false;
+        },
+
+        handleChooseAllPersons: function(){
+          var self = this;
+          var persons = [];
+          this.chooseAllPersons = !this.chooseAllPersons;
+          this.persons.forEach(function(item, index) {
+            item.chooseAll = self.chooseAllPersons;
+            item.users = item.users.map(function(ele,i){
+              ele.choose = self.chooseAllPersons;
+              return ele;
+            });
+            persons.push(item);
+          });
+          this.persons = persons;
+        },
+
+        getRoleUser: function(){
+          var self = this;
+          $.get('/journal/index/get_role_user',function(res){
+            var persons = [];
+            res.data.forEach(function(item, index) {
+              item.chooseAll = false;
+              item.more = false;
+              item.users = item.users.map(function(ele,i){
+                ele.choose = false;
+                return ele;
+              });
+              persons.push(item);
+            });
+            if(self.choosedPerson.length!=0){
+              self.choosedPerson.forEach(function(item, index){
+                var tempParentIndex = persons.findIndex(function(sub,key){
+                  return sub.users.findIndex(function(i){
+                    return i.id == item.id;
+                  }) != -1
+                });
+                var tempIndex = persons[tempParentIndex].users.findIndex(function(sub,key){
+                  return sub.id == item.id;
+                })
+                persons[tempParentIndex].users[tempIndex].choose = true;
+              });
+              persons.forEach(function(item, index){
+                if(item.users.length!=0){
+                  var tempUsers = item.users.filter(function(item,i){
+                    return !item.choose;
+                  });
+                  persons[index].chooseAll = tempUsers.length == 0 ? true : false;
+                  if(tempUsers.length != 0 && tempUsers.length != item.users.length) persons[index].more = true;
+                }
+              })
+              var tempPersons = persons.filter(function(item,i){
+                return !item.chooseAll;
+              });
+              self.chooseAllPersons = tempPersons.length == 0 ? true : false;
+            }
+            self.persons = persons;
+          })
+        },
+
+        /*=====  End of choose person  ======*/
+
+      },
+      mounted: function(){
+
+        //选择类型
+        $("#chose_type").picker({
+          title: "请选择类型",
+          cols: [{
+            textAlign: 'center',
+            values: ['放假公告', '奖惩公告', '制度公告', '其他']
+          }],
+          onConfirm: function(p) {
+            var now = p.displayValue[0]
+            $("#chose_type").val(now);
+          }
+        });
+
+        // 选择项目产品线
+        $("#js_select_product_line").select({
+          title: "选择项目产品线",
+          multi: true,
+          items: [{
+            title: "微信小程序",
+            value: 1
+          }, {
+            title: "微信公众号",
+            value: 2
+          }, {
+            title: "IOS",
+            value: 3
+          }, {
+            title: "安卓",
+            value: 4
+          }, {
+            title: "PC",
+            value: 5
+          }]
+        });
+
+        // 展开关闭更多
+        $('.public-js-more-btn').on('click',function(){
+          $('.js-more-content').show(0);
+          $(this).hide(0);
+        });
+
+      }
+    })
+
+
+
+
+
+  </script>
+</body>
+
+</html>

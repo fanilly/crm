@@ -699,12 +699,13 @@ opacity: 0; }
 .branch_power .setList .part h2::before{ content: ''; position: absolute; left: -0.3rem; top: 50%; margin-top: -0.13rem; width:0.06rem; height: 0.26rem; background-color: #00aeff; }
 .branch_power .setList .part h2 span{ font-size: 0.34rem; color: #000000; display: block; float: left; font-weight: bold; }
 .branch_power .setList .part h2 i{ display: block; float: right; font-size: 0.32rem; color: #00aeff; font-weight: bold; }
-.branch_power .setList .part .choseItems{ padding:0.35rem 0; position: relative; }
+.branch_power .setList .part .choseItems{ padding:0.35rem 0 0.15rem; position: relative; }
 .branch_power .setList .part .choseItems:last-child::after{ display: none; }
 .branch_power .setList .part .choseItems p{ font-size: 0.28rem; color: #333; font-weight: bold; line-height: 1.1; margin-bottom: 0.3rem; }
-.branch_power .setList .part .choseItems .kind{ font-size: 0.28rem; color: #333; line-height: 1; display: flex;  }
-.branch_power .setList .part .choseItems .kind span{ padding-left:0.5rem; padding-right: 0.16rem; margin-right: 0.2rem; background: url('../assets/icon23.png') no-repeat left center; background-size: 0.38rem auto; font-size: 0.28rem; color: #333333; margin-right: 0.2rem; line-height: 0.4rem; }
+.branch_power .setList .part .choseItems .kind{ font-size: 0.28rem; color: #333; line-height: 1; /*display: flex; float: left;*/ overflow: hidden;  }
+.branch_power .setList .part .choseItems .kind span{ padding-left:0.46rem; padding-right: 0.2rem; margin-bottom: 0.2rem; background: url('../assets/icon23.png') no-repeat left center; background-size: 0.38rem auto; font-size: 0.28rem; color: #333333; line-height: 0.4rem; display: block; float: left; /* display: inline-block; */ }
 .branch_power .setList .part .choseItems .kind span.on{ background: url('../assets/icon22.png') no-repeat left center; background-size: 0.38rem auto;}
+.branch_power .setList .part .choseItems .kind .info{ float: left; overflow: hidden;}
 /*部门权限设置*/
 
 /*员工详情*/
@@ -761,4 +762,101 @@ opacity: 0; }
 .agree_lists .item .time{ font-size: 0.24rem; color: #999; }
 /*我审批的*/
 
+/*待办提醒*/
+.wait_deal{}
+.wait_deal .wait_nav{ height: 0.88rem; line-height: 0.88rem; display: flex; background-color: #FFF; position: fixed; left: 0; top: 0; right: 0; }
+.wait_deal .wait_nav a{ flex:1; position: relative; text-align: center; font-size: 0.28rem; color: #666666; }
+.wait_deal .wait_nav a span{ position: relative; padding-right: 0.2rem; }
+.wait_deal .wait_nav a i{ background-color: #fe666c; width:0.38rem; height: 0.38rem;border-radius: 50%; overflow: hidden; text-align: center; line-height: 0.38rem; font-size: 0.24rem; color: #fff; display:block; position: absolute; right: -0.16rem; top:-0.1rem; font-weight: normal !important;  }
+.wait_deal .wait_nav a.on{ color: #00aeff; font-weight: bold;}
+.wait_deal .wait_nav a.on::after{ content: ''; position: absolute; left: 50%; bottom: 0; margin-left: -0.15rem; width:0.3rem; height: 0.04rem; background-color: #00aeff; }
+.wait_deal .itemList{}
+.wait_deal .itemList .part .time{ height: 0.9rem; line-height: 0.9rem; text-align: center; font-size: 0.25rem; color: #666666; }
+.wait_deal .itemList .part .item{ background-color: #fff; padding:0.34rem 0.3rem; display: flex; }
+.wait_deal .itemList .part .item .icon{ display: block; width:0.58rem; height: 0.58rem; border-radius: 50%; overflow: hidden; }
+.wait_deal .itemList .part .item .info{ padding-left: 0.3rem; flex: 1; }
+.wait_deal .itemList .part .item .info h3{ font-size: 0.32rem; color: #333; font-weight: normal; line-height: 0.4rem; margin-bottom: 0.25rem; overflow: hidden;  }
+.wait_deal .itemList .part .item .info h3 b{ font-weight: bold; padding-right: 0.2rem; }
+.wait_deal .itemList .part .item .info h3 span{ color: #00aeff; font-weight: bold; padding:0 0.1rem; }
+.wait_deal .itemList .part .item .info h3 i{ display: block; float: right; font-size: 0.24rem; color: #7096dc; }
+.wait_deal .itemList .part .item .info p{ font-size: 0.28rem; color: #999; line-height: 0.32rem; margin-bottom:0.2rem; }
+.wait_deal .itemList .part .item .info p span{ color: #333; }
+.wait_deal .itemList .part .item .info .deal_btn{ padding: 0.2rem 0 0.05rem 0; overflow: hidden; line-height: 0.6rem; }
+.wait_deal .itemList .part .item .info .deal_btn span{ display: block; float: left; line-height: 0.6rem; border:0.02rem solid #00aeff; border-radius:0.04rem; overflow: hidden; padding:0 0.32rem; font-size: 0.28rem; color: #fff; margin-right: 0.22rem; color: #00aeff; }
+.wait_deal .itemList .part .item .info .deal_btn span.sure{ background-color: #00aeff; color: #fff; }
+.wait_deal .itemList .part .item .info .deal_btn i{ display: block; float: left; font-size: 0.28rem; color: #00aeff; line-height: 0.4rem; }
+.wait_deal .itemList .part .item .info .deal_btn i.go{ padding-right: 0.3rem; background: #fff url('../assets/a03.png') no-repeat right center; background-size: 0.12rem auto; }
 
+.wait_deal .itemClock{}
+.wait_deal .itemClock .part .time{ height: 0.9rem; line-height: 0.9rem; text-align: center; font-size: 0.25rem; color: #666666; }
+.wait_deal .itemClock .part .item{ background-color: #fff; padding:0.34rem 0 0 0.3rem; display: flex; position: relative; }
+.wait_deal .itemClock .part .item .icon{ display: block; width:0.58rem; height: 0.58rem; border-radius: 50%; overflow: hidden; position: relative; }
+.wait_deal .itemClock .part .item.new:before{ position: absolute; left: 0.72rem; top:0.36rem; background-color: red; border:0.03rem solid #fff; width:0.16rem; height: 0.16rem; border-radius: 50%; overflow: hidden; content: ''; z-index: 3; }
+.wait_deal .itemClock .part .item .info{ padding-left: 0.3rem; flex: 1; }
+.wait_deal .itemClock .part .item .info h3{ font-size: 0.32rem; color: #333; font-weight: normal; line-height: 0.4rem; margin-bottom: 0.26rem; overflow: hidden; padding-right: 0.3rem;  }
+.wait_deal .itemClock .part .item .info h3.red{ padding-left:0.54rem; background:url('../assets/h08.png') no-repeat left center; background-size: 0.38rem auto; }
+.wait_deal .itemClock .part .item .info p{ font-size: 0.28rem; color: #999; line-height: 0.32rem; margin-bottom:0.3rem; padding-right: 0.3rem; }
+.wait_deal .itemClock .part .item .info .know{ line-height: 0.88rem; font-size: 0.28rem; color: #555; padding-right: 0.3rem; position: relative; }
+.wait_deal .itemClock .part .item .info .know span{ display: block; padding-right: 0.3rem; background:url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto; }
+
+.wait_deal .fix_find{ position: fixed; left:0; top: 0; right: 0; padding:0.2rem 0.3rem; z-index: 332; background-color: #fff; }
+.wait_deal .find{ padding-left: 0.64rem; background: url('../assets/search.png') no-repeat 0.21rem center; background-size: 0.22rem auto; background-color: #f2f2f2; line-height: 0.64rem; border-radius: 0.12rem; font-size: 0.28rem; color: #777; margin-bottom: 0.1rem; }
+.wait_deal .find input{ display: block; line-height: 0.64rem; height: 0.64rem; border:none; box-shadow: none; } 
+.wait_deal .itemRead{ padding:0 0.3rem; background-color: #fff; }
+.wait_deal .itemRead .item{ position: relative; padding:0.3rem 0rem; }
+.wait_deal .itemRead .item .title{ font-size: 0.32rem; color:#1c1c20; line-height: 1.2; display: block; margin-bottom: 0.25rem; }
+.wait_deal .itemRead .item .title i{ padding:0 0.15rem; position: relative; }
+.wait_deal .itemRead .item .title i::before{ content: ''; position: absolute; left: 0; top:50%; width:0.12rem; height: 0.12rem; border-radius: 50%; background-color: #f00; margin-top: -0.06rem;  }
+.wait_deal .itemRead .item .imga{ display: block; margin-bottom: 0.25rem; }
+.wait_deal .itemRead .item .imga img{ margin:0 0.2rem 0.2rem 0; max-width: 100%; display: block; }
+.wait_deal .itemRead .item .send{ overflow: hidden; display: block; font-size: 0.26rem; line-height: 0.4rem; }
+.wait_deal .itemRead .item .send img{ display: block; float: left; width:0.4rem; height: 0.4rem; border-radius: 50%; overflow: hidden;  }
+.wait_deal .itemRead .item .send span{ display: block; float: left; margin-left: 0.2rem; color:#1c1c20; }
+.wait_deal .itemRead .item .send i{ display: block; float: right; font-size: 0.24rem; color: #999; }
+/*待办提醒*/
+
+/*个人主页*/
+.person_info .info{ padding:0.38rem 0.4rem; background-color: #fff; position: relative; overflow: hidden; }
+.person_info .info .tx{ width:1.48rem; height: 1.48rem; margin: 0 auto; display: block; }
+.person_info .info p{ text-align: center; padding-top: 0.2rem; }
+.person_info .info p span{ font-size: 0.34rem; color: #1c1c20; line-height: 1; display: block;}
+.person_info .info p em{ font-size: 0.24rem; color: #666; line-height: 1; display: block; margin:0.2rem 0 0.1rem 0; }
+.person_info .info p i{ display: block; overflow: hidden; }
+.person_info .info p i b{ font-size: 0.2rem; color:#00aeff; line-height: 0.34rem; padding:0 0.12rem; background-color: rgba(0,174,255,0.15); border-radius: 0.06rem; font-weight: normal; }
+.person_info .float_tel{ position: absolute; right:0; top:0.8rem; background-color: rgba(0,174,255,0.15); padding:0.06rem 0.5rem 0.06rem 0.06rem; width:1.46rem; height: 1.02rem; border-bottom-left-radius: 1.12rem; border-top-left-radius: 1.12rem; overflow: hidden;animation:telMove linear 0.6s;-webkit-animation:telMove linear 0.6s ; }
+.person_info .float_tel a{ display: block; width:0.9rem; height: 0.9rem; position: absolute; left:0.06rem; top: 0.06rem;animation:telShark ease 1.5s; -webkit-animation:telShark ease 1.5s; }
+.person_info .float_tel a img{ display: block; width:0.9rem; height: 0.9rem; }
+
+@keyframes telMove{ 
+    0%{right:-2rem;} 
+    100%{right:0;} 
+}
+@-webkit-keyframes telMove{ 
+    0%{right:-2rem;} 
+    100%{right:0;}
+}
+
+@keyframes telShark{ 
+    0% {left:3rem;}
+    60% {left:0.06rem;}
+    80% {left:0.2rem;}
+    100% {left:0.06rem;}
+}
+@-webkit-keyframes telShark{
+    0% {left:3rem;}
+    60% {left:0.06rem;}
+    80% {left:0.2rem;}
+    100% {left:0.06rem;}
+}
+
+.person_info ul{ overflow: hidden; background-color: #fff; }
+.person_info ul li{ width: 50%; float: left;padding: 0.45rem 0.3rem; text-align: center; position: relative;}
+.person_info ul li h2{ font-size: 0.22rem; color: #666; line-height: 1.1; margin-bottom: 0.24rem; font-weight: normal; }
+.person_info ul li h3{ font-size: 0.3rem; color: #333; line-height: 1.2; }
+.person_info ul li h3.orange{ color: #ffaa30; }
+.person_info ul li h3.mainc{ color: #00aeff; }
+.person_info ul li.b_bottom::after{content: " "; position: absolute; left: 0; bottom: 0; right: 0; height: 1px; border-top: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);  }
+.person_info ul li.b_right::before{content: " "; position: absolute; right: 0; top: 0; bottom: 0; right: 0; width: 1px; border-right: 1px solid #e5e5e5; color: #e5e5e5; -webkit-transform-origin: 0 0; transform-origin: 0 0; -webkit-transform: scaleX(0.5); transform: scaleX(0.5);  }
+.person_info .float_tel{ position:  }
+
+/*个人主页*/

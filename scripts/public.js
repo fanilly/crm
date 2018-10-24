@@ -2,6 +2,24 @@
 
 
   $(function() {
+    $('.public-js-more-btn').on('click',function(){
+      if(!this.flag){
+        this.flag = true;
+        $(this).addClass('active');
+        $(this).find('img').attr('src','http://crm.zzebz.com/static/client/assets/g11.png');
+      }else{
+        this.flag = false;
+        $(this).removeClass('active');
+        $(this).find('img').attr('src','http://crm.zzebz.com/static/client/assets/more.png');
+      }
+    })
+    $(document).on('click','.weui-picker-container',function(e){
+      console.log($($(e.target)))
+      if($(e.target).hasClass('weui-picker-container')){
+        console.log('close');
+        $("input.js-weui-class").select("close")
+      }
+    })
     $('.public-js-choose-blur').on('click',function(){
       $('input').blur();
     });

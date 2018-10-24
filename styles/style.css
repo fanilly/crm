@@ -1151,11 +1151,25 @@ input {
   color: #666;
   line-height: .5rem;
 }
-
+.customer-invitations-detail-page .cremark .content img {
+  max-width: 100%;
+}
 .customer-invitations-detail-page .cremark .content.empty {
   color: #999;
 }
 
+.customer-invitations-detail-page .link-wapper {
+  padding: .15rem .3rem;
+  display: block;
+}
+.customer-invitations-detail-page .link-wapper .link-content {
+  background-color: #f7f7f7;
+  padding: .1rem .2rem;
+  border-radius: .06rem;
+  overflow: hidden;
+  font-size: .26rem;
+  color: #333;
+}
 /*===================================================
 =                      公告管理                     =
 ====================================================*/

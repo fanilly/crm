@@ -2,28 +2,92 @@
 
 
   $(function() {
-    $('.public-js-more-btn').on('click',function(){
-      if(!this.flag){
+
+    $('.public-check-item-wapper .public-check-item').on('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).addClass('active').siblings().removeClass('active');
+    })
+
+    /*============================================
+    =            顶部筛选拓展显示动画            =
+    ============================================*/
+
+    $('.public-js-page-more-btn').each(function() {
+      var self = this;
+      var mask = $(this).data('mask');
+      var content = $(this).data('content');
+      $('.' + $(this).data('mask')).on('click', function() {
+        $('.' + mask).fadeOut('fast');
+        $('.' + content).slideUp('fast');
+        self.flag = false;
+        $(self).removeClass('active');
+        $(self).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+      });
+      $('.' + content + ' .cancel').on('click',function(){
+        $('.' + mask).click();
+      });
+      $('.' + content + ' .confirm').on('click',function(){
+        $('.' + mask).click();
+        if($(self).data('change')){
+          console.log($('.'+ content +' input:checked').siblings('.public-flex1'))
+          var txt = $('.'+ content +' input:checked').siblings('.public-flex1').text();
+          $(self).find('span').text(txt);
+        }
+      });
+    });
+    $('.public-js-page-more-btn').on('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var self = this;
+      $('.public-js-page-more-btn').each(function() {
+        if ($(self).data('mask') != $(this).data('mask')) {
+          $('.' + $(this).data('mask')).click();
+        }
+      });
+      if (!this.flag) {
         this.flag = true;
         $(this).addClass('active');
-        $(this).find('img').attr('src','http://crm.zzebz.com/static/client/assets/g11.png');
-      }else{
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/g11.png');
+        $('.' + $(this).data('mask')).fadeIn('fast');
+        $('.' + $(this).data('content')).slideDown('fast');
+      } else {
         this.flag = false;
         $(this).removeClass('active');
-        $(this).find('img').attr('src','http://crm.zzebz.com/static/client/assets/more.png');
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+        $('.' + $(this).data('mask')).click();
       }
-    })
-    $(document).on('click','.weui-picker-container',function(e){
+    });
+
+    /*=====  End of 顶部筛选拓展显示动画  ======*/
+
+
+
+    $('.public-js-more-btn').on('click', function() {
+      if (!this.flag) {
+        this.flag = true;
+        $(this).addClass('active');
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/g11.png');
+      } else {
+        this.flag = false;
+        $(this).removeClass('active');
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+      }
+    });
+
+    $(document).on('click', '.weui-picker-container', function(e) {
       console.log($($(e.target)))
-      if($(e.target).hasClass('weui-picker-container')){
+      if ($(e.target).hasClass('weui-picker-container')) {
         console.log('close');
         $("input.js-weui-class").select("close")
       }
-    })
-    $('.public-js-choose-blur').on('click',function(){
+    });
+
+    $('.public-js-choose-blur').on('click', function() {
       $('input').blur();
     });
-    $('.weui-popup__overlay,.close-popup').on('click',function(){
+
+    $('.weui-popup__overlay,.close-popup').on('click', function() {
       $.closePopup();
     })
     /*================================================
@@ -131,13 +195,21 @@
       $('.public-suspension-mask').fadeOut();
     });
 
+    $(document).on('touchstart', '.public-suspension-mask', function() {
+      $('.public-suspension-menu').removeClass('js-is-show');
+      $('.public-suspension-menu').removeClass('js-is-show-start');
+      $('.public-suspension-mask').fadeOut();
+    });
+
     // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
     var initTop = 0,
       timer = null,
       suspensionMenu = $('.public-suspension-menu');
     $(window).on('scroll', function() {
+      console.log('----------------------------------1');
       clearTimeout(timer);
       timer = setTimeout(function() {
+        console.log('------------------------------2')
         suspensionMenu = $('.public-suspension-menu');
         var currentTop = $(window).scrollTop();
         if (currentTop > initTop) {

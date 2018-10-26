@@ -7,21 +7,22 @@ input {
 ====================================================*/
 .login-page {
   position: fixed;
-  left: 0;
+  top: 0;
   right: 0;
   bottom: 0;
-  top: 0;
+  left: 0;
   background-repeat: no-repeat;
   background-position: center center;
+  -webkit-background-size: cover;
   background-size: cover;
 }
 
 .login-page .title {
   font-size: .68rem;
-  color: #fff;
   font-weight: normal;
   margin: 1rem 0;
   opacity: .8;
+  color: #fff;
 }
 
 .login-page .title span {
@@ -30,37 +31,38 @@ input {
 }
 
 .login-page .remark {
+  font-size: .24rem;
+  line-height: .4rem;
   position: fixed;
+  right: 0;
   bottom: .4rem;
   left: 0;
-  right: 0;
-  text-align: center;
-  color: #fff;
-  font-size: .24rem;
   height: .4rem;
-  line-height: .4rem;
+  text-align: center;
   opacity: .8;
+  color: #fff;
 }
 
 .login-page .content {
   position: fixed;
-  left: .6rem;
   top: 0;
-  bottom: .8rem;
   right: .6rem;
+  bottom: .8rem;
+  left: .6rem;
   overflow-y: scroll;
 }
 
 .login-page .login-btn {
-  height: 1rem;
-  background-color: rgba(255, 255, 255, .2);
-  border-radius: .08rem;
-  color: #fff;
-  width: 100%;
-  border: 0;
-  margin-top: .5rem;
-  font-size: .3rem;
   font-family: 'Microsoft YaHei', Arial;
+  font-size: .3rem;
+  width: 100%;
+  height: 1rem;
+  margin-top: .5rem;
+  color: #fff;
+  border: 0;
+  -webkit-border-radius: .08rem;
+  border-radius: .08rem;
+  background-color: rgba(255, 255, 255, .2);
 }
 
 .login-page .login-btn.active {
@@ -70,10 +72,10 @@ input {
 .login-page .forget {
   font-size: .28rem;
   line-height: .72rem;
-  color: #ffffff;
   display: block;
-  text-align: right;
   margin-top: .15rem;
+  text-align: right;
+  color: #fff;
 }
 
 /*===================================================
@@ -85,16 +87,16 @@ input {
 
 .forget-page .title {
   font-size: .42rem;
-  color: #1b1b1f;
-  margin: .2rem 0 .4rem;
   font-weight: normal;
+  margin: .2rem 0 .4rem;
+  color: #1b1b1f;
 }
 
 .forget-page .title span {
   font-size: .3rem;
-  color: #999;
   display: block;
   margin-bottom: .1rem;
+  color: #999;
 }
 
 /*===================================================
@@ -315,50 +317,66 @@ input {
 }
 
 .report-record-page .record {
-  padding: 0rem 0.3rem;
+  padding: 0rem .3rem;
 }
 
 .report-record-page .record-header {
-  display: flex;
-  width: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   overflow: hidden;
+  width: 100%;
   padding: .3rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .report-record-page .record-header:before {
-  content: '';
+  position: absolute;
+  top: -.3rem;
+  left: -.3rem;
   display: block;
   width: .6rem;
   height: .6rem;
-  position: absolute;
-  left: -.3rem;
-  top: -.3rem;
+  content: '';
+  -webkit-border-radius: 50%;
   border-radius: 50%;
   background-color: #ff9600;
 }
 
 .report-record-page .record-header .lside {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 
 .report-record-page .record-header .lside h3 {
   font-size: .3rem;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .report-record-page .record-header .lside p {
   font-size: .26rem;
-  color: #999;
   padding-top: .1rem;
+  color: #999;
 }
 
 .report-record-page .record-header .rside {
-  color: #999;
   font-size: .26rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  color: #999;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -368,82 +386,86 @@ input {
 }
 
 .report-record-page .record .item {
-  padding: 0.36rem 0;
+  padding: .36rem 0;
 }
 
 .report-record-page .record .item .set {
-  padding-left: 0.5rem;
-  background: url('../assets/shang.png') no-repeat left center;
-  background-size: 0.3rem auto;
-  font-size: 0.26rem;
+  font-size: .26rem;
+  line-height: .34rem;
+  margin-bottom: .16rem;
+  padding-left: .5rem;
   color: #999;
-  line-height: 0.34rem;
-  margin-bottom: 0.16rem;
+  background: url('../assets/shang.png') no-repeat left center;
+  -webkit-background-size: .3rem auto;
+  background-size: .3rem auto;
 }
 
 .report-record-page .record .item:last-child .set {
   background: url('../assets/xia.png') no-repeat left center;
-  background-size: 0.3rem auto;
+  -webkit-background-size: .3rem auto;
+  background-size: .3rem auto;
 }
 
 .report-record-page .record .item .info {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
 }
 
 .report-record-page .record .item .info .status {
+  line-height: .36rem;
   overflow: hidden;
-  line-height: 0.36rem;
 }
 
 .report-record-page .record .item .info .status span {
-  font-size: 0.34rem;
-  line-height: 0.38rem;
-  height: 0.38rem;
-  color: #333;
-  float: left;
+  font-size: .34rem;
   font-weight: bold;
+  line-height: .38rem;
   display: block;
+  float: left;
+  height: .38rem;
+  color: #333;
 }
 
 .report-record-page .record .item .info .status i {
+  font-size: .2rem;
+  line-height: 1;
   display: block;
   float: left;
-  font-size: 0.2rem;
+  margin-left: .2rem;
+  padding: .04rem .06rem;
   color: #00aeff;
-  padding: 0.04rem 0.06rem;
-  border-radius: 0.04rem;
-  line-height: 1;
-  border: 0.02rem solid #00aeff;
-  margin-left: 0.2rem;
+  border: .02rem solid #00aeff;
+  -webkit-border-radius: .04rem;
+  border-radius: .04rem;
 }
 
 .report-record-page .record .item .info .status i.later {
-  border: 0.02rem solid #ff9600;
   color: #ff9600;
+  border: .02rem solid #ff9600;
 }
 
 .report-record-page .record .item .info .position {
-  margin: 0.2rem 0;
-  padding-left: 0.35rem;
-  background: url('../assets/dizhi.png') no-repeat left center;
-  background-size: 0.26rem auto;
-  font-size: 0.24rem;
-  color: #999;
+  font-size: .24rem;
   line-height: 1.1;
+  margin: .2rem 0;
+  padding-left: .35rem;
+  color: #999;
+  background: url('../assets/dizhi.png') no-repeat left center;
+  -webkit-background-size: .26rem auto;
+  background-size: .26rem auto;
 }
 
 .report-record-page .record .item .info .links {
-  margin-top: 0.2rem;
   overflow: hidden;
+  margin-top: .2rem;
 }
 
 .report-record-page .record .item .info .links span {
+  font-size: .24rem;
+  line-height: 1.3;
   display: block;
   float: left;
-  margin-right: 0.55rem;
-  font-size: 0.24rem;
+  margin-right: .55rem;
   color: #7096dc;
-  line-height: 1.3;
 }
 
 .report-record-page .record-empty {
@@ -451,9 +473,9 @@ input {
 }
 
 .report-record-page .record-empty img {
-  width: .96rem;
   position: relative;
   left: .06rem;
+  width: .96rem;
 }
 
 .report-record-page .record-empty p {
@@ -462,14 +484,15 @@ input {
 }
 
 .report-record-page .jumpa {
+  position: fixed;
+  right: .3rem;
+  bottom: 1rem;
   display: block;
+  overflow: hidden;
   width: 1.04rem;
   height: 1.04rem;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
-  overflow: hidden;
-  position: fixed;
-  right: 0.3rem;
-  bottom: 1rem;
 }
 
 .report-record-page .jumpa img {
@@ -497,19 +520,19 @@ input {
 }
 
 .count-days-page .count-box .rside {
-  color: #7096dc;
   font-size: .26rem;
+  color: #7096dc;
 }
 
 /*===================================================
 =                       工作                      =
 ====================================================*/
 .work-page .notice {
-  border-top: .14rem solid #f7f7f7;
-  margin-bottom: .14rem;
   height: 1.24rem;
-  background-color: #fff;
+  margin-bottom: .14rem;
   padding: 0 .3rem;
+  border-top: .14rem solid #f7f7f7;
+  background-color: #fff;
 }
 
 .work-page .notice .lside {
@@ -518,15 +541,15 @@ input {
 }
 
 .work-page .notice .center {
-  height: .94rem;
   position: relative;
   overflow: hidden;
+  height: .94rem;
 }
 
 .work-page .notice .rside {
   font-size: .26rem;
-  color: #7096dc;
   padding: 0 0 0 .3rem;
+  color: #7096dc;
 }
 
 .work-page .swiper-container {
@@ -535,37 +558,41 @@ input {
 }
 
 .work-page .swiper-slide {
-  text-align: left;
   font-size: .28rem;
+  line-height: .94rem;
+  overflow: hidden;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #666;
   background: #fff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
-  line-height: .94rem;
 }
 
 /*===================================================
 =                       日程                      =
 ====================================================*/
 .schedule-page .header {
-  height: .88rem;
-  background-color: #fff;
   position: fixed;
-  left: 0;
-  right: 0;
-  padding: 0 .3rem 0 0;
-  top: 0;
   z-index: 99;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: .88rem;
+  padding: 0 .3rem 0 0;
+  background-color: #fff;
 }
 
 .schedule-page .header .lside a {
-  line-height: .88rem;
-  padding: 0 .3rem;
   font-size: .28rem;
-  color: #333;
+  line-height: .88rem;
   position: relative;
+  padding: 0 .3rem;
+  color: #333;
 }
 
 .schedule-page .header .lside a.active {
@@ -573,21 +600,24 @@ input {
 }
 
 .schedule-page .header .lside a.active:after {
-  content: '';
   position: absolute;
+  z-index: 9;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: .3rem;
+  height: .04rem;
   margin: auto;
+  content: '';
   text-align: center;
-  width: 0.3rem;
-  height: 0.04rem;
   background-color: #00aeff;
-  z-index: 9;
 }
 
 .schedule-page .header .rside {
   text-align: right;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
@@ -597,16 +627,16 @@ input {
 
 .schedule-page .header .rside span {
   font-size: .28rem;
-  color: #333;
   padding-left: .1rem;
+  color: #333;
 }
 
 .schedule-page .calendar {
-  width: 100%;
-  background-color: #fff;
   overflow-x: scroll;
-  white-space: nowrap;
+  width: 100%;
   padding: .15rem .1rem;
+  white-space: nowrap;
+  background-color: #fff;
 }
 
 .schedule-page .calendar a {
@@ -616,29 +646,30 @@ input {
 }
 
 .schedule-page .calendar a i {
-  display: block;
   font-size: .22rem;
+  display: block;
   color: #666;
 }
 
 .schedule-page .calendar a span {
+  font-size: .3rem;
   display: block;
   width: .5rem;
   height: .5rem;
   margin: 0 auto;
-  border-radius: 50%;
-  font-size: .3rem;
   color: #333;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .schedule-page .calendar a.active span {
-  background-color: #00aeff;
   color: #fff;
+  background-color: #00aeff;
 }
 
 .schedule-page .content-wapper {
-  border-top: .14rem solid #f7f7f7;
   margin-bottom: .2rem;
+  border-top: .14rem solid #f7f7f7;
 }
 
 .schedule-page .content-wapper>.title {
@@ -647,14 +678,14 @@ input {
 
 .schedule-page .content-wapper>.title .lside p {
   font-size: .24rem;
-  color: #999;
   padding-bottom: .1rem;
+  color: #999;
 }
 
 .schedule-page .content-wapper>.title .lside h3 {
   font-size: .36rem;
-  color: #333;
   font-weight: bold;
+  color: #333;
 }
 
 .schedule-page .content-wapper>.title .rside {
@@ -664,45 +695,48 @@ input {
 .schedule-page .content-wapper .empty-status {
   padding: .3rem;
   background: url(../assets/d01.png) no-repeat 92% .4rem;
+  -webkit-background-size: 1.16rem .94rem;
   background-size: 1.16rem .94rem;
 }
 
 .schedule-page .content-wapper .empty-status h3 {
   font-size: .36rem;
-  color: #333;
   font-weight: bold;
+  color: #333;
 }
 
 .schedule-page .content-wapper .empty-status p {
   font-size: .26rem;
-  color: #666666;
   padding-top: .1rem;
+  color: #666;
 }
 
 .schedule-page .content-wapper .empty-status a {
+  line-height: .8rem;
   display: block;
   width: 2rem;
   height: .8rem;
-  line-height: .8rem;
-  color: #fff;
-  text-align: center;
-  background-color: #00aeff;
-  border-radius: 6px;
   margin-top: .6rem;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #00aeff;
 }
 
 /*===================================================
 =                       个人中心                      =
 ====================================================*/
 .center-page .header {
+  position: relative;
   padding: .5rem .3rem;
   background-color: #fff;
-  position: relative;
 }
 
 .center-page .header .lside {
   width: 1.22rem;
   height: 1.22rem;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
 }
 
@@ -717,8 +751,8 @@ input {
 
 .center-page .header .center p {
   font-size: .24rem;
-  color: #666;
   padding: .04rem 0 .1rem 0;
+  color: #666;
 }
 
 .center-page .header .rside {
@@ -726,29 +760,29 @@ input {
 }
 
 .center-page .code-wapper {
-  background-color: #fff;
   position: relative;
-  border-top: .14rem solid #f7f7f7;
-  height: .6rem;
   display: block;
+  height: .6rem;
+  border-top: .14rem solid #f7f7f7;
+  background-color: #fff;
 }
 
 .center-page .code-wapper img {
-  width: 1.44rem;
-  height: 1.44rem;
   position: absolute;
   right: 0;
   bottom: -.25rem;
+  width: 1.44rem;
+  height: 1.44rem;
 }
 
 .center-page .login-out {
-  display: block;
-  background-color: #fff;
-  line-height: 1rem;
-  text-align: center;
-  border-top: .14rem solid #f7f7f7;
   font-size: .3rem;
+  line-height: 1rem;
+  display: block;
+  text-align: center;
   color: #333;
+  border-top: .14rem solid #f7f7f7;
+  background-color: #fff;
 }
 
 /*===================================================
@@ -759,9 +793,9 @@ input {
 }
 
 .customer-add-page .input-group {
-  background-color: #fff;
-  padding-left: .3rem;
   margin-bottom: .14rem;
+  padding-left: .3rem;
+  background-color: #fff;
 }
 
 .customer-add-page .submit {
@@ -771,16 +805,31 @@ input {
 /*===================================================
 =                      客户列表                     =
 ====================================================*/
-.customer-list-page .customer-list-list .item {}
+.customer-list-page .customer-list-list .item {
+  position: relative;
+}
+
+.project-list-page.customer-list-page .customer-list-list .item {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
 
 .customer-list-page .customer-list-list .item .lside {
+  font-size: .22rem;
   width: .8rem;
   height: .8rem;
+  margin: .3rem;
+  color: #fff;
+  -webkit-border-radius: 100%;
   border-radius: 100%;
   background-color: #d4d4d4;
-  color: #fff;
-  font-size: .22rem;
-  margin: .3rem;
+}
+
+.project-list-page.customer-list-page .customer-list-list .item .lside {
+  position: relative;
+  top: .1rem;
 }
 
 .customer-list-page .customer-list-list .item .lside.active {
@@ -788,14 +837,14 @@ input {
 }
 
 .customer-list-page .customer-list-list .item .center {
-  padding: .3rem .3rem .3rem 0;
   position: relative;
+  padding: .3rem .3rem .3rem 0;
 }
 
 .customer-list-page .customer-list-list .item .center h2 {
   font-size: .3rem;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .customer-list-page .customer-list-list .item .center h2 span {
@@ -805,8 +854,14 @@ input {
 
 .customer-list-page .customer-list-list .item .center p {
   font-size: .22rem;
-  color: #666;
   padding: .06rem 0 .1rem;
+  color: #666;
+}
+
+.project-list-page.customer-list-page .customer-list-list .item .center p {
+  font-size: .26rem;
+  padding: .2rem 0 .06rem;
+  color: #666;
 }
 
 .customer-list-page .customer-list-list .item .center .bottom {
@@ -814,10 +869,15 @@ input {
   color: #999;
 }
 
+.project-list-page.customer-list-page .customer-list-list .item .center .bottom {
+  font-size: .26rem;
+  color: #666;
+}
+
 .customer-list-page .customer-list-list .item .center .middle {
   font-size: .22rem;
-  color: #333;
   padding: .06rem 0 .1rem;
+  color: #333;
 }
 
 .customer-list-page .customer-list-list .item .center .middle img {
@@ -837,16 +897,16 @@ input {
 }
 
 .deily-me-page .page-empty {
-  text-align: center;
-  padding-top: 1rem;
-  color: #999;
   font-size: .28rem;
+  padding-top: 1rem;
+  text-align: center;
+  color: #999;
 }
 
 .deily-me-page .page-empty img {
-  width: .96rem;
   position: relative;
   left: .06rem;
+  width: .96rem;
   margin-bottom: .2rem;
 }
 
@@ -861,8 +921,8 @@ input {
 
 .deily-me-page .content-header .item span {
   font-size: .24rem;
-  color: #666;
   padding: 0 .3rem;
+  color: #666;
 }
 
 .deily-me-page .content-header .item div.yellow {
@@ -888,19 +948,20 @@ input {
 
 .deily-me-page .submit-box p {
   font-size: .24rem;
-  color: #666;
   padding: .1rem 0 .4rem;
+  color: #666;
 }
 
 .deily-me-page .submit-box .btn {
+  font-size: .3rem;
+  line-height: .9rem;
   display: inline-block;
   width: 3rem;
   height: .9rem;
-  line-height: .9rem;
-  border-radius: 4px;
-  color: #fff;
-  font-size: .3rem;
   text-align: center;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .deily-me-page .submit-box .btn.blue {
@@ -919,13 +980,14 @@ input {
   width: .72rem;
   height: .72rem;
   margin-right: .3rem;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
 }
 
 .deily-me-page .article .rside h3 {
   font-size: .28rem;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .deily-me-page .article .rside h3 span {
@@ -938,34 +1000,34 @@ input {
 }
 
 .deily-me-page .article .article-content {
-  padding-top: .2rem;
   font-size: .32rem;
-  color: #333;
   line-height: .54rem;
   position: relative;
   display: block;
+  padding-top: .2rem;
+  color: #333;
 }
 
 .deily-me-page .article .article-content span {
-  background-color: #fff;
-  color: #00aeff;
-  text-indent: 0;
   line-height: .54rem;
+  text-indent: 0;
+  color: #00aeff;
+  background-color: #fff;
 }
 
 /*===================================================
 =                       客户详情                      =
 ====================================================*/
 .customer-detail-page .header {
-  background-color: #fff;
   padding: .3rem;
+  background-color: #fff;
 }
 
 .customer-detail-page .header h1 {
   font-size: .36rem;
-  color: #333;
   font-weight: normal;
   padding-bottom: .25rem;
+  color: #333;
 }
 
 .customer-detail-page .header h1 span {
@@ -974,13 +1036,14 @@ input {
 
 .customer-detail-page .header p {
   font-size: .24rem;
-  color: #666;
   padding: .02rem 0;
+  color: #666;
 }
 
 .customer-detail-page .header div {
+  font-size: 0;
+  ;
   padding-top: .2rem;
-  font-size: 0
 }
 
 .customer-detail-page .header .public-tags-blue {
@@ -988,11 +1051,11 @@ input {
 }
 
 .customer-detail-page .header .tel {
+  position: absolute;
+  top: .3rem;
+  right: 0;
   width: 1.42rem;
   height: 1.42rem;
-  position: absolute;
-  right: 0;
-  top: .3rem;
 }
 
 .customer-detail-page .header .tel img {
@@ -1001,8 +1064,8 @@ input {
 }
 
 .customer-detail-page .business-detail {
-  background-color: #fff;
   margin-top: .14rem;
+  background-color: #fff;
 }
 
 .customer-detail-page .business-title {
@@ -1027,8 +1090,8 @@ input {
 
 .customer-detail-page .business-time {
   font-size: .36rem;
-  color: #333;
   padding: 0 .3rem;
+  color: #333;
 }
 
 .customer-detail-page .business-time span {
@@ -1042,8 +1105,8 @@ input {
 
 .customer-detail-page .customer-info {
   margin-top: .14rem;
-  background-color: #fff;
   padding: .3rem 0;
+  background-color: #fff;
 }
 
 .customer-detail-page .customer-info .public-line-title {
@@ -1051,6 +1114,9 @@ input {
 }
 
 .customer-detail-page .customer-info .info-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   padding: .08rem .3rem;
 }
@@ -1058,53 +1124,56 @@ input {
 .customer-detail-page .customer-info .info-box .show_img {
   width: 1.58rem;
   height: 1.58rem;
-  margin: 0.2rem 0.2rem 0 0;
+  margin: .2rem .2rem 0 0;
 }
 
 .customer-detail-page .customer-info .info-box .lside {
   font-size: .28rem;
-  color: #666;
   min-width: .8rem;
+  color: #666;
 }
 
 .customer-detail-page .customer-info .info-box .center {
   font-size: .28rem;
-  color: #333;
   padding: 0 .2rem;
+  color: #333;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
-
-.customer-detail-page .customer-info .info-box .rside {}
 
 .customer-detail-page .customer-info .info-box .public-tags-blue {
   margin-right: .2rem;
 }
 
 .customer-detail-page .list-btn {
-  display: block;
-  background-color: #fff;
+  font-size: .3rem;
   line-height: 1rem;
+  display: block;
   text-align: center;
   border-top: .14rem solid #f7f7f7;
-  font-size: .3rem;
+  background-color: #fff;
 }
 
 /*===================================================
 =                      邀约详情                     =
 ====================================================*/
 .customer-invitations-detail-page .customer-info {
-  background-color: #fff;
   padding: .3rem 0;
   border-bottom: .14rem solid #f7f7f7;
+  background-color: #fff;
 }
 
 .customer-invitations-detail-page .customer-info.success {
   background: url(../assets/e17.png) no-repeat 4rem .7rem;
+  -webkit-background-size: 3.1rem 3.1rem;
   background-size: 3.1rem 3.1rem;
 }
 
 .customer-invitations-detail-page .customer-info.fail {
   background: url(../assets/e16.png) no-repeat 4rem .7rem;
+  -webkit-background-size: 3.1rem 3.1rem;
   background-size: 3.1rem 3.1rem;
 }
 
@@ -1113,24 +1182,28 @@ input {
 }
 
 .customer-invitations-detail-page .customer-info .info-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   padding: .08rem .3rem;
 }
 
 .customer-invitations-detail-page .customer-info .info-box .lside {
   font-size: .28rem;
-  color: #666;
   width: 1.4rem;
+  color: #666;
 }
 
 .customer-invitations-detail-page .customer-info .info-box .center {
   font-size: .28rem;
-  color: #333;
   padding: 0 .2rem;
+  color: #333;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
-
-.customer-invitations-detail-page .customer-info .info-box .rside {}
 
 .customer-invitations-detail-page .customer-info .info-box .public-tags-blue {
   margin-right: .2rem;
@@ -1142,52 +1215,62 @@ input {
 
 .customer-invitations-detail-page .cremark .title {
   font-size: .28rem;
-  color: #333;
   padding: 0 0 .1rem 0;
+  color: #333;
 }
 
 .customer-invitations-detail-page .cremark .content {
   font-size: .3rem;
-  color: #666;
   line-height: .5rem;
+  color: #666;
 }
+
 .customer-invitations-detail-page .cremark .content img {
   max-width: 100%;
 }
+
 .customer-invitations-detail-page .cremark .content.empty {
   color: #999;
 }
 
 .customer-invitations-detail-page .link-wapper {
-  padding: .15rem .3rem;
   display: block;
+  padding: .15rem .3rem;
 }
+
 .customer-invitations-detail-page .link-wapper .link-content {
-  background-color: #f7f7f7;
-  padding: .1rem .2rem;
-  border-radius: .06rem;
-  overflow: hidden;
   font-size: .26rem;
+  overflow: hidden;
+  padding: .1rem .2rem;
   color: #333;
+  -webkit-border-radius: .06rem;
+  border-radius: .06rem;
+  background-color: #f7f7f7;
 }
+
 /*===================================================
 =                      公告管理                     =
 ====================================================*/
-.notice-manager-page .notice-list {}
-
 .notice-manager-page .notice-list .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-start;
-  background-color: #fff;
   padding: .3rem;
+  background-color: #fff;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .notice-manager-page .notice-list .item .lside {
-  width: .48rem;
-  height: .48rem;
-  border-radius: 50%;
   position: relative;
   top: .08rem;
+  width: .48rem;
+  height: .48rem;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .notice-manager-page .notice-list .item .center {
@@ -1196,20 +1279,20 @@ input {
 
 .notice-manager-page .notice-list .item .center h3 {
   font-size: .32rem;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .notice-manager-page .notice-list .item .center p {
   font-size: .28rem;
-  color: #999;
   padding: .06rem 0 .2rem;
+  color: #999;
 }
 
 .notice-manager-page .notice-list .item .center h4 {
   font-size: .28rem;
-  color: #00aeff;
   font-weight: normal;
+  color: #00aeff;
 }
 
 .notice-manager-page .notice-list .item .rside {
@@ -1217,11 +1300,11 @@ input {
 }
 
 .notice-manager-page .notice-list .item-time {
-  line-height: .92rem;
   font-size: .24rem;
   font-weight: normal;
-  color: #666;
+  line-height: .92rem;
   text-align: center;
+  color: #666;
 }
 
 .count-punch-card-page .count-punch-card-page-content>.public-list-type01 {
@@ -1235,32 +1318,31 @@ input {
 /*===================================================
 =                     个人资料                      =
 ====================================================*/
-.personal-data-page {}
-
 .personal-data-page .header {
   height: 2.7rem;
   background-color: #fff;
 }
 
 .personal-data-page .header .photo {
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
+  -webkit-border-radius: 50%;
   border-radius: 50%;
-  position: relative;
 }
 
 .personal-data-page .header .photo img {
-  width: .38rem;
-  height: .38rem;
   position: absolute;
   right: 0;
   bottom: 0;
+  width: .38rem;
+  height: .38rem;
 }
 
 .personal-data-page .input-group {
-  background-color: #fff;
-  padding-left: .3rem;
   margin-bottom: .14rem;
+  padding-left: .3rem;
+  background-color: #fff;
 }
 
 /*===================================================
@@ -1271,40 +1353,47 @@ input {
 }
 
 .my-qrcode-page .content {
-  background-color: #ffffff;
-  box-shadow: 0 0 .35rem 0 rgba(0, 0, 0, 0.11);
+  -webkit-border-radius: .1rem;
   border-radius: .1rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 .35rem 0 rgba(0, 0, 0, .11);
+  box-shadow: 0 0 .35rem 0 rgba(0, 0, 0, .11);
 }
 
 .my-qrcode-page .header {
-  background-color: #fafafa;
+  padding: .7rem 0 .8rem;
   text-align: center;
-  padding:.7rem 0 .8rem;
+  background-color: #fafafa;
 }
+
 .my-qrcode-page .header h1 {
   font-size: .36rem;
   color: #333;
 }
+
 .my-qrcode-page .header p {
   font-size: .24rem;
-  color: #999;
   padding-bottom: .25rem;
+  color: #999;
 }
+
 .my-qrcode-page .header .code {
   width: 4.2rem;
   height: 4.2rem;
-  background: url(../assets/g17.png) no-repeat center center;
-  background-size: 100% 100%;
   margin: 0 auto;
+  background: url(../assets/g17.png) no-repeat center center;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
+
 .my-qrcode-page .header .code img {
   width: 3.6rem;
   height: 3.6rem;
 }
 
 .my-qrcode-page .footer {
-  text-align: center;
   padding: .8rem 0 .7rem;
+  text-align: center;
 }
 
 .my-qrcode-page .footer img {
@@ -1313,15 +1402,18 @@ input {
   height: 1.17rem;
   margin: 0 auto;
 }
+
 .my-qrcode-page .footer h3 {
   font-size: .32rem;
-  color: #333;
   margin: .5rem 0 .1rem;
+  color: #333;
 }
+
 .my-qrcode-page .footer p {
   font-size: .24rem;
   color: #999;
 }
+
 /*===================================================
 =                    幫助中心                     =
 ====================================================*/
@@ -1329,23 +1421,25 @@ input {
   overflow: hidden;
 }
 
-.help-detail-page  {
+.help-detail-page {
   padding: .1rem .3rem;
 }
 
 .help-detail-page .help-title {
-  line-height: 1.3rem;
   font-size: .4rem;
-  color: #111;
   font-weight: bold;
+  line-height: 1.3rem;
   position: relative;
   margin-bottom: .3rem;
+  color: #111;
 }
+
 .help-detail-page .help-content {
   font-size: .3rem;
-  color: #333;
   line-height: .6rem;
+  color: #333;
 }
+
 .help-detail-page .help-content img {
   max-width: 100%;
 }
@@ -1353,51 +1447,60 @@ input {
 /*===================================================
 =                    关于我们                     =
 ====================================================*/
-
 .about-page .title {
   font-size: .76rem;
   font-weight: normal;
+  padding: .5rem;
   color: #00aeff;
   background: url(../assets/g19.png) no-repeat 6rem center;
+  -webkit-background-size: .7rem 1.3rem;
   background-size: .7rem 1.3rem;
-  padding: .5rem;
 }
 
 .about-page .title span {
-  display: block;
   font-size: .46rem;
+  display: block;
 }
 
 .about-page .btn-wapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
   padding: .2rem .5rem;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
+
 .about-page .btn-wapper a {
+  font-size: .26rem;
+  line-height: .6rem;
   display: block;
   width: 1.58rem;
   height: .6rem;
-  line-height: .6rem;
+  margin: 0 .32rem .32rem 0;
   text-align: center;
-  margin:0 .32rem .32rem 0;
-  font-size: .26rem;
   color: #00aeff;
   border: 1px solid #00aeff;
+  -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+
 .about-page .illustrations {
   max-width: 100%;
   margin-top: .3rem;
 }
+
 .about-page .copyright {
   font-size: .26rem;
-  color: #666;
-  text-align: center;
-  margin-top: .3rem;
   position: fixed;
-  bottom: .4rem;
   right: 0;
+  bottom: .4rem;
   left: 0;
+  margin-top: .3rem;
+  text-align: center;
+  color: #666;
 }
 
 /*===================================================
@@ -1413,10 +1516,14 @@ input {
 }
 
 .modify-phone-page .input-group {
-  background-color: #fff;
   padding: 0 .3rem;
+  background-color: #fff;
 }
 
 .modify-phone-page .btn-wapper {
   padding: 0 .3rem;
 }
+
+/*===================================================
+=                     项目详情                      =
+====================================================*/

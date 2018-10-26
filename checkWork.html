@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>考勤设置</title>
+    <title>考勤组</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script src="./librarys/scripts/rem.js"></script>
     <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
@@ -15,62 +15,58 @@
 
 <body>
 <style>
-body{ background-color: #f7f7f7; padding-bottom: 1rem; }
+body{ background-color: #f7f7f7; }
 </style>
 
-    <div class="edit_branch">
-        <div class="input-group">
-            <div class="public-input-box-type03 public-bottom-line public-flex-center">
-                <label class="lside public-flex-center">
-                    <span class="name">办公地点</span><span class="require">*</span>
-                </label>
-                <!-- <input class="input public-flex1" type="text" name="" placeholder="点击输入"> -->
-                <span class="txt add" onclick="window.location.href='./checkWorkChose.html'"><img src="assets/icon25.png" alt=""><i>添加办公地点</i></span>
-            </div>
-            <div class="public-input-box-type03 public-bottom-line public-flex-center">
-                <label class="lside public-flex-center">
-                    <span class="name">有效打卡范围</span><span class="require">*</span>
-                </label>
-                <input class="input public-flex1" id="chose_area" type="text" name="" value="300米" placeholder="去设置">
-                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+    <div class="check_works_page p50">
+        <!-- 没有分组的情况 -->
+        <div class="today">
+            <h2>今天是<span>9月12日</span></h2>
+            <img src="./assets/d02.png" alt="">
+        </div>
+        <div class='tips'>
+            <h3>尚未添加任何考勤组</h3>
+            <h6>考勤规则相同的人设置到同一组，方便统计哦~</h6>
+            <h4>
+                <b>如何设置考勤组？</b>
+                1.可按部门、员工两个维度设置考勤人员，也可设置无需考勤人员。<br>
+                2.关联部门后，有新员工加入该部门时，会自动加入该考勤组。<br>
+                3.考勤组负责人可修改该考勤组考勤方式，并查看该考勤组考勤数据。
+            </h4>
+            <a class="add" href="./checkWorkEdit.html"><img src="./assets/adds.png" alt=""><span>新增考勤组</span></a>
+        </div>
+    </div>
+    <div class="check_works_page">
+        <!-- 已有分组的情况 -->
+        <div class='teamshow'>
+            <a class="add" href="./checkWorkEdit.html"><img src="./assets/icon25.png" alt=""><span>新增考勤组</span></a>
+            <div class="list">
+                <div class="item">
+                    <div class="info" onclick="window.location.href='./chenkWorkInfo.html'">
+                        <div class='name'>技术部考勤组</div>
+                        <p>成员：共10人（技术部；销售部）<br>时间：每周一至周六 09:00~18:00 <br>地点：易倍增软件园</p>
+                    </div>
+                    <img src="./assets/c23.png" alt="" class="more">
+                </div>
+                <div class="item">
+                    <div class="info" onclick="window.location.href='./chenkWorkInfo.html'">
+                        <div class='name'>技术部考勤组</div>
+                        <p>成员：共10人（技术部；销售部）<br>时间：每周一至周六 09:00~18:00 <br>地点：易倍增软件园</p>
+                    </div>
+                    <img src="./assets/c23.png" alt="" class="more">
+                </div>
             </div>
         </div>
-        <div class="f7"></div>
-        <div class="input-group">
-            <div class="public-input-box-type03 public-bottom-line public-flex-center">
-                <label class="lside public-flex-center">
-                    <span class="name">考勤日期</span><span class="require">*</span>
-                </label>
-                <input class="input public-flex1" onclick="window.location.href='./checkWorkChose.html'" type="text" name="" value="每周一、二、三、四、五、六" placeholder="去设置">
-                <img class="icon" src="./assets/a04.png" class="clear-input" alt="" onclick="window.location.href='./checkWorkChose.html'">
-            </div>
-        </div>
-        <div class="f7"></div>
-        <div class="input-group">
-            <div class="public-input-box-type03 public-bottom-line public-flex-center">
-                <label class="lside public-flex-center">
-                    <span class="name">上班打卡时间</span>
-                </label>
-                <input class="input public-flex1" id="chose_start" type="text" readonly placeholder="09:00">
-                <span class="txt">之前</span>
-            </div>
-            <div class="public-input-box-type03 public-bottom-line public-flex-center">
-                <label class="lside public-flex-center">
-                    <span class="name">下班打卡时间</span>
-                </label>
-                <input class="input public-flex1" id="chose_end" type="text" readonly placeholder="17:00">
-                <span class="txt">之后</span>
-            </div>
-        </div>
-
-        
-
-        <div style='height:2rem;'></div>
-        <div class="fix_visit_btn"><button>确认修改</button></div>
 
     </div>
     
-
+    <!-- 更多 -->
+    <div class="pop_upper_bg pop_bg"></div>
+    <div class="pop_upper_box pop_more">
+        <div class="first"><span class="edit">修改规则</span><span class="edit">修改参与成员</span><span class="del">删除</span></div>
+        <div class="first cancle"><span>取消</span></div>
+    </div>
+    <!-- 更多 -->
 
     <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
     <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
@@ -80,56 +76,34 @@ body{ background-color: #f7f7f7; padding-bottom: 1rem; }
     <script src="./librarys/dayjs/dayjs.min.js"></script>
     <script>
     (function(){
-        $.fn.autoHeight = function(){
-            function autoHeight(elem){
-                elem.style.height = 'auto';
-                elem.scrollTop = 0; //防抖动
-                elem.style.height = elem.scrollHeight + 'px';
-            }
-            this.each(function(){
-                autoHeight(this);
-                $(this).on('keyup', function(){
-                    autoHeight(this);
-                });
-            });
+        // 打开更多弹窗
+        $('.check_works_page .list .item .more').click(function(){
+            $('body,html').css({"overflow":'hidden'})
+            $('.pop_upper_bg').fadeIn()
+            $('.pop_more').fadeIn()
+        })
+        function hiddPOP(){
+            $('body,html').css({"overflow":'auto'})
+            $('.pop_upper_bg').fadeOut()
+            $('.pop_more').fadeOut()
         }
-        $('textarea[autoHeight]').autoHeight();
+    
+        // 关闭更多弹窗
+        $('.pop_upper_bg, .pop_more .cancle span').click(function(){
+            hiddPOP()
+        })
 
-        //选择打卡有效范围
-        $("#chose_area").picker({
-            title: "请选择打卡有效范围",
-            cols: [{
-                textAlign: 'center',
-                values: ['100米','300米','500米']
-            }],
-            onClose: function (p, v, d) {
-                console.log(p.params.cols[0].activeIndex);
-            }
-        });
+        // 弹窗-编辑
+        $('.pop_more .edit').click(function(){
+            hiddPOP()
+            window.location.href='./checkWorkEdit.html'
+        })
 
-        //选择上班打卡时间
-        $("#chose_start").picker({
-            title: "请选择上班打卡时间",
-            cols: [{
-                textAlign: 'center',
-                values: ['08:00','08:30','09:00']
-            }],
-            onClose: function (p, v, d) {
-                console.log(p.params.cols[0].activeIndex);
-            }
-        });
-
-        //选择下班打卡时间
-        $("#chose_end").picker({
-            title: "请选择下班打卡时间",
-            cols: [{
-                textAlign: 'center',
-                values: ['17:00','17:30','18:00']
-            }],
-            onClose: function (p, v, d) {
-                console.log(p.params.cols[0].activeIndex);
-            }
-        });
+        // 弹窗-删除
+        $('.pop_more .del').click(function(){
+            hiddPOP()
+            //删除的方法
+        })
 
        
     })()

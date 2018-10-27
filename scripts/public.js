@@ -1,13 +1,68 @@
+function getOffset(element) {
+  var rect = element.getBoundingClientRect();
+  var scrollTop = getScroll(window, true);
+  var scrollLeft = getScroll(window);
+  var docEl = window.document.body;
+  var clientTop = docEl.clientTop || 0;
+  var clientLeft = docEl.clientLeft || 0;
+  return {
+    top: rect.top + scrollTop - clientTop,
+    left: rect.left + scrollLeft - clientLeft
+  };
+}
+
+function getScroll(target, top) {
+  var prop = top ? 'pageYOffset' : 'pageXOffset';
+  var method = top ? 'scrollTop' : 'scrollLeft';
+  var ret = target[prop];
+  if (typeof ret !== 'number') {
+    ret = window.document.documentElement[method];
+  }
+  return ret;
+}
+
 (function() {
 
 
   $(function() {
 
-    $('.public-check-item-wapper .public-check-item').on('click',function(e){
+    /*=============================
+    =            affix            =
+    =============================*/
+
+    $('.public-affix-wapper').each(function() {
+      this.elOffset = getOffset(this);
+      this.distanceTop = parseFloat($('html').css('font-size')) * $(this).data('top');
+      this.affix = false;
+    });
+
+    $(window).on('scroll', function() {
+      $('.public-affix-wapper').each(function(index) {
+        var affix = this.affix;
+        var $this = $(this);
+        var scrollTop = getScroll(window, true);
+        console.log(index,'::::::::',this.elOffset.top, this.distanceTop ,scrollTop)
+        if ((this.elOffset.top - this.distanceTop) < scrollTop && !affix) {
+          this.affix = true;
+          $this.find('.public-affix-content').addClass($this.data('affix-class'));
+          // console.log(this.offsetHeight);
+          $this.find('.public-affix-placeholder').css('height', $this.find('.public-affix-content')[0].offsetHeight);
+        } else if ((this.elOffset.top - this.distanceTop) > scrollTop && affix) {
+          this.affix = false;
+          $this.find('.public-affix-content').removeClass($this.data('affix-class'));
+          $this.find('.public-affix-placeholder').css('height', 0)
+        }
+      })
+    })
+
+    /*=====  End of affix  ======*/
+
+
+    $('.public-check-item-wapper .public-check-item').on('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       $(this).addClass('active').siblings().removeClass('active');
-    })
+    });
 
     /*============================================
     =            顶部筛选拓展显示动画            =
@@ -22,32 +77,43 @@
         $('.' + content).slideUp('fast');
         self.flag = false;
         $(self).removeClass('active');
+        document.documentElement.style.overflow = "scroll";
         $(self).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
       });
-      $('.' + content + ' .cancel').on('click',function(){
+      $('.' + mask).on('touchmove', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
+      $('.' + content + ' .cancel').on('click', function() {
         $('.' + mask).click();
       });
-      $('.' + content + ' .confirm').on('click',function(){
+      $('.' + content + ' .confirm').on('click', function() {
         $('.' + mask).click();
-        if($(self).data('change')){
-          console.log($('.'+ content +' input:checked').siblings('.public-flex1'))
-          var txt = $('.'+ content +' input:checked').siblings('.public-flex1').text();
+        if ($(self).data('change')) {
+          console.log($('.' + content + ' input:checked').siblings('.public-flex1'))
+          var txt = $('.' + content + ' input:checked').siblings('.public-flex1').text();
           $(self).find('span').text(txt);
         }
       });
     });
     $('.public-js-page-more-btn').on('click', function(e) {
+      $('.' + $(this).data('content')).css({
+        position: 'fixed',
+        top: $(this).parent()[0].getBoundingClientRect().top + $(this).parent().height()
+      })
       e.stopPropagation();
       e.preventDefault();
       var self = this;
-      $('.public-js-page-more-btn').each(function() {
-        if ($(self).data('mask') != $(this).data('mask')) {
-          $('.' + $(this).data('mask')).click();
-        }
-      });
       if (!this.flag) {
+        $('.public-js-page-more-btn').each(function() {
+          if ($(self).data('mask') != $(this).data('mask')) {
+            $('.' + $(this).data('mask')).click();
+          }
+        });
         this.flag = true;
         $(this).addClass('active');
+        document.documentElement.style.overflow = "hidden";
         $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/g11.png');
         $('.' + $(this).data('mask')).fadeIn('fast');
         $('.' + $(this).data('content')).slideDown('fast');
@@ -72,6 +138,30 @@
         this.flag = false;
         $(this).removeClass('active');
         $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+      }
+    });
+
+    $('.public-more-btn-type01').on('click', function() {
+      if (!this.flag) {
+        this.flag = true;
+        $(this).addClass('active');
+        $('.public-more-btn-content').slideDown('fast', function() {
+          $('.public-affix-wapper').each(function() {
+            this.elOffset = getOffset(this);
+            this.affix = false;
+          });
+        });
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/h12.png');
+      } else {
+        this.flag = false;
+        $(this).removeClass('active');
+        $('.public-more-btn-content').slideUp('fast', function() {
+          $('.public-affix-wapper').each(function() {
+            this.elOffset = getOffset(this);
+            this.affix = false;
+          });
+        });
+        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/h03.png');
       }
     });
 
@@ -206,10 +296,8 @@
       timer = null,
       suspensionMenu = $('.public-suspension-menu');
     $(window).on('scroll', function() {
-      console.log('----------------------------------1');
       clearTimeout(timer);
       timer = setTimeout(function() {
-        console.log('------------------------------2')
         suspensionMenu = $('.public-suspension-menu');
         var currentTop = $(window).scrollTop();
         if (currentTop > initTop) {

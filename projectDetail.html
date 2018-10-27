@@ -15,100 +15,662 @@
 </head>
 
 <body>
-  <div class="public-wbg project-detail-page">
+  <div class="public-wbg project-detail-page" id="app" v-cloak>
 
     <!--=================================
     =            page header            =
     ==================================-->
 
     <div class="page-header">
-
+      <div class="public-flex-center">
+        <div class="identifier public-flex1">01</div>
+        <img src="./assets/h01.png">
+      </div>
+      <h1 class="title">绍兴陌桑纺织品有限公司商城形式展示网站中英双语</h1>
+      <div class="progress-wapper public-flex-center">
+        <div class="lside">进度</div>
+        <div class="center">
+          <div class="weui-progress__bar">
+            <div class="weui-progress__inner-bar js_progress" style="width: 23%;"></div>
+          </div>
+        </div>
+        <div class="public-flex1">23%</div>
+      </div>
+      <div class="public-more-btn-content">
+        <p class="info">项目周期：2018.10.19 ~ 2018.11.19</p>
+        <p class="info">项目负责人：刘德华</p>
+        <p class="info">测试负责人：郭德纲</p>
+        <p class="info">客服负责人：周杰伦</p>
+        <p class="info">项目产品线：小程序；公众号；APP</p>
+        <p class="info">项目奖金：1万</p>
+        <p class="info">项目描述：暂无任何描述</p>
+        <div class="footer public-flex-center">
+          <span>项目客户：</span>
+          <div class="public-flex1">
+            <span class="public-tags-white">迪丽热巴</span>
+            <span class="public-tags-white">迪丽热巴</span>
+          </div>
+        </div>
+      </div>
+      <div class="status public-flex-center"><span>进行中</span><img src="./assets/h02.png"></div>
+      <div class="public-more-btn-type01 public-flex-center-center"><img src="./assets/h03.png" alt=""></div>
     </div>
 
     <!--====  End of page header  ====-->
 
 
-    <div class="public-toolbar-type01 public-bottom-line">
-      <a href="#">
-        <img src="./assets/search.png" style="width: .3rem; position: relative; top: .04rem">
-        <span>搜索</span>
-      </a>
-      <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask" data-content="public-screen-content">
-        <span>我负责的</span>
-        <img src="./assets/more.png" style="width: .13rem;">
-      </a>
-      <a href="#" class="sort-btn public-js-page-more-btn" data-mask="public-sort-mask" data-content="public-sort-content" data-change="true">
-        <span>进行中</span>
-        <img src="./assets/more.png" style="width: .13rem;">
-      </a>
+    <!--=========================
+    =            nav            =
+    ==========================-->
+
+
+    <div class="public-affix-wapper" data-affix-class="public-affix-type01" data-top="0">
+      <div class="public-header-nav-type02 public-bottom-line public-affix-content">
+        <a href="#" @click.stop.prevent="handleToggleClass(index)" :class="{active:index == navs.index}" v-for="item,index in navs.lists">{{item.name}}</a>
+      </div>
+      <div class="public-affix-placeholder"></div>
     </div>
+
+    <!--====  End of nav  ====-->
+
+
+    <!--==============================
+    =            任务列表            =
+    ===============================-->
+
+    <div class="dynamic-list" v-show="navs.index == 0">
+      <div class="public-dynamic-list-wapper" v-if="navs.index == 0">
+        <div class="public-dynamic-list public-bottom-line" v-for="item,index in listData">
+          <div class="dynamic-lside">
+            <div class="avatar public-bgimg" style="background-image: url('./assets/d08.png')"></div>
+          </div>
+          <div class="dynamic-rside">
+            <div class="dynamic-header">
+              <h3>刘德华<span>发起了任务</span></h3>
+              <p>今天 14:00</p>
+            </div>
+            <div class="dynamic-content">
+              @胡良明  项目工期快结束了，要抓紧时间了
+            </div>
+            <div class="dynamic-other">
+              <h5 class="title">小程序模板整理 首页搜索页</h5>
+              <p>指派给<span>老胡</span></p>
+              <p>任务时间<span>2018.10.19 ~ 20.18.11.19</span></p>
+            </div>
+            <div class="dynamic-footer public-flex-center">
+              <div class="del">删除</div>
+              <div class="public-flex1"></div>
+              <div class="controls public-flex-center">
+                <div class="public-flex1 public-flex-center-center">
+                  <img src="./assets/h05.png">
+                  <span>打赏</span>
+                </div>
+                <div class="public-flex1 public-flex-center-center">
+                  <img src="./assets/h06.png">
+                  <span>赞</span>
+                </div>
+                <div class="public-flex1 public-flex-center-center">
+                  <img src="./assets/h07.png">
+                  <span>回复</span>
+                </div>
+              </div>
+              <img class="rside" src="./assets/h04.png" alt="">
+            </div>
+            <div class="dynamic-star public-flex-center">
+              <img src="./assets/c54.png">
+              <span>都东、老胡、水木年华等5人觉得很赞</span>
+            </div>
+            <div class="dynamic-reply">
+              <div class="dynamic-reply-item">
+                <div class="lside public-bgimg" style="background-image: url(./assets/d08.png)"></div>
+                <div class="rside public-flex1">
+                  <h5>刘德华<span>一天前</span></h5>
+                  <p><img src="./assets/h08.png" alt="">打赏 刘德华；郭德纲：6.68元 并说：加油，好好干</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 任务列表  ====-->
+
+
+    <!--==============================
+    =            任务列表            =
+    ===============================-->
+
+    <div class="task-list" v-show="navs.index == 1">
+      <div class="public-affix-wapper" data-affix-class="public-affix-type02" data-top="0.88">
+        <div class="public-toolbar-type01 public-bottom-line public-affix-content">
+          <a href="#">
+            <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.02rem">
+            <span>搜索</span>
+          </a>
+          <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask-index01" data-content="public-screen-content-index01">
+            <span>筛选</span>
+            <img src="./assets/more.png" style="width: .13rem;">
+          </a>
+        </div>
+        <div class="public-affix-placeholder"></div>
+      </div>
+
+      <div class="public-screen-mask public-screen-mask-index01"></div>
+      <div class="public-screen-content public-screen-content-index01">
+        <div class="content-box">
+          <div class="navs-box">
+            <a href="#" class="active">任务状态</a>
+            <a href="#">负责人</a>
+            <a href="#">优先级</a>
+          </div>
+          <div class="list-box">
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">未开始</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">进行中</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已关闭</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">正常排期</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">当天完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">加班完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-box">
+          <a class="line-btn btn reset cancel">取消</a>
+          <a class="fill-btn btn confirm">确定</a>
+        </div>
+      </div>
+
+      <div class="public-task-list" v-if="navs.index == 1" v-for="item,index in listData">
+        <div class="item public-bottom-line">
+          <h3 class="title">易倍增CRM系统日程模块</h3>
+          <p class="info"><span>指派给</span><span>老胡</span></p>
+          <p class="info"><span>任务周期</span><span>2018.09.12 ~ 2018.10.12</span></p>
+          <div class="public-flex-center">
+            <div class="public-flex1">
+              <span class="public-tags-blue">正常排期</span>
+            </div>
+            <div class="rside public-flex-center">
+              <span class="public-color-success">进行中</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 任务列表  ====-->
 
 
 
     <!--==============================
-    =            筛选弹窗            =
+    =            需求列表            =
     ===============================-->
 
-    <div class="public-screen-mask"></div>
-    <div class="public-screen-content" style="top: .88rem">
-      <div style="padding-left: .3rem;">
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">全部项目</span>
-          <input type="radio" name="type" class="public-toggle1" checked name="">
+    <div class="demand-list" v-show="navs.index == 2">
+      <div class="public-affix-wapper" data-affix-class="public-affix-type02" data-top="0.88">
+        <div class="public-toolbar-type01 public-bottom-line public-affix-content">
+          <a href="#">
+            <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.02rem">
+            <span>搜索</span>
+          </a>
+          <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask-index02" data-content="public-screen-content-index02">
+            <span>筛选</span>
+            <img src="./assets/more.png" style="width: .13rem;">
+          </a>
         </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">我负责的</span>
-          <input type="radio" name="type" class="public-toggle1" name="">
+        <div class="public-affix-placeholder"></div>
+      </div>
+
+      <div class="public-screen-mask public-screen-mask-index02"></div>
+      <div class="public-screen-content public-screen-content-index02">
+        <div class="content-box">
+          <div class="navs-box">
+            <a href="#" class="active">需求状态</a>
+            <a href="#">发布人</a>
+          </div>
+          <div class="list-box">
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">未开始</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">进行中</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已关闭</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">我参与的</span>
-          <input type="radio" name="type" class="public-toggle1" name="">
-        </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">我发起的</span>
-          <input type="radio" name="type" class="public-toggle1" name="">
+        <div class="footer-box">
+          <a class="line-btn btn reset cancel">取消</a>
+          <a class="fill-btn btn confirm">确定</a>
         </div>
       </div>
-      <div class="footer-box">
-        <a class="line-btn btn reset cancel">取消</a>
-        <a class="fill-btn btn confirm">确定</a>
+
+      <div class="public-task-list" v-if="navs.index == 2" v-for="item,index in listData">
+        <div class="item public-bottom-line">
+          <h3 class="title">易倍增CRM系统日程模块</h3>
+          <p class="info"><span>抄送给</span><span>老胡</span></p>
+          <div class="info public-flex-center">
+            <div class="public-flex1">
+              <span class="gtxt">需求周期</span><span>2018.09.12 ~ 2018.10.12</span>
+            </div>
+            <div class="rside public-flex-center">
+              <span class="public-color-success">进行中</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <!--====  End of 筛选弹窗  ====-->
+    <!--====  End of 需求列表  ====-->
+
 
 
     <!--==============================
-    =            排序弹窗            =
+    =            计划列表            =
     ===============================-->
 
-    <div class="public-sort-mask"></div>
-    <div class="public-sort-content" style="top: .88rem">
-      <div class="content-box">
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">最近创建</span>
-          <input type="radio" name="sort" class="public-toggle1" name="">
+    <div class="plan-list" v-show="navs.index == 3">
+      <div class="public-affix-wapper" data-affix-class="public-affix-type02" data-top="0.88">
+        <div class="public-toolbar-type01 public-bottom-line public-affix-content">
+          <a href="#">
+            <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.02rem">
+            <span>搜索</span>
+          </a>
+          <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask-index03" data-content="public-screen-content-index03">
+            <span>筛选</span>
+            <img src="./assets/more.png" style="width: .13rem;">
+          </a>
         </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">进行中</span>
-          <input type="radio" name="sort" class="public-toggle1" checked name="">
+        <div class="public-affix-placeholder"></div>
+      </div>
+
+      <div class="public-screen-mask public-screen-mask-index03"></div>
+      <div class="public-screen-content public-screen-content-index03">
+        <div class="content-box">
+          <div class="navs-box">
+            <a href="#" class="active">计划状态</a>
+            <a href="#">发布人</a>
+          </div>
+          <div class="list-box">
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">未开始</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">进行中</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已关闭</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">测试中</span>
-          <input type="radio" name="sort" class="public-toggle1" name="">
-        </div>
-        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
-          <span class="public-flex1">已完成</span>
-          <input type="radio" name="sort" class="public-toggle1" name="">
+        <div class="footer-box">
+          <a class="line-btn btn reset cancel">取消</a>
+          <a class="fill-btn btn confirm">确定</a>
         </div>
       </div>
-      <div class="footer-box">
-        <a class="line-btn btn reset cancel">取消</a>
-        <a class="fill-btn btn confirm">确定</a>
+
+      <div class="public-task-list" v-if="navs.index == 3" v-for="item,index in listData">
+        <div class="item public-bottom-line">
+          <h3 class="title">易倍增CRM系统日程模块</h3>
+          <div class="info public-flex-center">
+            <div class="public-flex1">
+              <span class="gtxt">计划周期</span><span>2018.09.12 ~ 2018.10.12</span>
+            </div>
+            <div class="rside public-flex-center">
+              <span class="public-color-success">进行中</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <!--====  End of 排序弹窗  ====-->
+    <!--====  End of 计划列表  ====-->
+
+
+
+    <!--==============================
+    =            成员列表            =
+    ===============================-->
+
+    <div class="team-list" v-show="navs.index == 4">
+      <div class="public-list-type05" v-if="navs.index == 4">
+        <a class="item public-flex-center" v-for="item,index in listData">
+          <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          <div class="center public-flex1">
+            <h3 class="title">郭德纲</h3>
+            <h6 class="remark" style="padding-top: 0">技术部</h6>
+          </div>
+          <div class="rside">移出</div>
+        </a>
+      </div>
+      <div class="add-team-item-wapper">
+        <div class="add-team-item public-flex-center-center">
+          <img src="./assets/h21.png">
+          <span>添加成员</span>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 成员列表  ====-->
+
+
+
+    <!--==============================
+    =            BUG列表            =
+    ===============================-->
+
+    <div class="bug-list" v-show="navs.index == 5">
+      <div class="public-affix-wapper" data-affix-class="public-affix-type02" data-top="0.88">
+        <div class="public-toolbar-type01 public-bottom-line public-affix-content">
+          <a href="#">
+            <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.02rem">
+            <span>搜索</span>
+          </a>
+          <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask-index05" data-content="public-screen-content-index05">
+            <span>筛选</span>
+            <img src="./assets/more.png" style="width: .13rem;">
+          </a>
+        </div>
+        <div class="public-affix-placeholder"></div>
+      </div>
+
+      <div class="public-screen-mask public-screen-mask-index05"></div>
+      <div class="public-screen-content public-screen-content-index05">
+        <div class="content-box">
+          <div class="navs-box">
+            <a href="#" class="active">BUG状态</a>
+            <a href="#">严重等级</a>
+            <a href="#">优先级</a>
+            <a href="#">负责人</a>
+          </div>
+          <div class="list-box">
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">未开始</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">进行中</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已关闭</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">正常排期</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">当天完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">加班完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-box">
+          <a class="line-btn btn reset cancel">取消</a>
+          <a class="fill-btn btn confirm">确定</a>
+        </div>
+      </div>
+
+      <div class="public-task-list" v-if="navs.index == 5" v-for="item,index in listData">
+        <div class="item public-bottom-line">
+          <h3 class="title">易倍增CRM系统日程模块</h3>
+          <p class="info"><span>指派给</span><span>老胡</span></p>
+          <p class="info"><span>发布时间</span><span>2018.09.12</span></p>
+          <div class="public-flex-center">
+            <div class="public-flex1">
+              <span class="public-tags-warning01">严重一级</span>
+            </div>
+            <div class="rside public-flex-center">
+              <span class="public-color-success">未处理</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of BUG列表  ====-->
+
+
+
+    <!--==============================
+    =            奖惩列表            =
+    ===============================-->
+
+    <div class="rewards-list" v-show="navs.index == 6">
+      <div class="public-affix-wapper" data-affix-class="public-affix-type02" data-top="0.88">
+        <div class="public-toolbar-type01 public-bottom-line public-affix-content">
+          <a href="#">
+            <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.02rem">
+            <span>搜索</span>
+          </a>
+          <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask-index06" data-content="public-screen-content-index06">
+            <span>筛选</span>
+            <img src="./assets/more.png" style="width: .13rem;">
+          </a>
+        </div>
+        <div class="public-affix-placeholder"></div>
+      </div>
+
+      <div class="public-screen-mask public-screen-mask-index06"></div>
+      <div class="public-screen-content public-screen-content-index06">
+        <div class="content-box">
+          <div class="navs-box">
+            <a href="#" class="active">奖惩状态</a>
+            <a href="#">奖惩类型</a>
+          </div>
+          <div class="list-box">
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">未开始</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">进行中</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已完成</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">已关闭</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+            <div class="list-box-item">
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">迪丽热巴</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+              <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+                <span class="public-flex1">M哥</span>
+                <input type="checkbox" class="public-toggle" name="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-box">
+          <a class="line-btn btn reset cancel">取消</a>
+          <a class="fill-btn btn confirm">确定</a>
+        </div>
+      </div>
+
+      <div class="public-task-list" v-if="navs.index == 6" v-for="item,index in listData">
+        <div class="item public-bottom-line">
+          <h3 class="title">易倍增CRM系统日程模块</h3>
+          <p class="info"><span>奖励内容</span><span class="public-color-fail">-500元</span></p>
+          <div class="info public-flex-center">
+            <div class="public-flex1">
+              <span class="gtxt">发布时间</span><span>2018.09.12</span>
+            </div>
+            <div class="rside public-flex-center">
+              <span class="public-color-success">未广播</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of 奖惩列表  ====-->
+
+
+
+    <!--==============================
+    =            操作列表            =
+    ===============================-->
+
+    <div class="operation-list" v-show="navs.index == 7">
+      <div class="public-business-time" v-if="navs.index == 7">
+        <span>10.11</span>
+        <span class="year">2018</span>
+      </div>
+      <div class="public-time-line">
+        <a href="#" class="item">
+          <div class="lside">
+            <img src="./assets/e07.png">
+          </div>
+          <div class="center">
+            <h3>去找客户学习互联网知识</h3>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="lside">
+            <img src="./assets/e08.png">
+          </div>
+          <div class="center">
+            <h3>去找客户学习互联网知识</h3>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="lside">
+            <img src="./assets/e09.png">
+          </div>
+          <div class="center">
+            <h3>去找客户学习互联网知识</h3>
+          </div>
+        </a>
+        <a href="#" class="item">
+          <div class="lside">
+            <img src="./assets/e10.png">
+          </div>
+          <div class="center">
+            <h3>刘星辰创建了客户资料</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!--====  End of 操作列表  ====-->
+
+
 
 
 
@@ -131,15 +693,54 @@
   <script src="./scripts/public.js?v={:config('asset_version')}"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <script>
-  $(function() {
-    $('.public-screen-content .confirm').on('click', function() {
+  (function() {
 
-    });
 
-    $('.public-sort-content .confirm').on('click', function() {
 
-    });
-  })
+
+    var prefixCls = '';
+    var app = new Vue({
+      el: '#app',
+      data: {
+        navs: {
+          index: 0,
+          lists: [
+            { name: '项目动态', status: 0 },
+            { name: '任务', status: 1 },
+            { name: '需求', status: 2 },
+            { name: '计划', status: 3 },
+            { name: '团队成员', status: 4 },
+            { name: 'BUG', status: 5 },
+            { name: '奖惩', status: 6 },
+            { name: '操作记录', status: 7 },
+          ]
+        },
+
+        listData: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      },
+      mounted() {
+
+      },
+      methods: {
+        handleToggleClass: function(index) {
+          var self = this;
+          this.navs.index = index;
+          this.listData = [];
+          $('.public-affix-wapper').each(function() {
+            var $this = $(this);
+            var self = this;
+            $this.find('.public-affix-content').removeClass($this.data('affix-class'));
+            setTimeout(function() {
+              self.elOffset = getOffset(self);
+            }, 0);
+          });
+          setTimeout(function() {
+            self.listData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          }, 100);
+        }
+      }
+    })
+  })();
 
   </script>
 </body>

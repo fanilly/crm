@@ -1042,8 +1042,8 @@ input {
 
 .customer-detail-page .header div {
   font-size: 0;
-  ;
   padding-top: .2rem;
+  ;
 }
 
 .customer-detail-page .header .public-tags-blue {
@@ -1221,7 +1221,7 @@ input {
 
 .customer-invitations-detail-page .cremark .content {
   font-size: .3rem;
-  line-height: .5rem;
+  line-height: .7rem;
   color: #666;
 }
 
@@ -1528,11 +1528,13 @@ input {
 =                     项目详情                      =
 ====================================================*/
 .project-detail-page .page-header {
+  position: relative;
+  padding: .3rem .3rem 0;
+  color: #fff;
+  background-image: -webkit-linear-gradient(120deg, #00aeff 0%, #47c5ff 100%), -webkit-linear-gradient(#00aeff, #00aeff);
+  background-image: -o-linear-gradient(120deg, #00aeff 0%, #47c5ff 100%), -o-linear-gradient(#00aeff, #00aeff);
   background-image: linear-gradient(-30deg, #00aeff 0%, #47c5ff 100%), linear-gradient(#00aeff, #00aeff);
   background-blend-mode: normal, normal;
-  color: #ffffff;
-  padding: .3rem .3rem 0;
-  position: relative;
 }
 
 .project-detail-page .page-header .identifier {
@@ -1566,13 +1568,16 @@ input {
 
 .project-detail-page .page-header .info {
   font-size: .24rem;
-  color: #fff;
   padding: .04rem 0;
+  color: #fff;
 }
 
 .project-detail-page .page-header .footer {
-  padding: .15rem 0;
   font-size: .24rem;
+  padding: .15rem 0;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
@@ -1589,16 +1594,20 @@ input {
   padding: .1rem 0 .2rem;
 }
 
+.project-detail-page .page-header .public-more-btn-content {
+  opacity: .8;
+}
+
 .project-detail-page .page-header .public-more-btn-type01 img {
   width: .34rem;
 }
 
 .project-detail-page .page-header .status {
+  font-size: .24rem;
   position: absolute;
   right: .3rem;
-  color: #fff;
-  font-size: .24rem;
   bottom: .7rem;
+  color: #fff;
 }
 
 .project-detail-page .page-header .status img {
@@ -1611,25 +1620,27 @@ input {
 }
 
 .project-detail-page .team-list .public-list-type05 .item {
-  padding: .15rem .3rem;
   position: relative;
+  padding: .15rem .3rem;
 }
 
 .project-detail-page .team-list .public-list-type05 .item .lside {
-  border-radius: 50%;
   width: .72rem;
   height: .72rem;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .project-detail-page .team-list .public-list-type05 .item .rside {
   font-size: .28rem;
-  color: #666;
+  line-height: .64rem;
   width: 1.06rem;
   height: .64rem;
-  border-radius: 2px;
-  line-height: .64rem;
   text-align: center;
+  color: #666;
   border: solid 1px #e5e5e5;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .project-detail-page .team-list .add-team-item-wapper {
@@ -1637,10 +1648,11 @@ input {
 }
 
 .project-detail-page .team-list .add-team-item {
-  height: .9rem;
-  border-radius: 6px;
-  color: #7096dc;
   font-size: .3rem;
+  height: .9rem;
+  color: #7096dc;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   background-color: #f0f4fb;
 }
 
@@ -1656,4 +1668,149 @@ input {
 .project-detail-page .public-time-line .item .lside:after,
 .project-detail-page .public-time-line .item .lside:before {
   height: .16rem;
+}
+
+.project-detail-page .reply-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 99998;
+}
+
+.project-detail-page .reply-input {
+  position: fixed;
+  z-index: 99999;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: .88rem;
+  background-color: #f7f7f7;
+  -webkit-box-shadow: 0 -14px 28px 0 rgba(0, 0, 0, .06);
+  box-shadow: 0 -14px 28px 0 rgba(0, 0, 0, .06);
+}
+
+.project-detail-page .reply-input input {
+  font-size: .28rem;
+  height: .88rem;
+  padding: 0 .3rem;
+  border: 0;
+  outline: none;
+}
+
+.project-detail-page .reply-input div {
+  height: .88rem;
+  padding: 0 .3rem;
+  background-color: #00aeff;
+}
+
+.project-detail-page .reply-input img {
+  width: .3rem;
+}
+
+.project-detail-page .reply-input span {
+  font-size: .28rem;
+  padding-left: .2rem;
+  color: #fff;
+}
+
+.project-detail-page .project-menus {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, .95);
+}
+
+.project-detail-page .project-menus .menus-content {
+  position: absolute;
+  right: 0;
+  bottom: 2rem;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.project-detail-page .project-menus .menus-content .item {
+  font-size: .26rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 2rem;
+  color: #333;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+}
+
+.project-detail-page .project-menus .menus-content .item img {
+  width: 1.56rem;
+  height: 1.56rem;
+}
+
+.project-detail-page .project-menus .close {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.project-detail-page .project-menus .close img {
+  width: 1.04rem;
+  height: 1.04rem;
+}
+
+.project-detail-page a>.public-dynamic-list {
+  align-items: center;
+  padding: 0 0 .2rem;
+}
+
+.project-detail-page a>.public-dynamic-list .dynamic-lside .avatar {
+  top: 0;
+}
+.project-detail-page a>.public-dynamic-list .dynamic-rside .dynamic-header h3 {
+  line-height: 1.4;
+}
+
+.project-detail-page a>.public-dynamic-list .dynamic-rside .dynamic-header p {
+  line-height: 1.4;
+  color: #999;
 }

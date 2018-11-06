@@ -1,8 +1,9 @@
 *{ outline: none;-webkit-tap-highlight-color: transparent;border: 0;
     -webkit-appearance: none;box-sizing:border-box;
 -moz-box-sizing:border-box; /* Firefox */
--webkit-box-sizing:border-box; /* Safari */}
-body{ min-width: 320px; height: auto !important; background-color: #fff; font-family:Arial, Helvetica, sans-serif !important;}
+-webkit-box-sizing:border-box; /* Safari */
+ font-family:Arial, Helvetica, sans-serif;}
+body{ min-width: 320px; height: auto !important; background-color: #fff;}
 .border-bottom{ border:none !important; }
 .border-bottom::before{
     content: " ";
@@ -25,11 +26,11 @@ body{ min-width: 320px; height: auto !important; background-color: #fff; font-fa
 .reportBox .nav_floor a.on::after{content: ''; position: absolute; bottom: 0; left: 50%; margin-left: -0.15rem; text-align: center; width: 0.3rem; height: 0.04rem; background-color: #00aeff; z-index: 9;}
 .reportBox .nav_floor a:last-child::before{content: ''; position: absolute; left: 0; top: 50%; width: 1px; height: 0.26rem; background-color: #e5e5e5; margin-top: -0.13rem;}
 .time_floor{padding:0 0.3rem 0.3rem 0.3rem;}
-.time_floor .timenow{margin: 0.32rem auto; width: 2.38rem; height: 2.38rem; background-image: linear-gradient(-45deg, #cccccc 0%, #e5e5e5 100%), linear-gradient( #00aeff, #00aeff); background-blend-mode: normal, normal; box-shadow: 0px 0.10rem 0.3rem 0px rgba(0, 0, 0, 0.11); padding: 0.7rem 0 0.6rem 0; color: #fff; text-align: center; border-radius: 50%;}
+.time_floor .timenow{margin: 0.32rem auto; width: 2.38rem; height: 2.38rem; background-image: linear-gradient(-45deg, #cccccc 0%, #e5e5e5 100%), linear-gradient( #00aeff, #00aeff); background-blend-mode: normal, normal; box-shadow: 0px 0.10rem 0.3rem 0px rgba(0, 0, 0, 0.11); padding: 0.85rem 0 0.45rem 0; color: #fff; text-align: center; border-radius: 50%;}
 .time_floor .timenow.ok{background-image: linear-gradient(-45deg, #00aeff 0%, #47c5ff 100%), linear-gradient( #00aeff, #00aeff); background-blend-mode: normal, normal; box-shadow: 0px 0.10rem 0.3rem 0px rgba(9, 177, 255, 0.4);}
 .time_floor .timenow.later{background-image: linear-gradient(-45deg, #ffaa30 0%, #ffc776 100%), linear-gradient(#00aeff, #00aeff); background-blend-mode: normal, normal; box-shadow: 0px 0.10rem 0.3rem 0px rgba(255, 175, 59, 0.4);}
 .time_floor .timenow p{font-size: 0.36rem; line-height: 1.1; font-weight: bold; margin-bottom: 0.12rem;}
-.time_floor .timenow span{font-size: 0.26rem; font-family: 'Arial'; display: block;}
+.time_floor .timenow span{font-size: 0.26rem; line-height: 1; font-family: 'Arial'; display: block;}
 .time_floor .area{padding-right: 1.4rem; position: relative;}
 .time_floor .area .adress{font-size: 0.24rem; line-height: 0.34rem; color: #333;}
 .time_floor .area .adress span{color: #999;}
@@ -374,9 +375,9 @@ body{ min-width: 320px; height: auto !important; background-color: #fff; font-fa
 .show_dialy .dailyItem .sender{padding: 0 0.8rem 0 0.9rem; position: relative; min-height: 0.72rem;}
 .show_dialy .dailyItem .sender .tx_img{display: block; width:0.72rem; height: 0.72rem; border-radius: 50%; position: absolute; left: 0; top: 0;}
 .show_dialy .dailyItem .sender .tx_img img{display: block; width:0.72rem; height: 0.72rem; border-radius: 50%;}
-.show_dialy .dailyItem .sender .names{font-size: 0.28rem; color: #333; line-height: 0.3rem; display: block; padding-top: 0.06rem;}
+.show_dialy .dailyItem .sender .names{font-size: 0.28rem; color: #333; line-height: 0.32rem; display: block; padding-top: 0.06rem;}
 .show_dialy .dailyItem .sender .names span{display: block; margin-bottom: 0.06rem; overflow: hidden; }
-.show_dialy .dailyItem .sender .names span em{ float: left; }
+.show_dialy .dailyItem .sender .names span em{ float: left; line-height: 1.4; padding-top: .06rem; }
 .show_dialy .dailyItem .sender .names span b{ float: left; background-color: #00aeff; color: #fff; font-weight: normal; margin-left: 0.15rem; border-radius: 0.04rem; font-size: 0.2rem; padding:0 0.06rem;  }
 .show_dialy .dailyItem.late .sender .names span b{ background-color:#ffaa30; }
 .show_dialy .dailyItem .sender .names i{display: block; font-size: 0.22rem; line-height: 0.3rem; color: #999;}
@@ -578,11 +579,26 @@ opacity: 0; }
 .task_info .tit_box h3.go{ padding:0.2rem 0 0.35rem 0; }
 .task_info .tit_box h3.go em{ margin: 0; padding-right:0.22rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto;}
 .task_info .tit_box h3 input{ display: block; float: right; padding-right:0.22rem; background: url('../assets/a03.png') no-repeat right center; background-size: 0.12rem auto; border:none; box-shadow: none; text-align: right; font-size: 0.24rem; color: #00aeff; width:1.6rem;   }
+.task_info .tit_box h3 input.none{ padding-right: 0; background-image: none; }
 .task_info .tit_box .status{ position: absolute; top: -0.4rem; right: 1rem; z-index: 33; width:3.1rem; }
+.task_info .tit_box .word{ position: relative; padding:0.18rem 0; }
+.task_info .tit_box dl{ display: flex; line-height: 0.4rem; font-size: 0.26rem; padding:0.08rem 0; position: relative; }
+.task_info .tit_box dl dt{ color: #666666;}
+.task_info .tit_box dl dt b{ color: #333; }
+.task_info .tit_box dl dd{ flex:1; color: #333; padding-left: 0.2rem; }
+.task_info .tit_box dl dd span{ display: block; float: left; background-color: rgba(0,174,255,0.15); font-size: 0.2rem; border-radius: 0.04rem; color: #00aeff; padding: 0 0.12rem;  }
+.task_info .tit_box dl dd span.one{ background-color: rgba(255,1,1,0.15); color: #ff0101;}
+.task_info .tit_box dl dd span.two{ background-color: rgba(255,106,33,0.15); color: #ff6a21;}
+.task_info .tit_box dl dd input{ display: block; float: right; padding-right:0.22rem; background: url('../assets/a03.png') no-repeat right center; background-size: 0.12rem auto; border:none; box-shadow: none; text-align: right; font-size: 0.24rem; color: #00aeff; width:1.6rem;   }
+.task_info .tit_box dl dd.both{ display: flex; justify-content: space-around; align-items: center; }
+.task_info .tit_box dl dd.both p{ flex: 1 }
+.task_info .tit_box.big dl{ padding:0.16rem 0; }
+.task_info .tit_box .status_img{ position: absolute; right: 0; top: 0; width:3.1rem; z-index: 0; }
 
-.task_info .exhibition{ padding:0.38rem 0.4rem 0rem 0.4rem; }
+
+.task_info .exhibition{ padding:0.3rem 0.4rem 0rem 0.4rem; }
 .task_info .exhibition .box{ position: relative; }
-.task_info .exhibition h4{ font-size: 0.28rem; color: #333; line-height: 1; font-weight: normal; margin-bottom: 0.35rem; }
+.task_info .exhibition h4{ font-size: 0.28rem; color: #333; line-height: 1.6; font-weight: normal; padding-bottom: 0.3rem; position: relative; margin-bottom: .3rem; }
 .task_info .exhibition h4 b{ font-weight: bold; }
 .task_info .exhibition .pic{ overflow: hidden; }
 .task_info .exhibition .pic img{ display: block; width:1.58rem; height: 1.58rem; overflow: hidden; margin:0rem 0.2rem 0.35rem 0;  }
@@ -592,7 +608,8 @@ opacity: 0; }
 .task_info .aboutplan .item p{ padding:0.4rem 0.3rem; background: url('../assets/a04.png') no-repeat right center; background-size: 0.12rem auto; }
 .task_info .aboutplan .item p span{ display: block; font-size: 0.3rem; color: #333; line-height: 1; margin-bottom: 0.2rem;   }
 .task_info .aboutplan .item p i{ display: block; font-size: 0.24rem; color: #666; line-height: 1;  }
-.task_info .aboutplan .item:nth-child(2) h5{ background-color: #ffaa30;  }
+/*.task_info .aboutplan .item:nth-child(2) h5{ background-color: #ffaa30;  }*/
+.task_info .aboutplan .item h5.yellow{ background-color: #ffaa30;  }
 .task_info .aboutplan .item:last-child{ margin-bottom: 0; }
 .task_info .mation{ background-color: #fff; padding:0.3rem 0.4rem; }
 .task_info .mation h2{ font-size: 0.3rem; color: #1c1c20; line-height: 0.4rem; margin-bottom: 0.2rem; position: relative; }
@@ -625,6 +642,7 @@ opacity: 0; }
 .foot_btn span.bg1.on  i{ background: url('../assets/f05.png') no-repeat left center; background-size: 0.32rem auto;  }
 .foot_btn span.bg2  i{ padding-left: 0.45rem; background: url('../assets/f06.png') no-repeat left center; background-size: 0.32rem auto;}
 .foot_btn span.bg3 i{ padding-left: 0.45rem; background: url('../assets/f07.png') no-repeat left center; background-size: 0.32rem auto;}
+.foot_btn span.bg4 i{ padding-left: 0.45rem; background: url('../assets/f09.png') no-repeat left center; background-size: 0.32rem auto;}
 
 .f7{ background-color: #f7f7f7; height: 0.14rem; line-height: 0.37rem; }
 .task_info .fix_tel{ position: fixed; right: 0.3rem; top:2rem; width:0.9rem; height: 0.9rem; border-radius: 50%; overflow: hidden; box-shadow: 0px 0.1rem 0.3rem 0px rgba(0, 174, 255, 0.4); z-index: 333; }
@@ -862,18 +880,21 @@ opacity: 0; }
 
 /*我的打赏*/
 .reward_page{ overflow: hidden; }
-.reward_page .top_num{background-image: linear-gradient(-45deg,  #ffaa30 0%,  #ffc776 100%), linear-gradient( #f7f7f7,  #f7f7f7); background-blend-mode: normal, normal; padding:0.2rem 0 0 0; overflow: hidden; position: fixed; left: 0; top:0; right: 0; }
-.reward_page .top_num.mainc{background-image: linear-gradient(-30deg,  #00aeff 0%,  #47c5ff 100%),  linear-gradient( #f7f7f7, #f7f7f7);
- background-blend-mode: normal, normal;}
-.reward_page .top_num h2{ display: flex; justify-content: center; align-items: center; font-weight: normal; }
-.reward_page .top_num h2 span{ line-height: 0.7rem; margin:0 0.3rem; position: relative; color: #fff; font-size: 0.28rem; font-weight: normal;  }
-.reward_page .top_num h2 span.on::after{ position: absolute; left: 50%; margin-left:-0.15rem; bottom: 0; height: 0.04rem; background-color: #fff; content: ''; width:0.3rem; }
-.reward_page .top_num h3{ padding:0.8rem 0.4rem; text-align: center; font-weight: normal; }
-.reward_page .top_num h3 span{ display: block; font-size: 0.78rem; color: #ffffff; line-height: 0.82rem; }
+.reward_page .top_num{ padding:0.4rem; overflow: hidden; position: fixed; left: 0rem; top:0rem; right: 0rem; background-color: #fff;  }
+.reward_page .top_num .box{background-image: linear-gradient(-45deg,  #ffaa30 0%,  #ffc776 100%), linear-gradient( #f7f7f7,  #f7f7f7); background-blend-mode: normal, normal;border-radius: 0.12rem;box-shadow: 0px 0.10rem 0.3rem 0px rgba(255, 170, 48, 0.4); padding:0.4rem; }
+.reward_page .top_num.mainc .box{background-image: linear-gradient(-30deg,  #00aeff 0%,  #47c5ff 100%),  linear-gradient( #f7f7f7, #f7f7f7);box-shadow: 0px 0.10rem 0.3rem 0px rgba(0, 174, 255, 0.4 ); background-blend-mode: normal, normal;}
+.reward_page .top_num h2{ display:block; font-weight: normal; line-height: 1.1; overflow: hidden; }
+.reward_page .top_num h2 span{ margin-right:0.3rem; float: left; position: relative; color: #fff; font-size: 0.28rem; font-weight: normal; opacity: 0.6;  }
+.reward_page .top_num h2 span.on{ opacity: 1; font-weight: bold; }
+.reward_page .top_num h2 i{ display: block; float: right; font-size: 0.28rem; color: #fff; opacity: 0.6; }
+.reward_page .top_num h2 span.on::after{ /*position: absolute; left: 50%; margin-left:-0.15rem; bottom: 0; height: 0.04rem; background-color: #fff; content: ''; width:0.3rem;*/ }
+.reward_page .top_num h3{ padding:0.7rem 0rem; font-size: 0.3rem; color: #ffffff;line-height: 0.6rem;font-weight: bold; }
+.reward_page .top_num h3 span{ /*display: block; */font-size: 0.78rem; padding-left: 0.2rem;  }
 .reward_page .top_num h3 i{ display: block; font-size: 0.28rem; color: #ffffff; line-height: 0.3rem; margin-top: 0.1rem; }
-.reward_page .top_num h6{ font-size: 0.28rem; color: #fff; line-height: 0.9rem; text-align: center; background-color: rgba(247,247,247,0.15); font-weight: normal; }
+.reward_page .top_num h6{ font-size: 0.28rem; color: #fff; opacity: 0.6; line-height: 0.4rem;/* text-align: center; background-color: rgba(247,247,247,0.15);*/ font-weight: normal; }
 .reward_page .top_num .zuo{ display: block; width:1.28rem; height: 1.28rem; background-color:rgba(255,255,255,0.05); position: absolute; left: 0.2rem; top: 1.7rem; border-radius: 50%; }
 .reward_page .top_num .you{ display: block; width:2rem; height: 2rem; background-color:rgba(255,255,255,0.05); position: absolute; right: 0rem; top: 0rem; transform:scale(1.25); border-radius: 50%; }
+.reward_page .tit{ font-size: 0.32rem; color: #333; line-height: 0.8rem; background-color: #fff; padding:0 0.3rem; font-weight: bold; }
 .reward_page .rewardList{}
 .reward_page .rewardList .item{ display: flex; padding:0.3rem; background-color: #fff; position: relative; }
 .reward_page .rewardList .item .left{ flex: 1; }
@@ -914,11 +935,41 @@ opacity: 0; }
 .check_works_page .list .item .info .name{ display: block; font-size: 0.34rem; color: #333; font-weight: bold; line-height: 1.1; margin-bottom: 0.2rem;  }
 /*考勤设置*/
 
+/*工资单*/
+.bill_page{}
+.bill_page .switch{ padding:0.3rem 0.4rem; background-color: #fafafa; font-size: 0.28rem; color: #999999; display: flex; justify-content: space-between; line-height: 1; align-items: center; }
+.bill_page .switch .now{ font-size: 0.3rem; color: #333; flex: 1; text-align: center; }
+.bill_page .prev{ padding-left: 0.3rem; background: url('../assets/a60.png') left center no-repeat; background-size: 0.10rem auto; }
+.bill_page .next{ padding-right: 0.3rem; background: url('../assets/a61.png') right center no-repeat; background-size: 0.10rem auto;}
+.bill_page .bill_list{ padding:0 0.4rem; }
+.bill_page .bill_list .item{ padding:0.35rem 0; display: flex; justify-content: space-between; align-items: center; }
+.bill_page .bill_list .item p{ font-size: 0.3rem; color: #666; line-height: 0.4rem; }
+.bill_page .bill_list .item a{ font-size: 0.3rem; color: #333; line-height: 0.4rem; padding-right: 0.3rem; background: url('../assets/a61.png') right center no-repeat; background-size: 0.10rem auto; font-family: Arial; }
+/*工资单*/
 
+/*工资单详情*/
+.bill_Info{}
+.bill_Info .sum_data{ padding:0.4rem; }
+.bill_Info .sum_data .box{ border-radius: 0.12rem;box-shadow: 0px 0.1rem 0.3rem 0px rgba(0, 174, 255, 0.4); position: relative; padding:0.35rem 0.4rem;}
+.bill_Info .sum_data .box > img{ position: absolute; left: 0; top: 0; width:100%; z-index: 0; height: 100%; }
+.bill_Info .sum_data .box > div{ position: relative; z-index: 3; }
+.bill_Info .sum_data .box .first{ display: flex; line-height: 1.2; font-size: 0.28rem; color: rgba(255,255,255,0.6); justify-content: space-between; }
+.bill_Info .sum_data .box .money{ padding:0.6rem 0; font-size: 0.32rem; color: #fff; line-height: 1.1; }
+.bill_Info .sum_data .box .money span{ padding-left: 0.1rem; font-size: 0.86rem; }
+.bill_Info .sum_data .box .two{ overflow: hidden; }
+.bill_Info .sum_data .box .two span{ display: block; float: left; margin-right: 0.4rem; line-height: 1.2; font-size: 0.28rem; color: rgba(255,255,255,0.6); }
+.bill_Info .sum_data .box .two span i{  color: rgba(255,255,255,1); }
 
-
-
-
+.bill_Info .infos{}
+.bill_Info .infos .item{ padding:0.28rem 0.4rem 0 0.4rem;}
+.bill_Info .infos .item h2{ display: flex; justify-content: space-between; align-items: center; font-size: 0.32rem; line-height: 0.6rem; }
+.bill_Info .infos .item h2 span{ color: #333; }
+.bill_Info .infos .item h2 i{ color: #00aeff; }
+.bill_Info .infos .item dl{ display: flex; justify-content: space-between; align-items: center; font-size: 0.3rem; color: #666; line-height:0.4rem; padding:0.3rem 0; position: relative;  }
+.bill_Info .infos .item dl dt{ display: flex; justify-content: flex-start; }
+.bill_Info .infos .item dl dt img{ width:0.34rem; height: 0.34rem; margin-left: 0.12rem; }
+.bill_Info .infos .item dl dd{ flex: 1; color: #333; font-size: 0.3rem; text-align: right;}
+/*工资单详情*/
 
 
 

@@ -41,7 +41,6 @@ function getScroll(target, top) {
         var affix = this.affix;
         var $this = $(this);
         var scrollTop = getScroll(window, true);
-        console.log(index,'::::::::',this.elOffset.top, this.distanceTop ,scrollTop)
         if ((this.elOffset.top - this.distanceTop) < scrollTop && !affix) {
           this.affix = true;
           $this.find('.public-affix-content').addClass($this.data('affix-class'));
@@ -242,7 +241,8 @@ function getScroll(target, top) {
     $('.public-screen-content .navs-box a').on('click', function(e) {
       e.preventDefault();
       $(this).addClass('active').siblings().removeClass('active');
-      $('.public-screen-content .list-box .list-box-item').fadeOut(0).eq($(this).index()).fadeIn(0);
+      $(this).parent().siblings('.list-box').find('.list-box-item').fadeOut(0).eq($(this).index()).fadeIn(0);
+      // $('.public-screen-content .list-box .list-box-item').fadeOut(0).eq($(this).index()).fadeIn(0);
     });
     $('.public-screen-content .list2-nav a').on('click', function(e) {
       e.preventDefault();
@@ -291,24 +291,36 @@ function getScroll(target, top) {
       $('.public-suspension-mask').fadeOut();
     });
 
-    // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
-    var initTop = 0,
-      timer = null,
-      suspensionMenu = $('.public-suspension-menu');
-    $(window).on('scroll', function() {
-      clearTimeout(timer);
-      timer = setTimeout(function() {
-        suspensionMenu = $('.public-suspension-menu');
-        var currentTop = $(window).scrollTop();
-        if (currentTop > initTop) {
-          if (!suspensionMenu.hasClass('fadeOutRight')) suspensionMenu.removeClass('fadeInRight').addClass('fadeOutRight');
-        } else {
-          if (!suspensionMenu.hasClass('fadeInRight')) suspensionMenu.removeClass('fadeOutRight').addClass('fadeInRight');
-        }
-        initTop = currentTop;
-      }, 70);
-
+    var app = document.querySelector('body');
+    var hammertime = new Hammer(app);
+    var timer = null;
+    hammertime.on('panup', function(ev) {
+      var suspensionMenu = $('.public-suspension-menu');
+      if (!suspensionMenu.hasClass('fadeOutRight')) suspensionMenu.removeClass('fadeInRight').addClass('fadeOutRight');
     });
+
+    hammertime.on('pandown', function(ev) {
+      var suspensionMenu = $('.public-suspension-menu');
+      if (!suspensionMenu.hasClass('fadeInRight')) suspensionMenu.removeClass('fadeOutRight').addClass('fadeInRight');
+    });
+    // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
+    // var initTop = 0,
+    //   timer = null,
+    //   suspensionMenu = $('.public-suspension-menu');
+    // $(window).on('scroll', function() {
+    //   clearTimeout(timer);
+    //   timer = setTimeout(function() {
+    //     suspensionMenu = $('.public-suspension-menu');
+    //     var currentTop = $(window).scrollTop();
+    //     if (currentTop > initTop) {
+    //       if (!suspensionMenu.hasClass('fadeOutRight')) suspensionMenu.removeClass('fadeInRight').addClass('fadeOutRight');
+    //     } else {
+    //       if (!suspensionMenu.hasClass('fadeInRight')) suspensionMenu.removeClass('fadeOutRight').addClass('fadeInRight');
+    //     }
+    //     initTop = currentTop;
+    //   }, 70);
+
+    // });
   })
 
   /*================================================
@@ -408,19 +420,6 @@ $.fn.autoHeight = function() {
 }
 $('textarea[autoHeight]').autoHeight();
 
-//计算2个时间的时间差，单位秒
-function substractDate(date1, date2) {
-  var type1 = typeof date1;
-  var type2 = typeof date2;
-  if (type1 == 'string') {
-    date1 = new Date(date1);
-  }
-  if (type2 == 'string') {
-    date2 = new Date(date2);
-  }
-  return (date1 - date2) / 1000;
-}
-
 /*================================================
 =                    工具函数                    =
 =================================================*/
@@ -435,3 +434,4 @@ function searchString2Obj(searchString) {
   });
   return queryObj;
 };
+

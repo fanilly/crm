@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>工资单</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <!-- 我的工资单详情 -->
+    <div class="bill_Info">
+        
+        <div class="sum_data">
+            <div class="box">
+                <img src="assets/c60.png" alt="">
+                <div class="first"><span>2018年9月</span><i>净收入（元）</i></div>
+                <div class="money">¥<span>3000</span></div>
+                <div class="two"><span>总收入<i>¥3000</i></span><span>总扣减<i>¥0</i></span></div>
+            </div>
+        </div>
+        
+        <div class="infos">
+            <div class="item">
+                <h2><span>个人收入项</span><i>合计&nbsp;&nbsp;3000.00</i></h2>
+                <dl class="public-bottom-line"><dt>底薪/基本工资</dt><dd>3000.00</dd></dl>
+                <dl class="public-bottom-line"><dt>加班费<img src="assets/c58.png" alt="" class="moreimg"></dt><dd>0.00</dd></dl>
+                <dl class="public-bottom-line"><dt>全勤奖</dt><dd>0.00</dd></dl>
+                <dl class="public-bottom-line"><dt>业务提成</dt><dd>0.00</dd></dl>
+            </div>
+            <div class="f7"></div>
+            <div class="item">
+                <h2><span>个人收入项</span><i>合计&nbsp;&nbsp;0.00</i></h2>
+                <dl class="public-bottom-line" class="public-bottom-line" class="public-bottom-line"><dt>迟到扣款</dt><dd>0.00</dd></dl>
+                <dl class="public-bottom-line" class="public-bottom-line"><dt>请假扣款<img src="assets/c58.png" alt="" class="moreimg"></dt><dd>0.00</dd></dl>
+                <dl class="public-bottom-line"><dt>公积金扣款</dt><dd>0.00</dd></dl>
+                <dl class="public-bottom-line"><dt>社保扣款</dt><dd>0.00</dd></dl>
+            </div>
+        </div>
+
+    </div>
+    <!-- 我的工资单详情 -->
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('.moreimg').click(function(event) {
+            /* Act on the event */
+             $.alert("1. 邀请好友注册，赠送好友和邀请人各3天黄金会员。<br>2. 赠送天数最大为30天，即每邀请一个好友就可以获得3天黄金会员，天数累加。");
+        });
+       
+    })
+    </script>
+</body>
+
+</html>

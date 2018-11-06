@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>我的工资单</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+    
+    <!-- 我的工资单 -->
+    <div class="bill_page">
+        
+        <div class="switch">
+            <div class="btn prev">2017</div>
+            <div class="btn now">2018</div>
+            <div class="btn next">2019</div>
+        </div>
+
+        <div class="bill_list">
+            <div class="item"><p>10月工资单</p><a href="./centerPayrollInfo.html">工资单暂未统计</a></div>
+            <div class="item"><p>9月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>8月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>7月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>6月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>5月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>4月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>3月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>2月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+            <div class="item"><p>1月工资单</p><a href="./centerPayrollInfo.html">3000.00</a></div>
+        </div>
+
+
+        <!-- 没有更多 --> 
+        <!-- v-if='commentLoadedAll && !noCommentLists' -->
+        <div class="no_more">已加载全部内容~</div>
+         <!-- v-if='allowLoadMore && noCommentLists' -->
+        <!-- <div class="no_more"><img src="__STATIC__/client/assets/a06.png" alt="">暂无内容~</div>  -->
+         <!-- v-if='!commentLoadedAll && !noCommentLists' -->
+        <!-- <div class="weui-loadmore"><i class="weui-loading"></i><span class="weui-loadmore__tips">正在加载</span></div> -->
+        <!-- 没有更多 -->
+        
+    </div>
+    <!-- 我的工资单 -->
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script type="text/javascript">
+    $(function() {
+        
+    })
+    </script>
+</body>
+
+</html>

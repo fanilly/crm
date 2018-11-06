@@ -16,24 +16,28 @@
 <body>
     
     <style>
-    body{ background-color: #f7f7f7; padding-top: 4.56rem; }
+    body{ background-color: #f7f7f7; padding-top: 4.4rem; }
     </style>
 
     <div class="reward_page" id="app">
         <div class="top_num"  :class="{'mainc':typeNum==2}">
-            <div class="zuo"></div>
-            <div class="you"></div>
-            <h2>
-                <span :class="{'on':typeNum==1}" @click='typeNum=1'>我收到的</span>
-                <span :class="{'on':typeNum==2}" @click='typeNum=2'>我发出的</span>
-            </h2>
-            <h3><span>0.00</span><i>打赏总收入</i></h3>
-            <h6>注：打赏红包已实名放入微信钱包</h6>
+            <div class="box">
+                <div class="zuo"></div>
+                <div class="you"></div>
+                <h2>
+                    <span :class="{'on':typeNum==1}" @click='typeNum=1'>我收到的</span>
+                    <span :class="{'on':typeNum==2}" @click='typeNum=2'>我发出的</span>
+                    <i>单位（元）</i>
+                </h2>
+                <h3>¥<span>0.00</span></h3>
+                <h6>{{typeNum==1?'共收到12个红包':'土豪，你已经打赏了2个人了~'}}</h6>
+            </div>
         </div>
+        <div class="tit">{{typeNum==1?'收入明细':'打赏明细'}}</div>
         <div class="rewardList">
             <div class="item public-bottom-line orange" v-if='typeNum==1'>
                 <div class="left">
-                    <h4><span>刘德华</span><i>收</i></h4>
+                    <h4><span>刘德华</span><i>发</i></h4>
                     <p>项目20 武汉人福系统</p>
                     <p>10.22</p>
                 </div>
@@ -41,7 +45,7 @@
             </div>
             <div class="item public-bottom-line orange" v-if='typeNum==1'>
                 <div class="left">
-                    <h4><span>刘德华</span><i>收</i></h4>
+                    <h4><span>刘德华</span><i>发</i></h4>
                     <p>项目20 武汉人福系统</p>
                     <p>10.22</p>
                 </div>

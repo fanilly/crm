@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script src="./librarys/scripts/rem.js"></script>
   <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
-  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
   <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
 </head>
 
 <body>
@@ -685,6 +685,89 @@
     <!--====  End of 悬浮菜单  ====-->
 
 
+    <!--==========================
+    =            打赏            =
+    ===========================-->
+
+    <div class="gratuity">
+      <div class="gratuity-wapper public-center-middle">
+        <!-- <div class="gratuity-content" style="background-image: url(./assets/h31.png)">
+          <div class="gratuity-input-header public-flex-center-center">
+            <input class="weui-switch mj-big-switch" v-model="isRandom" type="checkbox">
+          </div>
+          <div class="gratuity-input-content">
+            <div class="input-wapper public-flex-center">
+              <span class="lside">打赏给</span>
+              <input type="text" readonly class="center public-flex1">
+              <img src="./assets/h27.png" alt="" style="width: .4rem;" class="rside">
+            </div>
+            <div class="input-wapper public-flex-center">
+              <img src="./assets/h29.png" alt="" style="width: .4rem; margin-right: .3rem" class="rside">
+              <input type="text" :placeholder="moneyPlaceholder" class="center public-flex1">
+              <img src="./assets/h28.png" alt="" style="width: .36rem;" class="rside">
+            </div>
+            <div class="gratuity-textarea-wapper">
+              <textarea class="gratuity-textarea" placeholder="少给你一分怕你骄傲"></textarea>
+              <div class="textarea-count">0/20</div>
+            </div>
+            <div class="confirm-gratuity">打赏</div>
+          </div>
+        </div> -->
+        <!-- <div class="gratuity-content" style="background-image: url(./assets/h32.png)">
+          <div class="public-flex-center-center give-avatar-wapper">
+            <div class="give-avatar public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          </div>
+          <p class="give-desc">刘德华 给你发了一个红包</p>
+          <h3 class="give-title">红包我出，你开心就好</h3>
+          <img src="./assets/h33.png" alt="" class="open-red-envelopes">
+          <p class="give-remark">抢到后红包自动放入微信钱包</p>
+        </div> -->
+        <!-- <div class="gratuity-content gratuity-success" style="background-image: url(./assets/h35.png)">
+          <div class="public-flex-center-center give-avatar-wapper">
+            <div class="give-avatar public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+          </div>
+          <p class="give-desc">刘德华 给你发了一个红包</p>
+          <p class="give-money">12.99<span>元</span></p>
+          <div class="public-flex-center-center give-detail-btn">
+            <div class="public-flex-center">
+              <span>领取详情</span>
+              <img src="./assets/a61.png" style="width: .1rem;">
+            </div>
+          </div>
+          <h3 class="give-title">红包我出，你开心就好</h3>
+          <p class="give-remark">红包已自动放入微信钱包</p>
+        </div> -->
+        <div class="gratuity-content gratuity-success">
+          <div class="gratuity-list-header" style="background-image: url(./assets/h3601.png)">
+            <h2>红包领取情况</h2>
+            <p>已领取4/10</p>
+          </div>
+          <div class="gratuity-list">
+            <div class="public-list-type05 ">
+              <div class="item public-flex-center public-bottom-line" v-for="item,index in listData">
+                <div class="lside public-bgimg" style="background-image: url(./assets/bg.jpg)"></div>
+                <div class="center public-flex1">
+                  <h3 class="title">郭德纲</h3>
+                  <h6 class="remark" style="padding-top: 0;">2018-12-12 08:30:16</h6>
+                </div>
+                <div class="rside">
+                  <span>11.88元</span>
+                  <p><img src="./assets/h38.png" style="width: .34rem; margin-right: .12rem;">手气最佳</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="gratuity-close" src="./assets/h34.png">
+      </div>
+    </div>
+
+    <!--====  End of 打赏  ====-->
+
+    <div id="petalbox"></div>
+
+
+
 
   </div>
   <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
@@ -702,6 +785,10 @@
     var app = new Vue({
       el: '#app',
       data: {
+
+        isRandom: false,
+        moneyPlaceholder: '总金额',
+
         navs: {
           index: 0,
           lists: [
@@ -718,8 +805,17 @@
 
         listData: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
       },
+      watch: {
+        isRandom: function(now){
+          if(now){
+            this.moneyPlaceholder = '单个金额';
+          }else{
+            this.moneyPlaceholder = '总金额';
+          }
+        }
+      },
       mounted() {
-
+        $('.gratuity').fadeIn('fast')
       },
       methods: {
         handleToggleClass: function(index) {
@@ -741,6 +837,99 @@
       }
     })
   })();
+
+
+  (function() {
+    /* Define the number of leaves to be used in the animation */
+    var NUMBER_OF_LEAVES = 400;
+
+    /*
+     Called when the "Falling Leaves" page is completely loaded.
+     */
+    function init() {
+      var container = document.getElementById('petalbox');
+      try {
+        for (var i = 0; i < NUMBER_OF_LEAVES; i++) {
+          container.appendChild(createALeaf());
+        }
+      } catch (e) {}
+    }
+
+    /*
+     Receives the lowest and highest values of a range and
+     returns a random integer that falls within that range.
+     */
+    function randomInteger(low, high) {
+      return low + Math.floor(Math.random() * (high - low));
+    }
+
+    /*
+     Receives the lowest and highest values of a range and
+     returns a random float that falls within that range.
+     */
+    function randomFloat(low, high) {
+      return low + Math.random() * (high - low);
+    }
+
+    /*
+     Receives a number and returns its CSS pixel value.
+     */
+    function pixelValue(value) {
+      return value + 'px';
+    }
+
+    /*
+     Returns a duration value for the falling animation.
+     */
+    function durationValue(value) {
+      return value + 's';
+    }
+
+    /*
+     Uses an img element to create each leaf. "Leaves.css" implements two spin
+     animations for the leaves: clockwiseSpin and counterclockwiseSpinAndFlip. This
+     function determines which of these spin animations should be applied to each leaf.
+     */
+    function createALeaf() {
+      /* Start by creating a wrapper div, and an empty img element */
+      var leafDiv = document.createElement('div');
+      var image = document.createElement('img');
+
+      /* Randomly choose a leaf image and assign it to the newly created element */
+      image.src = 'assets/petal' + randomInteger(1, 10) + '.png';
+
+      /* Position the leaf at a random location along the screen */
+      leafDiv.style.top = pixelValue(randomInteger(-200, -100));
+      leafDiv.style.left = pixelValue(randomInteger(0, 1920));
+
+      /* Randomly choose a spin animation */
+      var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+      leafDiv.style.webkitAnimationName = 'fade, drop';
+      leafDiv.style.animationName = 'fade, drop';
+      image.style.webkitAnimationName = spinAnimationName;
+      image.style.animationName = spinAnimationName;
+
+      /* 随机下落时间 */
+      var fadeAndDropDuration = durationValue(randomFloat(2.2, 6.2));
+
+      /* 随机旋转时间 */
+      var spinDuration = durationValue(randomFloat(3, 4));
+      leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+      leafDiv.style.animationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+
+      // 随机delay时间
+      var leafDelay = durationValue(randomFloat(0, 2));
+      leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+      leafDiv.style.animationDelay = leafDelay + ', ' + leafDelay;
+      image.style.webkitAnimationDuration = spinDuration;
+      image.style.animationDuration = spinDuration;
+      leafDiv.appendChild(image);
+      return leafDiv;
+    }
+    init();
+  })();
+
+
 
   </script>
 </body>

@@ -1,6 +1,40 @@
 /*==========================================
   =            weui style rewrite            =
   ==========================================*/
+.mj-big-switch {
+  width: 1.6rem;
+  height: .5rem;
+  background-color: #da3b30;
+  border-color: #da3b30;
+}
+
+.mj-big-switch:before {
+  width: 1.6rem;
+  height: .5rem;
+  background-color: #da3b30;
+  border-radius: .25rem;
+}
+.mj-big-switch:checked {
+  background-color: #da3b30;
+  border-color: #da3b30;
+}
+.mj-big-switch:checked:after {
+  content: '随机红包'
+}
+.mj-big-switch:after {
+  content: '普通红包';
+  font-size: .26rem;
+  color: #e34136;
+  text-align: center;
+  line-height: .6rem;
+  width: 1.6rem;
+  height: .6rem;
+  background-color: #fff;
+  top: -.07rem;
+  transform: translateX(-20px);
+  border-radius: .3rem;
+}
+
 .weui-dialog__btn {
   color: #00aeff;
 }
@@ -675,7 +709,7 @@ textarea:-ms-input-placeholder,
 }
 
 .public-btn-type01.gray {
-  background-color: #999;
+  background-color: #dedede;
 }
 
 .public-btn-type01.yellow {
@@ -2815,7 +2849,7 @@ textarea:-ms-input-placeholder,
 .public-custom-modal-title {
   font-size: .24rem;
   font-weight: normal;
-  color: #15161a;
+  color: #999;
 }
 
 .public-custom-modal-title a {
@@ -2835,6 +2869,7 @@ textarea:-ms-input-placeholder,
   -webkit-border-radius: .06rem;
   border-radius: .06rem;
   background-color: #fafafa;
+  -webkit-appearance: none;
 }
 
 .public-edit-wapper {
@@ -3262,7 +3297,7 @@ textarea:-ms-input-placeholder,
 }
 
 .public-move-enter,
-.public-move-leave {
+.public-move-leave-to {
   -webkit-transform: scaleX(0);
   -ms-transform: scaleX(0);
   transform: scaleX(0);
@@ -3282,4 +3317,20 @@ textarea:-ms-input-placeholder,
 .public-animate-leave {
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
+}
+
+.public-slideinout-enter-active,
+.public-slideinout-leave-active {
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.public-slideinout-enter,
+.public-slideinout-leave-to {
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
 }

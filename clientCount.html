@@ -91,7 +91,7 @@
     <!-- 统计表 -->
     <div class="chartform">
       <h2>新增客户趋势</h2>
-      <canvas id="main" style="display:block; width:100%;height:4rem;"></canvas>
+      <canvas id="main" style="display:block; width:100%;height:4.2rem;"></canvas>
     </div>
     <!-- 统计表 -->
 
@@ -149,8 +149,12 @@
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
   <!-- 引入 f2 文件 -->
   <script src="./librarys/scripts/f2-all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script type="text/javascript">
   $.toast.prototype.defaults.duration = 1000;
+  function formatNumber(n) {
+    return String(Math.floor(n * 100) / 100).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
   var ChartApp = new Vue({
     el: '#chart_app',
     data: {
@@ -373,109 +377,138 @@
 
       //绘制折线图
       (function() {
-        var chartData = [
-          { label: '23日', day: 1, value: 20 },
-          { label: '23日', day: 2, value: 20 },
-          { label: '23日', day: 3, value: 20 },
-          { label: '23日', day: 4, value: 20 },
-          { label: '23日', day: 5, value: 20 },
-          { label: '23日', day: 6, value: 20 },
-          { label: '23日', day: 7, value: 20 },
-          { label: '23日', day: 8, value: 20 },
-          { label: '23日', day: 9, value: 20 },
-          { label: '23日', day: 10, value: 20 },
-          { label: '23日', day: 11, value: 20 },
-          { label: '23日', day: 12, value: 20 },
-          { label: '23日', day: 13, value: 20 },
-          { label: '23日', day: 14, value: 20 },
-          { label: '23日', day: 15, value: 20 },
-          { label: '23日', day: 16, value: 20 },
-          { label: '23日', day: 17, value: 20 },
-          { label: '23日', day: 18, value: 20 },
-          { label: '23日', day: 19, value: 20 },
-          { label: '24日', day: 20, value: 2 },
-          { label: '25日', day: 21, value: 16 },
-          { label: '26日', day: 22, value: 30 },
-          { label: '26日', day: 23, value: 10 }
-            ];
+        var data =[
+          {"date":"2018-11-21","value":0},
+          {"date":"2018-11-22","value":0},
+          {"date":"2018-11-23","value":0},
+          {"date":"2018-11-24","value":0},
+          {"date":"2018-11-25","value":0},
+          {"date":"2018-11-26","value":0},
+          {"date":"2018-11-27","value":0},
+          {"date":"2018-11-28","value":0},
+          {"date":"2018-11-29","value":0},
+          {"date":"2018-11-30","value":0},
+        ];
 
-        var chart = new F2.Chart({
-          id: 'main',
-          pixelRatio: window.devicePixelRatio
-        });
-
-        chart.source(chartData, {
-          value: {
-            tickCount: 4,
-            min: 0
-          },
-          day: {
-            min: chartData[0].day,
-            max: chartData.length > 7 ? chartData[0].day + 7 : chartData[0].day + chartData.length - 1
-          }
-        });
-        chart.tooltip({
-          showCrosshairs: false,
-          showItemMarker: false,
-          alwaysShow: true,
-          triggerOn: 'click',
-          triggerOff: 'touchmove',
-          offsetX: 0,
-          offsetY: 50,
-          lauout: 'vertical',
-          background: {
-            radius: 2,
-            fill: '#000000',
-            opacity: 0.6,
-            padding: [8, 10]
-          },
-          valueStyle: {
-            fontSize: 12,
-            fill: '#fff',
-            lineHeight: 20,
-            textAlign: 'start',
-            textBaseline: 'middle'
-          },
-          onShow: function onShow(ev) {
-            console.log(ev);
-            var items = ev.items;
-            items[0].name = null;
-            items[0].value = '日期：' + items[0].origin.label + '\n' + '数量： ' + items[0].value;
-          }
-        });
-
-        chart.line().position('day*value').style({
-          stroke: '#7096dc'
-        });
-
-        chart.point().position(['day', 'value']).style({
-          stroke: '#7096dc',
-          lineWidth: 1
-        });
-
-        //左右滑动
-        chart.interaction('pan');
-        chart.scrollBar({
-          mode: 'x',
-          xStyle: {
-            offsetY: -5
-          }
-        });
-
-        chart.axis('day', {
-          grid: null,
-          label: function label(text, index, total) {
-            var textCfg = {};
-            if (index === 0) {
-              textCfg.textAlign = 'left';
-            } else if (index === total - 1) {
-              textCfg.textAlign = 'right';
+          var originDates = [];
+          var originValue = [];
+          var firstDayArr = [];
+          data.forEach(function(obj) {
+            if (obj.date >= '2018-11-21') {
+              originDates.push(obj.date);
+              originValue.push(obj.value);
             }
-            return textCfg;
-          }
-        });
+          });
 
-        chart.render();
+          var chart = new F2.Chart({
+            id: 'main',
+            pixelRatio: window.devicePixelRatio
+          });
+
+          chart.source(data, {
+            date: {
+              type: 'timeCat',
+              tickCount: 50,
+              values: originDates,
+              mask: 'MM-DD',
+            },
+            value: {
+              tickCount: 6,
+            }
+          });
+
+          chart.axis('date', {
+            tickLine: {
+              length: 6,
+              stroke: '#cacaca'
+            },
+            line: {
+              top: true
+            },
+            label: function label(text){
+              console.log(text)
+              return {
+                fill: '#cacaca',
+                rotate: -Math.PI / 2,
+                textAlign: 'end',
+                textBaseline: 'middle'
+              }
+
+            }
+          });
+          chart.axis('value', {
+            position: 'left',
+            label: function label(text) {
+              return {
+                text: formatNumber(text * 1),
+                fill: '#cacaca'
+              };
+            },
+
+            grid: {
+              stroke: '#d1d1d1'
+            }
+          });
+
+          chart.tooltip({
+            showCrosshairs: false,
+            showItemMarker: false,
+            alwaysShow: true,
+            triggerOn: [ 'touchstart', 'click', 'interval-select' ],
+            triggerOff: 'touchmove',
+            offsetX: 0,
+            offsetY: 50,
+            lauout: 'vertical',
+            background: {
+              radius: 2,
+              fill: '#000000',
+              opacity: 0.6,
+              padding: [8, 10]
+            },
+            valueStyle: {
+              fontSize: 12,
+              fill: '#fff',
+              lineHeight: 20,
+              textAlign: 'start',
+              textBaseline: 'middle'
+            },
+            onShow: function onShow(ev) {
+              console.log(ev);
+              var items = ev.items;
+              items[0].name = null;
+              items[0].value = '日期：' + items[0].title + '\n' + '数量： ' + items[0].value;
+            }
+          });
+          chart.interval().position('date*value').size(20).style({
+            radius: [2, 2, 0, 0]
+          });
+          // 定义进度条
+          chart.scrollBar({
+            mode: 'x',
+            xStyle: {
+              backgroundColor: '#e8e8e8',
+              fillerColor: '#808080',
+              offsetY: 5
+            }
+          });
+          chart.interaction('pan');
+          chart.render();
+
+
+
+
+          // 配置柱状图点击交互
+          chart.interaction('interval-select', {
+            selectAxisStyle: {
+              fill: '#000',
+              fontWeight: 'bold'
+            },
+            mode: 'range',
+            onEnd: function onEnd(ev) {
+              chart.tooltip(true);
+            }
+          });
+
       })();
 
       //选择时间段

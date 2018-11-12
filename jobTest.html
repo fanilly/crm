@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>开始答题</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color:#f7f7f7;}
+</style>
+
+<div id="app" v-cloak>
+
+<!-- 开始答题 -->
+<div class="jobTest">
+    <div class="title">
+        <h2>WEB前端高级试题</h2>
+        <h5>这是一套高级的前端面试题，还望面试者好好作答，你的每一个回答都将会成为本次面试的关键！</h5>
+    </div>
+    <div class="question">
+        <div class="item" v-for='item,index in listdata'>
+            <h3>Q{{index+1}}.{{item.title}} <!-- <span>{{item.score}}分</span> --></h3>
+            <ul>
+                <li v-for='p,ind in item.option' :class='{"on":p.chose}' @click='choseItem(index,ind,p.id)'>{{p.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style='height:1.6rem;'></div>
+    <div class="fix_visit_btn"><button @click='submit()'>提交试卷</button></div>
+</div>
+<!-- 开始答题 --> 
+
+
+</div>
+
+<script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+<script src="./scripts/public.js?v={:config('asset_version')}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+<script src="./librarys/dayjs/dayjs.min.js"></script>
+<script>
+(function(){
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            listdata:[
+                {
+                    title:'CSS3有哪些新特性？',
+                    score:0,
+                    option:[
+                        {name:'CSS3实现圆角（border-radius:8px），阴影（box-shadow:10px）',id:1,chose:false},
+                        {name:'对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）',id:2,chose:false},
+                        {name:'增加了更多的CSS选择器 多背景 rgba',id:3,chose:false}
+                    ]
+                },
+                {
+                    title:'JS如何使页面跳转？',
+                    score:3,
+                    option:[
+                        {name:'直接在head标签内写入js代码',id:4,chose:false},
+                        {name:'引入写好的js文件，使用语句',id:5,chose:false},
+                        {name:'直接放入到head标签里头',id:6,chose:false}
+                    ]
+                },
+            ],
+            choseArr:[]
+        },
+        mounted: function(){
+            this.choseArr = this.listdata.map(function(item){
+                return 0
+            })
+        },
+        methods:{
+            choseItem:function(index,ind,id){
+                this.listdata[index].option.forEach(function(item){
+                    item.chose = false
+                })
+                this.listdata[index].option[ind].chose = true
+                this.choseArr[index] = id
+            },
+            submit:function(){
+                var flag = this.choseArr.every(function(item){
+                    return item>0
+                })
+                if(flag){
+                    //提交的方法 已选项ID this.choseArr
+                }else{
+                    $.toptip('请先完成全部试题！')
+                }
+            }
+        }
+    })
+})() 
+</script>
+
+</body>
+</html>

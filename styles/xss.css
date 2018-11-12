@@ -971,7 +971,73 @@ opacity: 0; }
 .bill_Info .infos .item dl dd{ flex: 1; color: #333; font-size: 0.3rem; text-align: right;}
 /*工资单详情*/
 
+/*职位列表*/
+.job_list{}
+.job_list .add_job{ background-color:#fff; padding: 0.32rem 0.3rem; display: flex; align-items: center;  margin-bottom: 0.14rem;  }
+.job_list .add_job img{ width:0.44rem; height: 0.44rem; margin-right: 0.14rem; }
+.job_list .add_job span{ font-size:0.3rem; color:#333; }
+.job_list .list{ background-color:#fff; }
+.job_list .list .item{ position: relative; padding: 0.34rem 0 0.34rem 0.3rem; display: flex; align-items: center; }
+.job_list .list .item p{ flex: 1; font-size: 0.32rem; color:#1c1c20; margin-right: 0.2rem; }
+.job_list .list .item a{ font-size: 0.28rem; color:#666666; margin-right:0.3rem; border:1px solid #e5e5e5;  position: relative; padding:0.15rem 0.25rem; border-radius: 4px; }
+.add_job_bg{ position: fixed; left:0; top: 0; right: 0; bottom: 0; background-color:rgba(0,0,0,0.4); z-index: 32; display: none; }
+.add_job_pop{ position: fixed; left:0; top: 0; width:100%; z-index: 33; background-color: #f7f7f7; display: none; }
+.add_job_pop label{ background-color:#fff; padding: 0.36rem 0.4rem; display: flex; margin-top: 0.14rem; }
+.add_job_pop label input{ font-size:0.3rem; color:#333333; flex: 1; border:none; background-color:transparent;  }
+.add_job_pop label span{ font-size:0.3rem; color:#333333; margin-right: 0.2rem; }
+.add_job_pop #chose_branch{ padding-right: 0.3rem; background-position: right center; background-repeat: no-repeat; background-size: 0.12rem auto; background-image: url('../assets/a04.png'); text-align: right; }
+.add_job_pop .save{ margin-top:2rem; padding: 0.3rem 0.4rem;  }
+.add_job_pop .save a{ display: block; background-color:#00aeff; line-height: 1rem; text-align: center; font-size: 0.32rem; color:#fff; border-radius:0.06rem; }
+/*职位列表*/
 
+/*答题二维码*/
+.job_answer{ text-align: center; padding: 0.75rem 0.35rem 0.3rem 0.35rem  }
+.job_answer h2{ font-size: 0.56rem; line-height: 1.1; color: #fff; margin-bottom: 0.2rem; }
+.job_answer h3{ font-size: 0.26rem; line-height: 1.1; color: rgba(255,255,255,0.7); font-weight: normal; }
+.job_answer .box{ margin-top: 0.65rem; padding: 0.8rem; background-color: #fff; border-radius: 0.1rem; }
+.job_answer .box .code{ display: block; margin:0 auto;/* padding: 0.3rem; */}
+.job_answer .box .code img{ display: block; width:4.2rem; height: 4.2rem; }
+.job_answer .box h4{ font-size: 0.32rem; color: #333; margin-top: 0.9rem; }
+.job_answer .box h5{ font-size: 0.26rem; color: #999; margin-top: 0.25rem; font-weight: normal; }
+.job_answer .box .icon{display: block; margin:0 auto; width:0.7rem; height: 0.7rem; margin-top: 0.7rem; }
+/*答题二维码*/
 
+/*信息录入*/
+.jobProgress{ padding: 0.36rem; }
+.jobProgress .list{ position: relative;  }
+.jobProgress .list::after{ position: absolute; left:0.33rem; width:0rem; top: 0; bottom: 0; content: ''; border-left:0.02rem dashed rgb(230,230,230); z-index:0; }
+.jobProgress .list .items{ padding-bottom:1rem; position: relative; padding-left:1.08rem; z-index: 1;  }
+.jobProgress .list .items h2{ font-size: 0.34rem; color: #cccccc; line-height: 1.1;  }
+.jobProgress .list .items h2.black{ color: #333; }
+.jobProgress .list .items h5{ font-weight: normal; font-size: 0.26rem; color: #777; margin-top: 0.15rem;  }
+.jobProgress .list .items .photo{overflow:hidden;}
+.jobProgress .list .items .photo .item{display: block; width:1.58rem; height: 1.58rem; position: relative; margin:0.2rem 0.2rem 0 0; float: left;}
+.jobProgress .list .items .photo .item .img{display: block; width:1.58rem; height: 1.58rem;}
+.jobProgress .list .items .photo .item .close{display: block; width:0.32rem; height: 0.32rem; position: absolute; right: 0.06rem; top: 0.06rem;}
+.jobProgress .list .items .photo .add{float: left; width:1.58rem; height: 1.58rem; overflow: hidden; position: relative; margin:0.2rem 0.2rem 0 0;}
+.jobProgress .list .items .photo .add img{display: block; width:1.58rem; height: 1.58rem;}
+.jobProgress .list .items .photo .add input{display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 33; opacity: 0;}
+.jobProgress .list .items .begin{ display: block; width:1.92rem; height: 0.8rem; background-color: #00aeff; border-radius: 0.04rem; text-align: center; font-size: 0.28rem; color: #fff; margin-top: 0.3rem; line-height: 0.8rem; font-size: 0.28rem;  }
+.jobProgress .list .items:last-child{ padding-bottom: 0;  }
+.jobProgress .list .items.on h2{ color: #00aeff; }
+.jobProgress .list .items.bg1{ background-position: 0.16rem top; background-repeat: no-repeat; background-size:0.36rem auto; background-image: url('../assets/i15.png');  }
+.jobProgress .list .items.bg2{ background-position: left top; background-repeat: no-repeat; background-size:0.68rem auto; background-image: url('../assets/i13.png');  }
+.jobProgress .list .items.bg3{ background-position: left top; background-repeat: no-repeat; background-size:0.68rem auto; background-image: url('../assets/i14.png');  }
+.jobProgress .list .items.bg4{ background-position: left top; background-repeat: no-repeat; background-size:0.68rem auto; background-image: url('../assets/i18.png');  }
+.jobProgress .list .items.on.bg1{ background-image: url('../assets/i16.png'); }
+/*信息录入*/
 
-
+/*开始答题*/
+.jobTest{}
+.jobTest .title{ background-color: #fff; margin-bottom: 0.14rem; padding: 0.5rem 0.4rem; position: relative; }
+.jobTest .title::after{ position: absolute; left:0; top:0.55rem; width:0.06rem; height: 0.26rem; background-color: #00aeff; content: '';  }
+.jobTest .title h2{ font-size: 0.36rem; color: #1c1c20; line-height: 1; }
+.jobTest .title h5{ font-weight: normal; font-size: 0.26rem; color: #666; margin-top: 0.35rem; line-height: 0.46rem; }
+.jobTest .question{}
+.jobTest .question .item{ background-color: #fff; padding: 0.4rem; margin-bottom: 0.14rem; position: relative;  }
+.jobTest .question .item h3{ font-size: 0.32rem; color: #333; line-height: 1.1; font-family: 'Arial'; padding-right: 0.6rem; position: relative; }
+.jobTest .question .item h3 span{ width:0.95rem; display: block; height: 0.54rem; line-height: 0.54rem; background-color: #00aeff; text-align: center; border-bottom-left-radius: 0.54rem; border-top-left-radius: 0.54rem; position: absolute; right: -0.4rem; top: 50%; margin-top: -0.27rem; font-size: 0.28rem; color: #ffffff; font-weight: normal; }
+.jobTest .question .item ul{ margin-top: 0.2rem; }
+.jobTest .question .item ul li{ font-size: 0.28rem; color: #333; line-height: 0.44rem; padding: 0.2rem 0; padding-left:0.58rem; background-position: left center; background-repeat: no-repeat; background-size:0.36rem auto; background-image: url('../assets/i17.png');   }
+.jobTest .question .item ul li.on{ background-image: url('../assets/i16.png');  }
+/*开始答题*/

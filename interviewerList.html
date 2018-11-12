@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>面试者列表</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+</head>
+
+<body>
+  <div class="interviewer-list-page public-gbg">
+
+
+
+    <div class="public-toolbar-type01 public-bottom-line">
+      <a href="#">
+        <img src="./assets/search.png" style="width: .3rem; position: relative; top: -.04rem">
+        <span>搜索</span>
+      </a>
+      <a href="#" class="screen-btn public-js-page-more-btn" data-mask="public-screen-mask" data-content="public-screen-content">
+        <span>筛选</span>
+        <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+        <a href="#" class="sort-btn public-js-page-more-btn" data-mask="public-sort-mask" data-content="public-sort-content" data-change="true">
+          <span>最新更新</span>
+          <img src="./assets/more.png" style="width: .13rem;">
+      </a>
+    </div>
+
+    <!--==========================
+    =            list            =
+    ===========================-->
+
+    <div class="interviewer-list-list">
+      <a href="./interviewerDetail.html" class="item public-flex-center">
+        <div class="center public-flex1 public-bottom-line">
+          <div class="public-flex-center">
+            <div class="public-flex1">刘星辰<span class="public-tags-orange">初试</span></div>
+            <span class="public-color-success">期望 6K</span>
+          </div>
+          <p>在职 · WEB前端工程师</p>
+          <div>
+            <span class="public-tags-gray">大专</span>
+            <span class="public-tags-gray">三年经验</span>
+            <span class="public-tags-gray">河南大学</span>
+          </div>
+        </div>
+      </a>
+      <a href="./interviewerDetail.html" class="item public-flex-center">
+        <div class="center public-flex1 public-bottom-line">
+          <div class="public-flex-center">
+            <div class="public-flex1">刘星辰<span class="public-tags-green01">初试</span></div>
+            <span class="public-color-success">期望 6K</span>
+          </div>
+          <p>在职 · WEB前端工程师</p>
+          <div>
+            <span class="public-tags-gray">大专</span>
+            <span class="public-tags-gray">三年经验</span>
+            <span class="public-tags-gray">河南大学</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!--====  End of list  ====-->
+
+
+
+    <!--==============================
+    =            筛选弹窗            =
+    ===============================-->
+
+    <div class="public-screen-mask"></div>
+    <div class="public-screen-content" style="top: 1.76rem">
+      <div class="content-box">
+        <div class="navs-box">
+          <a href="#" class="active">面试岗位</a>
+          <a href="#">工作经验</a>
+          <a href="#">面试状态</a>
+        </div>
+        <div class="list-box">
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试岗位1</span>
+              <input type="radio" class="public-toggle1" name="post">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试岗位2</span>
+              <input type="radio" class="public-toggle1" name="post">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试岗位3</span>
+              <input type="radio" class="public-toggle1" name="post">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试岗位4</span>
+              <input type="radio" class="public-toggle1" name="post">
+            </div>
+          </div>
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">工作经验1</span>
+              <input type="radio" class="public-toggle1" name="experience">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">工作经验2</span>
+              <input type="radio" class="public-toggle1" name="experience">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">工作经验3</span>
+              <input type="radio" class="public-toggle1" name="experience">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">工作经验4</span>
+              <input type="radio" class="public-toggle1" name="experience">
+            </div>
+          </div>
+          <div class="list-box-item">
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试状态1</span>
+              <input type="radio" class="public-toggle1" name="status">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试状态2</span>
+              <input type="radio" class="public-toggle1" name="status">
+            </div>
+            <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+              <span class="public-flex1">面试状态3</span>
+              <input type="radio" class="public-toggle1" name="status">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset">重置</a>
+        <a class="fill-btn btn confirm">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of 筛选弹窗  ====-->
+
+
+    <!--==============================
+    =            排序弹窗            =
+    ===============================-->
+
+    <div class="public-sort-mask"></div>
+    <div class="public-sort-content" style="top: 1.76rem">
+      <div class="content-box">
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">今日</span>
+          <input type="radio" name="sort" class="public-toggle1" checked name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">本周</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">本月</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+        <div class="public-choose-box-type01 public-flex-center public-bottom-line">
+          <span class="public-flex1">全部</span>
+          <input type="radio" name="sort" class="public-toggle1" name="">
+        </div>
+      </div>
+      <div class="footer-box">
+        <a class="line-btn btn reset">重置</a>
+        <a class="fill-btn btn confirm">确定</a>
+      </div>
+    </div>
+
+    <!--====  End of 排序弹窗  ====-->
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+</body>
+
+</html>

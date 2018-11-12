@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>信息录入</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color: #f7f7f7; }
+</style>
+
+    <div class="edit_branch">
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">姓名</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">手机号</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">应聘职位</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_job" type="text" name="" placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">期望薪资</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">就职状况</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_jobStatus" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">工作年限</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_jobtime" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">毕业学校</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">学历</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_caltureLevel" type="text" name="" placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">专业</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">毕业时间</span><span class="require">*</span>
+                </label>
+                <input class="input public-flex1" id="chose_finishTime" type="text" name="" placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="more" style='display: flex; align-items: center; justify-content: center; font-size: 0.28rem; padding:
+        0.2rem 0.3rem; background-color: #fff;'>
+            <span>展开可选</span>
+            <img src="assets/h10.png" alt="" style='width:0.16rem; margin-left: 0.16rem;'>
+        </div>
+        <div class="f7"></div>
+        <div class="hide" style='display: none;'> 
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">性别</span>
+                </label>
+                <input class="input public-flex1" id="chose_sex" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">出生日期</span>
+                </label>
+                <input class="input public-flex1" id="chose_birthday" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">民族</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">政治面貌</span>
+                </label>
+                <input class="input public-flex1" id="chose_political" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">现居住地</span>
+                </label>
+                <input class="input public-flex1" type="text" name="" placeholder="点击输入">
+            </div>
+        </div>
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">近一年是否有过住院史</span>
+                </label>
+                <input class="input public-flex1" id="chose_hospital" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">有无家族病史</span>
+                </label>
+                <input class="input public-flex1" id="chose_medical" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>   
+        <div class="f7"></div>
+        <div class="input-group">
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">招聘渠道</span>
+                </label>
+                <input class="input public-flex1" id="chose_channel" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">婚姻状况</span>
+                </label>
+                <input class="input public-flex1" id="chose_marriage" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+            <div class="public-input-box-type03 public-bottom-line public-flex-center">
+                <label class="lside public-flex-center">
+                    <span class="name">有无子女</span>
+                </label>
+                <input class="input public-flex1" id="chose_child" type="text" readonly placeholder="请选择">
+                <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+            </div>
+        </div>   
+        </div>
+
+        <div style='height:1.6rem;'></div>
+        <div class="fix_visit_btn"><button>提交</button></div>
+
+    </div>
+    <style>
+    .more.on img{ transform: rotate(180deg); }
+    </style>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/dayjs/dayjs.min.js"></script>
+    <script>
+    (function(){
+        $.fn.autoHeight = function(){
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });
+        }
+        $('textarea[autoHeight]').autoHeight();
+
+        //展开可选
+        $('.more').click(function(){
+
+            $('.hide').slideToggle();
+            $('.more').toggleClass('on');
+            if($(this).hasClass('on')){
+                $(this).find('span').text('收起可选')
+            }else{
+                $(this).find('span').text('展开可选')
+            }
+        })
+
+        //选择应聘职位
+        $("#chose_job").picker({
+            title: "请选择应聘职位",
+            cols: [{
+                textAlign: 'center',
+                values: ['总经理','部门经理','ios开发工程师']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择工作年限
+        $("#chose_jobtime").picker({
+            title: "请选择工作年限",
+            cols: [{
+                textAlign: 'center',
+                values: ['1年以内','1~3年','3~5年']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //请选择就职状况
+        $("#chose_jobStatus").picker({
+            title: "请选择就职状况",
+            cols: [{
+                textAlign: 'center',
+                values: ['在职','离职']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //请选择学历
+        $("#chose_caltureLevel").picker({
+            title: "请选择就职状况",
+            cols: [{
+                textAlign: 'center',
+                values: ['硕士','博士','研究生']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+
+        //请选择毕业时间
+        $("#chose_finishTime").picker({
+            title: "请选择毕业时间",
+            cols: [{
+                textAlign: 'center',
+                values: ['2018','2017','2016','2015','2014','2013','2012']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //请选择性别
+        $("#chose_sex").picker({
+            title: "请选择性别",
+            cols: [{
+                textAlign: 'center',
+                values: ['男','女']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择出生日期
+        $("#chose_birthday").picker({
+            title: "请选择就职状况",
+            cols: [{
+                textAlign: 'center',
+                values: ['2018','2008']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择政治面貌
+        $("#chose_political").picker({
+            title: "请选择就职状况",
+            cols: [{
+                textAlign: 'center',
+                values: ['党员','群众']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择近一年是否有过住院史
+        $("#chose_hospital").picker({
+            title: "请选择近一年是否有过住院史",
+            cols: [{
+                textAlign: 'center',
+                values: ['无','有']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择有无家族病史
+        $("#chose_medical").picker({
+            title: "请选择有无家族病史",
+            cols: [{
+                textAlign: 'center',
+                values: ['无','有']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择招聘渠道
+        $("#chose_channel").picker({
+            title: "请选择招聘渠道",
+            cols: [{
+                textAlign: 'center',
+                values: ['朋友推荐','boss直聘']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择婚姻状况
+        $("#chose_marriage").picker({
+            title: "请选择婚姻状况",
+            cols: [{
+                textAlign: 'center',
+                values: ['已婚','未婚','离异']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+        //请选择有无子女
+        $("#chose_child").picker({
+            title: "请选择有无子女",
+            cols: [{
+                textAlign: 'center',
+                values: ['有','无']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+       
+    })()
+    </script>
+
+</body>
+</html>

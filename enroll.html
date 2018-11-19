@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>体验者注册</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color:#f7f7f7;}
+</style>
+
+
+
+<!-- 体验者注册 -->
+<div class="page_enroll">
+   <div class="part">
+        <h2>账户密码</h2>
+        <div class="fill">
+            <p class="public-bottom-line"><input type="text" placeholder="请输入您的手机号"><img src="assets/icon02.png" class="del" alt=""></p>
+            <p class="public-bottom-line"><input type="text" placeholder="请输入密码"><img src="assets/icon02.png" class="del" alt=""></p>
+            <p><input type="text" placeholder="再次确认密码"><img src="assets/icon02.png" class="del" alt=""></p>
+        </div>
+   </div>
+   <div class="part">
+        <h2>基本信息</h2>
+        <div class="fill">
+            <p class="public-bottom-line"><input type="text" placeholder="您的姓名"><img src="assets/icon02.png" class="del" alt=""></p>
+            <p class="public-bottom-line"><input type="text" placeholder="您的职位"><img src="assets/icon02.png" class="del" alt=""></p>
+            <p class="public-bottom-line"><input type="text" placeholder="公司名称"><img src="assets/icon02.png" class="del" alt=""></p>
+            <input hidden="hidden" id="btn" name="btn1" type="radio" value="off" checked="checked" />
+            <div class="weui-cells weui-cells_form" style=''>
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">是否有公众号</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" type="checkbox" id="button1" name="button1" />
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+   <div class="sure"><button>确认注册</button></div>
+</div>
+<!-- 体验者注册 --> 
+
+
+
+<script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+<script src="./scripts/public.js?v={:config('asset_version')}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+<script src="./librarys/dayjs/dayjs.min.js"></script>
+<script>
+(function(){
+   
+    //公众号选项
+    $("#button1").bind("click", function () {
+        console.log( $("#button1").val() );
+        if($("#btn").val()=="off"){
+            $("#btn").val("on");
+            console.log("开关1当前状态："+$("#btn").val());
+        }else{
+            $("#btn").val("off");
+            console.log("开关1当前状态："+$("#btn").val());
+        }
+    });
+
+    //删除输入
+    $('.part .fill .del').click(function(){
+        $(this).hide()
+        $(this).siblings('input').val('')
+    })
+    $('.part .fill p input').blur(function(){
+        var txt = $(this).val()
+        if( txt != ''){
+            $(this).siblings('.del').show();
+        }
+    })
+            
+   
+})() 
+</script>
+
+</body>
+</html>

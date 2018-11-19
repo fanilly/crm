@@ -188,7 +188,7 @@ body{ background-color: #f7f7f7; }
         </div>
 
         <div style='height:1.6rem;'></div>
-        <div class="fix_visit_btn"><button>提交</button></div>
+        <div class="fix_visit_btn"><span>提交</span></div>
 
     </div>
     <style>
@@ -380,6 +380,11 @@ body{ background-color: #f7f7f7; }
                 console.log(p.params.cols[0].activeIndex);
             }
         });
+        //提交表单
+        $('.fix_visit_btn span').click(function(){
+            //提交方法
+            window.location.href='./jobProgress.html'
+        })
 
        
     })()

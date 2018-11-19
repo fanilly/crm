@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>新增题目</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+    <style>
+    body{ background-color: #f7f7f7; }
+    </style>
+    <div class="test_item" id="app" v-cloak>
+            <div class="item" v-for='item,index in data_list'>
+                <div class="title public-bottom-line"><input placeholder="点击添加题目名称" v-model="item.name" /></div>
+                <div class="list">
+                    <div class="tip" v-if='item.data != "" && index==0' >
+                        <img src="assets/i09.png" alt="">
+                        <span>点它添加分值</span>
+                    </div>
+                    <div class="sin public-bottom-line" v-for='p,ind in item.data'>
+                        <input placeholder="点击编辑选项" v-model="p.title" />
+                        <div class="score" @click='setValue(index,ind)'>
+                            <span>{{p.score}}分</span>
+                            <img src="assets/i07.png" alt="">
+                        </div>
+                        <div class="del" @click='delItem(index,ind)'><img src="assets/i08.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="add_job" @click='AddItem(index)'><img src="assets/i07.png" alt=""><span>添加选项</span></div>
+                <div class="cancle public-top-line" @click='delPart(index)' v-if='index>0'>删除此题</div>
+            </div>
+
+            <!-- <div class="add_job" @click='AddPart()'><img src="assets/icon25.png" alt=""><span>新增题目</span></div> -->
+            
+            <div style='height:1.6rem;'></div>
+            <div class="fix_visit_btn"><button @click='submit()'>确认</button></div>
+    </div>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    (function() {
+        
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                data_list:[{name:'',data:[{title:'',score:0}]}]  
+            },
+            mounted: function(){
+                setTimeout(function(){
+                    $('.list .tip').fadeOut()
+                },2000)
+            },
+            methods:{
+                AddItem:function(index){
+                    this.data_list[index].data.push({title:'',score:0})
+                },
+                AddPart:function(){
+                    this.data_list.push({name:'',data:[{title:'',score:0}]})
+                },
+                delItem:function(index,ind){
+                    this.data_list[index].data.splice(ind, 1); 
+                },
+                delPart:function(index){
+                    this.data_list.splice(index, 1); 
+                },
+                setValue:function(index,ind){
+                    var self = this
+                    var _child = $('.test_item .item').eq(index).find('.list .sin').eq(ind).find('span')
+                    var num = 0
+                    if(_child.text()!=''){
+                         num = parseInt(_child.text())
+                    }
+                    $.modal({
+                        title: '添加分值',
+                        text: '<h2 class="public-custom-modal-title">最大分值为1，最小是0</h2><div class="public-custom-modal-content"><input type="number" placeholder="输入分值" value='+num+' id="score" /></div>',
+                        autoClose: false,
+                        buttons: [{
+                            text: '取消',
+                            onClick: function() {
+                                $.closeModal();
+                            }
+                        }, {
+                            text: '确定',
+                            onClick: function() {
+                                var val = $('#score').val();
+                                _child.show();
+                                _child.text(val+'分');
+                                self.data_list[index].data[ind].score = val
+                                $.closeModal();
+                            }
+                        }]
+                    });
+                },
+                submit:function(){
+                    var self = this;
+                    console.log(self.data_list)
+                    //提交后回到列表
+                    window.location.href='jobTestList.html'
+                }
+            }
+        })
+    })()
+    </script>
+
+</body>
+</html>

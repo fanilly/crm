@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>试题列表</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color:#f7f7f7;}
+</style>
+
+<div id="app" v-cloak>
+
+<!-- 试题列表 -->
+<div class="jobTestList">
+    <div class="kind_move">
+        <p>
+            <a :class='{"on":sort==0}' @click='changeSort(0)'>全部</a>
+            <a v-for='item,index in listKind' :class='{"on":item.id==sort}' @click='changeSort(item.id)'>{{item.name}}</a>
+        </p>
+        <div class="editIcon" @click='showPop=!showPop'>
+            <img src="assets/i05.png" alt="" class="img1" v-if='!showPop'>
+            <img src="assets/i06.png" alt="" class="img2" v-if='showPop'>
+        </div>
+    </div>
+    <div style='height: 1.02rem;'></div>
+    <div class="add_job" onclick="window.location.href='./jobTestAddOther.html'"><img src="assets/icon25.png" alt=""><span>新增试题</span></div>
+    <div class="list">
+        <div class="item public-bottom-line" v-for='item,index in listdata'>
+            <p @click='checkTest(item.id)'><span>{{item.name}}</span><i>{{item.time}}</i></p>
+            <img src="./assets/c23.png" alt="" class="edit" @click='showMore(id)'>
+        </div>
+    </div>
+</div>
+<!-- 试题列表 --> 
+
+<!-- pop_kind -->
+<div class="pop_kind_bg" v-if='showPop' @click='showPop=!showPop'></div>
+<div class="pop_kind" v-if='showPop'>
+    <p>
+        <a :class='{"on":sort==0}' @click='changeSort(0)'>全部</a>
+        <a v-for='item,index in listKind' :class='{"on":item.id==sort}' @click='changeSort(item.id)'>{{item.name}}</a>
+    </p>
+    <a class="add" href="./jobTestSort.html">编辑分类</a>
+</div>
+<!-- pop_kind -->
+
+<!-- 更多 -->
+<div class="pop_upper_bg pop_bg" @click='hideMore()'></div>
+<div class="pop_upper_box pop_more">
+  <div class="first">
+      <span class="edit" @click='editItem()'>编辑</span>
+      <span class="del" @click='delItem()'>删除</span>
+  </div>
+  <div class="first cancle" @click='hideMore()'><span>取消</span></div>
+</div>
+<!-- 更多 -->
+
+</div>
+
+<script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+<script src="./scripts/public.js?v={:config('asset_version')}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+<script src="./librarys/dayjs/dayjs.min.js"></script>
+<script>
+(function(){
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            listKind:[
+                {name:'基本情况',id:1},
+                {name:'工具应用',id:2},
+                {name:'学术答辩',id:3},
+                {name:'不学无术',id:4},
+                {name:'精彩绝伦',id:5},
+            ],
+            listdata:[
+                {name:'PHP试题',time:'2018-12-03',id:1},
+                {name:'安卓试题',time:'2018-08-03',id:2},
+                {name:'WEB前端高级试题',time:'2018-05-03',id:3},
+                {name:'PHP试题',time:'2018-12-03',id:1},
+                {name:'安卓试题',time:'2018-08-03',id:2},
+            ],
+            sort:0,
+            showPop:false,
+            nowId:''
+        },
+        mounted: function(){
+            var self = this
+
+            // 弹窗-编辑
+            $('.pop_more .edit').click(function(){
+                self.hiddPOP();
+                window.location.href='./edit.html?id='+vm.id
+            });
+
+            // 弹窗-删除
+            $('.pop_more .del').click(function(){
+                self.hiddPOP();
+                //删除的方法
+                
+            });
+        },
+        methods:{
+            changeSort:function(num){
+                console.log(123)
+                this.sort = num
+            },
+            checkTest:function(id){
+                window.location.href='./jobTestCheck.html?id='+id
+            },
+            hideMore:function(){
+                $('body,html').css({"overflow":'auto'});
+                $('.pop_upper_bg').fadeOut();
+                $('.pop_more').fadeOut()
+            },
+            showMore:function(id){
+                self.nowId = id
+                $('body,html').css({"overflow":'hidden'});
+                $('.pop_upper_bg').fadeIn();
+                $('.pop_more').fadeIn()
+            },
+            editItem:function(){
+                this.hideMore()
+                window.location.href='./jobTestCheck.html?id='+this.nowId
+            },
+            delItem:function(){
+                this.hideMore()
+                // 添加删除方法
+            }
+        }
+    })
+})() 
+</script>
+
+</body>
+</html>

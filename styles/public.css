@@ -759,6 +759,8 @@ textarea:-ms-input-placeholder,
   left: 0;
   height: 1.6rem;
   padding: .3rem;
+  z-index: 30;
+  /*background-color: #fff;*/
 }
 
 .public-mask {
@@ -3381,6 +3383,30 @@ textarea:-ms-input-placeholder,
   transition: all .3s ease;
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .6s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
 }
 
 .public-flex-start-line .item {

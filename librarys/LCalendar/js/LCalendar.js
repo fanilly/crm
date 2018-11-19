@@ -10,9 +10,11 @@ window.LCalendar = (function() {
   }
   MobileCalendar.prototype = {
     init: function(params) {
+      console.log('-----------------+++++++++++++++++++')
       this.type = params.type;
       this.callback = params.callback || null;
       this.trigger = document.querySelector(params.trigger);
+      if(params.initdate) this.initdate = params.initdate;
       if (this.trigger.getAttribute("data-lcalendar") != null) {
         var arr = this.trigger.getAttribute("data-lcalendar").split(',');
         var minArr = arr[0].split('-');
@@ -105,6 +107,7 @@ window.LCalendar = (function() {
           mm: date.getMonth(),
           dd: date.getDate() - 1
         };
+        if(_self.initdate) _self.trigger.value = _self.initdate;
         if (_self.trigger.value.split(/[^0-9]+/).slice(0, 3)) {
           // console.log(_self.trigger.value.split(/[^0-9]+/));
           // console.log(_self.trigger.value.split(/[^0-9]+/).slice(0 ,3));

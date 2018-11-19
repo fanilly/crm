@@ -23,10 +23,11 @@ body{ background-color:#f7f7f7; }
 <div class="job_list">
     <div class="add_job"><img src="assets/icon25.png" alt=""><span>新增职位</span></div>
     <div class="list">
-        <div class="item public-bottom-line"><p>PHP后端开发工程师</p><a class="edit">编辑</a><a class="del">删除</a></div>
-        <div class="item public-bottom-line"><p>安卓开发工程师</p><a class="edit">编辑</a><a class="del">删除</a></div>
-        <div class="item public-bottom-line"><p>ios开发工程师</p><a class="edit">编辑</a><a class="del">删除</a></div>
-        <div class="item public-bottom-line"><p>WEB前端工程师</p><a class="edit">编辑</a><a class="del">删除</a></div>
+        <div class="item public-bottom-line" v-for='item,index in datalist'>
+            <p @click='goInfo(item.id)'>{{item.name}}</p>
+            <a class="edit" @click='goInfo()'>编辑</a>
+            <a class="del">删除</a>
+        </div>
     </div>
 </div>
 <!-- 职位列表 --> 
@@ -55,7 +56,12 @@ body{ background-color:#f7f7f7; }
     var vm = new Vue({
         el: '#app',
         data: {
-            
+            datalist:[
+                {name:'PHP后端开发工程师',id:1},
+                {name:'安卓开发工程师',id:2},
+                {name:'ios开发工程师',id:3},
+                {name:'WEB前端工程师',id:4},
+            ]
         },
         mounted: function(){
             // 打开弹窗
@@ -87,7 +93,9 @@ body{ background-color:#f7f7f7; }
             });
         },
         methods:{
-            
+            goInfo:function(id){
+                window.location.href='./jobTestCheck.html?id=' + id
+            }
         }
     })
 })()

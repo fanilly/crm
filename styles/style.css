@@ -660,6 +660,7 @@ input {
   color: #333;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+  transition: all ease .3s;
 }
 
 .schedule-page .calendar a.active span {
@@ -1043,7 +1044,7 @@ input {
 .customer-detail-page .header div {
   font-size: 0;
   padding-top: .2rem;
-  ;
+  overflow: hidden;
 }
 
 .customer-detail-page .header .public-tags-blue {

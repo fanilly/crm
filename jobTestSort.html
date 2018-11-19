@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>分类列表</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color:#f7f7f7; }
+.weui-dialog__title{ font-size: 0.32rem; color: #15161a;  }
+.weui-dialog{ border-radius: 0.26rem; }
+.weui-dialog .public-custom-modal-content input{ line-height: 0.72rem; height: auto; }
+</style>
+<div id="app">
+
+<!-- 职位列表 -->
+<div class="job_list">
+    <div class="add_job" id='add_sort'><img src="assets/icon25.png" alt=""><span>新增分类</span></div>
+    <div class="list">
+        <div class="item public-bottom-line"><p>基本情况</p><a class="edit">编辑</a><a class="del">删除</a></div>
+        <div class="item public-bottom-line"><p>工具应用</p><a class="edit">编辑</a><a class="del">删除</a></div>
+        <div class="item public-bottom-line"><p>学术辩论</p><a class="edit">编辑</a><a class="del">删除</a></div>
+        <div class="item public-bottom-line"><p>基本情况</p><a class="edit">编辑</a><a class="del">删除</a></div>
+    </div>
+</div>
+<!-- 职位列表 --> 
+
+
+</div>
+
+<script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+<script src="./scripts/public.js?v={:config('asset_version')}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+<script src="./librarys/dayjs/dayjs.min.js"></script>
+<script>
+(function(){
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            
+        },
+        mounted: function(){
+            
+        },
+        methods:{
+            
+        }
+    })
+
+    $('#add_sort').on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $.modal({
+            title: '新增分类',
+            text: '<div class="public-custom-modal-content"><input type="text" placeholder="输入分类名称" /></div>',
+            autoClose: false,
+            buttons: [{
+                text: '取消',
+                onClick: function() {
+                    $.closeModal();
+                }
+            }, {
+                text: '确定',
+                onClick: function() {
+                    $.closeModal();
+                }
+            }]
+        });
+    });
+})()
+</script>
+
+</body>
+</html>

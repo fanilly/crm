@@ -1,9 +1,11 @@
-*{ outline: none;-webkit-tap-highlight-color: transparent;border: 0;
+*{
+    outline: none;-webkit-tap-highlight-color: transparent;border: 0;
     -webkit-appearance: none;box-sizing:border-box;
--moz-box-sizing:border-box; /* Firefox */
--webkit-box-sizing:border-box; /* Safari */
- font-family:Arial, Helvetica, sans-serif;}
-body{ min-width: 320px; height: auto !important; background-color: #fff;}
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+input,button,textarea{font-family:Arial, Helvetica, sans-serif !important;}
+body{ min-width: 320px; height: auto !important; background-color: #fff; font-family:Arial, Helvetica, sans-serif !important;}
 .border-bottom{ border:none !important; }
 .border-bottom::before{
     content: " ";
@@ -973,15 +975,15 @@ opacity: 0; }
 
 /*职位列表*/
 .job_list{}
-.job_list .add_job{ background-color:#fff; padding: 0.32rem 0.3rem; display: flex; align-items: center;  margin-bottom: 0.14rem;  }
+.job_list .add_job{ background-color:#fff; padding: 0.32rem 0.3rem; display: flex; align-items: center;  margin-bottom: 0.14rem; position: relative; }
 .job_list .add_job img{ width:0.44rem; height: 0.44rem; margin-right: 0.14rem; }
 .job_list .add_job span{ font-size:0.3rem; color:#333; }
 .job_list .list{ background-color:#fff; }
 .job_list .list .item{ position: relative; padding: 0.34rem 0 0.34rem 0.3rem; display: flex; align-items: center; }
 .job_list .list .item p{ flex: 1; font-size: 0.32rem; color:#1c1c20; margin-right: 0.2rem; }
 .job_list .list .item a{ font-size: 0.28rem; color:#666666; margin-right:0.3rem; border:1px solid #e5e5e5;  position: relative; padding:0.15rem 0.25rem; border-radius: 4px; }
-.add_job_bg{ position: fixed; left:0; top: 0; right: 0; bottom: 0; background-color:rgba(0,0,0,0.4); z-index: 32; display: none; }
-.add_job_pop{ position: fixed; left:0; top: 0; width:100%; z-index: 33; background-color: #f7f7f7; display: none; }
+.add_job_bg{ position: fixed; left:0; top: 0; right: 0; bottom: 0; background-color:rgba(0,0,0,0.4); z-index: 32; /*display: none; */}
+.add_job_pop{ position: fixed; left:0; top: 0; width:100%; z-index: 33; background-color: #f7f7f7; /*display: none;*/ }
 .add_job_pop label{ background-color:#fff; padding: 0.36rem 0.4rem; display: flex; margin-top: 0.14rem; }
 .add_job_pop label input{ font-size:0.3rem; color:#333333; flex: 1; border:none; background-color:transparent;  }
 .add_job_pop label span{ font-size:0.3rem; color:#333333; margin-right: 0.2rem; }
@@ -1030,14 +1032,99 @@ opacity: 0; }
 /*开始答题*/
 .jobTest{}
 .jobTest .title{ background-color: #fff; margin-bottom: 0.14rem; padding: 0.5rem 0.4rem; position: relative; }
+.jobTest .title.fixed{ position: fixed; left: 0; top: 0; right: 0;margin-bottom: 0rem; z-index: 30; border-bottom:0.15rem solid #f7f7f7; }
 .jobTest .title::after{ position: absolute; left:0; top:0.55rem; width:0.06rem; height: 0.26rem; background-color: #00aeff; content: '';  }
-.jobTest .title h2{ font-size: 0.36rem; color: #1c1c20; line-height: 1; }
-.jobTest .title h5{ font-weight: normal; font-size: 0.26rem; color: #666; margin-top: 0.35rem; line-height: 0.46rem; }
+.jobTest .title h2{ font-size: 0.36rem; color: #1c1c20; line-height: 1; margin-bottom: 0.35rem; }
+.jobTest .title h2 span{ color: #00aeff; font-size: 0.3rem; font-weight: normal; padding-left: 0.15rem; }
+.jobTest .title h5{ font-weight: normal; font-size: 0.26rem; color: #666; line-height: 0.46rem; }
+.jobTest .title dl{ display: flex; font-size: 0.26rem; line-height: 1.1; padding: 0.15rem 0; }
+.jobTest .title dl dt{ padding-right: 0.2rem; color: #666;}
+.jobTest .title dl dd{ color: #333; flex:1; }
+.jobTest .title dl:last-child{ padding-bottom: 0; }
 .jobTest .question{}
 .jobTest .question .item{ background-color: #fff; padding: 0.4rem; margin-bottom: 0.14rem; position: relative;  }
+.jobTest .question .item.small{ padding: 0.25rem 0.4rem; position: relative; margin-bottom: 0;padding-left: 1rem; background-position: 0.4rem center; background-repeat: no-repeat; background-size:0.36rem auto; background-image: url('../assets/i15.png'); }
+.jobTest .question .item.small.on{background-image: url('../assets/i16.png');}
 .jobTest .question .item h3{ font-size: 0.32rem; color: #333; line-height: 1.1; font-family: 'Arial'; padding-right: 0.6rem; position: relative; }
 .jobTest .question .item h3 span{ width:0.95rem; display: block; height: 0.54rem; line-height: 0.54rem; background-color: #00aeff; text-align: center; border-bottom-left-radius: 0.54rem; border-top-left-radius: 0.54rem; position: absolute; right: -0.4rem; top: 50%; margin-top: -0.27rem; font-size: 0.28rem; color: #ffffff; font-weight: normal; }
+.jobTest .question .item h4{ font-size: 0.3rem; color: #555; line-height: 0.4rem; font-weight: normal; position: relative;   }
+.jobTest .question .item h4 span{ /*font-size: 0.26rem; color: #00aeff;*/  width:0.95rem; display: block; height: 0.54rem; line-height: 0.54rem; background-color: #00aeff; text-align: center; border-bottom-left-radius: 0.54rem; border-top-left-radius: 0.54rem; position: absolute; right: -0.4rem; top: 50%; margin-top: -0.27rem; font-size: 0.28rem; color: #ffffff; font-weight: normal;}
+.jobTest .question .item h5{ font-weight: normal; font-size: 0.24rem; color: #666;line-height: 0.32rem; margin-top: 0.15rem; }
 .jobTest .question .item ul{ margin-top: 0.2rem; }
 .jobTest .question .item ul li{ font-size: 0.28rem; color: #333; line-height: 0.44rem; padding: 0.2rem 0; padding-left:0.58rem; background-position: left center; background-repeat: no-repeat; background-size:0.36rem auto; background-image: url('../assets/i17.png');   }
 .jobTest .question .item ul li.on{ background-image: url('../assets/i16.png');  }
+.jobTest .add_job{ background-color:#fff; padding: 0.32rem 0.3rem; display: flex; margin-bottom: 0.14rem;  }
+.jobTest .add_job img{ width:0.44rem; height: 0.44rem; margin-right: 0.14rem; }
+.jobTest .add_job span{ font-size:0.3rem; color:#333; }
 /*开始答题*/
+
+/*试题列表*/
+.jobTestList{ }
+.jobTestList .kind_move{ padding-right: 0.92rem; position: relative; background-color: #fff; position: fixed; left:0; top: 0; right: 0; z-index: 999;}
+.jobTestList .kind_move p{ height: 0.88rem;padding-left: 0.3rem; white-space: nowrap; overflow: visible; overflow-x: auto;  }
+.jobTestList .kind_move p a{ font-size: 0.28rem; display: inline-block; color: #666; line-height: 0.88rem; position: relative; margin-right: 0.52rem; }
+.jobTestList .kind_move p a:last-child{ margin-right: 0.1rem; }
+.jobTestList .kind_move p a.on{ color: #00aeff; }
+.jobTestList .kind_move p a.on::before{ position: absolute; left:50%; bottom: 0; width:0.3rem; height: 0.04rem; background-color: #00aeff; content: ''; }
+.jobTestList .kind_move .editIcon{ width:0.92rem; height: 0.88rem; position: absolute; right:0; top: 0; }
+.jobTestList .kind_move .editIcon img{ display: block; width:0.32rem; height: 0.32rem; margin:0.28rem auto; }
+
+.jobTestList .add_job{ background-color:#fff; padding: 0.32rem 0.3rem; display: flex; margin-bottom: 0.14rem;  }
+.jobTestList .add_job img{ width:0.44rem; height: 0.44rem; margin-right: 0.14rem; }
+.jobTestList .add_job span{ font-size:0.3rem; color:#333; }
+.jobTestList .list{ background-color:#fff; }
+.jobTestList .list .item{ position: relative; padding: 0.34rem 0.3rem 0.34rem 0.3rem; display: flex; align-items: center; }
+.jobTestList .list .item p{ flex: 1; font-size: 0.32rem; color:#1c1c20; margin-right: 0.2rem; line-height: 1; }
+.jobTestList .list .item p span{ display: block; font-size: 0.32rem; color: #1c1c20; margin-bottom: 0.22rem;  }
+.jobTestList .list .item p i{ display: block; font-size: 0.24rem; color: #666; }
+.jobTestList .list .item .edit{ width:0.4rem; height: 0.4rem;}
+
+.pop_kind_bg{ position: fixed; left:0; top: 0.88rem; right: 0; bottom: 0; background-color:rgba(0,0,0,0.4); z-index: 32; }
+.pop_kind{ position: fixed; left:0; top: 0.88rem; width:100%; z-index: 33; background-color: #fff; }
+.pop_kind p{ overflow: hidden; padding: 0.3rem 0.2rem 0 0.2rem; display: flex; flex-wrap:wrap;flex-direction: row;  }
+.pop_kind p a{ width:23%; margin:0 1%; height: 0.62rem; line-height: 0.62rem; text-align: center; font-size: 0.26rem; color: #666666; border-radius: 0.04rem; background-color: #f7f7f7; margin-bottom: 0.3rem;  }
+.pop_kind p a.on{ background-color: rgba(0,174,255,0.15); color: #00aeff; }
+.pop_kind .add{ display: block; font-size: 0.3rem; color: #7096dc; text-align: center; padding: 0.24rem 0; margin-bottom: 0.2rem;  }
+/*试题列表*/
+
+/*新增题目*/
+.test_item{ padding-top: 0.14rem; }
+.test_item .list{ position: relative; }
+.test_item .list .tip{ display: flex; position: absolute; right: 0.2rem; top: -0.5rem; padding: 0.12rem 0.25rem 0.12rem 0.2rem; border-radius: 0.6rem; z-index: 30; background-color: #00aeff; align-items: center;  }
+.test_item .list .tip img{ width:0.38rem; height: 0.38rem; }
+.test_item .list .tip span{ font-size: 0.26rem; color: #fff; line-height: 1.1; margin-left: 0.16rem; position: relative; z-index:2; }
+.test_item .list .tip::after{ content: ''; width:0.4rem; height: 0.4rem; background-color: #00aeff; transform: rotate(45deg); position: absolute; bottom: -0.03rem; right: 0.5rem; border-radius: 0.02rem; z-index: 0; }
+.test_item .item{ background-color: #fff; padding: 0rem 0.4rem; margin-bottom: 0.3rem;  }
+.test_item .item .title{ padding: 0.5rem 0; font-size: 0.3rem; color: #555; line-height: 0.46rem; position: relative;  }
+.test_item .item .title input{ display: block; width:100%; }
+.test_item .item .sin{ display: flex; position: relative; justify-content: space-between; align-items: center; padding: 0.36rem 0; }
+.test_item .item .sin input{ flex:1; height: 0.46rem; line-height: 0.46rem; }
+.test_item .item .sin .score{ height: 0.4rem; border-radius: 0.4rem; background-color: #00aeff; display: flex;  }
+.test_item .item .sin .score span{ padding: 0 0.05rem 0 0.15rem; font-size: 0.24rem; color: #fff; display: none; }
+.test_item .item .sin .score img{ width:0.4rem; height: 0.4rem; }
+.test_item .item .sin .del{ margin-left: 0.3rem; width:0.4rem; height: 0.4rem; }
+.test_item .item .sin .del img{ width:0.4rem; height: 0.4rem; }
+.test_item .item input{ border:none; box-shadow: none; background-color: transparent; font-size: 0.3rem; color: #555; line-height: 0.46rem; }
+.test_item .item .add_job{ padding: 0.32rem 0rem; margin-bottom: 0;}
+.test_item .item .add_job img{ width:0.38rem; height: 0.38rem; }
+.test_item .item .cancle{ text-align: center; font-size: 0.28rem; padding: 0.15rem 0; line-height: 0.8rem; color: #f12e2e; position: relative;  }
+.test_item .add_job{ background-color:#fff; padding: 0.32rem 0.4rem; display: flex; margin-bottom: 0.14rem; align-items: center;  }
+.test_item .add_job img{ width:0.44rem; height: 0.44rem; margin-right: 0.14rem; }
+.test_item .add_job span{ font-size:0.3rem; color:#333; }
+/*新增题目*/
+
+
+/*体验者注册*/
+.page_enroll{ font-size:0.32rem; color: #333; }
+.page_enroll .part{ display: block; }
+.page_enroll .part h2{ font-size: 0.24rem; color: #999; font-weight: normal; line-height: 0.62rem; padding: 0.05rem 0.4rem; background-color: #f7f7f7;  }
+.page_enroll .part .fill .box{ display: block; position: relative; padding: 0.35rem 0.8rem 0.35rem 0.4rem; background-color: #fff;  }
+.page_enroll .part .fill .box input{ display:block; line-height: 0.4rem; background-color: transparent; border:none; font-size: 0.32rem; line-height: 0.4rem; color: #444; width:100%; }
+.page_enroll .part .fill .box .del{ position: absolute; right: 0.4rem; top: 50%; margin-top: -0.15rem;  width: 0.3rem; height: 0.3rem; display: none;}
+.page_enroll .part .fill .weui-cells{margin-top:0; border:none;}
+.page_enroll .part .fill .weui-cells::before{ border:none; }
+.page_enroll .part .fill .weui-cells .weui-cell__bd{ font-size:0.32rem; color: #333; }
+.page_enroll .sure{ display: block; padding: 0.4rem; }
+.page_enroll .sure button{ display: block; border:none; background-color: #00aeff; border-radius: 0.08rem; text-align: center; font-size: 0.3rem; color: #fff; width:100%; height:1rem; line-height: 1rem;   }
+/*体验者注册*/
+

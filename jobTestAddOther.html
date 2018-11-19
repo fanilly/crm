@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>新增试题</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/animate.css">
+  <link rel="stylesheet" type="text/css" href="./librarys/LCalendar/css/LCalendar.css" />
+</head>
+
+<body>
+    <style>
+    
+    </style>
+    <div class="schedule_Add">
+        <form class="customer-add-page public-gbg">
+            
+            <div class="input-group" style="padding: 0rem;">
+                <div class="public-textarea-box-type01 public-bottom-line">
+                    <input placeholder="试题标题" />
+                </div>
+                <div class="public-textarea-box-type01">
+                    <textarea placeholder="试题介绍" autoHeight="true"></textarea>
+                </div>
+            </div>
+            
+            <div class="public-mask"></div>
+            <div class="input-group">
+                <div class="public-input-box-type03 public-flex-center public-bottom-line">
+                    <label class="lside public-flex-center"><span class="name">试题分类</span></label>
+                    <input class="input public-flex1" type="email" name="" id="fit_kind" readonly value="" placeholder="请选择">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+                <div class="public-input-box-type03 public-bottom-line public-flex-center" id="select_result">
+                    <label class="lside public-flex-center"><span class="name">适合职位</span></label>
+                    <input class="input public-flex1" type="email" name="" id="fit_job" readonly value=""placeholder="请选择">
+                    <img class="icon" src="./assets/a04.png" class="clear-input" alt="">
+                </div>
+            </div> 
+
+            
+            <div style='height:1.6rem;'></div>
+            <div class="fix_visit_btn"><span id='sub'>完成</span></div>
+
+        </form>
+    </div>
+
+
+    <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+    <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+    <script src="./librarys/LCalendar/js/LCalendar.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    (function() {
+        $.fn.autoHeight = function(){
+            function autoHeight(elem){
+                elem.style.height = 'auto';
+                elem.scrollTop = 0; //防抖动
+                elem.style.height = elem.scrollHeight + 'px';
+            }
+            this.each(function(){
+                autoHeight(this);
+                $(this).on('keyup', function(){
+                    autoHeight(this);
+                });
+            });
+        }
+        $('textarea[autoHeight]').autoHeight();
+
+
+        //选择任务类型
+        $("#fit_kind").picker({
+            title: "请选择任务类型",
+            cols: [{
+                textAlign: 'center',
+                values: ['工具应用','学术答辩','精彩绝伦']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        //选择优先级
+        $("#fit_job").picker({
+            title: "请选择优先级",
+            cols: [{
+                textAlign: 'center',
+                values: ['PHP','IOS','安卓']
+            }],
+            onClose: function (p, v, d) {
+                console.log(p.params.cols[0].activeIndex);
+            }
+        });
+
+        $('#sub').click(function(){
+            //提交的方法
+            window.location.href="./jobTestList.html"
+        })
+
+        
+    })()
+    </script>
+
+</body>
+</html>

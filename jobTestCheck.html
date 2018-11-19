@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>试题详情</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./librarys/scripts/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+    <link rel="stylesheet" type="text/css" href="./styles/xss.css?v={:config('asset_version')}">
+</head>
+
+<body>
+<style>
+body{ background-color:#f7f7f7;}
+</style>
+
+<div id="app" v-cloak>
+   
+   
+<!-- 开始答题 -->
+<div class="jobTest">
+    <div class="title fixed">
+        <h2>WEB前端高级试题<span>已选题目总分{{sumscore}}</span></h2>
+        <dl><dt>创建时间</dt><dd>2018.11.06 10:02</dd></dl>
+        <dl><dt>创建人</dt><dd>郭德纲</dd></dl>
+    </div>
+    <div style='height:2.9rem;'></div>
+
+    <div class="question">
+        <div class="item small public-bottom-line" v-for='item,index in listData' :class='{"on":item.check}' @click='choseItem(index)'>
+            <!-- <span>{{item.score}}分</span> -->
+            <h4>Q{{index+1}}.{{item.title}} <span>{{item.score}}分</span></h4>
+            <h5>题目分类：{{item.types}}</h5>
+            <!-- <ul>
+                <li v-for='p,ind in item.option' >{{p.name}}</li>
+            </ul> -->
+        </div>
+    </div>
+    <div style='height:1.8rem;'></div>
+    <div class="fix_visit_btn"><button @click='submit()'>提交</button></div>
+    
+</div>
+<!-- 开始答题 --> 
+
+
+</div>
+
+<script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+<script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+<script src="./scripts/public.js?v={:config('asset_version')}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+<script src="./librarys/dayjs/dayjs.min.js"></script>
+<script>
+(function(){
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            listData:[
+                { title:'CSS3有哪些新特性？', score:0, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+                { title:'JS如何使页面跳转？', score:3, types:'基本工具', check:false },
+            ],
+            choseArr:[],
+            sumscore:0,
+
+            
+        },
+        mounted: function(){
+            
+            //this.getList()
+            $(document.body).infinite(200).on("infinite", function() {
+                //self.getList();
+            });
+        },
+        methods:{
+            getList:function(){
+                
+            },
+            choseItem:function(index){
+                this.listData[index].check = !this.listData[index].check
+            }
+        }
+    })
+})() 
+</script>
+
+</body>
+</html>

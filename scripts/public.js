@@ -77,7 +77,7 @@ function getScroll(target, top) {
         self.flag = false;
         $(self).removeClass('active');
         document.documentElement.style.overflow = "scroll";
-        $(self).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+        $(self).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/more.png');
       });
       $('.' + mask).on('touchmove', function(e) {
         e.preventDefault();
@@ -113,13 +113,13 @@ function getScroll(target, top) {
         this.flag = true;
         $(this).addClass('active');
         document.documentElement.style.overflow = "hidden";
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/g11.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/g11.png');
         $('.' + $(this).data('mask')).fadeIn('fast');
         $('.' + $(this).data('content')).slideDown('fast');
       } else {
         this.flag = false;
         $(this).removeClass('active');
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/more.png');
         $('.' + $(this).data('mask')).click();
       }
     });
@@ -132,11 +132,11 @@ function getScroll(target, top) {
       if (!this.flag) {
         this.flag = true;
         $(this).addClass('active');
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/g11.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/g11.png');
       } else {
         this.flag = false;
         $(this).removeClass('active');
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/more.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/more.png');
       }
     });
 
@@ -150,7 +150,7 @@ function getScroll(target, top) {
             this.affix = false;
           });
         });
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/h12.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/h12.png');
       } else {
         this.flag = false;
         $(this).removeClass('active');
@@ -160,7 +160,7 @@ function getScroll(target, top) {
             this.affix = false;
           });
         });
-        $(this).find('img').attr('src', 'http://crm.zzebz.com/static/client/assets/h03.png');
+        $(this).find('img').attr('src', 'http://htzs.zzebz.com/static/client/assets/h03.png');
       }
     });
 
@@ -377,8 +377,12 @@ function getScroll(target, top) {
   });
 
   Vue.filter('stringIntercept', function(str, len) {
-    var len = len ? len : 2;
-    return str.substr(str.length - len);
+    if (str) {
+      var len = len ? len : 2;
+      return str.substr(str.length - len);
+    } else {
+      return '';
+    }
   });
 
 
@@ -435,3 +439,111 @@ function searchString2Obj(searchString) {
   return queryObj;
 };
 
+
+/*================================================
+=                ARRAY POLYFILL                  =
+=================================================*/
+if (!Array.prototype.some) {
+  Array.prototype.some = function(fun, thisArg) {
+    if (this == null) {
+      throw new TypeError('Array.prototype.some called on null or undefined');
+    }
+    if (typeof fun !== 'function') {
+      throw new TypeError();
+    }
+    var t = Object(this);
+    var len = t.length >>> 0;
+    for (var i = 0; i < len; i++) {
+      if (i in t && fun.call(thisArg, t[i], i, t)) {
+        return true;
+      }
+    }
+    return false;
+  };
+}
+
+
+if (!Array.prototype.find) {
+  Object.defineProperty(Array.prototype, 'find', {
+    value: function(predicate) {
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+      var o = Object(this);
+      var len = o.length >>> 0;
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
+      var thisArg = arguments[1];
+      var k = 0;
+      while (k < len) {
+        var kValue = o[k];
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return kValue;
+        }
+        k++;
+      }
+      return undefined;
+    },
+    configurable: true,
+    writable: true
+  });
+}
+
+if (!Array.prototype.findIndex) {
+  Object.defineProperty(Array.prototype, 'findIndex', {
+    value: function(predicate) {
+      if (this == null) {
+        throw new TypeError('"this" is null or not defined');
+      }
+      var o = Object(this);
+      var len = o.length >>> 0;
+      if (typeof predicate !== 'function') {
+        throw new TypeError('predicate must be a function');
+      }
+      var thisArg = arguments[1];
+      var k = 0;
+      while (k < len) {
+        var kValue = o[k];
+        if (predicate.call(thisArg, kValue, k, o)) {
+          return k;
+        }
+        k++;
+      }
+      return -1;
+    },
+    configurable: true,
+    writable: true
+  });
+}
+
+if (!Array.prototype.every) {
+  Array.prototype.every = function(callbackfn, thisArg) {
+    'use strict';
+    var T, k;
+    if (this == null) {
+      throw new TypeError('this is null or not defined');
+    }
+    var O = Object(this);
+    var len = O.length >>> 0;
+    if (typeof callbackfn !== 'function') {
+      throw new TypeError();
+    }
+    if (arguments.length > 1) {
+      T = thisArg;
+    }
+    k = 0;
+    while (k < len) {
+      var kValue;
+      if (k in O) {
+        kValue = O[k];
+        var testResult = callbackfn.call(T, kValue, k, O);
+        if (!testResult) {
+          return false;
+        }
+      }
+      k++;
+    }
+    return true;
+  };
+}

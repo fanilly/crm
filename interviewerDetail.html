@@ -237,9 +237,10 @@
     $(function(){
       //邀请复试
       $('.reexamination').on('click',function(){
+        var dom = "您已通过我公司初试，现邀您参加复试，时间在下周一9:00，忘您合理安排时间，如遇特\n殊情况，请及时联系400-7777-051"
         $.modal({
           title: '邀请复试',
-          text: '<textarea class="" style="padding: .2rem; font-size: .24rem; color: #333; border-radius: .08rem; width: 100%; height: 1.9rem; border: solid 1px #e5e5e5; background-color: #fafafa;">您已通过我公司初试，现邀您参加复试，时间在下周一9:00，忘您合理安排时间，如遇特殊情况，请及时联系400-7777-051</textarea>',
+          text: '<textarea class="" style="padding: .2rem; font-size: .24rem; color: #333; border-radius: .08rem; width: 100%; height: 1.9rem; border: solid 1px #e5e5e5; background-color: #fafafa;">'+dom+'</textarea>',
           autoClose: false,
           buttons: [{
             text: '取消',

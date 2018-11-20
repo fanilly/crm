@@ -18,38 +18,42 @@
 .mj-big-switch {
   width: 1.6rem;
   height: .5rem;
-  background-color: #da3b30;
   border-color: #da3b30;
+  background-color: #da3b30;
 }
 
 .mj-big-switch:before {
   width: 1.6rem;
   height: .5rem;
-  background-color: #da3b30;
+  -webkit-border-radius: .25rem;
   border-radius: .25rem;
+  background-color: #da3b30;
 }
 
 .mj-big-switch:checked {
-  background-color: #da3b30;
   border-color: #da3b30;
+  background-color: #da3b30;
 }
 
 .mj-big-switch:checked:after {
-  content: '随机红包'
+  content: '随机红包';
 }
 
 .mj-big-switch:after {
-  content: '普通红包';
   font-size: .26rem;
-  color: #e34136;
-  text-align: center;
   line-height: .6rem;
+  top: -.07rem;
   width: 1.6rem;
   height: .6rem;
-  background-color: #fff;
-  top: -.07rem;
+  content: '普通红包';
+  -webkit-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
   transform: translateX(-20px);
+  text-align: center;
+  color: #e34136;
+  -webkit-border-radius: .3rem;
   border-radius: .3rem;
+  background-color: #fff;
 }
 
 .weui-dialog__btn {
@@ -754,12 +758,12 @@ textarea:-ms-input-placeholder,
 
 .public-footer-btn-wapper {
   position: fixed;
+  z-index: 30;
   right: 0;
   bottom: 0;
   left: 0;
   height: 1.6rem;
   padding: .3rem;
-  z-index: 30;
   /*background-color: #fff;*/
 }
 
@@ -3387,42 +3391,52 @@ textarea:-ms-input-placeholder,
 
 .fade-enter-active,
 .fade-leave-active {
+  -webkit-transition: opacity .6s ease-in-out;
+  -o-transition: opacity .6s ease-in-out;
   transition: opacity .6s ease-in-out;
 }
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 
 .slide-left-enter,
 .slide-right-leave-active {
-  opacity: 0;
   -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
   transform: translate(100%, 0);
+  opacity: 0;
 }
 
 .slide-left-leave-active,
 .slide-right-enter {
-  opacity: 0;
   -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
   transform: translate(-100%, 0);
+  opacity: 0;
 }
 
 .public-flex-start-line .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
   align-items: flex-start;
 }
 
 .public-flex-start-line .item .lside {
-  text-align: right;
   padding: .2rem .3rem .2rem 0;
+  text-align: right;
 }
 
 .public-flex-start-line .item .lside h6 {
   font-size: .26rem;
-  color: #333;
   font-weight: normal;
+  color: #333;
 }
 
 .public-flex-start-line .item .lside p {
@@ -3431,33 +3445,36 @@ textarea:-ms-input-placeholder,
 }
 
 .public-flex-start-line .item .rside {
-  padding: .2rem 0 .2rem .67rem;
-  flex: 1;
   position: relative;
   min-height: 1.2rem;
+  padding: .2rem 0 .2rem .67rem;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .public-flex-start-line .item .rside .title {
   font-size: .28rem;
   font-weight: normal;
-  color: #333333;
   line-height: 1.8;
+  color: #333;
 }
 
 .public-flex-start-line .item .rside p {
   font-size: .26rem;
   font-weight: normal;
-  color: #666;
   line-height: 1.6;
+  color: #666;
 }
 
 .public-flex-start-line .item .rside .icon {
   position: absolute;
-  left: 0;
+  z-index: 10;
   top: .26rem;
+  left: 0;
   width: .37rem;
   height: .37rem;
-  z-index: 10;
 }
 
 .public-flex-start-line .item .rside:before {
@@ -3485,26 +3502,27 @@ textarea:-ms-input-placeholder,
 }
 
 .public-flex-start-line .item .rside .btn {
+  font-size: .26rem;
+  line-height: .62rem;
+  display: inline-block;
   width: 1.52rem;
   height: .62rem;
-  background-color: #00aeff;
-  border-radius: .04rem;
-  line-height: .62rem;
-  text-align: center;
-  font-size: .26rem;
-  border: 1px solid #fff;
-  display: inline-block;
   margin: .2rem .2rem 0 0;
+  text-align: center;
+  border: 1px solid #fff;
+  -webkit-border-radius: .04rem;
+  border-radius: .04rem;
+  background-color: #00aeff;
 }
 
 .public-flex-start-line .item .rside .btn.line {
-  border: 1px solid #00aeff;
   color: #00aeff;
+  border: 1px solid #00aeff;
   background-color: #fff;
 }
 
 .public-flex-start-line .item .rside .btn.fill {
-  border: 1px solid #00aeff;
   color: #fff;
+  border: 1px solid #00aeff;
   background-color: #00aeff;
 }

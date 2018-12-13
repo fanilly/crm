@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>搜索</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="./librarys/scripts/rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./librarys/styles/common.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/lib/weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./librarys/jqweui/css/jquery-weui.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/public.css?v={:config('asset_version')}">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css?v={:config('asset_version')}">
+</head>
+
+<body>
+  <div class="search-page public-wbg" id="app" v-cloak>
+
+    <!--================================
+    =            top search            =
+    =================================-->
+
+    <div class="search-top public-flex-center">
+      <input type="search" class="public-flex1" placeholder="请输入要搜索的内容">
+      <a href="#" class="public-color-success">取消</a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+    <!--====  End of top search  ====-->
+
+
+    <!--===============================
+    =            nav class            =
+    ================================-->
+
+    <div class="navs-class">
+      <a href="#" :class="{active: index == navIndex}" v-for="(item,index) in navs">{{item.name}}</a>
+    </div>
+    <div style="height: .88rem;"></div>
+
+    <!--====  End of nav class  ====-->
+
+
+
+    <!--======================================
+    =            search init page            =
+    =======================================-->
+
+    <div class="search-init" v-if="searchInit">
+      <div class="navs">
+        <h3>搜索指定内容</h3>
+        <div class="content">
+          <a href="#" :class="{active: index == navIndex}" v-for="(item,index) in navs">{{item.name}}</a>
+        </div>
+      </div>
+      <div class="history">
+        <div class="title public-flex-center">
+          <div class="text public-flex1">历史搜索</div>
+          <div class="cls public-flex-center">
+            <img src="./assets/delete.png" style="width: .28rem; position: relative; top: -.03rem;" alt="">
+            <span>清空</span>
+          </div>
+        </div>
+        <div class="content">
+          <a href="#" class="public-bottom-line" v-for="(item,index) in navs">{{item.name}}</a>
+        </div>
+      </div>
+    </div>
+
+    <!--====  End of search init page  ====-->
+
+
+
+
+  </div>
+  <script src="./librarys/scripts/vue.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/lib/jquery-2.1.4.js?v={:config('asset_version')}"></script>
+  <script src="./librarys/jqweui/js/jquery-weui.min.js?v={:config('asset_version')}"></script>
+  <script src="./scripts/public.js?v={:config('asset_version')}"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js?v={:config('asset_version')}"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+
+      el: '#app',
+
+      data: {
+
+        searchInit: false, //是否显示搜索初始化页面
+
+        navIndex: 0,
+        navs: [ //搜索分类
+          { name: '客户', status: 1 },
+          { name: '客户', status: 1 },
+          { name: '客户', status: 1 },
+        ],
+
+        history: [ //搜索历史
+          { name: 'test', status: 1 },
+        ],
+      },
+
+      methods: {
+
+      },
+
+      mounted: function(){
+
+      }
+    })
+  </script>
+</body>
+
+</html>

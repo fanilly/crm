@@ -291,18 +291,18 @@ function getScroll(target, top) {
       $('.public-suspension-mask').fadeOut();
     });
 
-    var app = document.querySelector('body');
-    var hammertime = new Hammer(app);
-    var timer = null;
-    hammertime.on('panup', function(ev) {
-      var suspensionMenu = $('.public-suspension-menu');
-      if (!suspensionMenu.hasClass('fadeOutRight')) suspensionMenu.removeClass('fadeInRight').addClass('fadeOutRight');
-    });
+    // var app = document.querySelector('body');
+    // var hammertime = new Hammer(app);
+    // var timer = null;
+    // hammertime.on('panup', function(ev) {
+    //   var suspensionMenu = $('.public-suspension-menu');
+    //   if (!suspensionMenu.hasClass('fadeOutRight')) suspensionMenu.removeClass('fadeInRight').addClass('fadeOutRight');
+    // });
 
-    hammertime.on('pandown', function(ev) {
-      var suspensionMenu = $('.public-suspension-menu');
-      if (!suspensionMenu.hasClass('fadeInRight')) suspensionMenu.removeClass('fadeOutRight').addClass('fadeInRight');
-    });
+    // hammertime.on('pandown', function(ev) {
+    //   var suspensionMenu = $('.public-suspension-menu');
+    //   if (!suspensionMenu.hasClass('fadeInRight')) suspensionMenu.removeClass('fadeOutRight').addClass('fadeInRight');
+    // });
     // 页面上滑隐藏悬浮按钮 下滑显示悬浮按钮
     // var initTop = 0,
     //   timer = null,
